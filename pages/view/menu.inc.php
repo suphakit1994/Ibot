@@ -52,6 +52,7 @@
 						</li>
 						<li><a href="index.php?app=test">test</a></li>
 						<li><a href="index.php?app=gold_price">Our course</a></li>
+						<li><a href="index.php?app=jed">jed</a></li>
 						<li><a href="index.php?app=ratchanat">Ratchanat</a></li>
 						<li><a href="index.php?app=branch">Franchise</a></li>
 						<li><a href="index.php?app=branch">Contact us</a></li>

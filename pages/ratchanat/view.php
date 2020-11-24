@@ -57,7 +57,7 @@
 
 
             <!-- rectangle -->
-            <div class="rectangle" style="height: 80%; width: 45%; margin-top: 2%; border-radius: 2%; padding-top:2%; ">
+            <div class="rectangle" style="height: 625px; width: 700px; margin-top: 2%; border-radius: 2%; padding-top:2%; ">
                 <div class=" rectangle topicrec">
                     <h1 style="font-weight: bold;">FIRST® LEGO®<br> League Season Challenges</h1>
                     <div class="rectangle content " style="font-size: 15px; color: #A8A5A5; margin-top:3% ">

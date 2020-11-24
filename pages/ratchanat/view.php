@@ -65,9 +65,7 @@
                         <p>Starting with Discover, children are introduced to the fundamentals of STEM while working together to solve fun challenge and buildubg models using LEGO DUPLO bricks.</p>
                         <p>As participants progress into Explore, children will take their background knowledge of STEM and put it into parctice as they work in teams to design and build robots using the LEGO Education WeDo 2.0 system</p>
                         <p>Once they are ready to move into a competitive setting, they join Challenge and apply their STEM skills combined with critical thinking to work with a team, build a robot, and compete in an exciting, mission based robotics game.</p>
-                        <div class="rectangle btn " style="padding-left: 0px; ">
-                            <button type="button " class="btn btn-outline-primary ">Primary</button>
-                        </div>
+						<a href=""  class="Button" style="padding: 4px;  margin: 30px; width: 30%; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);    border: 1px solid #ffffff;" >Enroll</a>
                     </div>	
                 </div>
             </div>

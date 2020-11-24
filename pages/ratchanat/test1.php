@@ -68,11 +68,11 @@
                         <div class="rectangle btn " style="padding-left: 0px; ">
                             <button type="button " class="btn btn-outline-primary ">Primary</button>
                         </div>
-                    </div>
+                    </div>	
                 </div>
             </div>
             <div class="image ">
-                <img src="test.png " alt="test " style="width:525px; height:400px; border-radius:2%;">
+                <img src="../images/art.png"" " style="width:525px; height:400px; border-radius:2%;">
                 <!-- <img src="test.png " alt="test " style="width:100%; height:100%; border-radius:2%;"> -->
             </div>
         </div>

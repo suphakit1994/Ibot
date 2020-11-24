@@ -4,6 +4,6 @@ include("../php/config.php");
 include('../php/test.php');
 if(!isset($_GET['action'])){
 	$cus = getdata($conn);
-	require_once('test1.php');
+	require_once('view.php');
 }
 ?>

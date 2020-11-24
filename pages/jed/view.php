@@ -3,24 +3,24 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<div class="row">
-				<div class="col-md">
+				<div class="col-md-6">
 					<img src="https://randomuser.me/api/portraits/thumb/men/1.jpg" class="image-rounded">
 
 				</div>
-				<div class="col-md">
+				<div class="col-md-6">
 					<p>Svetiana Anyukova</p>
 					<p>Teacher Assistance</p>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md">
+				<div class="col-md-6">
 					<button>
 						Check In
 					</button>
 				</div>
-				<div class="col-md">
+				<div class="col-md-6">
 					<button>
 						Take a leave
 					</button>
@@ -28,36 +28,36 @@
 			</div>
 
 			<div class="row">
-				<div class="col-md">
+				<div class="col-md-6">
 					<p>Attend</p>
 				</div>
-				<div class="col-md">
+				<div class="col-md-6">
 					<p>Out</p>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-md">
+				<div class="col-md-6">
 					<h4>10:00 AM</h4>
 				</div>
-				<div class="col-md">
+				<div class="col-md-6">
 					<h4>-</h4>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-md">
+				<div class="col-md-6">
 					<p>Detail</p>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-md">
+				<div class="col-md-6">
 					<p>Availability:</p>
 					<p>Age:</p>
 					<p>Work Time:</p>
 				</div>
-				<div class="col-md">
+				<div class="col-md-6">
 					<p>Part time</p>
 					<p>25 years old</p>
 					<p>Sat 10:30-12:00 ฿ 75/Day</p>
@@ -66,13 +66,10 @@
 			</div>
 		</div>
 		<!-- -------------------------------------------------    -------------------------------------------------    -------------------------------------------------    -->
-		<div class="col-md-10">
-
-			<div class="container-2">
-				<div class="container theme-showcase">
+		<div class="col-md-9">	
+				<div class=" theme-showcase">
 					<div id="holder" class="row"></div>
 				</div>
-			</div>
 		</div>
 		<script type="text/tmpl" id="tmpl">
 		{{

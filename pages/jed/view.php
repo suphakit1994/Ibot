@@ -4,76 +4,76 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-2">
-	<div class="container-2">
-		<div class="aside-1">
-			<img src="https://randomuser.me/api/portraits/thumb/men/1.jpg" class="image-rounded">
+			<div class="row">
+				<div class="col-md">
+					<img src="https://randomuser.me/api/portraits/thumb/men/1.jpg" class="image-rounded">
 
-		</div>
-		<div class="aside-1">
-			<p>Svetiana Anyukova</p>
-			<p>Teacher Assistance</p>
-		</div>
-	</div>
-	<div class="container-2">
-		<div class="aside-1">
-			<button>
-				Check In
-			</button>
-		</div>
-		<div class="aside-1">
-			<button>
-				Take a leave
-			</button>
-		</div>
-	</div>
+				</div>
+				<div class="col-md">
+					<p>Svetiana Anyukova</p>
+					<p>Teacher Assistance</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md">
+					<button>
+						Check In
+					</button>
+				</div>
+				<div class="col-md">
+					<button>
+						Take a leave
+					</button>
+				</div>
+			</div>
 
-	<div class="container-2">
-		<div class="aside-1">
-			<p>Attend</p>
-		</div>
-		<div class="aside-1">
-			<p>Out</p>
-		</div>
-	</div>
+			<div class="row">
+				<div class="col-md">
+					<p>Attend</p>
+				</div>
+				<div class="col-md">
+					<p>Out</p>
+				</div>
+			</div>
 
-	<div class="container-2">
-		<div class="aside-1">
-			<h4>10:00 AM</h4>
-		</div>
-		<div class="aside-1">
-			<h4>-</h4>
-		</div>
-	</div>
+			<div class="row">
+				<div class="col-md">
+					<h4>10:00 AM</h4>
+				</div>
+				<div class="col-md">
+					<h4>-</h4>
+				</div>
+			</div>
 
-	<div class="container-2">
-		<div class="aside-1">
-			<p>Detail</p>
-		</div>
-	</div>
+			<div class="row">
+				<div class="col-md">
+					<p>Detail</p>
+				</div>
+			</div>
 
-	<div class="container-2">
-		<div class="aside-1">
-			<p>Availability:</p>
-			<p>Age:</p>
-			<p>Work Time:</p>
+			<div class="row">
+				<div class="col-md">
+					<p>Availability:</p>
+					<p>Age:</p>
+					<p>Work Time:</p>
+				</div>
+				<div class="col-md">
+					<p>Part time</p>
+					<p>25 years old</p>
+					<p>Sat 10:30-12:00 ฿ 75/Day</p>
+					<p>Sun 10:30-12:00 ฿ 75/Day</p>
+				</div>
+			</div>
 		</div>
-		<div class="aside-1">
-			<p>Part time</p>
-			<p>25 years old</p>
-			<p>Sat 10:30-12:00 ฿ 75/Day</p>
-			<p>Sun 10:30-12:00 ฿ 75/Day</p>
-		</div>
-	</div>
-		</div>
-	<!-- -------------------------------------------------    -------------------------------------------------    -------------------------------------------------    -->
-<div class="col-md-10">
+		<!-- -------------------------------------------------    -------------------------------------------------    -------------------------------------------------    -->
+		<div class="col-md-10">
 
-	<div class="container-2">
-		<div class="container theme-showcase">
-			<div id="holder" class="row"></div>
+			<div class="container-2">
+				<div class="container theme-showcase">
+					<div id="holder" class="row"></div>
+				</div>
+			</div>
 		</div>
-</div>
-</div>
 		<script type="text/tmpl" id="tmpl">
 		{{
 		var date = date || new Date(),

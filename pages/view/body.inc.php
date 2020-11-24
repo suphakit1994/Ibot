@@ -11,4 +11,7 @@ if($_GET['app'] == 'ratchanat'){
 if($_GET['app'] == 'jed'){
 	require_once("jed/index.php");
 }
+if($_GET['app'] == 'faii'){
+	require_once("faii/index.php");
+}
 ?>

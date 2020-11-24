@@ -6,8 +6,7 @@
 		<div class="col-md-3">
 			<div class="row">
 				<div class="col-md-6">
-					<img src="https://randomuser.me/api/portraits/thumb/men/1.jpg" class="image-rounded">
-
+					<img style="width:125px; height:200px;" src="../images/e.jpg" class="image-rounded">
 				</div>
 				<div class="col-md-6">
 					<p>Svetiana Anyukova</p>

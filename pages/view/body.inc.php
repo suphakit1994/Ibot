@@ -5,4 +5,7 @@ if($_GET['app'] == 'home'){
 if($_GET['app'] == 'test'){
 	require_once("test/index.php");
 }
+if($_GET['app'] == 'ratchanat'){
+	require_once("ratchanat/index.php");
+}
 ?>

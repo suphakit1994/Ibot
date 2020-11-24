@@ -15,13 +15,13 @@
 	<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-3">
 					<div class="navbar-header">
 						<div class="row">
-							<div class="col-md-1">
-								<img src="../images/Logo.jpg" style="width: 186%;">
+							<div class="col-md-2" style="padding: 0px;">
+								<img src="../images/Logo.jpg" style="width: 100%; padding: 0px;">
 							</div>
-							<div class="col-md-6">
+							<div class="col-md-6" style="padding-top: 6px; padding-left: 3px;">
 								<div class="row">
 									<div class="col-md-12" style="height: 17px">
 										<p style="font-size:14px; font-weight: 1000; ">IBE</p>
@@ -36,7 +36,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-9">
 					<ul class="nav navbar-nav navbar-right">
 
 					</ul>

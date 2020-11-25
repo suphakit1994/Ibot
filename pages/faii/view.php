@@ -21,13 +21,17 @@
             box-shadow: 0 4px 10px 0 rgb(0 0 0), 0 4px 20px 0 rgba(0,0,0,0.19);
             width: 100%;
             padding-bottom: 10px;
-
+            border-radius:10px;
         }
        
 		.card-img-top{
-			width: 100%;
+            width: 100%;
+            border-radius: 10px 10px 0px 0px;
 		}
-       
+       .col-md-6{
+           padding-right:0px;
+           padding-left:0px;
+       }
         td {
             padding-bottom: 0px;
             padding-top: 0px;
@@ -56,60 +60,35 @@
             <b class="monospace">OUR COURSE</b>
         </h1>
     
-        <div class="row">
-            <div class="col-md-3" style="padding-bottom: 150px;">
-                <div class="card">
-                    <div class="card-image">
-                        <img class="card-img-top" src="../images/img_5terre.jpg" alt="Card image cap">
+        <div class="row" style="padding-bottom: 100px;" >
+            <div class="col-md-3" >
+                <div class="card" >
+                    <div class="card-image" >
+                        <img class="card-img-top" src="../images/img_5terre.jpg" alt="Card image cap" >
                         <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;"><B>DUPLO</B></span>
                     </div>
 
-                    <div class="card-body" style="padding-top: 1px;">
-
-                        <table width=" 100% " height="auto ">
-                            <tr>
-                                <td>
-                                    <B><p class = "card-text">Course Expension</p></B>
-                                </td>
-                                <td>
-                                    <p>imagination course</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Age for class</p></B>
-                                </td>
-                                <td>
-                                    <p>3 years old and older</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Total course</p></B>
-                                </td>
-                                <td>
-                                    <p>3 Course</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Lesson</p></B>
-                                </td>
-                                <td>
-                                    <p>24 Lesson 36 Hours</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Price</p></B>
-                                </td>
-                                <td>
-                                    <p>฿ 3,100 per course</p>
-                                </td>
-                            </tr>
-
-
-                        </table>
+                    <div class="card-body" >
+                        <div class="row">
+                             <div class="col-md-5">
+                                 <ul class="nav ">
+                                    <li > <span><B><p class = "card-text">Course Expension</p></B></span> </li>
+                                    <li > <span><B><p class = "card-text">Age for class</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Total course</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Lesson</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Price</p></B> </span> </li>
+                                </ul>
+                             </div>
+                             <div class="col-md-5" >
+                                <ul class="nav">
+                                    <li > <span></span> </li>
+                                    <li > <span><p >3 years old and older</p></span> </li>
+                                    <li > <span><p >3 Course</p></span> </li>
+                                    <li > <span><p >24 Lesson 36 Hours</p></span> </li>
+                                    <li > <span><p >฿ 3,100 per course</p></span> </li>
+                                </ul>
+                            </div>
+                        </div>   
                         <div class="text-center " style="margin-top: 10px ">
                             <a href=" # " class="btn btn-primary " style="border-left-width: 50px; border-right-width: 50px;">Enroll</a>
                         </div>
@@ -127,50 +106,26 @@
 
                     <div class="card-body" style="padding-top: 1px;">
 
-                        <table width=" auto " height="auto ">
-                            <tr>
-                                <td>
-                                    <B><p>Course Expension</p></B>
-                                </td>
-                                <td>
-                                    <p>imagination course</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Age for class</p></B>
-                                </td>
-                                <td>
-                                    <p>3 years old and older</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Total course</p></B>
-                                </td>
-                                <td>
-                                    <p>3 Course</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Lesson</p></B>
-                                </td>
-                                <td>
-                                    <p>24 Lesson 36 Hours</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Price</p></B>
-                                </td>
-                                <td>
-                                    <p>฿ 3,100 per course</p>
-                                </td>
-                            </tr>
-
-
-                        </table>
+                    <div class="row">
+                             <div class="col-md-5">
+                                 <ul class="nav ">
+                                    <li > <span><B><p class = "card-text">Course Expension</p></B></span> </li>
+                                    <li > <span><B><p class = "card-text">Age for class</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Total course</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Lesson</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Price</p></B> </span> </li>
+                                </ul>
+                             </div>
+                             <div class="col-md-5" >
+                                <ul class="nav">
+                                    <li > <span></span> </li>
+                                    <li > <span><p >3 years old and older</p></span> </li>
+                                    <li > <span><p >3 Course</p></span> </li>
+                                    <li > <span><p >24 Lesson 36 Hours</p></span> </li>
+                                    <li > <span><p >฿ 3,100 per course</p></span> </li>
+                                </ul>
+                            </div>
+                        </div>   
                         <div class="text-center " style="margin-top: 10px ">
                             <a href=" # " class="btn btn-primary " style="border-left-width: 50px; border-right-width: 50px;">Enroll</a>
                         </div>
@@ -189,51 +144,27 @@
 
                     <div class="card-body" style="padding-top: 1px;">
 
-                        <table width=" auto " height="auto ">
-                            <tr>
-                                <td>
-                                    <B><p>Course Expension</p></B>
-                                </td>
-                                <td>
-                                    <p>imagination course</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Age for class</p></B>
-                                </td>
-                                <td>
-                                    <p>3 years old and older</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Total course</p></B>
-                                </td>
-                                <td>
-                                    <p>3 Course</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Lesson</p></B>
-                                </td>
-                                <td>
-                                    <p>24 Lesson 36 Hours</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Price</p></B>
-                                </td>
-                                <td>
-                                    <p>฿ 3,100 per course</p>
-                                </td>
-                            </tr>
-
-
-                        </table>
-                        <div class="text-center " style="images/margin-top: 10px ">
+                    <div class="row">
+                             <div class="col-md-5">
+                                 <ul class="nav ">
+                                    <li > <span><B><p class = "card-text">Course Expension</p></B></span> </li>
+                                    <li > <span><B><p class = "card-text">Age for class</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Total course</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Lesson</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Price</p></B> </span> </li>
+                                </ul>
+                             </div>
+                             <div class="col-md-5" >
+                                <ul class="nav">
+                                    <li > <span></span> </li>
+                                    <li > <span><p >3 years old and older</p></span> </li>
+                                    <li > <span><p >3 Course</p></span> </li>
+                                    <li > <span><p >24 Lesson 36 Hours</p></span> </li>
+                                    <li > <span><p >฿ 3,100 per course</p></span> </li>
+                                </ul>
+                            </div>
+                        </div>   
+                        <div class="text-center " style="margin-top: 10px ">
                             <a href=" # " class="btn btn-primary " style="border-left-width: 50px; border-right-width: 50px;">Enroll</a>
                         </div>
 
@@ -247,52 +178,28 @@
                         <span class="card-title " style="background: #964baf;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;"><B>MAKE CODE</B></span>
                     </div>
 
-                    <div class="card-body" style="padding-top: 1px;">
+                    <div class="card-body" >
 
-                        <table width=" auto " height="auto ">
-                            <tr>
-                                <td>
-                                    <B><p>Course Expension</p></B>
-                                </td>
-                                <td>
-                                    <p>imagination course</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Age for class</p></B>
-                                </td>
-                                <td>
-                                    <p>3 years old and older</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Total course</p></B>
-                                </td>
-                                <td>
-                                    <p>3 Course</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Lesson</p></B>
-                                </td>
-                                <td>
-                                    <p>24 Lesson 36 Hours</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Price</p></B>
-                                </td>
-                                <td>
-                                    <p>฿ 3,100 per course</p>
-                                </td>
-                            </tr>
-
-
-                        </table>
+                    <div class="row">
+                             <div class="col-md-5">
+                                 <ul class="nav ">
+                                    <li > <span><B><p class = "card-text">Course Expension</p></B></span> </li>
+                                    <li > <span><B><p class = "card-text">Age for class</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Total course</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Lesson</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Price</p></B> </span> </li>
+                                </ul>
+                             </div>
+                             <div class="col-md-5" >
+                                <ul class="nav">
+                                    <li > <span></span> </li>
+                                    <li > <span><p >3 years old and older</p></span> </li>
+                                    <li > <span><p >3 Course</p></span> </li>
+                                    <li > <span><p >24 Lesson 36 Hours</p></span> </li>
+                                    <li > <span><p >฿ 3,100 per course</p></span> </li>
+                                </ul>
+                            </div>
+                        </div>   
                         <div class="text-center " style="margin-top: 10px ">
                             <a href=" # " class="btn btn-primary " style="border-left-width: 50px; border-right-width: 50px;">Enroll</a>
                         </div>
@@ -314,50 +221,26 @@
 
                     <div class="card-body" style="padding-top: 1px;">
 
-                        <table width=" auto " height="auto ">
-                            <tr>
-                                <td>
-                                    <B><p>Course Expension</p></B>
-                                </td>
-                                <td>
-                                    <p>imagination course</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Age for class</p></B>
-                                </td>
-                                <td>
-                                    <p>3 years old and older</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Total course</p></B>
-                                </td>
-                                <td>
-                                    <p>3 Course</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Lesson</p></B>
-                                </td>
-                                <td>
-                                    <p>24 Lesson 36 Hours</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Price</p></B>
-                                </td>
-                                <td>
-                                    <p>฿ 3,100 per course</p>
-                                </td>
-                            </tr>
-
-
-                        </table>
+                    <div class="row">
+                             <div class="col-md-5">
+                                 <ul class="nav ">
+                                    <li > <span><B><p class = "card-text">Course Expension</p></B></span> </li>
+                                    <li > <span><B><p class = "card-text">Age for class</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Total course</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Lesson</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Price</p></B> </span> </li>
+                                </ul>
+                             </div>
+                             <div class="col-md-5" >
+                                <ul class="nav">
+                                    <li > <span></span> </li>
+                                    <li > <span><p >3 years old and older</p></span> </li>
+                                    <li > <span><p >3 Course</p></span> </li>
+                                    <li > <span><p >24 Lesson 36 Hours</p></span> </li>
+                                    <li > <span><p >฿ 3,100 per course</p></span> </li>
+                                </ul>
+                            </div>
+                        </div>   
                         <div class="text-center " style="margin-top: 10px ">
                             <a href=" # " class="btn btn-primary " style="border-left-width: 50px; border-right-width: 50px;">Enroll</a>
                         </div>
@@ -375,50 +258,26 @@
 
                     <div class="card-body" style="padding-top: 1px;">
 
-                        <table width=" auto " height="auto ">
-                            <tr>
-                                <td>
-                                    <B><p>Course Expension</p></B>
-                                </td>
-                                <td>
-                                    <p>imagination course</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Age for class</p></B>
-                                </td>
-                                <td>
-                                    <p>3 years old and older</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Total course</p></B>
-                                </td>
-                                <td>
-                                    <p>3 Course</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Lesson</p></B>
-                                </td>
-                                <td>
-                                    <p>24 Lesson 36 Hours</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <B><p>Price</p></B>
-                                </td>
-                                <td>
-                                    <p>฿ 3,100 per course</p>
-                                </td>
-                            </tr>
-
-
-                        </table>
+                    <div class="row">
+                             <div class="col-md-5">
+                                 <ul class="nav ">
+                                    <li > <span><B><p class = "card-text">Course Expension</p></B></span> </li>
+                                    <li > <span><B><p class = "card-text">Age for class</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Total course</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Lesson</p></B> </span> </li>
+                                    <li > <span><B><p class = "card-text">Price</p></B> </span> </li>
+                                </ul>
+                             </div>
+                             <div class="col-md-5" >
+                                <ul class="nav">
+                                    <li > <span></span> </li>
+                                    <li > <span><p >3 years old and older</p></span> </li>
+                                    <li > <span><p >3 Course</p></span> </li>
+                                    <li > <span><p >24 Lesson 36 Hours</p></span> </li>
+                                    <li > <span><p >฿ 3,100 per course</p></span> </li>
+                                </ul>
+                            </div>
+                        </div>   
                         <div class="text-center " style="margin-top: 10px ">
                             <a href=" # " class="btn btn-primary " style="border-left-width: 50px; border-right-width: 50px;">Enroll</a>
                         </div>

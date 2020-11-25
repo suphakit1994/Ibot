@@ -1,8 +1,9 @@
 <style>
     .card {
-        box-shadow: 0 2px 5px 0 rgb(0 0 0), 0 4px 10px 0 rgba(0, 0, 0, 0.19);
+        box-shadow: 0 2px 5px 0 rgb(0 0 0), 0 4px 5px 0 rgba(0, 0, 0, 0.19);
         width: 100%;
         padding-bottom: 10px;
+		
 
 
     }
@@ -10,7 +11,7 @@
 
 <body>
 
-    <div class="container" style="width:90% ; margin-top:2%;">
+    <div class="container" style="width:90% ; margin-top:2%; margin-bottom:2%;">
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
@@ -19,9 +20,9 @@
                             <div class="col-md-5" style="margin-left:2%;margin-top:2%;">
                                 <img style="border-radius:3%; width:150px; height:220px;" src="../images/e.jpg" >
                             </div>
-                            <div class="col-md-5 " style="margin-top:20%;margin-left:3%;">
-                                <p style="text-align: center;">Svetiana Anyukova</p>
-                                <p style="text-align: center;">Teacher Assistance</p>
+                            <div class="col-md-5 " style="margin-top:20%;margin-left:5%;">
+                                <p style="text-align: left; font-size:16px;"><b>Svetiana Anyukova</b></p>
+                                <p style="text-align: left;">Teacher Assistance</p>
                             </div>
                         </div>
                         <br>
@@ -63,7 +64,7 @@
 
                             <div class="row">
                                 <div class="col-md-5" style="margin-top: 10%;margin-left:2%;">
-                                    <p>Detail</p>
+                                    <p style="font-size: 15px;"><b>Detail</b></p>
                                 </div>
                             </div>
 

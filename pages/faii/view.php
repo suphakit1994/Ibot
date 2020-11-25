@@ -8,16 +8,24 @@
 
     <style type="text/css">
         p {
-            font-size: 12px;
+            padding:3px;
+            font-size: 1px;
 			width: 130px;
 
         }
-        .col-md-3{
-			padding-bottom: 15px;
-		}
+        .td{
+            padding-left:10px;
+        }
+    
+        .card{
+            box-shadow: 0 4px 10px 0 rgb(0 0 0), 0 4px 20px 0 rgba(0,0,0,0.19);
+            width: 100%;
+            padding-bottom: 10px;
+
+        }
        
 		.card-img-top{
-			width: 250px
+			width: 100%;
 		}
        
         td {
@@ -35,6 +43,8 @@
             background-color: #3e8e41;
             border-color: #00bf30;
         }
+       
+       
     </style>
 
 
@@ -47,8 +57,8 @@
         </h1>
     
         <div class="row">
-            <div class="col-md-3">
-                <div class="card" style="width: auto;">
+            <div class="col-md-3" style="padding-bottom: 150px;">
+                <div class="card">
                     <div class="card-image">
                         <img class="card-img-top" src="../images/img_5terre.jpg" alt="Card image cap">
                         <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;"><B>DUPLO</B></span>
@@ -56,10 +66,10 @@
 
                     <div class="card-body" style="padding-top: 1px;">
 
-                        <table width=" auto " height="auto ">
+                        <table width=" 100% " height="auto ">
                             <tr>
                                 <td>
-                                    <B><p>Course Expension</p></B>
+                                    <B><p class = "card-text">Course Expension</p></B>
                                 </td>
                                 <td>
                                     <p>imagination course</p>

@@ -1,45 +1,44 @@
 <style type="text/css">
 
         
-        .main {
-            padding-top: 0px;
-        }
-        
-        .main .topic {
-            text-align: center
-        }
-        
-        .main .sup-topic {
-            font-size: 10px;
-        }
-        
-        .rectangle {
-            background-color: #F1EAEA;
-            position: absolute;
-        }
-        
-        .rectangle .topicrec {
-            padding-right: 1%;
-            padding-left: 5%;
-            position: absolute;
-        }
-        
-        .rectangle .content {
-            font-weight: lighter;
-            position: absolute;
-        }
-        
-        .rectangle .btn {
-            margin-top: 10px;
-        }
-        
-        .image {
-            margin-left: 54%;
-            margin-top: 15%;
-            position: relative;
-        }
-    </style>
-</head>
+    .main {
+        padding-top: 0px;
+    }
+    
+    .main .topic {
+        text-align: center
+    }
+    
+    .main .sup-topic {
+        font-size: 10px;
+    }
+    
+    .rectangle {
+        background-color: #F1EAEA;
+        position: absolute;
+    }
+    
+    .rectangle .topicrec {
+        padding-right: 1%;
+        padding-left: 5%;
+        position: absolute;
+    }
+    
+    .rectangle .content {
+        font-weight: lighter;
+        position: absolute;
+    }
+    
+    .rectangle .btn {
+        margin-top: 10px;
+    }
+    
+    .image {
+        margin-left: 54%;
+        margin-top: 15%;
+        position: relative;
+    }
+</style>
 
 <body>
     <div class="container">
@@ -47,7 +46,7 @@
 
 
         <!-- main -->
-        <div class="main" style="padding-top: 3%; padding-bottom:15%">
+        <div class="main" style="padding-top: 3%; padding-bottom:15%;">
             <div class="main topic">
                 <h1 style="font-weight: bold;">IBOT CAMP</h1>
                 <div class="main sup-topic" style="padding-top: 1%; color: #A8A5A5;   ">
@@ -77,5 +76,3 @@
     </div>
 
 </body>
-
-</style>

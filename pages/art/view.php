@@ -33,9 +33,12 @@
             </div>
         </div>
         <div class="row">
+            <h2 style="font-weight: bold; margin-bottom:2%;">Payment methods</h2>
+        </div>
+        <div class="row">
             <div class="col-lg-8" style="padding-right: 3%;">
                 <div class=" row" style="width:100%;">
-                    <div class="col-md-3" style="border: 1px solid #F1EAEA; padding:1.8%; margin-right:1px; width:33.13%">
+                    <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
                         <a href="">
                             <div class=" col-sm-4">
                                 <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
@@ -45,7 +48,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-3" style="border: 1px solid #F1EAEA; padding:1.8%; margin-right:1px; width:33.13%">
+                    <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
                         <a href="">
                             <div class="col-sm-4">
                                 <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
@@ -55,7 +58,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-3" style="border: 1px solid #F1EAEA; padding:1.8%; margin-right:1px; width:33.13%">
+                    <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
                         <a href="">
                             <div class="col-sm-4">
                                 <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
@@ -66,7 +69,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin-top:3%;">
                     <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2" style="margin-top: 1%;">
                     <input type="text" class="form-control" placeholder="Surname" aria-label="Surname" aria-describedby="basic-addon2" style="margin-top: 1%;">
                     <input type="text" class="form-control" placeholder="Email Address" aria-label="Email" aria-describedby="basic-addon2" style="margin-top: 1%;">
@@ -88,7 +91,7 @@
                         ?>
 
                     <select name=year>
-                    <option >year</option>
+                    <option>year</option>
                         <?Php
                         for ($i = 0; $i <= 100; $i++) {
                             $year = date('Y', strtotime("last day of -$i year"));
@@ -101,7 +104,7 @@
                 </div>
                 <div class="row" style="padding-top: 2%;"></div>
             </div>
-            <div class="col-lg-4" style="border: 1px solid #F1EAEA; padding:2%;">
+            <div class="col-lg-4" style="border: 1px solid #D5D0D0; padding:2%;">
                 <div class="container" style="width: 100%;">
                     <div class="row">
                         <h2>ORDER SUMMARY</h2>

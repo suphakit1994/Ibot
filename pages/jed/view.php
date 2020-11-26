@@ -223,8 +223,9 @@
                 <div class="col-md-7" style="margin-left:1%">
                     
                     <div id="calendar"></div>
-                    
+                 
                 </div>
+                
     </div>
 
 </body>
@@ -243,7 +244,7 @@
                 myCustomButton: {
                     text: 'Set Time',
                     click: function() {
-                        alert('clicked the custom button!');
+                        location.reload();
                     }
                 }
             },
@@ -261,26 +262,76 @@
                     events: [
                 {
                     id: 'a',
-                    title: 'my event',
+                    title: 'Birthday',
                     start: '2020-11-26T10:00:00',
-                    end: '2020-11-26T16:00:00'
+                    end: '2020-11-26T16:00:00',
+                    extendedProps: {
+                        status: ''
+                    },
+                    backgroundColor: 'green',
+                    borderColor: 'yellow'
                 }, {
                     id: 'b',
                     title: 'Meeting',
-                    start: '2020-11-09',
-                    end: '2020-11-10',
-
+                    start: '2020-11-25T01:00:00',
+                    end: '2020-11-25T16:00:00',
+                    extendedProps: {
+                        status: 'done'
+                    },
+                    backgroundColor: 'green',
+                    borderColor: 'yellow'
                 }, {
                     id: 'c',
                     title: 'Join',
-                    start: '2020-11-11T10:00:00',
+                    start: '2020-11-11T08:00:00',
                     end: '2020-11-11T16:00:00',
-
-                }
+                    extendedProps: {
+                        status: 'done'
+                    },
+                    backgroundColor: 'green',
+                    borderColor: 'yellow'
+                }, {
+                    id: 'd',
+                    title: 'Party',
+                    start: '2020-11-28T09:00:00',
+                    end: '2020-11-29T16:00:00',
+                    extendedProps: {
+                        status: ''
+                    },
+                    backgroundColor: 'green',
+                    borderColor: 'yellow'
+                },
             ],
             eventOverlap: function(stillEvent, movingEvent) {
                 return stillEvent.allDay && movingEvent.allDay;
-            }   
+            },
+            eventDrop: function(info) {
+                alert(info.event.title + " was dropped on " + info.event.start.toISOString());
+
+                if (!confirm("Are you sure about this change?")) {
+                info.revert();
+                }
+            },
+            eventResize: function(info) {
+                alert(info.event.title + " end is now " + info.event.end.toISOString());
+
+                if (!confirm("is this okay?")) {
+                info.revert();
+                }
+            },
+            eventDidMount: function(info) {
+                if (info.event.extendedProps.status === 'done') {
+
+                // Change background color of row
+                info.el.style.backgroundColor = 'red';
+
+                // Change color of dot marker
+                var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
+                if (dotEl) {
+                    dotEl.style.backgroundColor = 'white';
+                }
+                }
+            }
         });
         
         

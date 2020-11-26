@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.css">
-
-    <style>
+<style>
         .h-text {
             text-align: center;
             margin-top: 5%;
@@ -80,10 +65,8 @@
             margin: auto;
         }
     </style>
-</head>
-
 <body>
-    <div class="container" style="width: 95%;">
+    <div class="container">
         <div class="col-md-12">
             <h1 class="h-text">IBOT COMPITITIONS</h1>
         </div>
@@ -126,7 +109,7 @@
                     </div>
                     <div class="col-md-3 btn-position center-box">
                         <a type="Button" class="Button"
-                            style="padding: 3px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
+                            style="padding: 4px; width:120px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
                     </div>
                 </div>
             </div>
@@ -148,7 +131,7 @@
                     </div>
                     <div class="col-md-3 btn-position">
                         <a type="Button" class="Button"
-                            style="padding: 3px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
+                            style="padding: 4px; width:120px; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
                     </div>
                 </div>
             </div>
@@ -170,7 +153,7 @@
                     </div>
                     <div class="col-md-3 btn-position">
                         <a type="Button" class="Button"
-                            style="padding: 3px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
+                            style="padding: 4px; width:120px; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
                     </div>
                 </div>
             </div>
@@ -192,7 +175,7 @@
                     </div>
                     <div class="col-md-3 btn-position">
                         <a type="Button" class="Button"
-                            style="padding: 3px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
+                            style="padding: 4px; width:120px; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
                     </div>
                 </div>
             </div>
@@ -217,7 +200,7 @@
                     </div>
                     <div class="col-md-3 btn-position">
                         <a type="Button" class="Button"
-                            style="padding: 3px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
+                            style="padding: 4px; width:120px; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
                     </div>
                 </div>
             </div>
@@ -242,7 +225,7 @@
                     </div>
                     <div class="col-md-3 btn-position">
                         <a type="Button" class="Button"
-                            style="padding: 3px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
+                            style="padding: 4px; width:120px; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
                     </div>
                 </div>
             </div>
@@ -267,7 +250,7 @@
                     </div>
                     <div class="col-md-3 btn-position">
                         <a type="Button" class="Button"
-                            style="padding: 3px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
+                            style="padding: 4px; width:120px; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
                     </div>
                 </div>
             </div>
@@ -275,36 +258,3 @@
 
     </div>
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
-            timeZone: 'UTC',
-            events: [
-                {
-                    id: 'a',
-                    title: 'my event',
-                    start: '2020-11-01'
-                }, {
-                    id: 'b',
-                    title: 'Meeting',
-                    start: '2020-11-02'
-                }, {
-                    id: 'c',
-                    title: 'Join',
-                    start: '2020-11-02'
-                }
-
-            ]
-        });
-
-        var event = calendar.getEventById('a') // an event object!
-        var start = event.start // a property (a Date object)
-
-        console.log(start.toISOString()) // "2018-09-01T00:00:00.000Z"
-        calendar.render();
-    });
-</script>
-
-</html>

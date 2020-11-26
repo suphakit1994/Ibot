@@ -17,4 +17,7 @@ if($_GET['app'] == 'faii'){
 if($_GET['app'] == 'art'){
 	require_once("art/index.php");
 }
+if($_GET['app'] == 'jedi'){
+	require_once("jedi/index.php");
+}
 ?>

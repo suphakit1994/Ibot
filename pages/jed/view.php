@@ -1,6 +1,10 @@
 <head>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.js"></script>
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.css">
+ 
+
 
     <style>
     .card {
@@ -219,16 +223,12 @@
                 <div class="col-md-7" style="margin-left:1%">
                     
                     <div id="calendar"></div>
+                    
                 </div>
     </div>
 
 </body>
 
-<script>
-    import { Calendar } from '@fullcalendar/core';
-    import interactionPlugin from '@fullcalendar/interaction'; // for selectable
-    import dayGridPlugin from '@fullcalendar/daygrid'; // for dayGridMonth view
-</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -236,6 +236,8 @@
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
             timeZone: 'UTC',
+            editable:true,
+            droppable:true,
             customButtons: {
                 //create function ..............
                 myCustomButton: {
@@ -250,25 +252,38 @@
                 center: 'title',
                 right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
+            selectable: true,
+            dateClick: function(info) {
+                alert('Date: ' + info.dateStr);
+            },
+            
+            
                     events: [
                 {
                     id: 'a',
                     title: 'my event',
-                    start: '2020-11-01'
+                    start: '2020-11-26T10:00:00',
+                    end: '2020-11-26T16:00:00'
                 }, {
                     id: 'b',
                     title: 'Meeting',
-                    start: '2020-11-02'
+                    start: '2020-11-09',
+                    end: '2020-11-10',
+
                 }, {
                     id: 'c',
                     title: 'Join',
-                    start: '2020-11-02'
-                }
+                    start: '2020-11-11T10:00:00',
+                    end: '2020-11-11T16:00:00',
 
-            ]
+                }
+            ],
+            eventOverlap: function(stillEvent, movingEvent) {
+                return stillEvent.allDay && movingEvent.allDay;
+            }   
         });
         
-
+        
         var event = calendar.getEventById('a') // an event object!
         var start = event.start // a property (a Date object)
 

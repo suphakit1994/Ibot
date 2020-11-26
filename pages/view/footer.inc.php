@@ -139,4 +139,26 @@
 		top:1px;
 	}
 
+	.ButtonBack {
+		border-radius:28px;
+		border:1px solid #5B5555;
+		display:inline-block;
+		cursor:pointer;
+		color:#000000;
+		font-size:14;
+		text-decoration:none;
+		padding: 2px; 
+		margin: 10px;
+		text-align: center;   
+		border: 1px solid #000000;
+	}
+	.Button:hover {
+		background-color:#ffffff;
+		color:#ffffff;
+	}
+	.Button:active {
+		position:relative;
+		top:1px;
+	}
+
 </style>

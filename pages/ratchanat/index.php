@@ -6,4 +6,7 @@ if(!isset($_GET['action'])){
 	$cus = getdata($conn);
 	require_once('view.php');
 }
+if($_GET['action']=="art"){
+	require_once('art.php');
+}
 ?>

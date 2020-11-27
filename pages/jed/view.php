@@ -115,6 +115,75 @@
 		padding-top: 0;
 		padding-bottom: 0;
 	}
+    /* The Modal (background) */
+        .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+        /* Modal Content */
+        .modal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        border: 1px solid #888;
+        width: 80%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s
+    }
+
+        /* Add Animation */
+        @-webkit-keyframes animatetop {
+        from {top:-300px; opacity:0} 
+        to {top:0; opacity:1}
+    }
+
+        @keyframes animatetop {
+        from {top:-300px; opacity:0}
+        to {top:0; opacity:1}
+    }
+
+        /* The Close Button */
+        .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+        .modal-header {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+    }
+
+        .modal-body {padding: 2px 16px;}
+
+        .modal-footer {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+    }
     </style>
 </head>
 
@@ -223,8 +292,23 @@
                 <div class="col-md-7" style="margin-left:1%">
                     
                     <div id="calendar"></div>
-                 
+                    
+
+                    <div class="row">
+
+
+                        <div class="col-md-12" style="text-align:right;">
+                        <form method='get'>
+                            <a class="Button" style="margin-top:2%; padding: 5px; width:150px;  text-align: center;"
+                            href="index.php?app=jed&action=compititions">Next</a> 
+                        </form>
+                        </div>
+                    </div>
+                    
                 </div>
+                
+                                 
+                
                 
     </div>
 
@@ -235,6 +319,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
+            fixedMirrorParent: document.body,
             initialView: 'dayGridMonth',
             timeZone: 'UTC',
             editable:true,
@@ -243,8 +328,13 @@
                 //create function ..............
                 myCustomButton: {
                     text: 'Set Time',
-                    click: function() {
-                        location.reload();
+                    click: function() {     
+                        $(document).ready(function(){
+                            $("#myBtn").click(function(){
+                                $("#myModal").modal();
+                                alert("button");
+                            });
+                        });
                     }
                 }
             },
@@ -302,6 +392,14 @@
                     borderColor: 'yellow'
                 },
             ],
+            eventAllow: function(dropInfo, draggedEvent) {
+                if (draggedEvent.id === '999') {
+                    return dropInfo.start < new Date(2020, 11, 27); // a boolean
+                }
+                else {
+                    return true;
+                }
+            },
             eventOverlap: function(stillEvent, movingEvent) {
                 return stillEvent.allDay && movingEvent.allDay;
             },
@@ -331,6 +429,9 @@
                     dotEl.style.backgroundColor = 'white';
                 }
                 }
+            },
+            selectOverlap: function(event) {
+                return event.rendering === 'background';
             }
         });
         

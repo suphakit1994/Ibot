@@ -223,8 +223,16 @@
                 <div class="col-md-7" style="margin-left:1%">
                     
                     <div id="calendar"></div>
-                 
+                    <div class="row">
+                        <div class="col-md-12" style="text-align:right;">
+                        <form method='get'>
+                            <a href="index.php?app=jed&action=compititions">jed</a>                        </form>
+                        </div>
+                    </div>
                 </div>
+                
+                                 
+                
                 
     </div>
 

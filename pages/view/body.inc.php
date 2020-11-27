@@ -5,9 +5,6 @@ if($_GET['app'] == 'home'){
 if($_GET['app'] == 'test'){
 	require_once("test/index.php");
 }
-if($_GET['app'] == 'ratchanat'){
-	require_once("ratchanat/index.php");
-}
 if($_GET['app'] == 'jed'){
 	require_once("jed/index.php");
 }
@@ -20,7 +17,8 @@ if($_GET['app'] == 'faii1'){
 if($_GET['app'] == 'art'){
 	require_once("art/index.php");
 }
-if($_GET['app'] == 'jedi'){
-	require_once("jedi/index.php");
+if($_GET['app'] == 'jed'){
+	require_once("jed/index.php");
 }
+
 ?>

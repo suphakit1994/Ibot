@@ -54,7 +54,7 @@
 						<li><a href="index.php?app=gold_price">Our course</a></li>
 						<li><a href="index.php?app=jed">jed</a></li>
 						<li><a href="index.php?app=faii">faii</a></li>
-						<li><a href="index.php?app=ratchanat">ratchanat</a></li>
+						<li><a href="index.php?app=art">art</a></li>
 						<li><a href="index.php?app=branch">Franchise</a></li>
 						<li><a href="index.php?app=branch">Contact us</a></li>
 						<li><a href="index.php?app=branch"  class="Button" style="padding: 2px; margin: 10px; width: 100%; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);    border: 1px solid #ffffff;" >Sign in</a></li>

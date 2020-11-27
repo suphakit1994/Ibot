@@ -150,12 +150,15 @@
                 </div>
             </div>
         </div>
-        <div class="row" style=" margin-top:1%;">
+        <div class="row" style=" margin-top:1%; padding-bottom:2%;">
             <div class="col-md-2" style="padding-left:0%;">
                 <a href="" class="Button" style="padding: 4px;  margin: 0px; width: 100%; padding-left:0%;  ">PURCHASE NOW</a>
             </div>
             <div class="col-md-2">
                 <a href="" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">BACK</a>
+            </div>
+            <div class="col-md-2">
+                <a href="index.php?app=art&action=view_2" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">Page1</a>
             </div>
         </div>
     </div>

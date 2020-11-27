@@ -113,7 +113,7 @@ div{}
                     </div>
                     <div class="col-md-3 btn-position center-box">
                         <button type="Button" class="Button"
-                            style="padding-top: 4%; width:150px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</button>
+                            style="padding: 5px; width:150px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</button>
                     </div>
                 </div>
             </div>
@@ -229,7 +229,7 @@ div{}
                     </div>
                     <div class="col-md-3 btn-position">
                         <button disabled type="Button" class="Button"
-                        style="margin-top:8%; padding: 5px; width:150px;  text-align: center; background: #DEDEDE;border: 1px solid #ffffff;"">Enroll</button>
+                        style="margin-top:8%; padding: 5px; width:150px;  text-align: center; background: #DEDEDE;border: 1px solid #ffffff;">Enroll</button>
                     </div>
                 </div>
             </div>

@@ -292,28 +292,19 @@
                 <div class="col-md-7" style="margin-left:1%">
                     
                     <div id="calendar"></div>
+                    
+
                     <div class="row">
+
+
                         <div class="col-md-12" style="text-align:right;">
                         <form method='get'>
                             <a class="Button" style="margin-top:2%; padding: 5px; width:150px;  text-align: center;"
                             href="index.php?app=jed&action=compititions">Next</a> 
-                         </form>
+                        </form>
                         </div>
                     </div>
-                    <div id="myModal" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <span class="close">&times;</span>
-                            <h2>Modal Header</h2>
-                        </div>
-                        <div class="modal-body">
-                            <p>Some text in the Modal Body</p>
-                            <p>Some other text...</p>
-                        </div>
-                        <div class="modal-footer">
-                            <h3>Modal Footer</h3>
-                        </div>
-                    </div>
+                    
                 </div>
                 
                                  
@@ -328,6 +319,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
+            fixedMirrorParent: document.body,
             initialView: 'dayGridMonth',
             timeZone: 'UTC',
             editable:true,
@@ -337,7 +329,12 @@
                 myCustomButton: {
                     text: 'Set Time',
                     click: function() {     
-                        modal.style.display = "block";
+                        $(document).ready(function(){
+                            $("#myBtn").click(function(){
+                                $("#myModal").modal();
+                                alert("button");
+                            });
+                        });
                     }
                 }
             },
@@ -395,6 +392,14 @@
                     borderColor: 'yellow'
                 },
             ],
+            eventAllow: function(dropInfo, draggedEvent) {
+                if (draggedEvent.id === '999') {
+                    return dropInfo.start < new Date(2020, 11, 27); // a boolean
+                }
+                else {
+                    return true;
+                }
+            },
             eventOverlap: function(stillEvent, movingEvent) {
                 return stillEvent.allDay && movingEvent.allDay;
             },
@@ -424,6 +429,9 @@
                     dotEl.style.backgroundColor = 'white';
                 }
                 }
+            },
+            selectOverlap: function(event) {
+                return event.rendering === 'background';
             }
         });
         

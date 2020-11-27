@@ -22,6 +22,36 @@ function getdata(mysqli $conn){
 		return $data;
 	}
 }
+//**** */faii 
+function getselect(mysqli $conn){
+
+	$sql = "SELECT * FROM `our course` WHERE 1";
+		$result = $conn->query($sql); 
+		
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+//*****/ faii
+function insterstudent(mysqli $conn, $Science,$Technology,$Engineering,$Mathematics,$Synthesis,$Teamwork,$EQ,$Meditation){
+	$sql = " INSERT INTO `student_assessment`(`Science`, `Technology`, `Engineering`, `Teamwork`, `EQ`, `Meditation`, `Synthesis`, `Mathematics`) 
+        VALUES ($Science,$Technology,$Engineering,$Mathematics,$Synthesis,$Teamwork,$EQ,$Meditation)";
+	
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+
+
 function getGoldPledge_bodyByID(mysqli $conn,$id){
 	$sql = "SELECT * FROM tbl_goldpledge_body as tb1 
 	LEFT JOIN gold_type as tb2
@@ -112,6 +142,8 @@ function updatetelCustomer_body(mysqli $conn, $data){
 		return false;
 	}
 }
+
+
 
 
 

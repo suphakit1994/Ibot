@@ -10,4 +10,6 @@ if($_GET['action'] == 'compititions'){
 	require_once('compititions.php');
 }
 
+
 ?>
+	

@@ -45,13 +45,12 @@
             border: 1px solid #ffffff;
 
         }    
-          
-       
+            
     </style>
 
 
 <body>
-    <!-- <img src="../images/images.png" alt=""> -->
+    
     <div class="container-fluid" style="padding-right:100px ;padding-left:100px ;">
  <h1>
             <b class="monospace">OUR COURSE</b>
@@ -61,12 +60,13 @@
     <div class="row" style="padding-bottom: 100px;" >
    
 
-     <?php $data= getselect($conn);
-            $arrlength = count($data);
-            for($i=0;$i<$arrlength; $i++){
-             ?>
+     <?php 
+            $data= getselect($conn);         //เรียกใช้ faction
+            $arrlength = count($data);      //นับข้อมูล
+            for($i=0;$i<$arrlength; $i++){  //loop card 
+     ?>
         
-        <a href="../test.php" >
+        <a href="..faii.php" >
               <div name="card" class="col-md-3" style="padding-bottom: 100px;" >
               <div class="card" >
                   <div class="card-image" >
@@ -105,6 +105,7 @@
               </div>
           </div>
         </a>  
+
             <?php  }  ?>
          
         </div>

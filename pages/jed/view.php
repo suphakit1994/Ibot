@@ -303,7 +303,7 @@
                             href="index.php?app=jed&action=compititions">Next</a> 
                         </form>
                         </div>
-                        <form action="insert.php" method="GET">
+                        <form method="POST">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Calendar</label>
                                 <input type="text" name="title" class="form-control" id="" aria-describedby="emailHelp" placeholder="Title" style="margin-top:2%;">
@@ -311,6 +311,10 @@
                                 <input type="text" name="end" class="form-control" id="" aria-describedby="emailHelp" placeholder="End Time" style="margin-top:2%;">
                             </div>
                             <input type="submit" class="Button" style=" width:150px;" value="SUBMIT">
+
+                            <a  href="function.php">
+                              <!--   <h1><?php echo $cus; ?></h1> -->
+                            </a>
                         </form>
                     </div>
                     
@@ -361,7 +365,7 @@
                     events: [
                 {
                     id: 'a',
-                    title: 'Birthday',
+                    title: '<?php echo $cus[1]['title'];?>',
                     start: '2020-11-26T10:00:00',
                     end: '2020-11-26T16:00:00',
                     extendedProps: {

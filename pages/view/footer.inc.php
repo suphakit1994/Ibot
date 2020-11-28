@@ -137,6 +137,7 @@
 	.Button:active {
 		position:relative;
 		top:1px;
+		
 	}
 
 	.ButtonBack {
@@ -152,13 +153,4 @@
 		text-align: center;   
 		border: 1px solid #000000;
 	}
-	.Button:hover {
-		background-color:#ffffff;
-		color:#ffffff;
-	}
-	.Button:active {
-		position:relative;
-		top:1px;
-	}
-
 </style>

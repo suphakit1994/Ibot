@@ -37,12 +37,13 @@
             border:1px solid #18ab29;
             display:inline-block;
             cursor:pointer;
-            color:#ffffff;
+            color:#ffffff !important;
             font-size:14;
             text-decoration:none;
             text-align: center; 
             background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);    
             border: 1px solid #ffffff;
+
         }    
           
        
@@ -56,24 +57,21 @@
             <b class="monospace">OUR COURSE</b>
         </h1>
 
-    <?php include('../php/config.php');   ?>
-
-    <?php $sql="SELECT * FROM `our course` WHERE 1 ";
-         $result = $conn->query($sql); ?>
-
+   
     <div class="row" style="padding-bottom: 100px;" >
+   
 
-
-     <?php 
-            while($row = $result->fetch_array()) {
+     <?php $data= getselect($conn);
+            $arrlength = count($data);
+            for($i=0;$i<$arrlength; $i++){
              ?>
         
-        
-              <div class="col-md-3" style="padding-bottom: 100px;" >
+        <a href="../test.php" >
+              <div name="card" class="col-md-3" style="padding-bottom: 100px;" >
               <div class="card" >
                   <div class="card-image" >
                       <img class="card-img-top" src="../images/img_5terre.jpg" alt="Card image cap" >
-                      <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;"><B><?php echo "$row[category]"; ?></B></span>
+                      <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;"><B><?php echo $data[$i]['category']; ?></B></span>
                   </div>
 
                   <div class="card-body" >
@@ -90,28 +88,30 @@
                            <div class="col-md-5" >
                               <ul class="nav" style="padding-left:10px">
                                   
-                                  <li > <span><p ><?php echo "$row[Course_Expension]"; ?> </p></span> </li>
-                                  <li > <span><p ><?php echo "$row[Age_For_class]";?></p></span> </li>
-                                  <li > <span><p ><?php echo "$row[Total_course]"; ?></p></span> </li>
-                                  <li > <span><p ><?php echo "$row[Lesson]"; ?></p></span> </li>
-                                  <li > <span><p ><?php echo "$row[Price]"; ?></p></span> </li>
+                                  <li > <span><p ><?php echo $data[$i]['Course_Expension']; ?> </p></span> </li>
+                                  <li > <span><p ><?php echo $data[$i]['Age_For_class'];?></p></span> </li>
+                                  <li > <span><p ><?php echo $data[$i]['Total_course']; ?></p></span> </li>
+                                  <li > <span><p ><?php echo $data[$i]['Lesson']; ?></p></span> </li>
+                                  <li > <span><p ><?php echo $data[$i]['Price']; ?></p></span> </li>
                               </ul>
                           </div>
                       </div>   
                       <div class="text-center " style="margin-top: 10px ">
                       
-                          <a href=" # " class="btn btn:hover " style="width:80% ;border-radius:28px;">Enroll</a>
+                          <a href=" # " class=" btn btn:hover" style="width:80% ;border-radius:28px;">Enroll</a>
                       </div>
 
                   </div>
               </div>
           </div>
-            
-         <?php   }
-            ?>
+        </a>  
+            <?php  }  ?>
          
         </div>
+            <div class="text-center "> 
+                <a href="index.php?app=faii&action=student"   class="Button" style="border-radius:28px;"> Student Assessment</a>
 
+         </div>
     </div>
 
 

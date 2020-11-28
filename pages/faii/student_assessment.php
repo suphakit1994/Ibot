@@ -61,6 +61,7 @@
                            
 
                     </div>
+                    <form method="GET" action="faii/insterstudent.php">
                     <div class="row">
                         <div class="col-md-6">
                             <span> <p> <b class="monospace">STEM 1 : Science and Technology</b></p></span>   
@@ -76,16 +77,19 @@
                         <div class="col-md-6">
                             <!-- <br> -->
                             
-                            <?php for($i=1;$i<=4;$i++){ ?>
+                            <?php 
+                            $stem1=["Science","Technology","Engineering","Mathematics"];
+
+                            for($i=0;$i<4;$i++){ ?>
 
                                 <div class="custom-select" name="option" style=" height: 40px;">
                                 <br style="top:auto;">
-                                                <select style="height: 70%; width:200%;">
-                                                    <option value="0" style="font-size: 10px;">1</option>
-                                                    <option value="1">2</option>
-                                                    <option value="2">3</option>
-                                                    <option value="3">4</option>
-                                                    <option value="4">5</option>
+                                                <select name= <?php echo $stem1[$i]?> style="height: 70%; width:200%;">
+                                                    <option value="1" style="font-size: 10px;">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
                                                 
                                                 </select>
                                 </div>
@@ -110,16 +114,20 @@
                         <div class="col-md-6">
                             <!-- <br> -->
                             
-                            <?php for($i=1;$i<=4;$i++){ ?>
+                            <?php $stem2=["Synthesis","Teamwork","EQ","Meditation"];
+                            
+                             for($i=0;$i<4;$i++){ 
+                                
+                                ?>
 
                                 <div class="custom-select" style=" height: 40px;">
                                 <br style="top:auto;">
-                                                <select style="height: 70%; width:200%;">
-                                                    <option value="0" style="font-size: 10px;">1</option>
-                                                    <option value="1">2</option>
-                                                    <option value="2">3</option>
-                                                    <option value="3">4</option>
-                                                    <option value="4">5</option>
+                                                <select name=<?php echo $stem2[$i] ?> style="height: 70%; width:200%;">
+                                                    <option value="1" style="font-size: 10px;">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
                                                 
                                                 </select>
                                 </div>
@@ -128,19 +136,26 @@
                         </div>
 
                     </div>
+                   
                         <hr >
                         <div class="col-md-4"> <span> <p> <b class="monospace">Total Score</b></p></span>  </div>
                         <div class="col-md-4"> <span> <p class="monospace"> .............</p></span>  </div>
                         <div class="col-md-4"> <span> <p> <b class="monospace">Score</b></p></span>  </div>
                     
                    
-                        <div class="text " style="margin-top: 10px ">
-                        <a href=" # " class="Button" style="width:20% ;">Save</a>
-                    </div>      
+                        
+                        <button type="submit" class="Button">Save</button>
+                    
+                </form>     
                 </div> 
                    
 
-            </div>  
+            </div>
+
+                
+                
+
+                
                 
         </div>
 

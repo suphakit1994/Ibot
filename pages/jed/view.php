@@ -325,7 +325,7 @@
                               <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                   <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Set Schedule</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
@@ -335,9 +335,7 @@
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Calendar</label>
                                         <input type="text" name="title" class="form-control" id="" aria-describedby="emailHelp" placeholder="Title" style="margin-top:2%;">
-                                        <input type="text" name="start" class="form-control" id="" aria-describedby="emailHelp" placeholder="Start Time" style="margin-top:2%;">
-                                        <input type="text" name="end" class="form-control" id="" aria-describedby="emailHelp" placeholder="End Time" style="margin-top:2%;">
-                                        <div style="margin-top:2%;">
+                                        <div style="margin-top:3%;">
                                             <?php 
                                             echo "<select name=day>";
                                             $day = date('d', strtotime("today UTC"));
@@ -368,11 +366,7 @@
                                         <input type="submit" class="Button" style=" width:150px;" value="SUBMIT">
 
                                     </div>
-                                    <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
-                                      <input placeholder="Select date" type="text" id="example" class="form-control">
-                                      <label for="example">Try me...</label>
-                                      <i class="fas fa-calendar input-prefix" tabindex=0></i>
-                                    </div>
+                                    
                                   </div>
                                 </div>
                               </div>
@@ -391,14 +385,14 @@
 
 
 <script>
-    var round = <?php
+    var db_calendar = <?php
         echo $cus;
         ?>
 
-    console.log(round);
-    var r =[];
-    round.forEach(value =>{
-        r.push( {
+    console.log(db_calendar);
+    var calendar_event =[];
+    db_calendar.forEach(value =>{
+        calendar_event.push( {
                     id: 'a',
                     title: value.title,
                     start: value.start_time,
@@ -406,8 +400,8 @@
                     extendedProps: {
                         status: ''
                     },
-                    backgroundColor: 'green',
-                    borderColor: 'yellow'
+                    
+                    borderColor: 'red'
                 })
         console.log(value);
     })
@@ -423,15 +417,10 @@
             customButtons: {
                 //create function ..............
                 myCustomButton: {
-                    text: 'Set Time',
-                    click: function() {     
-                        $(document).ready(function(){
-                            $("#myBtn").click(function(){
-                                $("#myModal").modal();
-                                alert("button");
-                            });
-                        });
-                    }
+                  text: 'custom!',
+                  click: function() {
+                    alert('clicked the custom button!');
+                  }
                 }
             },
             headerToolbar: {
@@ -443,9 +432,7 @@
             dateClick: function(info) {
                 alert('Date: ' + info.dateStr);
             },
-            
-            
-                    events: r
+            events: calendar_event
                 //      [
                     
                     
@@ -459,37 +446,7 @@
                 //     },
                 //     backgroundColor: 'green',
                 //     borderColor: 'yellow'
-                // }, {
-                //     id: 'a',
-                //     title: 'Meeting',
-                //     start: '2020-11-25T01:00:00',
-                //     end: '2020-11-25T16:00:00',
-                //     extendedProps: {
-                //         status: 'done'
-                //     },
-                //     backgroundColor: 'green',
-                //     borderColor: 'yellow'
-                // }, {
-                //     id: 'a',
-                //     title: 'Join',
-                //     start: '2020-11-11T08:00:00',
-                //     end: '2020-11-11T16:00:00',
-                //     extendedProps: {
-                //         status: 'done'
-                //     },
-                //     backgroundColor: 'green',
-                //     borderColor: 'yellow'
-                // }, {
-                //     id: 'a',
-                //     title: 'Party',
-                //     start: '2020-11-28T09:00:00',
-                //     end: '2020-11-29T16:00:00',
-                //     extendedProps: {
-                //         status: ''
-                //     },
-                //     backgroundColor: 'green',
-                //     borderColor: 'yellow'
-                // }]
+                // }
             ,
             eventAllow: function(dropInfo, draggedEvent) {
                 if (draggedEvent.id === '999') {

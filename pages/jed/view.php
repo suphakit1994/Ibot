@@ -315,6 +315,68 @@
                             <a  href="function.php">
                               <!--   <h1><?php echo $cus; ?></h1> -->
                             </a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                              Launch demo modal
+                            </button>
+                            
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Calendar</label>
+                                        <input type="text" name="title" class="form-control" id="" aria-describedby="emailHelp" placeholder="Title" style="margin-top:2%;">
+                                        <input type="text" name="start" class="form-control" id="" aria-describedby="emailHelp" placeholder="Start Time" style="margin-top:2%;">
+                                        <input type="text" name="end" class="form-control" id="" aria-describedby="emailHelp" placeholder="End Time" style="margin-top:2%;">
+                                        <div style="margin-top:2%;">
+                                            <?php 
+                                            echo "<select name=day>";
+                                            $day = date('d', strtotime("today UTC"));
+                                            // echo "<option selected="selected">$day</option>";
+                                            echo "<option selected>$day</option>";
+                                            for ($i = 1; $i <= 31; $i++) {
+                                                echo "<option name='$i'>$i</option>";
+
+                                            }
+                                            echo "</select>";
+
+
+                                            echo "<select name=month>";
+                                            for ($i = 0; $i <= 11; $i++) {
+                                                $month = date('F', strtotime("first day of -$i month"));
+                                                echo "<option value=$month> $month </option> ";
+                                            }
+                                            echo "</select>";
+
+                                            echo "<select name=year>";
+                                            for ($i = 0; $i <= 100; $i++) {
+                                                $year = date('Y', strtotime("last day of -$i year"));
+                                                echo "<option name='$year'>$year</option>";
+                                            }
+                                            echo "</select>";
+                                            ?>
+                                        </div>
+                                        <input type="submit" class="Button" style=" width:150px;" value="SUBMIT">
+
+                                    </div>
+                                    <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
+                                      <input placeholder="Select date" type="text" id="example" class="form-control">
+                                      <label for="example">Try me...</label>
+                                      <i class="fas fa-calendar input-prefix" tabindex=0></i>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                         </form>
                     </div>
                     
@@ -329,6 +391,27 @@
 
 
 <script>
+    var round = <?php
+        echo $cus;
+        ?>
+
+    console.log(round);
+    var r =[];
+    round.forEach(value =>{
+        r.push( {
+                    id: 'a',
+                    title: value.title,
+                    start: value.start_time,
+                    end: value.end_time,
+                    extendedProps: {
+                        status: ''
+                    },
+                    backgroundColor: 'green',
+                    borderColor: 'yellow'
+                })
+        console.log(value);
+    })
+
     document.addEventListener('DOMContentLoaded', function () {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -362,49 +445,52 @@
             },
             
             
-                    events: [
-                {
-                    id: 'a',
-                    title: '<?php echo $cus[1]['title'];?>',
-                    start: '2020-11-26T10:00:00',
-                    end: '2020-11-26T16:00:00',
-                    extendedProps: {
-                        status: ''
-                    },
-                    backgroundColor: 'green',
-                    borderColor: 'yellow'
-                }, {
-                    id: 'b',
-                    title: 'Meeting',
-                    start: '2020-11-25T01:00:00',
-                    end: '2020-11-25T16:00:00',
-                    extendedProps: {
-                        status: 'done'
-                    },
-                    backgroundColor: 'green',
-                    borderColor: 'yellow'
-                }, {
-                    id: 'c',
-                    title: 'Join',
-                    start: '2020-11-11T08:00:00',
-                    end: '2020-11-11T16:00:00',
-                    extendedProps: {
-                        status: 'done'
-                    },
-                    backgroundColor: 'green',
-                    borderColor: 'yellow'
-                }, {
-                    id: 'd',
-                    title: 'Party',
-                    start: '2020-11-28T09:00:00',
-                    end: '2020-11-29T16:00:00',
-                    extendedProps: {
-                        status: ''
-                    },
-                    backgroundColor: 'green',
-                    borderColor: 'yellow'
-                },
-            ],
+                    events: r
+                //      [
+                    
+                    
+                // {
+                //     id: 'a',
+                //     title: '',
+                //     start: '2020-11-26T10:00:00',
+                //     end: '2020-11-26T16:00:00',
+                //     extendedProps: {
+                //         status: ''
+                //     },
+                //     backgroundColor: 'green',
+                //     borderColor: 'yellow'
+                // }, {
+                //     id: 'a',
+                //     title: 'Meeting',
+                //     start: '2020-11-25T01:00:00',
+                //     end: '2020-11-25T16:00:00',
+                //     extendedProps: {
+                //         status: 'done'
+                //     },
+                //     backgroundColor: 'green',
+                //     borderColor: 'yellow'
+                // }, {
+                //     id: 'a',
+                //     title: 'Join',
+                //     start: '2020-11-11T08:00:00',
+                //     end: '2020-11-11T16:00:00',
+                //     extendedProps: {
+                //         status: 'done'
+                //     },
+                //     backgroundColor: 'green',
+                //     borderColor: 'yellow'
+                // }, {
+                //     id: 'a',
+                //     title: 'Party',
+                //     start: '2020-11-28T09:00:00',
+                //     end: '2020-11-29T16:00:00',
+                //     extendedProps: {
+                //         status: ''
+                //     },
+                //     backgroundColor: 'green',
+                //     borderColor: 'yellow'
+                // }]
+            ,
             eventAllow: function(dropInfo, draggedEvent) {
                 if (draggedEvent.id === '999') {
                     return dropInfo.start < new Date(2020, 11, 27); // a boolean
@@ -455,6 +541,7 @@
         console.log(start.toISOString()) // "2018-09-01T00:00:00.000Z"
         calendar.render();
     });
+
 </script>
 
 

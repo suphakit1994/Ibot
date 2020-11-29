@@ -8,8 +8,9 @@ function calendars(mysqli $conn){
 			$data[] = $row;
 		}
 		$result->close();
-		return $data;
+		return json_encode($data);
 	}
+
 }
 
 function insertEvent(mysqli $conn,$id,$start_time,$end_time){

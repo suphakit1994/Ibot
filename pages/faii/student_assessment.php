@@ -123,14 +123,16 @@
                                 <div class="custom-select" style=" height: 40px;">
                                 <br style="top:auto;">
                                             <!-- <input type="text"> -->
-                                                <select   onclick ="displayDate()" name=<?php echo $stem2[$i] ?> style="height: 70%; width:200%;">
+                                                <select   name=<?php echo $stem2[$i] ?> id="name" onchange="myFunction()" style="height: 70%; width:200%;">
                                                     <option value="1" style="font-size: 10px;">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
                                                     <option value="4">4</option>
                                                     <option value="5">5</option>
+                                              
                                                 
                                                 </select>
+                                                
                                 </div>
 
                             <?php } ?>
@@ -141,10 +143,10 @@
                    
                         <hr >
                         <div class="col-md-4"> <span> <p> <b class="monospace">Total Score</b></p></span>  </div>
-                        <div class="col-md-4"> <span> <p class="monospace" id="demo"> </p></span>  </div>
+                        <div class="col-md-4"> <span> <p class="monospace" id="demo"></p>  </span> </div>
                         <div class="col-md-4"> <span> <p> <b class="monospace">Score</b></p></span>  </div>
                     
-                   
+                   <?php echo $_POST ?>
                         
                         <button type="submit" class="Button">Save</button>
                     
@@ -155,11 +157,11 @@
             </div>
 
             <script>
-                function displayDate() {
-                document.getElementById("demo").nodeValue = "1111 ";
+                function myFunction() {
+                var x = document.getElementById("name").value;
+                document.getElementById("demo").innerHTML = "You selected: " + x;
                 }
             </script>
-        
                 
     <!-- <form method="post" action="index.php?app=faii&action=student">
         <input type="text" name="in">

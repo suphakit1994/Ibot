@@ -37,6 +37,8 @@
             </div>
 
 
+
+
             <!-- row2 -->
 
             <div class="row">
@@ -49,7 +51,7 @@
 
                     <div class=" row" style="width:100%;">
 
-
+                        <!-- No.1 -->
                         <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
                             <a href="">
                                 <div class=" col-sm-4">
@@ -60,6 +62,10 @@
                                 </div>
                             </a>
                         </div>
+
+
+
+                        <!-- No.2 -->
                         <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
                             <a href="">
                                 <div class="col-sm-4">
@@ -70,6 +76,10 @@
                                 </div>
                             </a>
                         </div>
+
+
+
+                        <!-- No.3 -->
                         <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
                             <a href="">
                                 <div class="col-sm-4">
@@ -86,13 +96,21 @@
 
                     <div class="row" style="margin-top:3%;">
                         <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2" type="text" name="name"  style="margin-top: 1%;"/>
+
                         <input type="text" class="form-control" placeholder="Surname" aria-label="Surname" aria-describedby="basic-addon2" type="text" name="surname"  style="margin-top: 1%;"/>
+
                         <input type="text" class="form-control" placeholder="Email Address" aria-label="Email" aria-describedby="basic-addon2" type="email" name="email"  style="margin-top: 1%;"/>
+
                         <input type="text" class="form-control" placeholder="Country" aria-label="Country" aria-describedby="basic-addon2"  name="country" type="country" style="margin-top: 1%;"/>
+
                         <input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon2" type="text" name="city"  style="margin-top: 1%;"/>
+
                         <input type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2" type="text" name="address"  style="margin-top: 1%;"/>
+
                         <input type="text" class="form-control" placeholder="Zip or postal code" aria-label="postal" aria-describedby="basic-addon2" type="number" name="postal"  style="margin-top: 1%;"/>
+
                         <input type="text" class="form-control" placeholder="Card number" aria-label="card" aria-describedby="basic-addon2" type="number" name="cardnumber"  style="margin-top: 1%;"/>
+                        
 
                         <!-- month and year -->
 
@@ -168,6 +186,9 @@
                     </div>
                 </div>
             </div>
+
+
+
 
 
             <!-- row3 -->

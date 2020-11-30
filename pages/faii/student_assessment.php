@@ -12,9 +12,7 @@
 		}
         .custom-select{
             width: 8%;
-        }
-        
-
+        }       
     </style>
 
 
@@ -61,7 +59,7 @@
                            
 
                     </div>
-                    <form method="GET" action="faii/insterstudent.php">
+                <form method="post" action="index.php?app=faii&action=student">
                     <div class="row">
                         <div class="col-md-6">
                             <span> <p> <b class="monospace">STEM 1 : Science and Technology</b></p></span>   
@@ -79,6 +77,7 @@
                             
                             <?php 
                             $stem1=["Science","Technology","Engineering","Mathematics"];
+                            
 
                             for($i=0;$i<4;$i++){ ?>
 
@@ -94,6 +93,7 @@
                                                 </select>
                                 </div>
                             <?php } ?>
+                           
 
                         </div>
                     </div>
@@ -122,7 +122,8 @@
 
                                 <div class="custom-select" style=" height: 40px;">
                                 <br style="top:auto;">
-                                                <select name=<?php echo $stem2[$i] ?> style="height: 70%; width:200%;">
+                                            <!-- <input type="text"> -->
+                                                <select   name=<?php echo $stem2[$i] ?> style="height: 70%; width:200%;">
                                                     <option value="1" style="font-size: 10px;">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -146,7 +147,7 @@
                         
                         <button type="submit" class="Button">Save</button>
                     
-                </form>     
+                </form>
                 </div> 
                    
 
@@ -154,15 +155,13 @@
 
                 
                 
-
+    <!-- <form method="post" action="index.php?app=faii&action=student">
+        <input type="text" name="in">
+        <button type="submit" > song </button>
+    </form>   -->
                 
                 
         </div>
 
-
-    </div>
-    <br>
-    <br>
-    </div>
 
 </body>

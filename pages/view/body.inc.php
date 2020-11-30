@@ -11,9 +11,6 @@ if($_GET['app'] == 'jed'){
 if($_GET['app'] == 'faii'){
 	require_once("faii/index.php");
 }
-if($_GET['app'] == 'faii1'){
-	require_once("faii1/index.php");
-}
 if($_GET['app'] == 'art'){
 	require_once("art/index.php");
 }

@@ -10,24 +10,6 @@ function getdatediffmount(mysqli $conn,$mount){
 		return $data;
 	}
 }
-function Insert_calendar(mysqli $conn){
-	$title = $_POST["title"];
-	$sql = "INSERT INTO calendar(title) VALUES('$title')";
-	$result = mysqli_query($conn,$sql);
-
-}
-function Result_calendar(mysqli $conn){
-	$sql = "SELECT * FROM `calendar` WHERE 1 ";
-
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
-	}
-}
 
 function getdata(mysqli $conn){
 	$sql = "SELECT * FROM `user` WHERE 1 ";
@@ -39,34 +21,6 @@ function getdata(mysqli $conn){
 		}
 		$result->close();
 		return $data;
-	}
-}
-//**** */faii 
-function getselect(mysqli $conn){
-
-	$sql = "SELECT * FROM `our course` WHERE 1";
-		$result = $conn->query($sql); 
-		
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
-	}
-}
-//*****/ faii
-function insterstudent(mysqli $conn, $Science,$Technology,$Engineering,$Mathematics,$Synthesis,$Teamwork,$EQ,$Meditation){
-	$sql = " INSERT INTO `student_assessment`(`Science`, `Technology`, `Engineering`, `Teamwork`, `EQ`, `Meditation`, `Synthesis`, `Mathematics`) 
-        VALUES ($Science,$Technology,$Engineering,$Mathematics,$Synthesis,$Teamwork,$EQ,$Meditation)";
-	
-	echo $sql;
-	if ( mysqli_query($conn, $sql)) {
-		return true;
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		return false;
 	}
 }
 

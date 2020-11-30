@@ -26,7 +26,7 @@
 
 <body>
     <div class="container">
-        <form action="index.php" mothode="post">
+        <form action="" mothode="POST">
             <div class="row" style="padding-top: 3%; padding-bottom:4%">
                 <h1 style="font-weight: bold; text-align: center;">IBOT COMPITITIONS</h1>
                 <div class="main sup-topic" style="padding-top: 1%; color: #A8A5A5; text-align: center;   ">
@@ -71,14 +71,14 @@
                         </div>
                     </div>
                     <div class="row" style="margin-top:3%;">
-                        <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2" type="text" name="name" required style="margin-top: 1%;">
-                        <input type="text" class="form-control" placeholder="Surname" aria-label="Surname" aria-describedby="basic-addon2" type="text" name="surname" required style="margin-top: 1%;">
-                        <input type="text" class="form-control" placeholder="Email Address" aria-label="Email" aria-describedby="basic-addon2" type="email" name="email" required style="margin-top: 1%;">
-                        <input type="text" class="form-control" placeholder="Thailand" aria-label="Thailand" aria-describedby="basic-addon2" required style="margin-top: 1%;">
-                        <input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon2" type="text" name="city" required style="margin-top: 1%;">
-                        <input type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2" type="text" name="address" required style="margin-top: 1%;">
-                        <input type="text" class="form-control" placeholder="Zip or postal code" aria-label="postal" aria-describedby="basic-addon2" type="number" name="postal" required style="margin-top: 1%;">
-                        <input type="text" class="form-control" placeholder="Card number" aria-label="card" aria-describedby="basic-addon2" type="number" name="cardnumber" required style="margin-top: 1%;">
+                        <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2" type="text" name="name"  style="margin-top: 1%;"/>
+                        <input type="text" class="form-control" placeholder="Surname" aria-label="Surname" aria-describedby="basic-addon2" type="text" name="surname"  style="margin-top: 1%;"/>
+                        <input type="text" class="form-control" placeholder="Email Address" aria-label="Email" aria-describedby="basic-addon2" type="email" name="email"  style="margin-top: 1%;"/>
+                        <input type="text" class="form-control" placeholder="Thailand" aria-label="Thailand" aria-describedby="basic-addon2"  style="margin-top: 1%;"/>
+                        <input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon2" type="text" name="city"  style="margin-top: 1%;"/>
+                        <input type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2" type="text" name="address"  style="margin-top: 1%;"/>
+                        <input type="text" class="form-control" placeholder="Zip or postal code" aria-label="postal" aria-describedby="basic-addon2" type="number" name="postal"  style="margin-top: 1%;"/>
+                        <input type="text" class="form-control" placeholder="Card number" aria-label="card" aria-describedby="basic-addon2" type="number" name="cardnumber"  style="margin-top: 1%;"/>
 
                         <div class="row" style="margin-top: 2%; margin-left: 0%;">
                         <select name=month>
@@ -154,7 +154,7 @@
         </form>    
         <div class="row" style=" margin-top:1%; padding-bottom:2%;">
             <div class="col-md-2" style="padding-left:0%;">
-                <input name="submit" class="Button" type="submit" style="padding: 4px;  margin: 0px; width: 100%; padding-left:0%;  "></a>
+                <input name="insert" class="Button" type="submit" style="padding: 4px;  margin: 0px; width: 100%; padding-left:0%;  "></a>
             </div>
             <div class="col-md-2">
                 <a href="" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">BACK</a>

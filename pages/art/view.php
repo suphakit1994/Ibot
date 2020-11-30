@@ -82,13 +82,13 @@
                         </div>
                     </div>
                     
-                    <!-- form -->
+                    <!-- Form -->
 
                     <div class="row" style="margin-top:3%;">
                         <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2" type="text" name="name"  style="margin-top: 1%;"/>
                         <input type="text" class="form-control" placeholder="Surname" aria-label="Surname" aria-describedby="basic-addon2" type="text" name="surname"  style="margin-top: 1%;"/>
                         <input type="text" class="form-control" placeholder="Email Address" aria-label="Email" aria-describedby="basic-addon2" type="email" name="email"  style="margin-top: 1%;"/>
-                        <input type="text" class="form-control" placeholder="Thailand" aria-label="Thailand" aria-describedby="basic-addon2"  style="margin-top: 1%;"/>
+                        <input type="text" class="form-control" placeholder="Country" aria-label="Country" aria-describedby="basic-addon2"  name="country" type="country" style="margin-top: 1%;"/>
                         <input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon2" type="text" name="city"  style="margin-top: 1%;"/>
                         <input type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2" type="text" name="address"  style="margin-top: 1%;"/>
                         <input type="text" class="form-control" placeholder="Zip or postal code" aria-label="postal" aria-describedby="basic-addon2" type="number" name="postal"  style="margin-top: 1%;"/>
@@ -181,7 +181,7 @@
                     <a href="" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">BACK</a>
                 </div>
                 <div class="col-md-2">
-                    <a href="index.php?app=art&action=view_2" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">Page1</a>
+                    <a href="index.php?app=art&action=view_2" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">Page2</a>
                 </div>
             </div>
         </form>

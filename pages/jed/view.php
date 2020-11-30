@@ -190,7 +190,6 @@
         var start = event.start // a property (a Date object)
         calendar.render();
       });
-
     </script>
 
 

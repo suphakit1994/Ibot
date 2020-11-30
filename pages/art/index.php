@@ -23,16 +23,4 @@ if($_GET['action']=='insert'){
 // 	print_r($name);
 // 	require_once('viewtest.php');
 // }
-
-// if($_POST['action']=="insert"){
-// 	$name = artinsert($conn);
-// 	$surname = artinsert($conn);
-// 	$email = artinsert($conn);
-// 	$city = artinsert($conn);
-// 	$address = artinsert($conn);
-// 	$postal = artinsert($conn);
-// 	$cardnumber = artinsert($conn);
-// 	print_r($conn);
-// 	// require_once('view.php');
-// }
 ?>

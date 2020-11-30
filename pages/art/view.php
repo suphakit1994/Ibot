@@ -6,7 +6,6 @@
         font-weight: lighter;
         font-size: 17px;
     }
-    
     select[name=year]{
         border-color: #ffffff;
         border-bottom: 2px solid #F1ECEC;
@@ -21,13 +20,11 @@
         box-sizing: border-box;
         border: none;
         border-bottom: 2px solid #F1ECEC;
-        }
+    }
 </style>
-
 <body>
     <div class="container">
         <form action="index.php?app=art&action=insert" method="post">
-
             <!-- row1 -->
             <div class="row" style="padding-top: 3%; padding-bottom:4%">
                 <h1 style="font-weight: bold; text-align: center;">IBOT COMPITITIONS</h1>
@@ -35,22 +32,14 @@
                     <p>Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam <br> nonummy nibh euismod tinciduct urt laoreet dolore mayna</p>
                 </div>
             </div>
-
-
-
-
             <!-- row2 -->
-
             <div class="row">
                 <h2 style="font-weight: bold; margin-bottom:2%;">Payment methods</h2>
             </div>
             <div class="row">
                 <div class="col-lg-8" style="padding-right: 3%;">
-
                     <!-- Payment -->
-
                     <div class=" row" style="width:100%;">
-
                         <!-- No.1 -->
                         <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
                             <a href="">
@@ -62,9 +51,6 @@
                                 </div>
                             </a>
                         </div>
-
-
-
                         <!-- No.2 -->
                         <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
                             <a href="">
@@ -76,9 +62,6 @@
                                 </div>
                             </a>
                         </div>
-
-
-
                         <!-- No.3 -->
                         <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
                             <a href="">
@@ -91,12 +74,9 @@
                             </a>
                         </div>
                     </div>
-                    
                     <!-- Form -->
-
                     <div class="row" style="margin-top:3%;">
                         <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2" type="text" name="name"  style="margin-top: 1%;"/>     <!-- Name -->
-
                         <input type="text" class="form-control" placeholder="Surname" aria-label="Surname" aria-describedby="basic-addon2" type="text" name="surname"  style="margin-top: 1%;"/>    <!-- Surname -->
 
                         <input type="text" class="form-control" placeholder="Email Address" aria-label="Email" aria-describedby="basic-addon2" type="email" name="email"  style="margin-top: 1%;"/>     <!-- Email -->
@@ -110,15 +90,10 @@
                         <input type="text" class="form-control" placeholder="Zip or postal code" aria-label="postal" aria-describedby="basic-addon2" type="number" name="postal"  style="margin-top: 1%;"/>     <!-- Postal -->
 
                         <input type="text" class="form-control" placeholder="Card number" aria-label="card" aria-describedby="basic-addon2" type="number" name="cardnumber"  style="margin-top: 1%;"/>      <!-- CardNumber -->
-
-
-                        <!-- month and year -->
-
-
                         <!-- month -->
                         <div class="row" style="margin-top: 2%; margin-left: 0%;">
                             <select name=month>
-                            <option >month</option>
+                                <option >month</option>
                                 <?Php
                                 for ($i = 0; $i <= 11; $i++) {
                                     $month = date('F', strtotime("first day of -$i month"));
@@ -126,12 +101,9 @@
                                 }
                                 ?>
                             </select>
-
-
-
                             <!-- year -->
                             <select name=year>
-                            <option>year</option>
+                                <option>year</option>
                                 <?Php
                                 for ($i = 0; $i <= 100; $i++) {
                                     $year = date('Y', strtotime("last day of -$i year"));
@@ -142,11 +114,7 @@
                         </div>
                     </div>
                 </div>
-
-
-
-                    <!-- Information -->
-
+                <!-- Information -->
                 <div class="col-lg-4" style="border: 1px solid #D5D0D0; padding:2%;">
                     <div class="container" style="width: 100%;">
                         <div class="row">
@@ -193,14 +161,7 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
-            <!-- row3 -->
-                
-              <!-- Button -->
+            <!-- Button -->
             <div class="row" style=" margin-top:1%; padding-bottom:2%;">
                 <div class="col-md-2" style="padding-left:0%;">
                     <input name="insert" class="Button" type="submit" style="padding: 4px;  margin: 0px; width: 100%; padding-left:0%;  "></a>
@@ -213,9 +174,5 @@
                 </div>
             </div>
         </form>
-
-
     </div>
-
-
 </body>

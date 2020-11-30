@@ -10,24 +10,6 @@ function getdatediffmount(mysqli $conn,$mount){
 		return $data;
 	}
 }
-function Insert_calendar(mysqli $conn){
-	$title = $_POST["title"];
-	$sql = "INSERT INTO calendar(title) VALUES('$title')";
-	$result = mysqli_query($conn,$sql);
-
-}
-function Result_calendar(mysqli $conn){
-	$sql = "SELECT * FROM `calendar` WHERE 1 ";
-
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
-	}
-}
 
 function getdata(mysqli $conn){
 	$sql = "SELECT * FROM `user` WHERE 1 ";

@@ -25,12 +25,10 @@
 </style>
 
 <body>
-    <!-- row1 -->
     <div class="container">
         <form action="index.php?app=art&action=insert" method="post">
 
-            <!-- Head Content -->
-
+            <!-- row1 -->
             <div class="row" style="padding-top: 3%; padding-bottom:4%">
                 <h1 style="font-weight: bold; text-align: center;">IBOT COMPITITIONS</h1>
                 <div class="main sup-topic" style="padding-top: 1%; color: #A8A5A5; text-align: center;   ">
@@ -39,7 +37,7 @@
             </div>
 
 
-    <!-- row2 -->
+            <!-- row2 -->
 
             <div class="row">
                 <h2 style="font-weight: bold; margin-bottom:2%;">Payment methods</h2>
@@ -172,20 +170,20 @@
             </div>
 
 
-    <!-- row3 -->
+            <!-- row3 -->
                 
-        <!-- Button -->
-        <div class="row" style=" margin-top:1%; padding-bottom:2%;">
-            <div class="col-md-2" style="padding-left:0%;">
-                <input name="insert" class="Button" type="submit" style="padding: 4px;  margin: 0px; width: 100%; padding-left:0%;  "></a>
+              <!-- Button -->
+            <div class="row" style=" margin-top:1%; padding-bottom:2%;">
+                <div class="col-md-2" style="padding-left:0%;">
+                    <input name="insert" class="Button" type="submit" style="padding: 4px;  margin: 0px; width: 100%; padding-left:0%;  "></a>
+                </div>
+                <div class="col-md-2">
+                    <a href="" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">BACK</a>
+                </div>
+                <div class="col-md-2">
+                    <a href="index.php?app=art&action=view_2" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">Page1</a>
+                </div>
             </div>
-            <div class="col-md-2">
-                <a href="" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">BACK</a>
-            </div>
-            <div class="col-md-2">
-                <a href="index.php?app=art&action=view_2" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">Page1</a>
-            </div>
-        </div>
         </form>
 
 

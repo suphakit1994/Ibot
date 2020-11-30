@@ -14,6 +14,7 @@ if($_GET['action']=="view_2"){
 }
 
 if($_GET['action']=='insert'){
+	$cus = insert($conn,$_POST);
 	print_r($_POST);
 }
 

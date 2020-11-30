@@ -13,22 +13,24 @@ function testart(mysqli $conn){
 }
 
 function insert(mysqli $conn,$data=[]){
-	$sql = "INSERT INTO order (name,surname,email,city,address,postal,cardnumber) 
+	$sql = "INSERT INTO `order` (name,surname,email,city,address,postal,cardnumber) 
 	VALUES('".$data['name']."',
         '".$data['surname']."',
         '".$data['email']."',
         '".$data['city']."',
         '".$data['address']."',
         '".$data['postal']."',
-        '".$data['cardnumber']."',)";
+        '".$data['cardnumber']."')";
+        echo $sql;
  	if(mysqli_query($conn,$sql)){
  		return true;
  	}else{
          echo "Error: ".$sql ."<br>" . mysqli_error($conn);
          return false;
      }
+     mysqli_close($conn);
+}
 
-    }
 
 
 // function artinsert(mysqli $conn,$data=[]){

@@ -9,20 +9,12 @@ if(!isset($_GET['action']) ){
 	require_once('view.php');
 	
 }
-error_reporting(~E_NOTICE);
 if($_GET['action']=="view_2"){
 	require_once('view_2.php');
 }
 
-if($_POST['action']=='insert'){
-	$name = insert($conn,$data);
-	$surname = insert($conn,$data);
-	$email = insert($conn,$data);
-	$city = insert($conn,$data);
-	$address = insert($conn,$data);
-	$postal = insert($conn,$data);
-	$cardnumber = insert($conn,$data);
-	print_r($conn,$data);
+if($_GET['action']=='insert'){
+	print_r($_POST);
 }
 
 // if($_GET['action']=="viewtest"){

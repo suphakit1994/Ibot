@@ -21,14 +21,14 @@ function insert(mysqli $conn,$data=[]){
         '".$data['address']."',
         '".$data['postal']."',
         '".$data['cardnumber']."',)";
-	if(mysqli_query($conn,$sql)){
-		echo "Record Saved Successfully!";
-	}else{
-        echo "Error: ".$sql ."<br>" . mysqli_error($conn);
-        return false;
+ 	if(mysqli_query($conn,$sql)){
+ 		return true;
+ 	}else{
+         echo "Error: ".$sql ."<br>" . mysqli_error($conn);
+         return false;
+     }
+
     }
-    mysqli_close($conn);
-}
 
 
 // function artinsert(mysqli $conn,$data=[]){

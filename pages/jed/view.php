@@ -196,7 +196,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row" style="display: flex; margin-bottom: 0 !important; align-items: center;">
-                            <div class="col-md-5" style="display: flex; margin-bottom: 0 !important; padding-top: 15px; padding-left: 30px;">
+                            <div class="col-md-5" style="width:50%; display: flex; margin-bottom: 0 !important; padding-top: 15px; padding-left: 30px;">
                                 <img style="border-radius:3%; width:150px; height:215px;" src="../images/e.jpg" >
                             </div>
                             <div class="col-md-5 " style="width: 50%">
@@ -236,14 +236,14 @@
 
                 <div class=" row" style="display: flex; margin-bottom: 0 !important;">
                     <div class="col-md-5" style="width: 50%;">
-                        <p style="font-size: 30px; padding-left: 20px; padding-top: 25px;"><b>10:00 AM</b></p>
+                        <p style="font-size: 30px; padding-left: 14px; padding-top: 25px;"><b>10:00 AM</b></p>
                     </div>
                     <div class="col-md-5" style="width: 50%;">
-                       <p style="font-size: 30px; padding-top: 25px;"><b>-</b></p>
-                   </div>
-               </div>
+                     <p style="font-size: 30px; padding-top: 25px;"><b>-</b></p>
+                 </div>
+             </div>
 
-               <div class="row" style="display: flex; margin-bottom: 0 !important;">
+             <div class="row" style="display: flex; margin-bottom: 0 !important;">
                 <div class="col-md-5" style="width: 100%;">
                     <p style="font-size: 15px; padding-top: 25px; padding-left: 14px;"><b>Detail</b></p>
                 </div>
@@ -251,9 +251,9 @@
 
             <div class="row" style="display: flex; margin-bottom: 0 !important;">
                 <div class="col-md-5" style="width: 50%;">
-                    <p style="pading-left:14px;">Availability:</p>
-                    <p style="pading-left:14px;">Age:</p>
-                    <p style="pading-left:14px;">Work Time:</p>
+                    <p style="margin-left:14px;">Availability:</p>
+                    <p style="margin-left:14px;">Age:</p>
+                    <p style="margin-left:14px;">Work Time:</p>
                 </div>
                 <div class="col-md-5" style="width: 50%;">
                     <p style="">Part time</p>
@@ -265,28 +265,28 @@
 
             <div class="row" style="display: flex; margin-bottom: 0 !important;">
                 <div class="col-md-12" style="margin-top:10%;">
-                   <div class="row">
-                       <div class="col-md-3" style="margin-left:4%;">
-                           <div class="row">
-                              <div class="retangled-blue" style="border-radius:3%;"></div>
-                              <div class="col-sm-8" style="margin-left:4%;"><p>Attended</p></div>
-                          </div>	
-                      </div>
-                      <div class="col-md-4">
-                       <div class="row">
-                          <div class="retangled-pink" style="border-radius:3%;"></div>
-                          <div class="col-sm-8" style="margin-left:4%;"><p>Take a leave</p></div>
+                    <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                     <div class="col-md-3" style="margin-left:4%;">
+                        <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                          <div class="retangled-blue" style="border-radius:3%;"></div>
+                          <div class="col-sm-8" style="margin-left:4%;"><p>Attended</p></div>
                       </div>	
                   </div>
-                  <div class="col-md-3">
-                   <div class="row">
-                      <div class="retangled-black" style="border-radius:3%;"></div>
-                      <div class="col-sm-8" style="margin-left:4%;"><p>Schedule</p></div>
+                  <div class="col-md-4">
+                    <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                      <div class="retangled-pink" style="border-radius:3%;"></div>
+                      <div class="col-sm-8" style="margin-left:4%;"><p>Take a leave</p></div>
                   </div>	
               </div>
+              <div class="col-md-3">
+                <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                  <div class="retangled-black" style="border-radius:3%;"></div>
+                  <div class="col-sm-8" style="margin-left:4%;"><p>Schedule</p></div>
+              </div>	
           </div>
       </div>
   </div>
+</div>
 </div>
 </div>
 </div>

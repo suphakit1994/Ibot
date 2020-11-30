@@ -11,7 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.css">  
 <script type="text/javascript">
 	$.datetimepicker.setLocale('th');
 	jQuery('.date').datetimepicker({
@@ -153,5 +155,175 @@
 		margin: 10px;
 		text-align: center;   
 		border: 1px solid #000000;
+	}
+	.card {
+		box-shadow: 0 2px 5px 0 rgb(0 0 0), 0 4px 5px 0 rgba(0, 0, 0, 0.19);
+		width: 100%;
+		padding-bottom: 10px;
+	}
+	.retangled-blue{
+		background-color: #0056f7;
+		position: absolute;
+		height:15px;
+		width:15px;
+	}
+	.retangled-pink{
+		background-color: #FF5894;
+		position: absolute;
+		height:15px;
+		width:15px;
+	}
+	.retangled-black{
+		background-color: #050a17;
+		position: absolute;
+		height:15px;
+		width:15px;
+	}
+	.calendar-day {
+		width: 100px;
+		min-width: 100px;
+		max-width: 100px;
+		height: 80px;
+	}
+	.calendar-table {
+		margin: 0 auto;
+		width: 700px;
+	}
+	.selected {
+		background-color: #eee;
+	}
+	.outside .date {
+		color: #ccc;
+	}
+	.timetitle {
+		white-space: nowrap;
+		text-align: right;
+	}
+	.event {
+		border-top: 1px solid #b2dba1;
+		border-bottom: 1px solid #b2dba1;
+		background-image: linear-gradient(to bottom, #dff0d8 0px, #c8e5bc 100%);
+		background-repeat: repeat-x;
+		color: #3c763d;
+		border-width: 1px;
+		font-size: 0.75em;
+		padding: 0 0.75em;
+		line-height: 2em;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		margin-bottom: 1px;
+	}
+	.event.begin {
+		border-left: 1px solid #b2dba1;
+		border-top-left-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}
+	.event.end {
+		border-right: 1px solid #b2dba1;
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+	.event.all-day {
+		border-top: 1px solid #9acfea;
+		border-bottom: 1px solid #9acfea;
+		background-image: linear-gradient(to bottom, #d9edf7 0px, #b9def0 100%);
+		background-repeat: repeat-x;
+		color: #31708f;
+		border-width: 1px;
+	}
+	.event.all-day.begin {
+		border-left: 1px solid #9acfea;
+		border-top-left-radius: 4px;
+		border-bottom-left-radius: 4px;
+	}
+	.event.all-day.end {
+		border-right: 1px solid #9acfea;
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+	.event.clear {
+		background: none;
+		border: 1px solid transparent;
+	}
+	.table-tight > thead > tr > th,
+	.table-tight > tbody > tr > th,
+	.table-tight > tfoot > tr > th,
+	.table-tight > thead > tr > td,
+	.table-tight > tbody > tr > td,
+	.table-tight > tfoot > tr > td {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.table-tight-vert > thead > tr > th,
+	.table-tight-vert > tbody > tr > th,
+	.table-tight-vert > tfoot > tr > th,
+	.table-tight-vert > thead > tr > td,
+	.table-tight-vert > tbody > tr > td,
+	.table-tight-vert > tfoot > tr > td {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	/* The Modal (background) */
+	.modal {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		padding-top: 100px; /* Location of the box */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content */
+	.modal-content {
+		position: relative;
+		background-color: #fefefe;
+		margin: auto;
+		padding: 0;
+		border: 1px solid #888;
+		width: 80%;
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+		-webkit-animation-name: animatetop;
+		-webkit-animation-duration: 0.4s;
+		animation-name: animatetop;
+		animation-duration: 0.4s
+	}
+	/* Add Animation */
+	@-webkit-keyframes animatetop {
+		from {top:-300px; opacity:0} 
+		to {top:0; opacity:1}
+	}
+	@keyframes animatetop {
+		from {top:-300px; opacity:0}
+		to {top:0; opacity:1}
+	}
+	/* The Close Button */
+	.close {
+		color: white;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+	.close:hover,
+	.close:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+	}
+	.modal-header {
+		padding: 2px 16px;
+		background-color: #5cb85c;
+		color: white;
+	}
+	.modal-body {padding: 2px 16px;}
+	.modal-footer {
+		padding: 2px 16px;
+		background-color: #5cb85c;
+		color: white;
 	}
 </style>

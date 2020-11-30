@@ -70,7 +70,7 @@
               <div name="card" class="col-md-3" style="padding-bottom: 100px;" >
               <div class="card" >
                   <div class="card-image" >
-                      <img class="card-img-top" src="../images/img_5terre.jpg" alt="Card image cap" >
+                        <img class="card-img-top" src="../images/img_5terre.jpg" alt="Card image cap" >
                       <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;"><B><?php echo $data[$i]['category']; ?></B></span>
                   </div>
 

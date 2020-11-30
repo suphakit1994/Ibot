@@ -48,6 +48,9 @@
         <!-- main -->
         <div class="main" style="padding-top: 3%; padding-bottom:15%;">
             <div class="main topic">
+
+                
+                <!-- Topic -->
                 <h1 style="font-weight: bold;">IBOT CAMP</h1>
                 <div class="main sup-topic" style="padding-top: 1%; color: #A8A5A5;   ">
                     <p>Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam <br> nonummy nibh euismod tinciduct urt laoreet dolore mayna</p>
@@ -58,7 +61,13 @@
             <!-- rectangle -->
             <div class="rectangle" style="height: 625px; width: 700px; margin-top: 2%; border-radius: 2%; padding-top:2%; ">
                 <div class=" rectangle topicrec">
+
+
+                    <!-- headcontent -->
                     <h1 style="font-weight: bold;">FIRST® LEGO®<br> League Season Challenges</h1>
+
+
+                    <!-- content -->
                     <div class="rectangle content " style="font-size: 15px; color: #A8A5A5; margin-top:3% ">
                         <p>Every year,FIRST League releases a new Challenge based on a real-world scientific theme.</p>
                         <p>Starting with Discover, children are introduced to the fundamentals of STEM while working together to solve fun challenge and buildubg models using LEGO DUPLO bricks.</p>
@@ -69,6 +78,10 @@
                     </div>	
                 </div>
             </div>
+
+
+
+            <!-- image -->
             <div class="image ">
                 <img src="../images/images.png" style="width:525px; height:400px; border-radius:2%;">
 					<!-- <img src="test.png " alt="test " style="width:100%; height:100%; border-radius:2%;"> -->

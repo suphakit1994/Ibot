@@ -37,6 +37,8 @@
             </div>
 
 
+
+
             <!-- row2 -->
 
             <div class="row">
@@ -49,7 +51,7 @@
 
                     <div class=" row" style="width:100%;">
 
-
+                        <!-- No.1 -->
                         <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
                             <a href="">
                                 <div class=" col-sm-4">
@@ -60,6 +62,10 @@
                                 </div>
                             </a>
                         </div>
+
+
+
+                        <!-- No.2 -->
                         <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
                             <a href="">
                                 <div class="col-sm-4">
@@ -70,6 +76,10 @@
                                 </div>
                             </a>
                         </div>
+
+
+
+                        <!-- No.3 -->
                         <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
                             <a href="">
                                 <div class="col-sm-4">
@@ -85,40 +95,55 @@
                     <!-- Form -->
 
                     <div class="row" style="margin-top:3%;">
-                        <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2" type="text" name="name"  style="margin-top: 1%;"/>
-                        <input type="text" class="form-control" placeholder="Surname" aria-label="Surname" aria-describedby="basic-addon2" type="text" name="surname"  style="margin-top: 1%;"/>
-                        <input type="text" class="form-control" placeholder="Email Address" aria-label="Email" aria-describedby="basic-addon2" type="email" name="email"  style="margin-top: 1%;"/>
-                        <input type="text" class="form-control" placeholder="Country" aria-label="Country" aria-describedby="basic-addon2"  name="country" type="country" style="margin-top: 1%;"/>
-                        <input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon2" type="text" name="city"  style="margin-top: 1%;"/>
-                        <input type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2" type="text" name="address"  style="margin-top: 1%;"/>
-                        <input type="text" class="form-control" placeholder="Zip or postal code" aria-label="postal" aria-describedby="basic-addon2" type="number" name="postal"  style="margin-top: 1%;"/>
-                        <input type="text" class="form-control" placeholder="Card number" aria-label="card" aria-describedby="basic-addon2" type="number" name="cardnumber"  style="margin-top: 1%;"/>
+                        <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2" type="text" name="name"  style="margin-top: 1%;"/>     <!-- Name -->
+
+                        <input type="text" class="form-control" placeholder="Surname" aria-label="Surname" aria-describedby="basic-addon2" type="text" name="surname"  style="margin-top: 1%;"/>    <!-- Surname -->
+
+                        <input type="text" class="form-control" placeholder="Email Address" aria-label="Email" aria-describedby="basic-addon2" type="email" name="email"  style="margin-top: 1%;"/>     <!-- Email -->
+
+                        <input type="text" class="form-control" placeholder="Country" aria-label="Country" aria-describedby="basic-addon2"  name="country" type="country" style="margin-top: 1%;"/>     <!-- Country -->
+
+                        <input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon2" type="text" name="city"  style="margin-top: 1%;"/>     <!-- City -->
+
+                        <input type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2" type="text" name="address"  style="margin-top: 1%;"/>        <!-- Address -->
+
+                        <input type="text" class="form-control" placeholder="Zip or postal code" aria-label="postal" aria-describedby="basic-addon2" type="number" name="postal"  style="margin-top: 1%;"/>     <!-- Postal -->
+
+                        <input type="text" class="form-control" placeholder="Card number" aria-label="card" aria-describedby="basic-addon2" type="number" name="cardnumber"  style="margin-top: 1%;"/>      <!-- CardNumber -->
+
 
                         <!-- month and year -->
 
+
+                        <!-- month -->
                         <div class="row" style="margin-top: 2%; margin-left: 0%;">
-                        <select name=month>
-                        <option >month</option>
-                            <?Php
-                            for ($i = 0; $i <= 11; $i++) {
-                                $month = date('F', strtotime("first day of -$i month"));
-                                echo "<option value=$month>$month</option> ";
-                            }
-                            ?>
-                        </select>
-                        <select name=year>
-                        <option>year</option>
-                            <?Php
-                            for ($i = 0; $i <= 100; $i++) {
-                                $year = date('Y', strtotime("last day of -$i year"));
-                                echo "<option name='$year'>$year</option>";
-                            }
-                            ?>
-                        </select>
+                            <select name=month>
+                            <option >month</option>
+                                <?Php
+                                for ($i = 0; $i <= 11; $i++) {
+                                    $month = date('F', strtotime("first day of -$i month"));
+                                    echo "<option value=$month>$month</option> ";
+                                }
+                                ?>
+                            </select>
+
+
+
+                            <!-- year -->
+                            <select name=year>
+                            <option>year</option>
+                                <?Php
+                                for ($i = 0; $i <= 100; $i++) {
+                                    $year = date('Y', strtotime("last day of -$i year"));
+                                    echo "<option name='$year'>$year</option>";
+                                }
+                                ?>
+                            </select>
                         </div>
                     </div>
-
                 </div>
+
+
 
                     <!-- Information -->
 
@@ -168,6 +193,9 @@
                     </div>
                 </div>
             </div>
+
+
+
 
 
             <!-- row3 -->

@@ -66,7 +66,7 @@
             for($i=0;$i<$arrlength; $i++){  //loop card 
      ?>
         
-        <a href="..faii.php" >
+        <a href="..faii_ft.php" >
               <div name="card" class="col-md-3" style="padding-bottom: 100px;" >
               <div class="card" >
                   <div class="card-image" >

@@ -59,7 +59,7 @@
                            
 
                     </div>
-                <form method="post" action="index.php?app=faii&action=student">
+                <form href="..faii_ft.php" method="post" action="index.php?app=faii&action=student">
                     <div class="row">
                         <div class="col-md-6">
                             <span> <p> <b class="monospace">STEM 1 : Science and Technology</b></p></span>   
@@ -83,7 +83,7 @@
 
                                 <div class="custom-select" name="option" style=" height: 40px;">
                                 <br style="top:auto;">
-                                                <select name= <?php echo $stem1[$i]?> style="height: 70%; width:200%;">
+                                                <select onchange ="displayDate()" name= <?php echo $stem1[$i]?> style="height: 70%; width:200%;">
                                                     <option value="1" style="font-size: 10px;">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -114,16 +114,16 @@
                         <div class="col-md-6">
                             <!-- <br> -->
                             
-                            <?php $stem2=["Synthesis","Teamwork","EQ","Meditation"];
+                            <?php $stem2=["Synthesis","Teamwork","EQ","Meditation"]; ?>
                             
-                             for($i=0;$i<4;$i++){ 
+                            <?php for($i=0;$i<4;$i++){ 
                                 
                                 ?>
 
                                 <div class="custom-select" style=" height: 40px;">
                                 <br style="top:auto;">
                                             <!-- <input type="text"> -->
-                                                <select   name=<?php echo $stem2[$i] ?> style="height: 70%; width:200%;">
+                                                <select   onclick ="displayDate()" name=<?php echo $stem2[$i] ?> style="height: 70%; width:200%;">
                                                     <option value="1" style="font-size: 10px;">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -132,15 +132,16 @@
                                                 
                                                 </select>
                                 </div>
+
                             <?php } ?>
 
                         </div>
-
+ 
                     </div>
                    
                         <hr >
                         <div class="col-md-4"> <span> <p> <b class="monospace">Total Score</b></p></span>  </div>
-                        <div class="col-md-4"> <span> <p class="monospace"> .............</p></span>  </div>
+                        <div class="col-md-4"> <span> <p class="monospace" id="demo"> </p></span>  </div>
                         <div class="col-md-4"> <span> <p> <b class="monospace">Score</b></p></span>  </div>
                     
                    
@@ -153,7 +154,12 @@
 
             </div>
 
-                
+            <script>
+                function displayDate() {
+                document.getElementById("demo").nodeValue = "1111 ";
+                }
+            </script>
+        
                 
     <!-- <form method="post" action="index.php?app=faii&action=student">
         <input type="text" name="in">

@@ -16,7 +16,47 @@ function getselect(mysqli $conn){
 	}
 }
 
-// //ดึงค่าเฉลี่ยมาแสดง ที่แถบ total หน้า student assessment
+
+
+
+//รับค่าคะแนนเข้าดาต้าเบส
+function insterstudent(mysqli $conn,$data){
+	$sql = " INSERT INTO `student_assessment` ( 
+		`Total`,
+		`Science`, 
+		`Technology`, 
+		`Engineering`, 
+		`Teamwork`, 
+		`EQ`, 
+		`Mathematics`, 
+		`Synthesis`, 
+		`Meditation`) 
+	 VALUES (
+	 '".$data['Total']."',
+	 '".$data['Science']."',
+	 '".$data['Technology']."',
+	 '".$data['Engineering']."',
+	 '".$data['Mathematics']."',
+	 '".$data['Synthesis']."',
+	 '".$data['Teamwork']."',
+	 '".$data['EQ']."',
+	 '".$data['Meditation']."')";
+	
+	if (mysqli_query($conn, $sql )) {  
+		echo"<script language=\"JavaScript\">";
+		echo"if(confirm('เพิ่มสำเร็จ'))";  
+		
+		echo"</script>";
+	} else {
+		echo"<script language=\"JavaScript\">";
+		echo"if(confirm('เพิ่มไม่สำเร็จ!!'))";    
+		
+		echo"</script>";
+		
+	}
+}
+
+//ดึงค่าเฉลี่ยมาแสดง ที่แถบ total หน้า student assessment
 // function selectstudent(mysqli $conn){
 	
 
@@ -33,46 +73,5 @@ function getselect(mysqli $conn){
 // 		return $data;
 // 	}
 // }
-//รับค่าคะแนนเข้าดาต้าเบส
-function insterstudent(mysqli $conn,$data){
-	$sql = " INSERT INTO `student_assessment` ( 
-		`Total`
-		`Science`, 
-		`Technology`, 
-		`Engineering`, 
-		`Teamwork`, 
-		`EQ`, 
-		`Mathematics`, 
-		`Synthesis`, 
-		`Meditation`) 
-	 VALUES ('".$data['Total']."',
-	 '".$data['Science']."',
-	 '".$data['Technology']."',
-	 '".$data['Engineering']."',
-	 '".$data['Mathematics']."',
-	 '".$data['Synthesis']."',
-	 '".$data['Teamwork']."',
-	 '".$data['EQ']."',
-	 '".$data['Meditation']."')";
-	
-	// $data['Technology'];
-	//  $data['Total']=($data['Science']+$data['Technology']+$data['Engineering']+$data['Mathematics']+$data['Synthesis']+$data['Teamwork']+$data['EQ']+$data['Meditation'])/8;
-	// echo $data['Total'];
-
-	
-
-	if (mysqli_query($conn, $sql )) {  
-		echo"<script language=\"JavaScript\">";
-		echo"if(confirm('เพิ่มสำเร็จ'))";  
-		
-		echo"</script>";
-	} else {
-		echo"<script language=\"JavaScript\">";
-		echo"if(confirm('เพิ่มไม่สำเร็จ!!'))";    
-		
-		echo"</script>";
-		
-	}
-}
 
 ?>

@@ -7,16 +7,15 @@ if(!isset($_GET['action'])){
 	$cus[] = getselect($conn);
 	require_once('our_course.php');
 }
+
 error_reporting(~E_NOTICE);
 if($_GET['action']=='student'){
 
-	// echo ($data['Science']+$data['Technology']+$data['Engineering']+$data['Mathematics']+$data['Synthesis']+$data['Teamwork']+$data['EQ']+$data['Meditation'])/8;
-	echo $data['Science'];
-
 	$data[] = insterstudent( $conn,$_POST);
-
-	// $data['Total']=($data['Science']+$data['Technology']+$data['Engineering']+$data['Mathematics']+$data['Synthesis']+$data['Teamwork']+$data['EQ']+$data['Meditation'])/8;
-	 echo $data['Total'];
+	$total[]= ($_POST['Science']+$_POST['Technology']+$_POST['Engineering']+$_POST['Mathematics']+
+				$_POST['Synthesis']+$_POST['Teamwork']+$_POST['EQ']+$_POST['Meditation'])/8;
+	$data[]=$total[0];
+	
 	require_once("student_assessment.php");	
 }
 ?>

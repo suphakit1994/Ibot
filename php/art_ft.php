@@ -13,14 +13,17 @@ function testart(mysqli $conn){
 }
 
 function insert(mysqli $conn,$data=[]){
-	$sql = "INSERT INTO `order` (name,surname,email,city,address,postal,cardnumber) 
+	$sql = "INSERT INTO `order` (name,surname,email,country,city,address,postal,cardnumber,month,year) 
 	VALUES('".$data['name']."',
         '".$data['surname']."',
         '".$data['email']."',
+        '".$data['country']."',
         '".$data['city']."',
         '".$data['address']."',
         '".$data['postal']."',
-        '".$data['cardnumber']."')";
+        '".$data['cardnumber']."',
+    	'".$data['month']."',
+		'".$data['year']."')";
         echo $sql;
  	if(mysqli_query($conn,$sql)){
  		return true;

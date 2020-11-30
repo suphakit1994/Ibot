@@ -199,93 +199,94 @@
                             <div class="col-md-5" style="display: flex; margin-bottom: 0 !important; padding-top: 15px; padding-left: 30px;">
                                 <img style="border-radius:3%; width:150px; height:215px;" src="../images/e.jpg" >
                             </div>
-                            <div class="col-md-5 " style="dispaly:flex: ; height:100% !important; align-items: center; width: 80%; padding: auto;">
+                            <div class="col-md-5 " style="width: 50%">
                                 <p style="width: 100%; font-size:16px;">Svetiana Anyukova</p>
                                 <p style="margin-bottom: 0 !important">Teacher Assistance</p>
                             </div>
                             
                         </div>
                         <br>
-                        <div class="row" style="display: flex; margin-bottom: 0 !important; align-items: center;">
-                            <div class="col-md-5" style="padding-left: 25px;">
+                        <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                            <div class="col-md-5" style="padding-left: 25px; width: 50%;">
                                 <a class="Button"
                                 style="padding: 3px;  margin-left: 1px; width: 150px; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Check
                             In</a>
                         </div>
-                        <div class="col-md-5" style="width: 100%;">
+                        <div class="col-md-5" style="width: 50%;">
                             <a class="Button"
                             style="padding: 3px;  margin-left: 1px; width: 150px; text-align: center; background: #ffffff; border: 1px solid #000000; color:black;">Take
                         a leave</a>
                     </div>
                 </div>
-                <div class="row" style="display: flex:">
-                    <div class="col-md-5" style="display: flex: align-items: center; margin-top:15px; padding-left: 30px;">
-                        <p style="font-size: 20px;">Sat 7 Oct 2020</p>
+
+                <div class="row" style="display: flex:margin-bottom: 0 !important ">
+                    <div class="col-md-5" style="display: flex: width: 100%">
+                        <p style="font-size: 20px; padding-left: 14px; padding-top: 20px">Sat 7 Oct 2020</p>
                     </div>
                 </div>
 
-                <div class="row" style="display: flex:">
-                    <div class="col-md-5" style="width: 34%;">
-                        <p style="height:100% !important; font-size: 15px; margin: auto; padding-left: 14px; padding-top: 25px;">Attend</p>
+                <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                    <div class="col-md-5" style="width: 50%;">
+                        <p style="font-size: 15px; padding-left: 14px; padding-top: 25px;">Attend</p>
                     </div>
-                    <div class="col-md-5" style="align-items: center;" >
+                    <div class="col-md-5" style="width: 50%;" >
                         <p style="font-size: 15px; padding-top: 25px;">Out</p>
                     </div>
                 </div>
 
-                <div class=" row" style="display: flex: margin-bottom: 0 !important: ">
-                    <div class="col-md-5" style="width: 32%; margin-left: 2%;;">
-                        <p style="font-size: 30px; padding-left: 14px; margin: auto;padding-top: 25px"><b>10:00 AM</b></p>
+                <div class=" row" style="display: flex; margin-bottom: 0 !important;">
+                    <div class="col-md-5" style="width: 50%;">
+                        <p style="font-size: 30px; padding-left: 20px; padding-top: 25px;"><b>10:00 AM</b></p>
                     </div>
-                    <div class="col-md-5" style="pading-left:0%; margin-top:5%;">
-                     <p style="font-size: 30px"><b>-</b></p>
-                 </div>
-             </div>
+                    <div class="col-md-5" style="width: 50%;">
+                       <p style="font-size: 30px; padding-top: 25px;"><b>-</b></p>
+                   </div>
+               </div>
 
-             <div class="row">
-                <div class="col-md-5" style="margin-top: 5%;margin-left:2%;">
-                    <p style="font-size: 15px;"><b>Detail</b></p>
+               <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                <div class="col-md-5" style="width: 100%;">
+                    <p style="font-size: 15px; padding-top: 25px; padding-left: 14px;"><b>Detail</b></p>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-5" style="margin-left:2%">
-                    <p>Availability:</p>
-                    <p>Age:</p>
-                    <p>Work Time:</p>
+            <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                <div class="col-md-5" style="width: 50%;">
+                    <p style="pading-left:14px;">Availability:</p>
+                    <p style="pading-left:14px;">Age:</p>
+                    <p style="pading-left:14px;">Work Time:</p>
                 </div>
-                <div class="col-md-5">
-                    <p style="text-align: left; pading-left:0%;">Part time</p>
-                    <p style="text-align: left; pading-left:0%;">25 years old</p>
-                    <p style="text-align: left; pading-left:0%;">Sat 10:30-12:00 ฿ 75/Day</p>
-                    <p style="text-align: left; pading-left:0%;">Sun 10:30-12:00 ฿ 75/Day</p>
+                <div class="col-md-5" style="width: 50%;">
+                    <p style="">Part time</p>
+                    <p style="">25 years old</p>
+                    <p style="">Sat 10:30-12:00 ฿ 75/Day</p>
+                    <p style="">Sun 10:30-12:00 ฿ 75/Day</p>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" style="display: flex; margin-bottom: 0 !important;">
                 <div class="col-md-12" style="margin-top:10%;">
-                 <div class="row">
-                     <div class="col-md-3" style="margin-left:4%;">
-                         <div class="row">
-                          <div class="retangled-blue" style="border-radius:3%;"></div>
-                          <div class="col-sm-8" style="margin-left:4%;"><p>Attended</p></div>
+                   <div class="row">
+                       <div class="col-md-3" style="margin-left:4%;">
+                           <div class="row">
+                              <div class="retangled-blue" style="border-radius:3%;"></div>
+                              <div class="col-sm-8" style="margin-left:4%;"><p>Attended</p></div>
+                          </div>	
+                      </div>
+                      <div class="col-md-4">
+                       <div class="row">
+                          <div class="retangled-pink" style="border-radius:3%;"></div>
+                          <div class="col-sm-8" style="margin-left:4%;"><p>Take a leave</p></div>
                       </div>	
                   </div>
-                  <div class="col-md-4">
-                     <div class="row">
-                      <div class="retangled-pink" style="border-radius:3%;"></div>
-                      <div class="col-sm-8" style="margin-left:4%;"><p>Take a leave</p></div>
+                  <div class="col-md-3">
+                   <div class="row">
+                      <div class="retangled-black" style="border-radius:3%;"></div>
+                      <div class="col-sm-8" style="margin-left:4%;"><p>Schedule</p></div>
                   </div>	
               </div>
-              <div class="col-md-3">
-                 <div class="row">
-                  <div class="retangled-black" style="border-radius:3%;"></div>
-                  <div class="col-sm-8" style="margin-left:4%;"><p>Schedule</p></div>
-              </div>	
           </div>
       </div>
   </div>
-</div>
 </div>
 </div>
 </div>
@@ -296,117 +297,20 @@
 
 
     <div class="row">
-
-
         <div class="col-md-12" style="text-align:right;">
             <form method='get'>
                 <a class="Button" style="margin-top:2%; padding: 5px; width:150px;  text-align: center;"
                 href="index.php?app=jed&action=compititions">Next</a> 
             </form>
-        </div>
-        <form method="POST">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Calendar</label>
-                <input type="text" name="title" class="form-control" id="" aria-describedby="emailHelp" placeholder="Title" style="margin-top:2%;">
-                <input type="text" name="start" class="form-control" id="" aria-describedby="emailHelp" placeholder="Start Time" style="margin-top:2%;">
-                <input type="text" name="end" class="form-control" id="" aria-describedby="emailHelp" placeholder="End Time" style="margin-top:2%;">
-            </div>
-            <input type="submit" class="Button" style=" width:150px;" value="SUBMIT">
 
-            <a  href="function.php">
-              <!--   <h1><?php echo $cus; ?></h1> -->
-          </a>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-              Launch demo modal
-          </button>
-
-
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Set Schedule</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Calendar</label>
-                        <input type="text" name="title" class="form-control" id="" aria-describedby="emailHelp" placeholder="Title" style="margin-top:2%;">
-                        <h4 for="exampleInputEmail1">Start Time</h4>
-                        <div style="margin-top:3%;">
-
-                            <?php 
-                            echo "<select name=day>";
-                            $day = date('d', strtotime("today UTC"));
-                            echo "<option selected>$day</option>";
-                            for ($i = 1; $i <= 31; $i++) {
-                                echo "<option name='$i'>$i</option>";
-
-                            }
-                            echo "</select>";
-
-
-                            echo "<select name=month>";
-                            for ($i = 0; $i <= 11; $i++) {
-                                $month = date('F', strtotime("first day of -$i month"));
-                                echo "<option value=$month> $month </option> ";
-                            }
-                            echo "</select>";
-
-                            echo "<select name=year>";
-                            for ($i = 0; $i <= 100; $i++) {
-                                $year = date('Y', strtotime("last day of -$i year"));
-                                echo "<option name='$year'>$year</option>";
-                            }
-                            echo "</select>";
-                            ?>
-                        </div>
-                        <div>
-                            <h4 for="exampleInputEmail1">End Time</h4>
-                        </div>
-                        <div style="margin-top:3%;">
-                            <?php 
-                            echo "<select name=day>";
-                            $day = date('d', strtotime("today UTC"));
-                                            // echo "<option selected="selected">$day</option>";
-                            echo "<option selected>$day</option>";
-                            for ($i = 1; $i <= 31; $i++) {
-                                echo "<option name='$i'>$i</option>";
-
-                            }
-                            echo "</select>";
-
-
-                            echo "<select name=month>";
-                            for ($i = 0; $i <= 11; $i++) {
-                                $month = date('F', strtotime("first day of -$i month"));
-                                echo "<option value=$month> $month </option> ";
-                            }
-                            echo "</select>";
-
-                            echo "<select name=year>";
-                            for ($i = 0; $i <= 100; $i++) {
-                                $year = date('Y', strtotime("last day of -$i year"));
-                                echo "<option name='$year'>$year</option>";
-                            }
-                            echo "</select>";
-                            ?>
-                        </div>
-                        <input type="submit" class="Button" style=" width:150px;" value="SUBMIT">
-
-                    </div>
-                </div>
-            </div>
+            <form action="index.php?app=jed&action=insert" method="POST">
+                <input type="text" name="title">
+                <input type="submit" >
+            </form>
         </div>
     </div>
-</form>
-</div>
 
 </div>
-
 
 
 

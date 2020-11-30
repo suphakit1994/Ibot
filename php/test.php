@@ -10,24 +10,6 @@ function getdatediffmount(mysqli $conn,$mount){
 		return $data;
 	}
 }
-function Insert_calendar(mysqli $conn){
-	$title = $_POST["title"];
-	$sql = "INSERT INTO calendar(title) VALUES('$title')";
-	$result = mysqli_query($conn,$sql);
-
-}
-function Result_calendar(mysqli $conn){
-	$sql = "SELECT * FROM `calendar` WHERE 1 ";
-
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
-	}
-}
 
 function getdata(mysqli $conn){
 	$sql = "SELECT * FROM `user` WHERE 1 ";
@@ -174,5 +156,44 @@ function convert(string $number): string
 		$output = str_replace($search, $replace, $output);
 	}
 	return $output;
+}
+
+function insertUserData(mysqli $conn,$data=[]){
+	$sql = "INSERT INTO user ( 
+	name,
+	lasname,
+	email,
+	password,
+	phone,
+	img,
+	local,
+	nick_name,
+	brank,
+	account,
+	code,
+	dateadd
+	)
+	VALUES ('".
+	$data['name']."','".
+	$data['lasname']."','".
+	$data['email']."','".
+	$data['password']."','".
+	$data['phone']."','".
+	$data['img']."','".
+	$data['local']."','".
+	$data['nick_name']."','".
+	$data['brank']."','".
+	$data['account']."','".
+	$data['code']."',
+	NOW() 
+)";
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false;
+}
+
+mysqli_close($conn);
 }
 ?>

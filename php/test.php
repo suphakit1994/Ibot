@@ -157,4 +157,43 @@ function convert(string $number): string
 	}
 	return $output;
 }
+
+function insertUserData(mysqli $conn,$data=[]){
+	$sql = "INSERT INTO user ( 
+	name,
+	lasname,
+	email,
+	password,
+	phone,
+	img,
+	local,
+	nick_name,
+	brank,
+	account,
+	code,
+	dateadd
+	)
+	VALUES ('".
+	$data['name']."','".
+	$data['lasname']."','".
+	$data['email']."','".
+	$data['password']."','".
+	$data['phone']."','".
+	$data['img']."','".
+	$data['local']."','".
+	$data['nick_name']."','".
+	$data['brank']."','".
+	$data['account']."','".
+	$data['code']."',
+	NOW() 
+)";
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false;
+}
+
+mysqli_close($conn);
+}
 ?>

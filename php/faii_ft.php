@@ -15,63 +15,51 @@ function getselect(mysqli $conn){
 		return $data;
 	}
 }
-
-
-
-
 //รับค่าคะแนนเข้าดาต้าเบส
 function insterstudent(mysqli $conn,$data){
 	$sql = " INSERT INTO `student_assessment` ( 
-		`Total`,
-		`Science`, 
-		`Technology`, 
-		`Engineering`, 
-		`Teamwork`, 
-		`EQ`, 
-		`Mathematics`, 
-		`Synthesis`, 
-		`Meditation`) 
-	 VALUES (
-	 '".$data['Total']."',
+		Total,
+		Science, 
+		Technology, 
+		Engineering, 
+		Teamwork, 
+		EQ, 
+		Mathematics, 
+		Synthesis, 
+		Meditation) 
+	 VALUES (	
+	 '".$data['Total']."',	  
 	 '".$data['Science']."',
 	 '".$data['Technology']."',
 	 '".$data['Engineering']."',
-	 '".$data['Mathematics']."',
-	 '".$data['Synthesis']."',
 	 '".$data['Teamwork']."',
 	 '".$data['EQ']."',
+	 '".$data['Mathematics']."',
+	 '".$data['Synthesis']."',
 	 '".$data['Meditation']."')";
 	
-	if (mysqli_query($conn, $sql )) {  
-		echo"<script language=\"JavaScript\">";
-		echo"if(confirm('เพิ่มสำเร็จ'))";  
-		
-		echo"</script>";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
 	} else {
-		echo"<script language=\"JavaScript\">";
-		echo"if(confirm('เพิ่มไม่สำเร็จ!!'))";    
-		
-		echo"</script>";
-		
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
 	}
-}
-
-//ดึงค่าเฉลี่ยมาแสดง ที่แถบ total หน้า student assessment
-// function selectstudent(mysqli $conn){
 	
+	mysqli_close($conn);
+	}
+	// if (mysqli_query($conn, $sql )) {  
+	// 	echo"<script language=\"JavaScript\">";
+	// 	echo"if(confirm('เพิ่มสำเร็จ'))";  
+		
+	// 	echo"</script>";
+	// } else {
+	// 	echo"<script language=\"JavaScript\">";
+	// 	echo"if(confirm('เพิ่มไม่สำเร็จ!!'))";    
 
-// 	$sql = "SELECT AVG( `Science`+ `Technology`+ `Engineering`+ `Teamwork`+ `EQ`+ `Meditation`+ `Synthesis`+ `Mathematics` )
-// 	FROM `student_assessment` WHERE 1";
-// 		$result = $conn->query($sql); 
-// 		echo $sql;
-// 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-// 		$data =[];
-// 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-// 			$data[] = $row;
-// 		}
-// 		$result->close();
-// 		return $data;
-// 	}
-// }
+	// 	echo"</script>";
+		
+	// }
+
 
 ?>

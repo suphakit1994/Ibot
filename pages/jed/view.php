@@ -99,6 +99,39 @@
               href="index.php?app=jed&action=compititions">Next</a> 
             </form>
             <form action="index.php?app=jed&action=insert" method="POST">
+              <div style="padding-top: 2%; padding-bottom: 2%;">
+                <!-- day -->
+                <h4 style="padding-right: 19%">Start Time</h4>
+                <select name=day>
+                  <option >day</option>
+                  <?Php
+                  for ($i = 0; $i <= 31; $i++) {
+                    $day = date('d', strtotime("today"));
+                    echo "<option value=$i>$i</option> ";
+                  }
+                  ?>
+                </select>
+                <!-- mounth -->
+                <select name=month>
+                  <option >month</option>
+                  <?Php
+                  for ($i = 0; $i <= 11; $i++) {
+                    $month = date('F', strtotime("first day of -$i month"));
+                    echo "<option value=$month>$month</option> ";
+                  }
+                  ?>
+                </select>
+                <!-- year -->
+                <select name=year>
+                  <option>year</option>
+                  <?Php
+                  for ($i = 0; $i <= 10; $i++) {
+                    $year = date('Y', strtotime("last day of -$i year"));
+                    echo "<option name='$year'>$year</option>";
+                  }
+                  ?>
+                </select>
+              </div>
               <input type="text" name="title">
               <input type="submit" >
             </form>
@@ -134,7 +167,7 @@
       selectable: true,
 
       headerToolbar: {
-        left: 'prev,next today myCustomButton',
+        left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },

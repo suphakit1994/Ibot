@@ -109,10 +109,9 @@
   </div>
 </body>
 <script>
-  var db_calendar = "<?php echo $cus; ?>"
-  var calendar_event =[];
-  db_calendar.forEach(value =>{
-    calendar_event.push( {
+  var eventcalendar =[];
+  <?php echo $cus; ?>.forEach(value =>{
+    eventcalendar.push( {
       id: 'a',
       title: value.title,
       start: value.start_time,
@@ -123,6 +122,7 @@
       borderColor: 'red'
     });
   });
+  
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -131,65 +131,53 @@
       timeZone: 'UTC',
       editable:true,
       droppable:true,
-      customButtons: {
-        myCustomButton: {
-          text: 'custom!',
-          click: function() {
-            alert('clicked the custom button!');
-          }
-        }
-      },
+      selectable: true,
+
       headerToolbar: {
         left: 'prev,next today myCustomButton',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
-      selectable: true,
       dateClick: function(info) {
         alert('Date: ' + info.dateStr);
       },
-      events: calendar_event
+      events: eventcalendar
       ,
-      eventAllow: function(dropInfo, draggedEvent) {
-        if (draggedEvent.id === '999') {
-                    return dropInfo.start < new Date(2020, 11, 27); // a boolean
-                  }
-                  else {
-                    return true;
-                  }
-                },
-                eventOverlap: function(stillEvent, movingEvent) {
-                  return stillEvent.allDay && movingEvent.allDay;
-                },
-                eventDrop: function(info) {
-                  alert(info.event.title + " was dropped on " + info.event.start.toISOString());
-                  if (!confirm("Are you sure about this change?")) {
-                    info.revert();
-                  }
-                },
-                eventResize: function(info) {
-                  alert(info.event.title + " end is now " + info.event.end.toISOString());
-                  if (!confirm("is this okay?")) {
-                    info.revert();
-                  }
-                },
-                eventDidMount: function(info) {
-                  if (info.event.extendedProps.status === 'done') {
-                    info.el.style.backgroundColor = 'red';
-                    var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
-                    if (dotEl) {
-                      dotEl.style.backgroundColor = 'white';
-                    }
-                  }
-                },
-                selectOverlap: function(event) {
-                  return event.rendering === 'background';
-                }
-              });
-        var event = calendar.getEventById('a') // an event object!
-        var start = event.start // a property (a Date object)
-        calendar.render();
-      });
-    </script>
+
+      eventOverlap: function(stillEvent, movingEvent) {
+        return stillEvent.allDay && movingEvent.allDay;
+      },
+      eventDrop: function(info) {
+        alert(info.event.title + " was dropped on " + info.event.start.toISOString());
+        if (!confirm("Are you sure about this change?")) {
+          info.revert();
+        }
+      },
+      eventResize: function(info) {
+        alert(info.event.title + " end is now " + info.event.end.toISOString());
+        if (!confirm("is this okay?")) {
+          info.revert();
+        }
+      },
+      eventDidMount: function(info) {
+        if (info.event.extendedProps.status === 'done') {
+          info.el.style.backgroundColor = 'red';
+          var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
+          if (dotEl) {
+            dotEl.style.backgroundColor = 'white';
+          }
+        }
+      },
+      selectOverlap: function(event) {
+        return event.rendering === 'background';
+      }
+    });
+    var event = calendar.getEventById('a') // an event object!
+    var start = event.start // a property (a Date object)
+    calendar.render();
+  });
+
+</script>
+
 
 

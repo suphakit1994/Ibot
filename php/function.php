@@ -11,7 +11,6 @@ function calendars(mysqli $conn){
 		$result->close();
 		return json_encode($data);
 	}
-
 }
 function insertData(mysqli $conn,$data=[]){
 	$sql = "INSERT INTO calendar (title)

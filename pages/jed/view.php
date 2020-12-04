@@ -92,6 +92,7 @@
       <div class="col-md-7" style="margin-left:1%">
         <div id="calendar">
         </div>
+
         <div class="row">
           <div class="col-md-12" style="text-align:right;">
             <form method='get'>
@@ -99,6 +100,7 @@
               href="index.php?app=jed&action=compititions">Next</a> 
             </form>
             <form action="index.php?app=jed&action=insert" method="POST">
+              <!-- Start time -->
               <div style="padding-top: 2%; padding-bottom: 2%;">
                 <!-- day -->
                 <h4 style="padding-right: 19%">Start Time</h4>
@@ -112,7 +114,7 @@
                   ?>
                 </select>
                 <!-- mounth -->
-                <select name=month>
+                <select name=mounth>
                   <option >month</option>
                   <?Php
                   for ($i = 0; $i <= 11; $i++) {
@@ -122,7 +124,42 @@
                   ?>
                 </select>
                 <!-- year -->
-                <select name=year>
+                <select name=start_time>
+                  <option>year</option>
+                  <?Php
+                  for ($i = 0; $i <= 10; $i++) {
+                    $year = date('Y', strtotime("last day of -$i year"));
+                    echo "<option name='$year'>$year</option>";
+                  }
+                  ?>
+                </select>
+              </div>
+
+              <!-- End time -->
+              <div style="padding-bottom: 2%;">
+                <!-- day -->
+                <h4 style="padding-right: 19%">End Time</h4>
+                <select name=day>
+                  <option >day</option>
+                  <?Php
+                  for ($i = 0; $i <= 31; $i++) {
+                    $day = date('d', strtotime("today"));
+                    echo "<option value=$i>$i</option> ";
+                  }
+                  ?>
+                </select>
+                <!-- mounth -->
+                <select name=mounth>
+                  <option >month</option>
+                  <?Php
+                  for ($i = 0; $i <= 11; $i++) {
+                    $month = date('F', strtotime("first day of -$i month"));
+                    echo "<option value=$month>$month</option> ";
+                  }
+                  ?>
+                </select>
+                <!-- year -->
+                <select name=end_time>
                   <option>year</option>
                   <?Php
                   for ($i = 0; $i <= 10; $i++) {

@@ -13,17 +13,26 @@ function calendars(mysqli $conn){
 	}
 }
 function insertData(mysqli $conn,$data=[]){
-	$sql = "INSERT INTO calendar (title)
-	VALUES ('".$data['title']."')";
-	echo $sql;
+	$sql = "INSERT INTO calendar (title,
+	start_time,
+	end_time
+	)
+	VALUES ('".
+	$data['title']."','".
+	$data['start_time']."','".
+	$data['end_time']."',
+	NOW()
+)";
 
-	if ( mysqli_query($conn, $sql)) {
-		return true;
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		return false;
-	}
-	mysqli_close($conn);
+echo $sql;
+
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false;
+}
+mysqli_close($conn);
 }
 
 

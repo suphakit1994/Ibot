@@ -13,15 +13,12 @@ function calendars(mysqli $conn){
 	}
 }
 function insertData(mysqli $conn,$data=[]){
-	$sql = "INSERT INTO calendar (title,
-	start_time,
-	end_time
-	)
+
+	$sql = "INSERT INTO calendar (title,start_time,end_time)
 	VALUES ('".
-	$data['title']."','".
-	$data['start_time']."','".
-	$data['end_time']."',
-	NOW()
+	$data['title']."',
+	'".$data['start_time']."',
+	'".$data['end_time']."'
 )";
 
 echo $sql;

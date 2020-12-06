@@ -100,15 +100,45 @@
               href="index.php?app=jed&action=compititions">Next</a> 
             </form>
             <form action="index.php?app=jed&action=insert" method="POST">
-              <label for="birthday">Start Time:</label>
-              <input type="date" id="birthday" name="start_time">
+              <label for="start">Start Time:</label>
+              <input type="date" id="start" name="start_time">
               <br>
-              <label for="birthday">End Time:</label>
-              <input type="date" id="birthday" name="end_time">
+              <label for="end">End Time:</label>
+              <input type="date" id="end" name="end_time">
               <br>
-              <input type="text" name="title">
+              <label for="titlee">Title:</label>
+              <input type="text" name="title" id="titlee">
               <input type="submit">
             </form>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+            
+          </div>
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                  <form action="index.php?app=jed&action=insert" method="POST">
+                    <label for="start">Start Time:</label>
+                    <input type="date" id="start" name="start_time">
+                    <br>
+                    <label for="end">End Time:</label>
+                    <input type="date" id="end" name="end_time">
+                    <br>
+                    <label for="titlee">Title:</label>
+                    <input type="text" name="title" id="titlee">
+                    <input type="submit">
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

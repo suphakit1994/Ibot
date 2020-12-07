@@ -28,8 +28,8 @@
             <!-- row1 -->
             <div class="row" style="padding-top: 3%; padding-bottom:4%">
                 <h1 style="font-weight: bold; text-align: center;">IBOT COMPITITIONS</h1>
-                <div class="main sup-topic" style="padding-top: 1%; color: #A8A5A5; text-align: center;   ">
-                    <p>Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam <br> nonummy nibh euismod tinciduct urt laoreet dolore mayna</p>
+                <div class="main sup-topic" style="padding-top: 1%; color: #A8A5A5; text-align: center; width: 65%; margin-left: 18%;   ">
+                    <p>Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam nonummy nibh euismod tinciduct urt laoreet dolore mayna</p>
                 </div>
             </div>
             <!-- row2 -->
@@ -39,9 +39,9 @@
             <div class="row">
                 <div class="col-lg-8" style="padding-right: 3%;">
                     <!-- Payment -->
-                    <div class=" row" style="width:100%;">
+                    <div class=" row" style="width:100%; display: flex;">
                         <!-- No.1 -->
-                        <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
+                        <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:1%;  margin-left: 1%; width:40%;">
                             <a href="">
                                 <div class=" col-sm-4">
                                     <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
@@ -52,7 +52,7 @@
                             </a>
                         </div>
                         <!-- No.2 -->
-                        <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
+                        <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:1%; width:40%;">
                             <a href="">
                                 <div class="col-sm-4">
                                     <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
@@ -63,7 +63,7 @@
                             </a>
                         </div>
                         <!-- No.3 -->
-                        <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:2px; width:33%">
+                        <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:1%; width:40%;">
                             <a href="">
                                 <div class="col-sm-4">
                                     <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
@@ -171,6 +171,7 @@
                 </div>
                 <div class="col-md-2">
                     <a href="index.php?app=art&action=view_2" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">Page2</a>
+                    <a href="index.php?app=art&action=view_3" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">Page3</a>
                 </div>
             </div>
         </form>

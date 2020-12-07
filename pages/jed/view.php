@@ -1,3 +1,94 @@
+<head>
+  <style>
+    $grey: #F5F5F5;
+    $dark-grey: #323B40;
+
+    $light-blue: #E0F5FF;
+    $blue: #B9E5FE;
+    $dark-blue: #00A5FA;
+
+    $green: #B7E0DC;
+    $dark-green: #019888;
+
+    $lime: #C7E8C8;
+    $dark-lime: #42B045;
+
+    $yellow: #FFEEBA;
+    $dark-yellow: #FF9901;
+
+    $pink: #FABAD0;
+    $dark-pink: #EF075F;
+
+    $red: #FEC9C6;
+    $dark-red: #FD3D08;
+
+    @mixin color-div($color1, $color2){
+      background-color: $color1;
+      color: $color2;
+    }
+
+    .container {
+      padding: 2rem 0rem;
+    }
+
+    h4 {
+      margin: 2rem 0rem;
+    }
+
+    .panel {
+      border-radius: 4px;
+      padding: 1rem;
+      margin-top: 0.2rem;
+
+      @include color-div($grey, $dark-grey);
+
+      &.panel-blue {
+        @include color-div($light-blue, $dark-blue);
+      }
+
+      &.panel-big-height{
+        min-height: 150px;
+      }
+    }
+
+    .item {
+      border-radius: 4px;
+      padding: 0.5rem;
+      margin: 0.2rem;
+
+      &.item-blue {
+        @include color-div($blue, $dark-blue);
+      }
+
+      &.item-green {
+        @include color-div($green, $dark-green);
+      }
+
+      &.item-lime {
+        @include color-div($lime, $dark-lime);
+      }
+
+      &.item-yellow {
+        @include color-div($yellow, $dark-yellow);
+      }
+
+      &.item-pink {
+        @include color-div($pink, $dark-pink);
+      }
+
+      &.item-red {
+        @include color-div($red, $dark-red);
+      }
+
+      &.item-big-width{
+        min-width: 380px;
+      }
+    }
+    .modal-backdrop{
+      position: inherit !IMPORTANT;
+    }
+  </style>
+</head>
 <body>
   <div class="container" style="width:95% ; margin-top:2%; margin-bottom:2%;">
     <div class="row">
@@ -110,38 +201,47 @@
               <input type="text" name="title" id="titlee">
               <input type="submit">
             </form>
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-            
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form">
+              See Modal with Form
+            </button> 
           </div>
-          <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Modal Header</h4>
-                </div>
-                <div class="modal-body">
+
+
+
+        </div>
+      </div>
+
+      <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+              <h5 class="modal-title" id="exampleModalLabel">Create Schedule</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            
+            <div class="modal-body">
+              <div class="row" style="align-items: center; display: flex; ">
+                <div class="col-md-12">
                   <form action="index.php?app=jed&action=insert" method="POST">
-                    <label for="start">Start Time:</label>
-                    <input type="date" id="start" name="start_time">
-                    <br>
+                    <label  for="start">Start Time:</label>
+                    <input style="width: 100%;" type="date" id="start" name="start_time">
+                    <br><br>
                     <label for="end">End Time:</label>
-                    <input type="date" id="end" name="end_time">
-                    <br>
-                    <label for="titlee">Title:</label>
-                    <input type="text" name="title" id="titlee">
-                    <input type="submit">
+                    <input style="width: 100%;" type="date" id="end" name="end_time">
+                    <br><br>
+                    <label for="titlee">Title:</label><br>
+                    <input style="width: 100%;" type="text" name="title" id="titlee">
+                    <input style="width: 100%; margin-top: 5%; margin-bottom: 5%" type="submit">
                   </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </body>

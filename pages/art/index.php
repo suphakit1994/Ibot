@@ -18,6 +18,10 @@ if($_GET['action']=='insert'){
 	print_r($_POST);
 }
 
+if($_GET['action']=='view_3'){
+	require_once('view_3.php');
+}
+
 // if($_GET['action']=="viewtest"){
 // 	$name = testart($conn);
 // 	print_r($name);

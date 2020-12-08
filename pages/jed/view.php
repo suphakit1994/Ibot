@@ -97,7 +97,7 @@
           <div class="card-body">
             <div class="row" style="display: flex; margin-bottom: 0 !important; align-items: center;">
               <div class="col-md-5" style="width:50%; display: flex; margin-bottom: 0 !important; padding-top: 15px; padding-left: 30px;">
-                <img style="border-radius:3%; width:150px; height:215px;" src="../images/e.jpg" >
+                <img style="border-radius:3%; width:150px; height:215px;" src="../images/Logo.jpg" >
               </div>
               <div class="col-md-5 " style="width: 50%">
                 <p style="width: 100%; font-size:16px;">Svetiana Anyukova</p>
@@ -205,9 +205,6 @@
               See Modal with Form
             </button> 
           </div>
-
-
-
         </div>
       </div>
 
@@ -220,7 +217,6 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            
             <div class="modal-body">
               <div class="row" style="align-items: center; display: flex; ">
                 <div class="col-md-12">
@@ -241,7 +237,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </body>
@@ -259,7 +254,6 @@
       borderColor: 'red'
     });
   });
-  
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -309,8 +303,8 @@
         return event.rendering === 'background';
       }
     });
-    var event = calendar.getEventById('a') // an event object!
-    var start = event.start // a property (a Date object)
+    var event = calendar.getEventById('a')
+    var start = event.start 
     calendar.render();
   });
 

@@ -12,6 +12,40 @@ function calendars(mysqli $conn){
 		return json_encode($data);
 	}
 }
+function aboutus_news(mysqli $conn){
+	$sql = "SELECT * FROM `news` WHERE 1 ";
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function aboutus_certificate(mysqli $conn){
+	$sql = "SELECT * FROM `certificate` WHERE 1 ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function aboutus_performance(mysqli $conn){
+	$sql = "SELECT * FROM `performance` WHERE 1 ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
 function insertData(mysqli $conn,$data=[]){
 
 	$sql = "INSERT INTO calendar (title,start_time,end_time)

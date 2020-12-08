@@ -17,5 +17,14 @@ if($_GET['action']=='student'){
 	require_once("student_assessment.php");	
 	$data[] = insterstudent( $conn,$data);
 }
+if($_GET['action']=="student_information"){
+	require_once('student_information.php');
+}
+if($_GET['action']=="parent_information"){
+	require_once('parent_information.php');
+}
+if($_GET['action']=="enroll"){
+	require_once('enroll.php');
+}
 ?>
 

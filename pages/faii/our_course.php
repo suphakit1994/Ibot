@@ -1,9 +1,5 @@
 <style type="text/css">
-  p {
-    padding:3px;
-    font-size: 1px;
-    width: 100%;
-  }
+ 
   .card{
     box-shadow: 0 4px 10px 0 rgb(0 0 0), 0 4px 20px 0 rgba(0,0,0,0.19);
     width: 100%;
@@ -33,38 +29,80 @@
 </style>
 <body>
   <div class="container-fluid" style="padding-right:100px ;padding-left:100px ;">
-    <h1>
-      <b class="monospace">OUR COURSE</b>
-    </h1>
-    <div class="row" style="padding-bottom: 100px;" >
+    <h1 style="padding-bottom: 20px;padding-top: 50px;">
+      <b>OUR COURSE</b>
+    </h1 > 
+    <div class="row" style="padding-bottom: 0px;" >
      <?php 
       for($i=0;$i<$arrlength; $i++){  //loop card 
         ?>
-        <a href="..faii_ft.php" >
-          <div name="card" class="col-md-3" style="padding-bottom: 100px;" >
+        <div href="..faii_ft.php" >
+          <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
             <div class="card" >
               <div class="card-image" >
                 <img class="card-img-top" src="../images/img_5terre.jpg" alt="Card image cap" >
-                <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;"><B><?php echo $data[$i]['category']; ?></B></span>
+                <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;">
+                    <B><?php echo $data[$i]['category']; ?></B>
+                </span>
               </div>
               <div class="card-body" >
                 <div class="row" style="margin-left:0px ;" >
                   <div class="col-md-5">
-                    <ul class="nav " style="width:150%;">
+                    <ul class="nav" style="width:150%;">
                       <li > <span><B><p class = "card-text">Course Expension</p></B></span> </li>
-                      <li > <span><B><p class = "card-text">Age for class</p></B> </span> </li>
-                      <li > <span><B><p class = "card-text">Total course</p></B> </span> </li>
-                      <li > <span><B><p class = "card-text">Lesson</p></B> </span> </li>
-                      <li > <span><B><p class = "card-text">Price</p></B> </span> </li>
                     </ul>
                   </div>
                   <div class="col-md-5" >
                     <ul class="nav" style="padding-left:10px">
                       <li > <span><p ><?php echo $data[$i]['Course_Expension']; ?> </p></span> </li>
-                      <li > <span><p ><?php echo $data[$i]['Age_For_class'];?></p></span> </li>
-                      <li > <span><p ><?php echo $data[$i]['Total_course']; ?></p></span> </li>
-                      <li > <span><p ><?php echo $data[$i]['Lesson']; ?></p></span> </li>
-                      <li > <span><p ><?php echo $data[$i]['Price']; ?></p></span> </li>
+                    </ul>
+                  </div>
+                </div>   
+                <div class="row" style="margin-left:0px ;" >
+                  <div class="col-md-5">
+                    <ul class="nav " style="width:150%;">
+                    <li > <span><B><p class = "card-text">Age for class</p></B> </span> </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-5" >
+                    <ul class="nav" style="padding-left:10px">
+                    <li > <span><p ><?php echo $data[$i]['Age_For_class'];?></p></span> </li>
+                    </ul>
+                  </div>
+                </div>   
+                <div class="row" style="margin-left:0px ;" >
+                  <div class="col-md-5">
+                    <ul class="nav " style="width:150%;">
+                    <li > <span><B><p class = "card-text">Total course</p></B> </span> </li> 
+                    </ul>
+                  </div>
+                  <div class="col-md-5" >
+                    <ul class="nav" style="padding-left:10px">
+                    <li > <span><p ><?php echo $data[$i]['Total_course']; ?></p></span> </li>
+                    </ul>
+                  </div>
+                </div>   
+                <div class="row" style="margin-left:0px ;" >
+                  <div class="col-md-5">
+                    <ul class="nav " style="width:150%;">
+                    <li > <span><B><p class = "card-text">Lesson</p></B> </span> </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-5" >
+                    <ul class="nav" style="padding-left:10px">
+                    <li > <span><p ><?php echo $data[$i]['Lesson']; ?></p></span> </li>
+                    </ul>
+                  </div>
+                </div>   
+                <div class="row" style="margin-left:0px ;" >
+                  <div class="col-md-5">
+                    <ul class="nav " style="width:150%;">
+                    <li > <span><B><p class = "card-text">Price</p></B> </span> </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-5" >
+                    <ul class="nav" style="padding-left:10px">
+                    <li > <span><p><?php echo $data[$i]['Price']; ?></p></span> </li>
                     </ul>
                   </div>
                 </div>   
@@ -74,7 +112,7 @@
               </div>
             </div>
           </div>
-        </a>  
+      </div>  
         <?php  
       }  ?>
     </div>
@@ -85,3 +123,4 @@
   <br>
   <br>
 </body>
+

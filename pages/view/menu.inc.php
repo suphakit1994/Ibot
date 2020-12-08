@@ -53,6 +53,7 @@
 						<li><a href="index.php?app=test">test</a></li>
 						<li><a href="index.php?app=gold_price">Our course</a></li>
 						<li><a href="index.php?app=jed">jed</a></li>
+						<li><a href="index.php?app=about">About Us</a></li>
 						<li><a href="index.php?app=faii">faii</a></li>
 						<li><a href="index.php?app=art">art</a></li>
 						<li><a href="index.php?app=branch">Franchise</a></li>

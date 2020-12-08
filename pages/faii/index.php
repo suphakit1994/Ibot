@@ -13,9 +13,7 @@ if($_GET['action']=='student'){
 	$data=$_POST;
 	$stem1=["Science","Technology","Engineering","Mathematics"];
 	$stem2=["Synthesis","Teamwork","EQ","Meditation"];
-	//$total= ($_POST['Science']+$_POST['Technology']+$_POST['Engineering']+$_POST['Mathematics']+$_POST['Synthesis']+$_POST['Teamwork']+$_POST['EQ']+$_POST['Meditation'])/8;
-	//$data['Total']=$total;	
-	//echo $data['Total'];
+	
 	require_once("student_assessment.php");	
 	$data[] = insterstudent( $conn,$data);
 }

@@ -230,9 +230,9 @@
       </div>
 
     <!-- Content Video -->
-    <div class="row" style=" position:relative; margin-bottom:2%; padding-left: 1%;">
+    <div class="row" style=" position:sticky; margin-bottom:2%; padding-left: 1%;">
         <video src="https://css-tricks-post-videos.s3.us-east-1.amazonaws.com/708209935.mp4" autoplay loop playsinline muted></video>
-        <div class="col-md-6" style="position: absolute; top:76%; left:3%; width:50%;">
+        <div class="col-md-6" style="position: absolute; top:76%; left:9%; width:44%;">
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
               <!-- Indicators -->
               <ol class="carousel-indicators">
@@ -264,34 +264,6 @@
                           </div>  
                     </div>
                 <?php }?>
-<!--
-                <div class="item" style="width:100%; height:260px; background:white;">
-                  <div class="row-sm-6" alt="Los Angeles" style="padding: 6%; text-align:start; padding-right:25%; padding-left:19%;">
-                    <p>Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam nonummy nibh euismod tinciduct urt laoreet dolore mayna</p>
-                  </div>
-                  <div class="row-sm-6">
-                    <div class="col-sm-3" style="padding-left: 19%;">
-                      <img src="../images/images.png" alt="" style="border-radius: 50%; width:50px; height:50px;">
-                    </div>
-                    <div class="col-sm-9" style="text-align:start; padding-top:2%;">
-                      <p style="font-weight: bold;">Fullname Lastname(Nickname)</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="item" style="width:100%; height:260px; background:white;">
-                  <div class="row-sm-6" alt="Los Angeles" style="padding: 6%; text-align:start; padding-right:25%; padding-left:19%;">
-                    <p>Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam nonummy nibh euismod tinciduct urt laoreet dolore mayna</p>
-                  </div>
-                  <div class="row-sm-6">
-                    <div class="col-sm-3" style="padding-left: 19%;">
-                      <img src="../images/images.png" alt="" style="border-radius: 50%; width:50px; height:50px;">
-                    </div>
-                    <div class="col-sm-9" style="text-align:start; padding-top:2%;">
-                      <p style="font-weight: bold;">Fullname Lastname(Nickname)</p>
-                    </div>
-                  </div>
-                </div> -->
               </div>
 
             <!-- Left and right controls -->
@@ -317,7 +289,7 @@
       </div>
     </div>
     <!-- Video2 -->
-    <div class="row" style="margin-top:7%;">
+    <div class="row" style="margin-top:7%; margin-bottom: 5%">
       <div class="col-md-6" style="padding-left:12%; padding-right:16%; text-align: start;">
         <h1>Learning spaces</h1>
         <p>Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diamnonummy nibh euismod tinciduct urt laoreet dolore mayna</p>

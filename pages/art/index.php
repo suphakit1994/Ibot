@@ -19,7 +19,7 @@ if($_GET['action']=='insert'){
 }
 
 if($_GET['action']=='view_3'){
-	$cus = news($conn);
+	$cus = news2($conn);
 	$sli = slide($conn);
 	require_once('view_3.php');
 }

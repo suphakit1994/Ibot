@@ -34,8 +34,8 @@ function insert(mysqli $conn,$data=[]){
      mysqli_close($conn);
 }
 
-function news(mysqli $conn){
-	$sql="SELECT* FROM `news` WHERE 1 ";
+function news2(mysqli $conn){
+	$sql="SELECT* FROM `news2` WHERE 1 ";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$data= [];
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){

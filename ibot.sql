@@ -302,3 +302,123 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE `news2` (
+  `id` int(11) NOT NULL,
+  `topic` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `news2`
+--
+
+INSERT INTO `news2` (`id`, `topic`, `content`) VALUES
+(1, 'Hyper robot', 'It\'s a new challenge for human'),
+(2, 'the mini-challenge for a kids', 'this is a mini-challenge for kids to make a robot'),
+(3, 'ASDFASDASDAS', 'QWEQWSDSDFSDFDSSDDF');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order`
+--
+
+CREATE TABLE `order` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `surname` varchar(20) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `country` varchar(15) NOT NULL,
+  `city` varchar(15) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `postal` int(10) NOT NULL,
+  `cardnumber` int(20) NOT NULL,
+  `month` varchar(10) NOT NULL,
+  `year` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`id`, `name`, `surname`, `email`, `country`, `city`, `address`, `postal`, `cardnumber`, `month`, `year`) VALUES
+(1, 'Art', 'Luksana', 'zero_1477@hotmail.co.th', 'Thai', 'Nakhon', '168 m.9', 30000, 2147483647, 'August', 1969),
+(2, 'Artsds', 'Luksanadssd', 'zero_1477@hotmail.co.th', 'Thai', 'Nakhon', '168 m.9', 30000, 2147483647, 'August', 2011),
+(3, 'Art', 'asdasd', 'zero_1477@hotmail.co.th', 'asdasdas', 'Nakhon', '168 m.9', 30000, 5000, 'April', 2006);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `slide`
+--
+
+CREATE TABLE `slide` (
+  `id` int(11) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `slide`
+--
+
+INSERT INTO `slide` (`id`, `content`, `username`) VALUES
+(1, 'Great Challenge for making a robot from a kids', 'Ratchanat Luksana(Art)'),
+(2, 'Non-stop god brain from a kids', 'XDXDXDXD');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+-- Error reading structure for table ibot.user: #1932 - Table 'ibot.user' doesn't exist in engine
+-- Error reading data for table ibot.user: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `ibot`.`user`' at line 1
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `news2`
+--
+ALTER TABLE `news2`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `slide`
+--
+ALTER TABLE `slide`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `news2`
+--
+ALTER TABLE `news2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `slide`
+--
+ALTER TABLE `slide`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -163,7 +163,7 @@
                     <p>Nickname</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p>555555555</p>
+                                           <p>555555555</p>
                 </div>
                 <div class="col-md-6"> 
                     <p>Phone number</p>

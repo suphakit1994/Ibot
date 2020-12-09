@@ -3,6 +3,7 @@
 <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
   
     <div class="col-md-7" style="padding-top: 5%;"> 
+        
         <img class="card-img-top" src="../images/img_5terre.jpg" alt="Card image cap" style="padding-top: 25%;">  
     </div>
 

@@ -54,7 +54,6 @@ function insertData(mysqli $conn,$data=[]){
 	'".$data['start_time']."',
 	'".$data['end_time']."'
 )";
-
 echo $sql;
 
 if ( mysqli_query($conn, $sql)) {
@@ -66,5 +65,34 @@ if ( mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 }
 
+
+function insertPdf(mysqli $conn,$data=[]){
+
+	$sql = "INSERT INTO pdf_insert (address_scr)
+	VALUES 
+	('".$data['address']."'
+)";
+
+echo $sql;
+
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false;
+}
+mysqli_close($conn);
+}
+function getPdf(mysqli $conn){
+	$sql = "SELECT * FROM `pdf_insert` WHERE 1 ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
 
 ?>

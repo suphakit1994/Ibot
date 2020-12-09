@@ -251,7 +251,7 @@
       extendedProps: {
         status: ''
       },
-      borderColor: 'red'
+      borderColor: 'black'
     });
   });
   document.addEventListener('DOMContentLoaded', function () {

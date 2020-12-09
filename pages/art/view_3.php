@@ -90,7 +90,6 @@
 
       #style-1::-webkit-scrollbar-track
       {
-        
         border-radius: 10px;
         background-color: #F5F5F5;
       }
@@ -104,7 +103,6 @@
       #style-1::-webkit-scrollbar-thumb
       {
         border-radius: 10px;
-        
         background-color: #555;
       }
 
@@ -147,60 +145,21 @@
     <div class="row" style=" margin-top:2%;">
         <h2 style="text-align: center; margin-bottom:3%; margin-top:2%; font-weight: bold;">IBOT NEWS</h2>
           <div class="ex1" id="style-1" style="margin-left: 22%; padding: 2%;  margin-bottom:3%;">
+          <?php for ($i=0; $i < count($cus) ; $i++) {  ?>
             <div class="row" style="padding-top: 2%;">
               <div class="col-sm-5">
                 <img src="../images/images.png" alt="" style="height: 150px; width: 230px;">
               </div>
               <div class="col-sm-7" style="padding-right:5%; text-align: start;">
-                <h3 style="font-weight: bold;">IBOT NEWS1</h3>
-                <p>ASDASDASDASDASDASDASDASDASD</p>
+                  <h3 style="font-weight: bold;"> 
+                    <?php echo $cus[$i]['topic']; ?> 
+                  </h3>
+                  <p>
+                    <?php echo $cus[$i]['content']; ?> 
+                  </p>
               </div>
             </div>
-            <div class="row" style="padding-top: 2%;">
-              <div class="col-sm-5">
-                <img src="../images/images.png" alt="" style="height: 150px; width: 230px;">
-              </div>
-              <div class="col-sm-7" style="padding-right:5%; text-align: start;">
-                <h3 style="font-weight: bold;">IBOT NEWS1</h3>
-                <p>ASDASDASDASDASDASDASDASDASD</p>
-              </div>
-            </div>
-            <div class="row" style="padding-top: 2%;">
-              <div class="col-sm-5" >
-                <img src="../images/images.png" alt="" style="height: 150px; width: 230px;">
-              </div>
-              <div class="col-sm-7" style="padding-right:5%; text-align: start;">
-                <h3 style="font-weight: bold;">IBOT NEWS1</h3>
-                <p>ASDASDASDASDASDASDASDASDASD</p>
-              </div>
-            </div>
-            <div class="row" style="padding-top: 2%;">
-              <div class="col-sm-5" >
-                <img src="../images/images.png" alt="" style="height: 150px; width: 230px;">
-              </div>
-              <div class="col-sm-7" style="padding-right:5%; text-align: start;">
-                <h3 style="font-weight: bold;">IBOT NEWS1</h3>
-                <p>ASDASDASDASDASDASDASDASDASD</p>
-              </div>
-            </div>
-            <div class="row" style="padding-top: 2%;">
-              <div class="col-sm-5" >
-                <img src="../images/images.png" alt="" style="height: 150px; width: 230px;">
-              </div>
-              <div class="col-sm-7" style="padding-right:5%; text-align: start;">
-                <h3 style="font-weight: bold;">IBOT NEWS1</h3>
-                <p>ASDASDASDASDASDASDASDASDASD</p>
-              </div>
-            </div>
-            <div class="row" style="padding-top: 2%;">
-              <div class="col-sm-5" >
-                <img src="../images/images.png" alt="" style="height: 150px; width: 230px;">
-              </div>
-              <div class="col-sm-7" style="padding-right:5%; text-align: start;">
-                <h3 style="font-weight: bold;">IBOT NEWS1</h3>
-                <p>ASDASDASDASDASDASDASDASDASD</p>
-              </div>
-            </div>
+          <?php }?>
           </div>
     </div>
     <!-- WHAT WILL YOU GET -->
@@ -278,27 +237,34 @@
               <!-- Indicators -->
               <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <?php for ($i=1; $i < count($sli) ; $i++) {  ?>
+                    <li data-target="#myCarousel" data-slide-to="<?php echo $i ?>"></li>
+                <?php }?>
               </ol>
 
               <!-- Wrapper for slides -->
               <div class="carousel-inner">
                 <!-- Silde1 -->
-                <div class="item active" style="width:100%; height:260px; background:white;">
-                  <div class="row-sm-6" alt="Los Angeles" style="padding: 6%; text-align:start; padding-right:25%; padding-left:19%;">
-                    <p>Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam nonummy nibh euismod tinciduct urt laoreet dolore mayna</p>
-                  </div>
-                  <div class="row-sm-6">
-                    <div class="col-sm-3" style="padding-left: 19%;">
-                      <img src="../images/images.png" alt="" style="border-radius: 50%; width:50px; height:50px;">
+                <?php for ($i=0; $i < count($sli) ; $i++) {  ?>
+                    <div class="item <?php if($i==0){ echo("active");}?>" style="width:100%; height:260px; background:white;">
+                          <div class="row-sm-6" alt="Los Angeles" style="padding: 6%; text-align:start; padding-right:25%; padding-left:21%;">
+                            <p>
+                                <?php echo $sli[$i]['content']; ?>        
+                            </p>
+                          </div>
+                          <div class="row-sm-6">
+                            <div class="col-sm-3" style="padding-left: 19%;">
+                              <img src="../images/images.png" alt="" style="border-radius: 50%; width:50px; height:50px;">
+                            </div>
+                            <div class="col-sm-9" style="text-align:start; padding-top:2%; ">
+                              <p style="font-weight: bold;">
+                                <?php echo $sli[$i]['username']; ?>
+                              </p>
+                            </div>
+                          </div>  
                     </div>
-                    <div class="col-sm-9" style="text-align:start; padding-top:2%;">
-                      <p style="font-weight: bold;">Fullname Lastname(Nickname)</p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Silde2 -->
+                <?php }?>
+<!--
                 <div class="item" style="width:100%; height:260px; background:white;">
                   <div class="row-sm-6" alt="Los Angeles" style="padding: 6%; text-align:start; padding-right:25%; padding-left:19%;">
                     <p>Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam nonummy nibh euismod tinciduct urt laoreet dolore mayna</p>
@@ -312,7 +278,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- Silde3 -->
+
                 <div class="item" style="width:100%; height:260px; background:white;">
                   <div class="row-sm-6" alt="Los Angeles" style="padding: 6%; text-align:start; padding-right:25%; padding-left:19%;">
                     <p>Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam nonummy nibh euismod tinciduct urt laoreet dolore mayna</p>
@@ -325,7 +291,7 @@
                       <p style="font-weight: bold;">Fullname Lastname(Nickname)</p>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
 
             <!-- Left and right controls -->

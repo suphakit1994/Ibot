@@ -19,8 +19,11 @@ if($_GET['action']=='insert'){
 }
 
 if($_GET['action']=='view_3'){
+	$cus = news($conn);
+	$sli = slide($conn);
 	require_once('view_3.php');
 }
+
 
 // if($_GET['action']=="viewtest"){
 // 	$name = testart($conn);

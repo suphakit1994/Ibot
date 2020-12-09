@@ -82,13 +82,13 @@
       font-size: 0em;
     }
     .progressbar li.active:after {
-      background: <?php if($_SESSION['administrator_user']['layer']=='SuperAdmin'||$_SESSION['administrator_user']['layer']=='Admin'){echo " #fa7d09  !important;";}else{echo " #1473e6  !important;";} ?>
-      border-color: <?php if($_SESSION['administrator_user']['layer']=='SuperAdmin'||$_SESSION['administrator_user']['layer']=='Admin'){echo "color: #fa7d09  !important;";}else{echo " #1473e6  !important;";} ?>
+      background: #0050ef;
+      border-color: #0050ef;
       color: white ;
     }
     .progressbar li.active::before {
-      border-color: <?php if($_SESSION['administrator_user']['layer']=='SuperAdmin'||$_SESSION['administrator_user']['layer']=='Admin'){echo " #fa7d09  !important;";}else{echo " #1473e6  !important;";} ?>
-      background: <?php if($_SESSION['administrator_user']['layer']=='SuperAdmin'||$_SESSION['administrator_user']['layer']=='Admin'){echo "#fa7d09  !important;";}else{echo " #1473e6  !important;";} ?>
+      border-color: #0050ef  !important;
+      background: #0050ef  !important;
       color: white!important;
     }
 
@@ -174,6 +174,7 @@
             </div>
             
         <div>
+            <a  href="index.php?app=faii&action=parent_information" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Back</a>
             <a  href="index.php?app=faii&action=payment" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</a>
         </div>    
      

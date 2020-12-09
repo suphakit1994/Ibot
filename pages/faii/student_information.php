@@ -54,13 +54,13 @@
       font-size: 0em;
     }
     .progressbar li.active:after {
-      background: <?php if($_SESSION['administrator_user']['layer']=='SuperAdmin'||$_SESSION['administrator_user']['layer']=='Admin'){echo " #fa7d09  !important;";}else{echo " #1473e6  !important;";} ?>
-      border-color: <?php if($_SESSION['administrator_user']['layer']=='SuperAdmin'||$_SESSION['administrator_user']['layer']=='Admin'){echo "color: #fa7d09  !important;";}else{echo " #1473e6  !important;";} ?>
+      background: #0050ef;
+      border-color: #0050ef;
       color: white ;
     }
     .progressbar li.active::before {
-      border-color: <?php if($_SESSION['administrator_user']['layer']=='SuperAdmin'||$_SESSION['administrator_user']['layer']=='Admin'){echo " #fa7d09  !important;";}else{echo " #1473e6  !important;";} ?>
-      background: <?php if($_SESSION['administrator_user']['layer']=='SuperAdmin'||$_SESSION['administrator_user']['layer']=='Admin'){echo "#fa7d09  !important;";}else{echo " #1473e6  !important;";} ?>
+      border-color: #0050ef  !important;
+      background: #0050ef  !important;
       color: white!important;
     }
 
@@ -90,16 +90,17 @@
                 <p >Nickname (Eng)</p> 
                 <input type="text" class="form-control" >  
                 <p >Birthday</p> 
+                <div class="form-group"> <!-- Date input -->
                     <div class="input-group date" id="dp3" data-date="12-02-2017" data-date-format="mm-dd-yyyy">
                         <input name="" class="form-control" type="text"  style="width: 224px;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;">
                         <span  class="glyphicon glyphicon-calendar" id="butt"></span>
                     </div>
+                 </div>
                 <p >School</p> 
                 <input type="text" class="form-control" style="width: 224px;">  
                 <p >Grade</p> 
                 <input type="text" class="form-control" style="width: 224px;">  
             </div>
-            
             <a  href="index.php?app=faii&action=parent_information" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</a>
             </div>
         </form>
@@ -187,8 +188,5 @@
        
     </div>
 </div>  
-  
-
-
-
 </body>
+

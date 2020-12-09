@@ -29,5 +29,8 @@ if($_GET['action']=="enroll"){
 if($_GET['action']=="payment"){
 	require_once('payment.php');
 }
+if($_GET['action']=="success"){
+	require_once('success.php');
+}
 ?>
 

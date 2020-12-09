@@ -209,7 +209,7 @@
                     <p>Study time</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p>555555555</p>
+                    <p>5555555555</p>
                 </div>
             </div>
         </div>

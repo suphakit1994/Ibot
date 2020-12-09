@@ -76,20 +76,20 @@
                     </div>
                     <!-- Form -->
                     <div class="row" style="margin-top:3%;">
-                        <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2" type="text" name="name"  style="margin-top: 1%;"/>     <!-- Name -->
-                        <input type="text" class="form-control" placeholder="Surname" aria-label="Surname" aria-describedby="basic-addon2" type="text" name="surname"  style="margin-top: 1%;"/>    <!-- Surname -->
+                        <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2" name="name"  style="margin-top: 1%;"/>     <!-- Name -->
+                        <input type="text" class="form-control" placeholder="Surname" aria-label="Surname" aria-describedby="basic-addon2"  name="surname"  style="margin-top: 1%;"/>    <!-- Surname -->
 
-                        <input type="text" class="form-control" placeholder="Email Address" aria-label="Email" aria-describedby="basic-addon2" type="email" name="email"  style="margin-top: 1%;"/>     <!-- Email -->
+                        <input type="text" class="form-control" placeholder="Email Address" aria-label="Email" aria-describedby="basic-addon2"  name="email"  style="margin-top: 1%;"/>     <!-- Email -->
 
-                        <input type="text" class="form-control" placeholder="Country" aria-label="Country" aria-describedby="basic-addon2"  name="country" type="country" style="margin-top: 1%;"/>     <!-- Country -->
+                        <input type="text" class="form-control" placeholder="Country" aria-label="Country" aria-describedby="basic-addon2"  name="country"  style="margin-top: 1%;"/>     <!-- Country -->
 
-                        <input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon2" type="text" name="city"  style="margin-top: 1%;"/>     <!-- City -->
+                        <input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon2"  name="city"  style="margin-top: 1%;"/>     <!-- City -->
 
-                        <input type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2" type="text" name="address"  style="margin-top: 1%;"/>        <!-- Address -->
+                        <input type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2"  name="address"  style="margin-top: 1%;"/>        <!-- Address -->
 
-                        <input type="text" class="form-control" placeholder="Zip or postal code" aria-label="postal" aria-describedby="basic-addon2" type="number" name="postal"  style="margin-top: 1%;"/>     <!-- Postal -->
+                        <input type="text" class="form-control" placeholder="Zip or postal code" aria-label="postal" aria-describedby="basic-addon2" name="postal"  style="margin-top: 1%;"/>     <!-- Postal -->
 
-                        <input type="text" class="form-control" placeholder="Card number" aria-label="card" aria-describedby="basic-addon2" type="number" name="cardnumber"  style="margin-top: 1%;"/>      <!-- CardNumber -->
+                        <input type="text" class="form-control" placeholder="Card number" aria-label="card" aria-describedby="basic-addon2" name="cardnumber"  style="margin-top: 1%;"/>      <!-- CardNumber -->
                         <!-- month -->
                         <div class="row" style="margin-top: 2%; margin-left: 0%;">
                             <select name=month>

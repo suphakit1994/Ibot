@@ -17,14 +17,6 @@ if($_GET['action']=='insert'){
 	$cus = insert($conn,$_POST);
 	print_r($_POST);
 }
-
-if($_GET['action']=='view_3'){
-	$cus = news2($conn);
-	$sli = slide($conn);
-	require_once('view_3.php');
-}
-
-
 // if($_GET['action']=="viewtest"){
 // 	$name = testart($conn);
 // 	print_r($name);

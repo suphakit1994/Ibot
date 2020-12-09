@@ -42,7 +42,7 @@
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="index.php?app=admin">Home</a></li>
+						<li><a href="index.php?app=home">Home</a></li>
 
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >About us<span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -58,7 +58,7 @@
 						<li><a href="index.php?app=art">art</a></li>
 						<li><a href="index.php?app=branch">Franchise</a></li>
 						<li><a href="index.php?app=branch">Contact us</a></li>
-						<li><a href="index.php?app=branch"  class="Button" style="padding: 2px; margin: 10px; width: 100%; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);    border: 1px solid #ffffff;" >Sign in</a></li>
+						<li><a href="index.php?app=signin"  class="Button" style="padding: 2px; margin: 10px; width: 100%; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);    border: 1px solid #ffffff;" >Sign in</a></li>
 
 					</ul>
 				</div>

@@ -20,4 +20,7 @@ if($_GET['app'] == 'jed'){
 if($_GET['app'] == 'about'){
 	require_once("about/index.php");
 }
+if($_GET['app'] == 'pdf'){
+	require_once("pdf/index.php");
+}
 ?>

@@ -159,7 +159,7 @@
                     <div class="row" style="display: flex; margin-bottom: 0 !important;">
                       <div class="retangled-blue" style="border-radius:3%;"></div>
                       <div class="col-sm-8" style="margin-left:4%;"><p>Attended</p></div>
-                    </div>	
+                    </div>
                   </div>
                   <div class="col-md-4">
                     <div class="row" style="display: flex; margin-bottom: 0 !important;">

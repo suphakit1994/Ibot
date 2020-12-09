@@ -126,19 +126,19 @@ INSERT INTO `user` (`ID`, `name`, `user`, `passwort`) VALUES
 -- Indexes for table `our course`
 --
 ALTER TABLE `our course`
-  ADD PRIMARY KEY (`ID`);
+ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `student_assessment`
 --
 ALTER TABLE `student_assessment`
-  ADD PRIMARY KEY (`id_student`);
+ADD PRIMARY KEY (`id_student`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID`);
+ADD PRIMARY KEY (`ID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -148,19 +148,155 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `our course`
 --
 ALTER TABLE `our course`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `student_assessment`
 --
 ALTER TABLE `student_assessment`
-  MODIFY `id_student` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+MODIFY `id_student` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE `calendar` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `start_time` varchar(255) NOT NULL,
+  `end_time` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `calendar`
+--
+
+INSERT INTO `calendar` (`id`, `title`, `start_time`, `end_time`) VALUES
+(39, 'Siam', '2020-12-09', '2020-12-10'),
+(40, 'Meta', '2020-12-14', '2020-12-17'),
+(41, 'jedsada', '2020-12-15', '2020-12-18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `certificate`
+--
+
+CREATE TABLE `certificate` (
+  `id` int(11) NOT NULL,
+  `head` varchar(255) NOT NULL,
+  `article` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `certificate`
+--
+
+INSERT INTO `certificate` (`id`, `head`, `article`) VALUES
+(1, 'PHP fundamental', 'Loerm ipsum dolors sit amet.consectetuer adipiscing edit.sed diamnonummy nibh euismod urt laoreet dolore mayna.'),
+(2, 'Html fundamental', 'Loerm ipsum dolors sit amet.consectetuer adipiscing edit.sed diamnonummy nibh euismod urt laoreet dolore mayna.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `haed` varchar(255) NOT NULL,
+  `article` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `haed`, `article`) VALUES
+(1, 'Mission Impossible', 'Loerm ipsum dolors sit amet.consectetuer adipiscing edit.sed diam nonummy nibh euismod urt laoreet dolore mayna.'),
+(2, 'Dr.Nara', 'Loerm ipsum dolors sit amet.consectetuer adipiscing edit.sed diam nonummy nibh euismod urt laoreet dolore mayna.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `performance`
+--
+
+CREATE TABLE `performance` (
+  `id` int(11) NOT NULL,
+  `head` varchar(255) NOT NULL,
+  `article` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `performance`
+--
+
+INSERT INTO `performance` (`id`, `head`, `article`) VALUES
+(1, 'Front-End', 'Loerm ipsum dolors sit amet.consectetuer adipiscing edit.sed diamnonummy nibh euismod urt laoreet dolore mayna.'),
+(2, 'Back-End', 'Loerm ipsum dolors sit amet.consectetuer adipiscing edit.sed diamnonummy nibh euismod urt laoreet dolore mayna.');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `calendar`
+--
+ALTER TABLE `calendar`
+ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `certificate`
+--
+ALTER TABLE `certificate`
+ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `performance`
+--
+ALTER TABLE `performance`
+ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `calendar`
+--
+ALTER TABLE `calendar`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT for table `certificate`
+--
+ALTER TABLE `certificate`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `performance`
+--
+ALTER TABLE `performance`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

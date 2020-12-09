@@ -140,10 +140,4 @@
 			</div>
 		</div>
 	</div>
-	
-	<iframe width="1280" height="720" src="https://www.youtube.com/embed/nDOTwumeG8I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-	<?php $ifam='<iframe width="1280" height="720" src="https://www.youtube.com/embed/nDOTwumeG8I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ;
-	echo $ifam;
-	?>
 </body>

@@ -228,11 +228,17 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
 
       <!-- Content Video -->
       <div class="row" style=" position:sticky; margin-bottom:2%; padding-left: 1%;">
+=======
+    </div>
+    <!-- Content Video -->
+    <div class="row" style=" position:relative; margin-bottom:2%; padding-left: 1%;">
+>>>>>>> f7178cb4b4898c60603d1e0ac0754c7fe45f9242
         <video src="https://css-tricks-post-videos.s3.us-east-1.amazonaws.com/708209935.mp4" autoplay loop playsinline muted></video>
-        <div class="col-md-6" style="position: absolute; top:76%; left:9%; width:44%;">
+        <div class="col-md-6" style="position: absolute; top:60%; left:9%; width:44%;">
           <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">

@@ -26,5 +26,8 @@ if($_GET['action']=="parent_information"){
 if($_GET['action']=="enroll"){
 	require_once('enroll.php');
 }
+if($_GET['action']=="payment"){
+	require_once('payment.php');
+}
 ?>
 

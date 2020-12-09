@@ -77,7 +77,7 @@
             <div  class="form-card" >
                 <ul class="progressbar">
                     <li class="active">student information</li>
-                    <li >Parent information</li>
+                    <li class="active">Parent information</li>
                     <li>Enroll </li>
                     <li>Payment</li>
                     <li>Success</li>

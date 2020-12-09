@@ -5,10 +5,9 @@ include('../php/function.php');
 
 
 if(!isset($_GET['action']) ){
-	$cus = aboutus_news($conn);
-	$per = aboutus_performance($conn);
-	$cer = aboutus_certificate($conn);
-	require_once('aboutus.php');
-	
+	require_once('pdfweb.php');
+}
+if($_GET['action'] == 'menuradio'){
+	require_once('menuradio.php');
 }
 ?>

@@ -61,7 +61,7 @@
     .progressbar li.active::before {
       border-color: #0050ef  !important;
       background: #0050ef  !important;
-      color: white!important;
+      color: white !important;
     }
 
  
@@ -90,12 +90,7 @@
                 <p >Nickname (Eng)</p> 
                 <input type="text" class="form-control" >  
                 <p >Birthday</p> 
-                <div class="form-group"> <!-- Date input -->
-                    <div class="input-group date" id="dp3" data-date="12-02-2017" data-date-format="mm-dd-yyyy">
-                        <input name="" class="form-control" type="text"  style="width: 224px;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;">
-                        <span  class="glyphicon glyphicon-calendar" id="butt"></span>
-                    </div>
-                 </div>
+                <input class="form-control" style="width: 100%;width: 224px;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;" type="date" id="start" name="start_time">
                 <p >School</p> 
                 <input type="text" class="form-control" style="width: 224px;">  
                 <p >Grade</p> 

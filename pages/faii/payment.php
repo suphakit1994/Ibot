@@ -1,15 +1,35 @@
 <style>
+select[name=month]{
+        border-color: #ffffff;
+        border-bottom: 2px solid #F1ECEC ;
+        color: #A8A5A5;
+        font-weight: lighter;
+        font-size: 17px;
+    }
+    select[name=year]{
+        border-color: #ffffff;
+        border-bottom: 2px solid #F1ECEC;
+        font-weight: lighter;
+        color: #A8A5A5;
+        font-size: 17px;
+    }
+    input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #F1ECEC;
+}
 .corners {
     border-radius: 10px;
     border: 1px solid #D3D3D3;
-    padding: 20px; 
+    padding: 10%; 
     width: 100%;
     height: 80px;  
     margin: 10px;  
 }
 .form-control{
-    border-left-width: 0px !important;
-    border-right-width: 0px !important;
     border-bottom-width: 0px !important; 
 }
  .progressbar li{
@@ -91,8 +111,50 @@
                 </ul>
             </div>
             <div>
-            
-            <div class="form-card" style=" padding-top: 15%;">     
+
+           
+            <div class="form-card" style=" padding-top: 15%;"> 
+                 <div class="col-md-4"style="padding-left: 5px;padding-right: 5px;">
+                    <div class="corners">  
+                    <a href="">
+                        <div class=" col-md-4" style="padding-left: 0px;padding-right: 0px;">
+                            <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
+                        </div>
+                        <div class="col-md-8" style="padding-left: 0px;padding-right: 0px;">
+                            <p>Credit Card</p>
+                        </div>
+                    </a>
+                    </div>
+                </div> 
+                <div class="col-md-4"style="padding-left: 5px;padding-right: 5px;">
+                    <div class="corners">  
+                    <a href="">
+                        <div class=" col-md-4" style="padding-left: 0px;padding-right: 0px;">
+                            <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
+                        </div>
+                        <div class="col-md-8" style="padding-left: 0px;padding-right: 0px;">
+                            <p>Mobile Payment</p>
+                        </div>
+                    </a>    
+                    </div>
+               
+                </div> 
+                <div class="col-md-4"style="padding-left: 5px;padding-right: 5px;">
+                    <div class="corners"> 
+                    <a href="">
+                        <div class=" col-md-4" style="padding-left: 0px;padding-right: 0px;">
+                            <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
+                        </div>
+                        <div class="col-md-8" style="padding-left: 0px;padding-right: 0px;">
+                            <p>Other method</p>
+                        </div>
+                    </a> 
+                    </div>
+               
+                </div>  
+            </div>
+            <div class="form-card" style=" padding-top: 15%;">    
+               
                 <p >Name-Surname (Eng) </p> 
                 <input type="text" class="form-control"  >  
                 <p >Email Address</p> 
@@ -105,29 +167,34 @@
                 <input type="text" class="form-control" >  
                 <p >Zip or postal code</p> 
                 <input type="text" class="form-control" >  
-                <p >Card number</p> 
+                <p >Card number</p>
                 <input type="text" class="form-control" >   
-                
-                    <select   name="related" id="" class="form-control" style="width: 20%;">
-                        <option selected>Month</option>
-                        <option value="1"> </option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>                                           
-                    </select> 
-                    <select   name="related" id="" class="form-control" style="width: 20%;">
-                        <option selected>Month</option>
-                        <option value="1"> </option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>                                           
-                    </select>
-                
+                <div class="row" style="margin-top: 2%; margin-left: 0%;">  
+                <!-- month -->
+                <select  name=month >
+                    <option >month</option>
+                    <?Php
+                       for ($i = 0; $i <= 11; $i++) {
+                            $month = date('F', strtotime("first day of -$i month"));
+                            echo "<option value=$month>$month</option> ";
+                            }
+                    ?>
+                </select>
+                <!-- year -->
+                <select name=year >
+                    <option>year</option>
+                        <?Php
+                        for ($i = 0; $i <= 100; $i++) {
+                            $year = date('Y', strtotime("last day of -$i year"));
+                            echo "<option name='$year'>$year</option>";
+                            }
+                    ?>
+                </select>
+                </div>    
             </div>
             <div>
-                <a  href="index.php?app=faii&action=parent_information" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</a>
+                <a  href="index.php?app=faii&action=enroll" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Back</a>
+                <a  href="index.php?app=faii&action=success" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</a>
             </div> 
         </div>
         

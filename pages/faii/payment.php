@@ -192,10 +192,7 @@ select[name=month]{
                 </select>
                 </div>    
             </div>
-            <div>
-                <a  href="index.php?app=faii&action=enroll" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Back</a>
-                <a  href="index.php?app=faii&action=success" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</a>
-            </div> 
+           
         </div>
         
     </div>
@@ -280,7 +277,9 @@ select[name=month]{
                 </div>
             </div>
         </div>
-       
+        <div>
+            <a  href="index.php?app=faii&action=success" type="button" name="next" class="Button" style="border-radius:28px; width: 150px;">Purchase now</a>
+        </div> 
     </div>
 </div>  
 </form>  

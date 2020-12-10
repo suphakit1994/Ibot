@@ -1,12 +1,10 @@
 <style>
-
 .form-control{
    
     border-left-width: 0px !important;
     border-right-width: 0px !important;
     border-bottom-width: 0px !important; 
 }
-
  .progressbar li{
       float: left;
       width: 20%;
@@ -70,11 +68,12 @@
  
 </style>
 
-<body>
+<body>  
+<form>
 <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
     <div class="col-md-7" style="padding-top: 5%;">
     <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 
-        <form>
+      
             <div  class="form-card" >
                 <ul class="progressbar">
                     <li class="active">student information</li>
@@ -108,7 +107,7 @@
                 <a  href="index.php?app=faii&action=student_information" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Back</a>
                 <a  href="index.php?app=faii&action=enroll" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</a>
             </div>
-        </form>
+        
     </div>
     
     <div class="col-md-5" style="padding-top: 5%;padding-bottom: 8%;">
@@ -190,12 +189,8 @@
                     <p>555555555</p>
                 </div>
             </div>
-        </div>
-       
+        </div>    
     </div>
 </div>  
-  
-
-
-
+</form>  
 </body>

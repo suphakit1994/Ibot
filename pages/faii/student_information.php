@@ -68,10 +68,11 @@
 </style>
 
 <body>
+<form href="..faii_ft.php" method="post" action="index.php?app=faii&action=parent_information" >
 <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
     <div class="col-md-7" style="padding-top: 5%;">
     <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 
-        <form>
+        
             <div  class="form-card" >
                 <ul class="progressbar">
                     <li class="active">student information</li>
@@ -84,22 +85,23 @@
             <div class="col-md-9" style="padding:0px">
             <div class="form-card" style=" padding-top: 10%;">    
                 <p>ชื่อ-นามสกุล (Thai)</p> 
-                <input type="text" class="form-control"  >  
+                <input name="name_th" type="text" class="form-control"  >  
                 <p >Name-Surname (Eng)</p> 
-                <input type="text" class="form-control" >  
+                <input name="name_eng" type="text" class="form-control" >  
                 <p >Nickname (Eng)</p> 
-                <input type="text" class="form-control" >  
+                <input name="nickname_eng" type="text" class="form-control" >  
                 <p >Birthday</p> 
-                <input class="form-control" style="width: 100%;width: 224px;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;" type="date" id="start" name="start_time">
+                <input name="birthday" class="form-control" style="width: 100%;width: 224px;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;" type="date" id="start" name="start_time">
                 <p >School</p> 
-                <input type="text" class="form-control" style="width: 224px;">  
+                <input name="school" type="text" class="form-control" style="width: 224px;">  
                 <p >Grade</p> 
-                <input type="text" class="form-control" style="width: 224px;">  
+                <input name="grade" type="text" class="form-control" style="width: 224px;">  
             </div>
-            <a  href="index.php?app=faii&action=parent_information" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</a>
+            <button  type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
             </div>
-        </form>
+        
     </div>
+
     <div class="col-md-5" style="padding-top: 5%;padding-bottom: 8%;">
         <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
             <h3 style="margin-bottom: 20px;"><b>STUDENT INFORMATION</b></h3>
@@ -182,6 +184,13 @@
         </div>
        
     </div>
-</div>  
+</div>
+</form>  
 </body>
+
+<script>
+	function myFunction() {
+		document.getElementById("demo").innerHTML = '<iframe src="fa/oil.pdf"   width="100%" height="500px"></iframe>';
+	}
+</script>
 

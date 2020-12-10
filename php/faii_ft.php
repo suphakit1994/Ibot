@@ -48,18 +48,28 @@ function insterstudent(mysqli $conn,$data){
 	
 	mysqli_close($conn);
 	}
-	// if (mysqli_query($conn, $sql )) {  
-	// 	echo"<script language=\"JavaScript\">";
-	// 	echo"if(confirm('เพิ่มสำเร็จ'))";  
-		
-	// 	echo"</script>";
-	// } else {
-	// 	echo"<script language=\"JavaScript\">";
-	// 	echo"if(confirm('เพิ่มไม่สำเร็จ!!'))";    
 
-	// 	echo"</script>";
-		
-	// }
+	function insertstudentuser(mysqli $conn,$data=[]){
+		$sql = " INSERT INTO `studentuser`(`name_th`, `name_eng`, `nickname_eng`, `birthday`, `school`, `grade`)  
+		VALUES (
+		'".$data['name_th']."',
+		'".$data['name_eng']."',
+		'".$data['nickname_eng']."',
+		'".$data['birthday']."',
+		'".$data['school']."',
+		'".$data['grade']."'
+		)";
 
+	echo $sql;
+	
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+	mysqli_close($conn);
+	}
+	
 
 ?>

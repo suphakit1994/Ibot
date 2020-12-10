@@ -99,7 +99,7 @@
 <form>
 <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
 <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-7" style=" padding-top: 5%;"> 
     <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 
     
             <div  class="form-card" >
@@ -180,7 +180,7 @@
      
     </div>
        
-    <div class="col-md-5" >
+    <div class="col-md-5" style=" padding-top: 5%;">
         <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
             <h3 style="margin-bottom: 20px;"><b>STUDENT INFORMATION</b></h3>
             <div class="row">
@@ -260,8 +260,9 @@
                 </div>
             </div>
         </div>
-        </form>
+       
     </div>
 </div>  
-</div>
+</div> 
+</form>
 </body>

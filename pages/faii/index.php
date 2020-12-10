@@ -19,9 +19,10 @@ if($_GET['action']=='student'){
 }
 if($_GET['action']=="student_information"){
 	require_once('student_information.php');
-}
+}	
 if($_GET['action']=="parent_information"){
 	require_once('parent_information.php');
+	$cus = insertstudentuser($conn,$_POST);
 }
 if($_GET['action']=="enroll"){
 	require_once('enroll.php');
@@ -31,6 +32,9 @@ if($_GET['action']=="payment"){
 }
 if($_GET['action']=="success"){
 	require_once('success.php');
+}
+if($_GET['action']=="viewtest"){
+	require_once('viewtest.php');
 }
 ?>
 

@@ -27,7 +27,6 @@
 								<?php }?>
 
 							</ol>
-
 							<div class="carousel-inner">
 								<?php for ($i=0; $i < count($cus) ; $i++) {  ?>
 									<div class="item <?php if($i==0){ echo("active");}?> ">

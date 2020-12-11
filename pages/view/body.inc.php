@@ -23,6 +23,9 @@ if($_GET['app'] == 'about'){
 if($_GET['app'] == 'pdf'){
 	require_once("pdf/index.php");
 }
+if($_GET['app'] == 'iframe'){
+	require_once("iframe/index.php");
+}
 if($_GET['app'] == 'signin'){
 	require_once("signin/index.php");
 }

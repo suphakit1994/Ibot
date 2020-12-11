@@ -4,13 +4,10 @@ include("../php/config.php");
 include('../php/function.php');
 
 
+
+
 if(!isset($_GET['action']) ){
-	$get_pdf = getPdf($conn);
 	$qq = quiz($conn);
-	require_once('pdfweb.php');
-}
-if($_GET['action']=='insert_pdf'){
-	$cus = insertPdf($conn,$_POST);
-	print_r($_POST);
+	require_once('question.php');
 }
 ?>

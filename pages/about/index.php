@@ -9,6 +9,7 @@ if(!isset($_GET['action']) ){
 	$per = aboutus_performance($conn);
 	$cer = aboutus_certificate($conn);
 	require_once('aboutus.php');
+	?><pre><?php print_r($cus); ?></pre><?php
 	
 }
 ?>

@@ -96,7 +96,7 @@
 </style>
 
 <body>
-<form>
+<form href="..faii_ft.php" method="post" action="index.php?app=faii&action=payment">
 <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
 <div class="row">
     <div class="col-md-7" style=" padding-top: 5%;"> 
@@ -174,8 +174,8 @@
             </div>
             
         <div>
-            <a  href="index.php?app=faii&action=parent_information" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Back</a>
-            <a  href="index.php?app=faii&action=payment" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</a>
+            <!-- <a  href="index.php?app=faii&action=parent_information" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Back</a> -->
+            <button  type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
         </div>    
      
     </div>
@@ -184,17 +184,13 @@
         <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
             <h3 style="margin-bottom: 20px;"><b>STUDENT INFORMATION</b></h3>
             <div class="row">
-                <div class="col-md-6"> 
+            <div class="col-md-6"> 
                     <p>Name</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Nickname</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p>555555555</p>
+                    <!-- <p><?php echo $_POST[1]['name_eng'];  ?></p> -->
+                    <!-- <p><?php echo $_POST[1]['nickname_eng'];  ?></p> -->
                 </div>
             </div>
             
@@ -202,61 +198,34 @@
             <div class="row">
                 <div class="col-md-6"> 
                     <p>Name</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>Nickname</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
+                    <p>Relation</p>
                     <p>Phone number</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p>555555555</p>
+                    <p><?php echo $_POST['namep_eng'];  ?></p> 
+                    <p><?php echo $_POST['related'];  ?></p>
+                    <p><?php echo $_POST['phonenumber'];  ?></p>
                 </div>
             </div>
 
             <h3 style="margin-bottom: 5%;margin-top: 8%;"><b>ORDER SUMMARY</b></h3>
             <div class="row">
-                <div class="col-md-6"> 
-                    <p>Course</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
+            <div class="col-md-6"> 
+                    <p>Course</p> 
                     <p>Course Expansion</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Total Course</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>class schedule</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Make-up class</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Study time</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p>555555555</p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    
                 </div>
             </div>
         </div>

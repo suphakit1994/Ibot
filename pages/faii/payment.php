@@ -183,7 +183,7 @@ select[name=month]{
                 <!-- year -->
                 <select name=year >
                     <option>year</option>
-                        <?Php
+                    <?Php
                         for ($i = 0; $i <= 100; $i++) {
                             $year = date('Y', strtotime("last day of -$i year"));
                             echo "<option name='$year'>$year</option>";
@@ -198,89 +198,61 @@ select[name=month]{
     </div>
 
     <div class="col-md-5" style="padding-top: 5%;padding-bottom: 8%;">
-        <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
+    <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
             <h3 style="margin-bottom: 20px;"><b>STUDENT INFORMATION</b></h3>
             <div class="row">
-                <div class="col-md-6"> 
+            <div class="col-md-6"> 
                     <p>Name</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Nickname</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p>555555555</p>
+                    <p> </p>
+                    <p></p>
+                </div>
+               
+                <div class="col-md-6"> 
+                    
                 </div>
             </div>
             
             <h3 style="margin-bottom: 5%;margin-top: 8%;"><b>PARENT INFORMATION</b></h3>
             <div class="row">
-                <div class="col-md-6"> 
+            <div class="col-md-6"> 
                     <p>Name</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Nickname</p>
-                </div>
-                <div class="col-md-6"> 
-                                           <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Phone number</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p>555555555</p>
+                    <p></p> 
+                    <p></p>
+                    <p></p>
                 </div>
             </div>
 
             <h3 style="margin-bottom: 5%;margin-top: 8%;"><b>ORDER SUMMARY</b></h3>
             <div class="row">
-                <div class="col-md-6"> 
-                    <p>Course</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
+            <div class="col-md-6"> 
+                    <p>Course</p> 
                     <p>Course Expansion</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Total Course</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>class schedule</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Make-up class</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Study time</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p>5555555555</p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>              
                 </div>
             </div>
-        </div>
-        <div>
-            <a  href="index.php?app=faii&action=success" type="button" name="next" class="Button" style="border-radius:28px; width: 150px;">Purchase now</a>
         </div> 
     </div>
+    <div>
+        <a  href="index.php?app=faii&action=success" type="button" name="next" class="Button" style="border-radius:28px; width: 150px;">Purchase now</a>
+    </div> 
 </div>  
 </form>  
 </body>

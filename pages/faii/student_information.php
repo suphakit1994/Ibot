@@ -97,7 +97,7 @@
                 <p >Grade</p> 
                 <input name="grade" type="text" class="form-control" style="width: 224px;">  
             </div>
-            <button  type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
+            <button    name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
             </div>
         
     </div>
@@ -108,15 +108,15 @@
             <div class="row">
                 <div class="col-md-6"> 
                     <p>Name</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Nickname</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p>555555555</p>
+                    <p></p>
+                    <p></p>
+                </div>
+               
+                <div class="col-md-6"> 
+                    
                 </div>
             </div>
             
@@ -124,62 +124,38 @@
             <div class="row">
                 <div class="col-md-6"> 
                     <p>Name</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Nickname</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Phone number</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p>555555555</p>
+                    <p></p> 
+                    <p></p>
+                    <p></p>
                 </div>
+                
+               
             </div>
 
             <h3 style="margin-bottom: 5%;margin-top: 8%;"><b>ORDER SUMMARY</b></h3>
             <div class="row">
                 <div class="col-md-6"> 
-                    <p>Course</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
+                    <p>Course</p> 
                     <p>Course Expansion</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Total Course</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>class schedule</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Make-up class</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p>555555555</p>
-                </div>
-                <div class="col-md-6"> 
                     <p>Study time</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p>555555555</p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    
                 </div>
+                
             </div>
         </div>
        

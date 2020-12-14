@@ -15,7 +15,7 @@
 			<div class="col-md-12">
 				<div class="row" style="background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%); height: 359px; margin-top: 9%; border-radius: 15px; display:flex; align-items: center; margin-bottom: 0 !important; ">
 					<div class="col-sm-5">
-						<img src="../images/Logo.jpg" class="img-rounded" alt="Cinque Terre" width="320px" height="450px" style="position: absolute;top:-270px;">
+						<img src="../images/DSC01298-1.png" class="img-rounded" alt="Cinque Terre" width="365px" height="460px" style="position: absolute;top:-280px;">
 					</div>
 					<div class="col-sm-7" style="margin: auto;">
 						<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -25,7 +25,6 @@
 								<?php for ($i=1; $i < count($cus) ; $i++) {  ?>
 									<li data-target="#myCarousel" data-slide-to="<?php echo $i ?>"></li>
 								<?php }?>
-
 							</ol>
 							<div class="carousel-inner">
 								<?php for ($i=0; $i < count($cus) ; $i++) {  ?>

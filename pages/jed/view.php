@@ -190,19 +190,8 @@
               <a class="Button" style="margin-top:2%; padding: 5px; width:150px;  text-align: center;"
               href="index.php?app=jed&action=compititions">Next</a> 
             </form>
-            <form action="index.php?app=jed&action=insert" method="POST">
-              <label for="start">Start Time:</label>
-              <input type="date" id="start" name="start_time">
-              <br>
-              <label for="end">End Time:</label>
-              <input type="date" id="end" name="end_time">
-              <br>
-              <label for="titlee">Title:</label>
-              <input type="text" name="title" id="titlee">
-              <input type="submit">
-            </form>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form">
-              See Modal with Form
+              Create Schedule
             </button> 
           </div>
         </div>
@@ -229,18 +218,16 @@
                     <br><br>
                     <label for="titlee">Title:</label><br>
                     <input style="width: 100%;" type="text" name="title" id="titlee">
-                    <div class="dropdown">
-                      <button class="btn btn-danger dropdown-toggle dropdown-toggle-split" type="button" data-toggle="dropdown">Schedule
-                        <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                          <li><a href="#">Attended</a></li>
-                          <li><a href="#">Take a leave</a></li>
-                          <li><a href="#">Schedule</a></li>
-                        </ul>
-                      </div>
-                      <input  class="" style="width: 100%; margin-top: 5%; margin-bottom: 5%" type="submit">
-                    </form>
-                  </div>
+                    <div style="padding: 2%;">
+                      <label for="cars">Choose a Status:</label>
+                      <select name="color" id="cars">
+                        <option value="blue">Attended</option>
+                        <option value="pink">Take a leave</option>
+                        <option value="black">Schedule</option>
+                      </select>
+                    </div>
+                    <input  class="" style="width: 100%; margin-top: 5%; margin-bottom: 5%" type="submit">
+                  </form>
                 </div>
               </div>
             </div>
@@ -248,77 +235,78 @@
         </div>
       </div>
     </div>
-  </body>
-  <script>
-    var eventcalendar =[];
-    <?php echo $cus; ?>.forEach(value =>{
-      eventcalendar.push( {
-        id: 'a',
-        title: value.title,
-        start: value.start_time,
-        end: value.end_time,
-        extendedProps: {
-          status: ''
-        },
-        borderColor: 'black',
-        backgroundColor:value.color
-      });
+  </div>
+</body>
+<script>
+  var eventcalendar =[];
+  <?php echo $cus; ?>.forEach(value =>{
+    eventcalendar.push( {
+      id: 'a',
+      title: value.title,
+      start: value.start_time,
+      end: value.end_time,
+      extendedProps: {
+        status: ''
+      },
+      borderColor: value.color,
+      backgroundColor:value.color
     });
-    document.addEventListener('DOMContentLoaded', function () {
-      var calendarEl = document.getElementById('calendar');
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        fixedMirrorParent: document.body,
-        initialView: 'dayGridMonth',
-        timeZone: 'UTC',
-        editable:true,
-        droppable:true,
-        selectable: true,
+  });
+  document.addEventListener('DOMContentLoaded', function () {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      fixedMirrorParent: document.body,
+      initialView: 'dayGridMonth',
+      timeZone: 'UTC',
+      editable:true,
+      droppable:true,
+      selectable: true,
 
-        headerToolbar: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        },
-        dateClick: function(info) {
-          alert('Date: ' + info.dateStr);
-        },
-        events: eventcalendar
-        ,
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      dateClick: function(info) {
+        alert('Date: ' + info.dateStr);
+      },
+      events: eventcalendar
+      ,
 
-        eventOverlap: function(stillEvent, movingEvent) {
-          return stillEvent.allDay && movingEvent.allDay;
-        },
-        eventDrop: function(info) {
-          alert(info.event.title + " was dropped on " + info.event.start.toISOString());
-          if (!confirm("Are you sure about this change?")) {
-            info.revert();
-          }
-        },
-        eventResize: function(info) {
-          alert(info.event.title + " end is now " + info.event.end.toISOString());
-          if (!confirm("is this okay?")) {
-            info.revert();
-          }
-        },
-        eventDidMount: function(info) {
-          if (info.event.extendedProps.status === 'done') {
-            info.el.style.backgroundColor = 'red';
-            var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
-            if (dotEl) {
-              dotEl.style.backgroundColor = 'white';
-            }
-          }
-        },
-        selectOverlap: function(event) {
-          return event.rendering === 'background';
+      eventOverlap: function(stillEvent, movingEvent) {
+        return stillEvent.allDay && movingEvent.allDay;
+      },
+      eventDrop: function(info) {
+        alert(info.event.title + " was dropped on " + info.event.start.toISOString());
+        if (!confirm("Are you sure about this change?")) {
+          info.revert();
         }
-      });
-      var event = calendar.getEventById('a')
-      var start = event.start 
-      calendar.render();
+      },
+      eventResize: function(info) {
+        alert(info.event.title + " end is now " + info.event.end.toISOString());
+        if (!confirm("is this okay?")) {
+          info.revert();
+        }
+      },
+      eventDidMount: function(info) {
+        if (info.event.extendedProps.status === 'done') {
+          info.el.style.backgroundColor = 'red';
+          var dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
+          if (dotEl) {
+            dotEl.style.backgroundColor = 'white';
+          }
+        }
+      },
+      selectOverlap: function(event) {
+        return event.rendering === 'background';
+      }
     });
+    var event = calendar.getEventById('a')
+    var start = event.start 
+    calendar.render();
+  });
 
-  </script>
+</script>
 
 
 

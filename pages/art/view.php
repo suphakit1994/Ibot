@@ -164,7 +164,7 @@
             <!-- Button -->
             <div class="row" style=" margin-top:1%; padding-bottom:2%;">
                 <div class="col-md-2" style="padding-left:0%;">
-                    <input name="insert" class="Button" type="submit" style="padding: 4px;  margin: 0px; width: 100%; padding-left:0%;  "></a>
+                    <input name="insert" class="Button" type="submit" style="padding: 4px;  margin: 0px; width: 100%; padding-left:0%;  ">
                 </div>
                 <div class="col-md-2">
                     <a href="" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">BACK</a>

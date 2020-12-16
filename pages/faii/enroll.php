@@ -96,12 +96,12 @@
 </style>
 
 <body>
-<form href="..faii_ft.php" method="post" action="index.php?app=faii&action=payment">
+<form  method="post" action="index.php?app=faii&action=payment">
+
 <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
 <div class="row">
     <div class="col-md-7" style=" padding-top: 5%;"> 
     <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 
-    
             <div  class="form-card" >
                 <ul class="progressbar">
                     <li class="active">student information</li>
@@ -174,8 +174,10 @@
             </div>
             
         <div>
-            <!-- <a  href="index.php?app=faii&action=parent_information" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Back</a> -->
-            <button  type="button" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
+            <input type="hidden" name="Name_e" value="<?php echo $_POST['name_eng'];  ?>">
+            <input type="hidden" name="Nickname_e" value="<?php echo $_POST['nickname_eng'];  ?>">
+
+            <button  type="submit" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
         </div>    
      
     </div>

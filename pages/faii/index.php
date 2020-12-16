@@ -25,21 +25,19 @@ if($_GET['action']=="student_information"){
 if($_GET['action']=="parent_information"){
 	$cusp = selectstudentuser($conn);
 	$cus = insertstudentuser($conn,$_POST);
-    // print_r ($cus);
 	require_once('parent_information.php');
 }
 
 if($_GET['action']=="enroll"){
-	
-	require_once('enroll.php');
 	$cus = selectmax($conn);
 
-	// $cus = selectstudentuser($conn);
-	$cuss = updatestudentuser($conn,$_POST,$cus);
-	
+	// $cusp = selectstudentuser($conn);
+	require_once('enroll.php');
+	$cuss = updatestudentuser($conn,$_POST,$cus);	
 }
 
 if($_GET['action']=="payment"){
+	
 	require_once('payment.php');
 }
 

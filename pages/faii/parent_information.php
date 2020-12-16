@@ -85,12 +85,12 @@
             </div>
             <div class="col-md-9" style="padding:0px">
             <div class="form-card" style=" padding-top: 10%;">   
-                <p>ชื่อ-นามสกุล (Thai)</p> 
-                <input name="namep_th"type="text" class="form-control" >  
-                <p >Parent's name (Eng)</p> 
-                <input name="namep_eng"type="text" class="form-control" >  
-                <p > Related to the applicant</p> 
-                <select   name="related" id="" class="form-control" style="height: 70%;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;">
+                <p>ชื่อ-นามสกุล (Thai) <a style="color: red";> * </a></p> 
+                  <input name="namep_th"type="text" class="form-control" value="" pattern="^[ก-๏\s]+$" title="กรุณากรอกชื่อ นามสกุล ภาษาไทย" required>  
+                <p >Parent's name (Eng) <a style="color: red";> * </a></p> 
+                  <input name="namep_eng"type="text" class="form-control" value="" pattern="^[a-zA-Z\s]+$"  title="กรุณากรอกชื่อ นามสกุล ภาษาอังกฤษ" required >  
+                <p > Related to the applicant <a style="color: red";> * </a></p> 
+                  <select   name="related" id="" class="form-control" style="height: 70%;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;">
                                         <p> <option value=""></option></p>
                                         <p> <option value="Mother">Mother</option></p>
                                         <p> <option value="Father">Father</option></p>
@@ -99,15 +99,16 @@
                                         <p> <option value="godfather">godfather</option></p>
                                         <p> <option value="godmother">godmother</option></p>                                            
                                     </select> 
-                <p >Phone number</p> 
-                <input name="phonenumber" type="text" class="form-control" style="width: 224px;">  
-                <p >E-mail</p> 
-                <input name="email" type="text" class="form-control" style="width: 224px;">  
-                <p >ID Line</p> 
-                <input name="line" type="text" class="form-control" style="width: 224px;">  
+                <p >Phone number <a style="color: red";> * </a></p> 
+                 <input name="phonenumber" type="tel" class="form-control" pattern="[0-9]{10}" style="width: 224px;"  required >  
+                <p >E-mail <a style="color: red";> * </a></p> 
+                  <input name="email" type="email" class="form-control" style="width: 224px;" required>  
+                <p >ID Line <a style="color: red";> * </a></p> 
+                  <input name="line" type="text" class="form-control" style="width: 224px;" required>  
             </div>
-                <input type="hidden" name="name" value="<?php echo $_POST['name_eng'];  ?>">
-                <input type="hidden" name="Nname" value="<?php echo $_POST['nickname_eng'];  ?>">
+                  <input type="hidden" name="name" value="<?php echo $_POST['name_eng'];  ?>">
+                  <input type="hidden" name="Nname" value="<?php echo $_POST['nickname_eng'];  ?>">
+
                 <a href="index.php?app=faii&action=student_information" type="button" name="Back" class="Button" style="border-radius:28px; width: 120px;">Back</a>
                 <button  type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
             </div> 

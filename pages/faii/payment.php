@@ -96,11 +96,10 @@ select[name=month]{
 </style>
 
 <body>
-<form>
+<form  method="post" action="index.php?app=faii&action=enroll&id=<?php echo $cus['id']; ?>">
 <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
     <div class="col-md-7" style="padding-top: 5%;">
-    <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 
-        
+    <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2>     
             <div  class="form-card" >
                 <ul class="progressbar">
                     <li class="active">student information</li>
@@ -111,8 +110,6 @@ select[name=month]{
                 </ul>
             </div>
             <div>
-
-           
             <div class="form-card" style=" padding-top: 15%;"> 
                  <div class="col-md-4"style="padding-left: 5px;padding-right: 5px;">
                     <div class="corners">  
@@ -206,8 +203,8 @@ select[name=month]{
                     <p>Nickname</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p> </p>
-                    <p></p>
+                    <p><?php echo $_POST['Name_e'];  ?></p>
+                    <p><?php echo $_POST['Nickname_e'];  ?></p>
                 </div>
                
                 <div class="col-md-6"> 
@@ -240,7 +237,7 @@ select[name=month]{
                     <p>Study time</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p></p>
+                    <p><?php echo $data[2]['Course_Expension']; ?></p>
                     <p></p>
                     <p></p>
                     <p></p>

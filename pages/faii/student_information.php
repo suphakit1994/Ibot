@@ -1,3 +1,5 @@
+ <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  -->
 <style>
 .form-control{
     border-left-width: 0px !important;
@@ -68,7 +70,7 @@
 </style>
 
 <body>
-<form href="..faii_ft.php" method="post" action="index.php?app=faii&action=parent_information" >
+<form method="post" action="index.php?app=faii&action=parent_information" >
 <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
     <div class="col-md-7" style="padding-top: 5%;">
     <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 
@@ -84,20 +86,21 @@
             </div>
             <div class="col-md-9" style="padding:0px">
             <div class="form-card" style=" padding-top: 10%;">    
-                <p>ชื่อ-นามสกุล (Thai)</p> 
-                <input name="name_th" type="text" class="form-control"  >  
-                <p >Name-Surname (Eng)</p> 
-                <input name="name_eng" type="text" class="form-control" >  
-                <p >Nickname (Eng)</p> 
-                <input name="nickname_eng" type="text" class="form-control" >  
-                <p >Birthday</p> 
-                <input name="birthday" class="form-control" style="width: 100%;width: 224px;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;" type="date" id="start" name="start_time">
+                <p>ชื่อ-นามสกุล (Thai) <a style="color: red";> * </a></p>
+                <input name="name_th" type="text" class="form-control is-valid"  value="" pattern="^[ก-๏\s]+$" title="กรุณากรอกชื่อ นามสกุล ภาษาไทย" required >  
+                <p >Name-Surname (Eng) <a style="color: red";> * </a> </p> 
+                <input name="name_eng" type="text" class="form-control" value="" pattern="^[a-zA-Z\s]+$"  title="กรุณากรอกชื่อ นามสกุล ภาษาอังกฤษ" required  >
+                <p >Nickname (Eng) <a style="color: red";> * </a> </p> 
+                <input name="nickname_eng" type="text" class="form-control" pattern="^[a-zA-Z\s]+$"   required >  
+                <p >Birthday <a style="color: red";> * </a> </p> 
+                <input name="birthday" class="form-control" style="width: 100%;width: 224px;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;" type="date" id="start" name="start_time" required>
                 <p >School</p> 
                 <input name="school" type="text" class="form-control" style="width: 224px;">  
+
                 <p >Grade</p> 
-                <input name="grade" type="text" class="form-control" style="width: 224px;">  
+                <input name="grade" type="text"  class="numeric form-control" style="width: 224px;">  
             </div>
-            <button    name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
+            <button  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
             </div>
         
     </div>
@@ -162,11 +165,8 @@
     </div>
 </div>
 </form>  
+
+<!-- <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/bootstrap@4.1.0/dist/js/bootstrap.min.js"></script>
+ -->
 </body>
-
-<script>
-	function myFunction() {
-		document.getElementById("demo").innerHTML = '<iframe src="fa/oil.pdf"   width="100%" height="500px"></iframe>';
-	}
-</script>
-

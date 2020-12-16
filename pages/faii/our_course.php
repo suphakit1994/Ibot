@@ -28,6 +28,7 @@
   }    
 </style>
 <body>
+<form method="post" action="index.php?app=faii&action=student_information" >
   <div class="container-fluid" style="padding-right:100px ;padding-left:100px ;">
     <h1 style="padding-bottom: 20px;padding-top: 50px;">
       <b>OUR COURSE</b>
@@ -107,7 +108,7 @@
                   </div>
                 </div>   
                 <div class="text-center " style="margin-top: 10px ">
-                  <a href=" # " class=" btn btn:hover" style="width:80% ;border-radius:28px;">Enroll</a>
+                  <button type="submit"  class=" btn btn:hover" style="width:80% ;border-radius:28px;">Enroll</button>
                 </div>
               </div>
             </div>
@@ -125,5 +126,6 @@
   </div>
   <br>
   <br>
+</form>
 </body>
 

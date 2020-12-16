@@ -3,7 +3,7 @@ session_start();
 //$user = $_SESSION['user'];
 
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html>s
 <html lang="en">
 <head>
 	<?php require_once('view/head.inc.php'); ?>

@@ -1,6 +1,7 @@
 <?php
 
 
+
 function calendars(mysqli $conn){
 	$sql = "SELECT * FROM `calendar` WHERE 1 ";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -48,11 +49,12 @@ function aboutus_performance(mysqli $conn){
 }
 function insertData(mysqli $conn,$data=[]){
 
-	$sql = "INSERT INTO calendar (title,start_time,end_time)
+	$sql = "INSERT INTO calendar (title,start_time,end_time,color)
 	VALUES ('".
 	$data['title']."',
 	'".$data['start_time']."',
-	'".$data['end_time']."'
+	'".$data['end_time']."',
+	'".$data['color']."'
 )";
 echo $sql;
 
@@ -83,6 +85,7 @@ if ( mysqli_query($conn, $sql)) {
 }
 mysqli_close($conn);
 }
+
 function getPdf(mysqli $conn){
 	$sql = "SELECT * FROM `pdf_insert` WHERE 1 ";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -104,6 +107,21 @@ function quiz(mysqli $conn){
 		}
 		$result->close();
 		return json_encode($data);
+	}
+}
+function getLogin(mysqli $conn,$user_name,$password){
+	$user_name = mysqli_real_escape_string($conn,$user_name);
+	$password = mysqli_real_escape_string($conn, $password);
+	$sql = "SELECT * FROM user 
+	WHERE username = '$user_name' 
+	AND password = '$password' ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
 	}
 }
 

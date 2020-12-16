@@ -17,6 +17,8 @@ if($_GET['action']=='insert'){
 	$cus = insert($conn,$_POST);
 	print_r($_POST);
 }
+
+
 // if($_GET['action']=="viewtest"){
 // 	$name = testart($conn);
 // 	print_r($name);

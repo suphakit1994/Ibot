@@ -43,7 +43,6 @@
 
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="index.php?app=home">Home</a></li>
-
 						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >About us<span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="index.php?app=admin&action=employees">Franchise</a></li>

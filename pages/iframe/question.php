@@ -1,8 +1,23 @@
+
 <head>
-
-	<style>
-
-	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/yourcode.js"></script>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="//getbootstrap.com/2.3.2/assets/js/google-code-prettify/prettify.js"></script>
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+	<script type="text/javascript" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+	<script src="../lib/datetimepicker/jquery.datetimepicker.full.js"></script>
+	<link rel="stylesheet" href="../lib/datetimepicker/jquery.datetimepicker.css">
+	<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.css"> 
 </head>
 <body>
 	<?php
@@ -44,7 +59,6 @@
 									<?php echo $qq[$i]['select_a'];?>
 								</label><br>
 								<label>
-									
 									<input type="radio" name="<?php echo $i; ?>" value="">
 									<?php echo $qq[$i]['select_b'];?>
 								</label><br>

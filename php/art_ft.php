@@ -1,4 +1,4 @@
-<?php
+<?php 
 function testart(mysqli $conn){
 	$sql="SELECT* FROM `order` WHERE postal = '30000'";
 	echo $sql;
@@ -59,22 +59,4 @@ function slide(mysqli $conn){
 }
 
 
-
-// function artinsert(mysqli $conn,$data=[]){
-// 	$sql = "INSERT INTO order (name,surname,email,city,address,postal,cardnumber) 
-// 	VALUES('".$data['name']."',
-//     '".$data['surname']."',
-//     '".$data['email']."',
-//     '".$data['city']."',
-//     '".$data['address']."',
-//     '".$data['postal']."',
-//     '".$data['cardnumber']."',)";
-// 	if(mysqli_query($conn,$sql)){
-// 		return true;
-// 	}else{
-//         echo "Error: ".$sql ."<br>" . mysqli_error($conn);
-//         return false;
-//     }
-//     mysqli_close($conn);
-// }
 ?>

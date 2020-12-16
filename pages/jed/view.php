@@ -87,6 +87,9 @@
     .modal-backdrop{
       position: inherit !IMPORTANT;
     }
+    .fc-daygrid-event{
+      border-radius: 10px !IMPORTANT;
+    }
   </style>
 </head>
 <body>
@@ -249,6 +252,7 @@
         status: ''
       },
       borderColor: value.color,
+      themeSystem: 'bootstrap',
       backgroundColor:value.color
     });
   });

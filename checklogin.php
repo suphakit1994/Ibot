@@ -1,40 +1,27 @@
 <?php 
+date_default_timezone_set("Asia/Bangkok");
 session_start();
-        if(isset($_POST['username'])){
-                  include("config.php");
-                  $username = $_POST['username'];
-                  $password = $_POST['password'];
+require_once('php/config.php');
+require_once('php/function.php');
+session_start();
+if(isset($_POST['username']) && isset($_POST['password'])){
+  if($_POST['username'] != '' && $_POST['password'] != ''){
 
-                  $sql="SELECT * FROM users 
-                  WHERE  username='".$username."' 
-                  AND  password='".$password."' ";
-                  $result = mysqli_query($con,$sql);
-				
-                  if(mysqli_num_rows($result)==1){
-                      $row = mysqli_fetch_array($result);
+    $login_user = getLogin($conn,$_POST['username'],$_POST['password']);
 
-                      $_SESSION["ID"] = $row["ID"];
-                      $_SESSION["name"] = $row["name"];
-                      $_SESSION["level"] = $row["level"];
+    if($login_user['user_code'] > 0 && $login_user['del'] == 1){
+      $_SESSION['administrator_user'] = $login_user;
+      $_SESSION['LAST_ACTIVITY'] = time(); 
+      header("Location: pages/index.php?app=admin");
+    }else{
 
-                      if($_SESSION["level"]=="admin"){ 
-
-                        Header("Location: admin.php");
-                      }
-                  if ($_SESSION["level"]=="member"){ 
-
-                        Header("Location: member.php");
-                      }
-                  }else{
-                    echo "<script>";
-                        echo "alert(\" user หรือ  password ไม่ถูกต้อง\");"; 
-                        echo "window.history.back()";
-                    echo "</script>";
- 
-                  }
-        }else{
-
-             Header("Location: index.php"); //user & password incorrect back to login again
- 
-        }
+      echo "<script type='text/javascript'>alert('รหัสผ่านไม่ถูกต้อง'); window.location = 'index.php';</script>";
+    }
+  }else{
+    header("Location index.php");
+  }
+}else{
+  header("Location index.php");
+}
+}
 ?>

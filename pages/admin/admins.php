@@ -1,6 +1,6 @@
 <style type="text/css" media="screen">
 	.vertical-nav {
-		margin-top: 4%;
+		margin-top: ;
 		min-width: 17rem;
 		width: 17rem;
 		height: 100vh;
@@ -9,10 +9,12 @@
 		left: 0;
 		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 		transition: all 0.4s;
+		background-color: white;
+		overflow-y: scroll;
 	}
 
 	.page-content {
-		width: calc(100% - 17rem);
+		width: calc(100% );
 		margin-left: 17rem;
 		transition: all 0.4s;
 	}
@@ -58,14 +60,43 @@
 	.modal-backdrop{
 		position: inherit !IMPORTANT;
 	}
+	.fc-daygrid-event{
+		border-radius: 6px !IMPORTANT;
+	}
+	/* width */
+	::-webkit-scrollbar {
+		width: 10px;
+	}
 
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #f1f1f1; 
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #888; 
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #555; 
+	}
+	.a_fontoflist{
+		font-size: 20px !important;
+		padding: 5% !important;
+	}
+	.space_of_items{
+		padding-top: 9%;
+	}
 </style>
 <body>
+
 	<div class="vertical-nav bg-white" id="sidebar">
 		<ul class="nav flex-column bg-white mb-0">
-			<li class="nav-item">
+			<li class="nav-item" style="padding-top: 50%;">
 				<div class="dropdown">
-					<a href="#" class="nav-link text-dark font-italic" id="about-us" data-toggle="collapse" data-target="#submenu-1" aria-haspopup="true" aria-expanded="false">
+					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-1" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-th-large mr-3  fa-fw"></i>
 						Dashboard
 						<span class="caret"></span>
@@ -77,10 +108,10 @@
 					</ul>
 				</div>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item space_of_items">
 				<div class="dropdown">
-					<a href="#" class="nav-link text-dark font-italic" id="about-us" data-toggle="collapse" data-target="#submenu-2" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-th-large mr-3  fa-fw"></i>
+					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-2" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-calendar-check-o mr-3  fa-fw"></i>
 						Schedule
 						<span class="caret"></span>
 					</a>
@@ -91,10 +122,10 @@
 					</ul>
 				</div>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item space_of_items">
 				<div class="dropdown">
-					<a href="#" class="nav-link text-dark font-italic" id="about-us" data-toggle="collapse" data-target="#submenu-3" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-th-large mr-3  fa-fw"></i>
+					<a href="#" class="nav-link text-dark font-italic a_fontoflist a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-3" aria-haspopup="true" aria-expanded="false">
+						<i class="far fa-user mr-3  fa-fw"></i>
 						Teacher
 						<span class="caret"></span>
 					</a>
@@ -105,10 +136,10 @@
 					</ul>
 				</div>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item space_of_items">
 				<div class="dropdown">
-					<a href="#" class="nav-link text-dark font-italic" id="about-us" data-toggle="collapse" data-target="#submenu-4" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-th-large mr-3  fa-fw"></i>
+					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-4" aria-haspopup="true" aria-expanded="false">
+						<i class="far fa-user mr-3  fa-fw"></i>
 						Students
 						<span class="caret"></span>
 					</a>
@@ -119,10 +150,10 @@
 					</ul>
 				</div>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item space_of_items">
 				<div class="dropdown">
-					<a href="#" class="nav-link text-dark font-italic" id="about-us" data-toggle="collapse" data-target="#submenu-5" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-th-large mr-3  fa-fw"></i>
+					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-5" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-book mr-3  fa-fw"></i>
 						Course
 						<span class="caret"></span>
 					</a>
@@ -133,10 +164,10 @@
 					</ul>
 				</div>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item space_of_items">
 				<div class="dropdown">
-					<a href="#" class="nav-link text-dark font-italic" id="about-us" data-toggle="collapse" data-target="#submenu-6" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-th-large mr-3  fa-fw"></i>
+					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-6" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-trophy mr-3  fa-fw"></i>
 						Competitions
 						<span class="caret"></span>
 					</a>
@@ -147,11 +178,11 @@
 					</ul>
 				</div>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item space_of_items">
 				<div class="dropdown">
-					<a href="#" class="nav-link text-dark font-italic" id="about-us" data-toggle="collapse" data-target="#submenu-7" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-th-large mr-3  fa-fw"></i>
-						Competitions
+					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-7" aria-haspopup="true" aria-expanded="false">
+						<i class="glyphicon glyphicon-triangle-top mr-3  fa-fw"></i>
+						Camp
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-7" class="collapse">
@@ -161,11 +192,11 @@
 					</ul>
 				</div>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item space_of_items">
 				<div class="dropdown">
-					<a href="#" class="nav-link text-dark font-italic" id="about-us" data-toggle="collapse" data-target="#submenu-8" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-th-large mr-3  fa-fw"></i>
-						Competitions
+					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-8" aria-haspopup="true" aria-expanded="false">
+						<i class="far fa-address-card mr-3  fa-fw"></i>
+						Certificate
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-8" class="collapse">
@@ -175,11 +206,11 @@
 					</ul>
 				</div>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item space_of_items">
 				<div class="dropdown">
-					<a href="#" class="nav-link text-dark font-italic" id="about-us" data-toggle="collapse" data-target="#submenu-9" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-th-large mr-3  fa-fw"></i>
-						Competitions
+					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-9" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-gear mr-3  fa-fw"></i>
+						Setting
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-9" class="collapse">
@@ -189,11 +220,11 @@
 					</ul>
 				</div>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item space_of_items">
 				<div class="dropdown">
-					<a href="#" class="nav-link text-dark font-italic" id="about-us" data-toggle="collapse" data-target="#submenu-10" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-th-large mr-3  fa-fw"></i>
-						Competitions
+					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-10" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-store mr-3  fa-fw"></i>
+						Franchise
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-10" class="collapse">
@@ -206,14 +237,19 @@
 		</ul>
 	</div>
 	<!-- Content -->
-	<div class="page-content p-5" id="content">
-		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
-		<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form">
-			Create Schedule
-		</button> 
-		<div id="calendar">
+	<div class="container" style="margin-left: 5%;">
+		<div class="row">
+			<div class="page-content p-5" id="content">
+				<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
+				<button type="button" class="Button" data-toggle="modal" data-target="#form" style="padding: 7px;">
+					Create Schedule
+				</button> 
+				<div id="calendar">
+				</div>
+			</div>
 		</div>
 	</div>
+
 	<!-- Modals Windows -->
 	<div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
@@ -252,7 +288,6 @@
 			</div>
 		</div>
 	</div>
-
 </body>
 <script>
 	$(function() {
@@ -273,6 +308,7 @@
   			status: ''
   		},
   		borderColor: value.color,
+
   		backgroundColor:value.color
   	});
   });
@@ -294,8 +330,7 @@
   		dateClick: function(info) {
   			alert('Date: ' + info.dateStr);
   		},
-  		events: eventcalendar
-  		,
+  		events: eventcalendar,
 
   		eventOverlap: function(stillEvent, movingEvent) {
   			return stillEvent.allDay && movingEvent.allDay;

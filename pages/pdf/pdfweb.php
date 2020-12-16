@@ -50,7 +50,7 @@
 						<div class="row">
 							<div class="col-md-12" style="border: 1px solid #D3D3D3; padding: 10px;">
 								<input type="radio" name="<?php echo $i; ?>">
-								<a onclick="myFunction('<?php echo $get_pdf[$i]['address_scr']; ?>')" ><?php echo $get_pdf[$i]['name']; ?></a>
+								<a href="#"onclick="myFunction('<?php echo $get_pdf[$i]['address_scr']; ?>')" ><?php echo $get_pdf[$i]['name']; ?></a>
 							</div>
 						</div>
 					<?php }?>
@@ -88,6 +88,11 @@
 						<img src="../images/Logo.jpg" width="280px" height="180px" alt="Image">
 					</div>
 					<a class="Button" href="" style="width: 40%; padding: 1%;">Request Certificate</a> 
+					<form action="index.php?app=jed&action=choosefile" method="POST">
+						<label for="myfile">Select a file:</label>
+						<input type="file" id="myfile" name="myfile"><br><br>
+						<input type="submit">
+					</form>
 				</div>
 			</div>
 		</div>

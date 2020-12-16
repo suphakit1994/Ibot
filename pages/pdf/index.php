@@ -9,7 +9,8 @@ if(!isset($_GET['action']) ){
 	$qq = quiz($conn);
 	require_once('pdfweb.php');
 }
-if($_GET['action']=='insert_pdf'){
+
+if($_GET['action']=='choosefile'){
 	$cus = insertPdf($conn,$_POST);
 	print_r($_POST);
 }

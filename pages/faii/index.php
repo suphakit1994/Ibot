@@ -23,21 +23,19 @@ if($_GET['action']=="student_information"){
 }	
 
 if($_GET['action']=="parent_information"){
-		$cusp = selectstudentuser($conn);
+	$cusp = selectstudentuser($conn);
 	$cus = insertstudentuser($conn,$_POST);
-print_r ($cus);
+    // print_r ($cus);
 	require_once('parent_information.php');
-
-	
-	
-	// echo $cus[1];
 }
 
 if($_GET['action']=="enroll"){
-	print_r($_POST);
+	
 	require_once('enroll.php');
+	$cus = selectmax($conn);
+
 	// $cus = selectstudentuser($conn);
-	$cuss = updatestudentuser($conn,$_POST);
+	$cuss = updatestudentuser($conn,$_POST,$cus);
 	
 }
 
@@ -53,5 +51,15 @@ if($_GET['action']=="viewtest"){
 	require_once('viewtest.php');
 
 }
+
+if($_GET['action']=="ibot_cam"){
+	require_once('ibot_cam.php');
+
+}
+if($_GET['action']=="sorry"){
+	require_once('sorry.php');
+
+}
+
 ?>
 

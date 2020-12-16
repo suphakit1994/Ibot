@@ -106,6 +106,8 @@
                 <p >ID Line</p> 
                 <input name="line" type="text" class="form-control" style="width: 224px;">  
             </div>
+                <input type="hidden" name="name" value="<?php echo $_POST['name_eng'];  ?>">
+                <input type="hidden" name="Nname" value="<?php echo $_POST['nickname_eng'];  ?>">
                 <a href="index.php?app=faii&action=student_information" type="button" name="Back" class="Button" style="border-radius:28px; width: 120px;">Back</a>
                 <button  type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
             </div> 

@@ -189,8 +189,8 @@
                     <p>Nickname</p>
                 </div>
                 <div class="col-md-6"> 
-                    <!-- <p><?php echo $_POST[1]['name_eng'];  ?></p> -->
-                    <!-- <p><?php echo $_POST[1]['nickname_eng'];  ?></p> -->
+                    <p><?php echo $_POST['name'];  ?></p>
+                    <p><?php echo $_POST['Nname'];  ?></p>
                 </div>
             </div>
             

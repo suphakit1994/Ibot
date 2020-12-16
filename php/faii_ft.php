@@ -64,20 +64,33 @@ function insterstudent(mysqli $conn,$data){
 	mysqli_close($conn);
 	}
 
-function insertstudentuser(mysqli $conn,$data=[]){
-		$sql = " INSERT INTO `studentuser`(`name_th`, `name_eng`, `nickname_eng`, `birthday`, `school`, `grade`)  
+
+function selectmax(mysqli $conn){
+	$sql = "SELECT MAX(id) as id FROM `studentuser`  ";
+	// echo $sql;
+		
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		
+		}
+	return $row;
+}
+function insertstudentuser(mysqli $conn,$data){
+
+		$sql = " INSERT INTO `studentuser`(`name_th`, `name_eng`, `nickname_eng`, `birthday`, `school`, `grade`,`id`)  
 		VALUES (
 		'".$data['name_th']."',
 		'".$data['name_eng']."',
 		'".$data['nickname_eng']."',
 		'".$data['birthday']."',
 		'".$data['school']."',
-		'".$data['grade']."'
+		'".$data['grade']."',
+		'".$data['id']."'
 		)";
 	
 	if ( mysqli_query($conn, $sql)) {
 		$sql = "SELECT MAX(id) as id FROM `studentuser`  ";
-	echo $sql;
+	 echo $sql;
 
 		$result = $conn->query($sql); 
 		if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -93,12 +106,19 @@ function insertstudentuser(mysqli $conn,$data=[]){
 		return false;
 	}
 	mysqli_close($conn);
-	}
+}
 
-	function updatestudentuser(mysqli $conn,$data=[]){
-		print_r($data);
-		$sql = " UPDATE studentuser SET namep_th= ".$data['namep_th']. WHERE  id = ".$data['id'];
-	echo $sql;
+
+
+
+function updatestudentuser(mysqli $conn,$data=[],$cus){
+	 print_r($cus['id']);
+		$sql = " UPDATE `studentuser` 
+				SET namep_th = '".$data['namep_th']."', namep_eng = '".$data['namep_eng']."' ,  related = '".$data['related']."',
+				phonenumber = '".$data['phonenumber']."', email = '".$data['email']."',line = '".$data['line']."'
+				WHERE id = '".$cus['id']."'" ;
+	// print_r($io['id']);
+	 // echo $io;
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -126,6 +146,4 @@ function inserparenttuser(mysqli $conn,$data=[]){
 	}
 	mysqli_close($conn);
 	}
-		
-
 ?>

@@ -19,6 +19,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.css"> 
 </head>
+
 <body>
 	<?php
 	$servername = "localhost";
@@ -42,38 +43,37 @@
 			return $data;
 		}
 	}
-	$qq = quiz($conn);
+	$varialble_quest = quiz($conn);
 	?>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
 				<form action="" method="POST" accept-charset="utf-8">
-					<?php for($i=0; $i<count($qq); $i++){?>
+					<?php for($i=0; $i<count($varialble_quest); $i++){?>
 						<div class="row">
 							<div class="col-md-12" style="border: 1px solid #D3D3D3; padding: 10px;">
 								<h3>
-									Question :<?php echo $qq[$i]['quest'];?>
+									<?php echo $i; ?> :<?php echo $varialble_quest[$i]['quest'];?>
 								</h3>
 								<label>
 									<input type="radio" name="<?php echo $i; ?>" value="">
-									<?php echo $qq[$i]['select_a'];?>
+									<?php echo $varialble_quest[$i]['select_a'];?>
 								</label><br>
 								<label>
 									<input type="radio" name="<?php echo $i; ?>" value="">
-									<?php echo $qq[$i]['select_b'];?>
+									<?php echo $varialble_quest[$i]['select_b'];?>
 								</label><br>
 								<label>
 									<input type="radio" name="<?php echo $i; ?>" value="">
-									<?php echo $qq[$i]['select_c'];?>
+									<?php echo $varialble_quest[$i]['select_c'];?>
 								</label><br>
 								<label>
 									<input type="radio" name="<?php echo $i; ?>" value="">
-									<?php echo $qq[$i]['select_d'];?>
+									<?php echo $varialble_quest[$i]['select_d'];?>
 								</label><br>
 							</div>
 						</div>
 					<?php }?>
-					<input type="Button" value="Submit">
 				</form>
 			</div>
 		</div>

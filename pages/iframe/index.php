@@ -7,7 +7,6 @@ include('../php/function.php');
 
 
 if(!isset($_GET['action']) ){
-	$qq = quiz($conn);
 	require_once('question.php');
 }
 ?>

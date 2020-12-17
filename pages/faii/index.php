@@ -19,6 +19,7 @@ if($_GET['action']=='student'){
 }
 
 if($_GET['action']=="student_information"){
+	// $cus=selectcoureid($conn, $data);
 	require_once('student_information.php');
 }	
 
@@ -29,7 +30,7 @@ if($_GET['action']=="parent_information"){
 }
 
 if($_GET['action']=="enroll"){
-	$cus = selectmax($conn);
+	// $cus = selectmax($conn);
 
 	// $cusp = selectstudentuser($conn);
 	require_once('enroll.php');

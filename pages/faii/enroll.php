@@ -128,12 +128,12 @@
                             <p> xxxxxxxxx</p> 
                             <p> xxxxxxxxx</p> 
                             <p> xxxxxxxxx</p> 
-                            <p><b>฿ </b></p>                       
+                            <p><b>฿ <?php echo $_POST[2]['Price']; ?></b></p>                       
                         </span> 
                     </div> 
                 </div>
                 <div>
-                    <input type="radio" name="my-input" id="no">
+                    <input type="radio" name="my-input" id="no" required>
                     <label for="yes">I agree the <label style="color:blue";>Terms and Conditions</label></label>   
                 </div>
                 
@@ -174,8 +174,11 @@
             </div>
             
         <div>
-            <input type="hidden" name="Name_e" value="<?php echo $_POST['name_eng'];  ?>">
-            <input type="hidden" name="Nickname_e" value="<?php echo $_POST['nickname_eng'];  ?>">
+            <input type="hidden" name="name_eng" value="<?php echo $_POST['name_eng'];  ?>">
+            <input type="hidden" name="nickname_eng" value="<?php echo $_POST['nickname_eng'];  ?>">
+            <input type="hidden" name="namep_eng" value="<?php echo $_POST['namep_eng'];  ?>">
+            <input type="hidden" name="related" value="<?php echo $_POST['related'];  ?>">
+            <input type="hidden" name="phonenumber" value="<?php echo $_POST['phonenumber'];  ?>">
 
             <button  type="submit" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
         </div>    
@@ -191,8 +194,8 @@
                     <p>Nickname</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p><?php echo $_POST['name'];  ?></p>
-                    <p><?php echo $_POST['Nname'];  ?></p>
+                    <p><?php echo $_POST['name_eng'];  ?></p>
+                    <p><?php echo $_POST['nickname_eng'];  ?></p>
                 </div>
             </div>
             

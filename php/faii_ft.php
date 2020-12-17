@@ -4,6 +4,7 @@
 function getselect(mysqli $conn){
 
 	$sql = "SELECT * FROM `our course` WHERE 1";
+
 		$result = $conn->query($sql); 
 		
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -15,6 +16,8 @@ function getselect(mysqli $conn){
 		return $data;
 	}
 }
+
+
 // function selectcoureid(mysqli $conn, $data){
 // 	$sql = "SELECT * FROM `our course` WHERE `ID` = '".$data[]."'";
 // 	echo $sql;
@@ -123,7 +126,7 @@ function updatestudentuser(mysqli $conn,$data=[],$cus){
 		$sql = " UPDATE `studentuser` 
 				SET namep_th = '".$data['namep_th']."', namep_eng = '".$data['namep_eng']."' ,  related = '".$data['related']."',
 				phonenumber = '".$data['phonenumber']."', email = '".$data['email']."',line = '".$data['line']."'
-				WHERE id = '".$cus['id']."' " ;
+				WHERE id = '".$cus['id']."' ";
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {

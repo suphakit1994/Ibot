@@ -91,7 +91,7 @@
 	}
 </style>
 <body>
-
+	<!-- zx -->
 	<div class="vertical-nav bg-white" id="sidebar">
 		<ul class="nav flex-column bg-white mb-0">
 			<li class="nav-item" style="padding-top: 50%;">
@@ -236,6 +236,8 @@
 			</li>
 		</ul>
 	</div>
+	<!-- zx -->
+
 	<!-- Content -->
 	<div class="container" style="margin-left: 5%;">
 		<div class="row">

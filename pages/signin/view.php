@@ -31,8 +31,8 @@
 
   <body>
     <div class="container">
-      <div class="row" style="text-align: center; margin-top: 9%;">
-        <h1>Sign in</h1>
+      <div class="row" style=" margin-top: 9%;">
+        <h1 style="text-align: center; ">Sign in</h1>
         <form  name="login" method="POST" action="signin/checklogin.php">
           <input type="text" class="w3-input fas" placeholder="&#xf406; username" aria-label="username" aria-describedby="basic-addon2" name="username" style="width: 50%; margin-left: 26%; margin-top: 3%" >  
           <input type="password" class="w3-input material-icons" placeholder="&#xe0da; password" aria-label="password" aria-describedby="basic-addon2" name="password" style="width: 50%; margin-left: 26%; margin-top: 3%" >

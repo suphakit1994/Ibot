@@ -274,6 +274,10 @@
       dateClick: function(info) {
         alert('Date: ' + info.dateStr);
       },
+      eventClick:function(info){
+        
+      },
+
       events: eventcalendar
       ,
 

@@ -4,6 +4,7 @@
 function getselect(mysqli $conn){
 
 	$sql = "SELECT * FROM `our course` WHERE 1";
+
 		$result = $conn->query($sql); 
 		
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -16,7 +17,18 @@ function getselect(mysqli $conn){
 	}
 }
 
-function selectmax(mysqli $conn){
+
+// function selectcoureid(mysqli $conn, $data){
+// 	$sql = "SELECT * FROM `our course` WHERE `ID` = '".$data[]."'";
+// 	echo $sql;
+		
+// 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+// 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		
+// 		}
+// 	return $row;
+// }
+function selectmax(mysqli $conn, $data){
 	$sql = "SELECT MAX(id) as id FROM `studentuser`  ";
 	// echo $sql;
 		
@@ -40,6 +52,7 @@ function selectstudentuser(mysqli $conn){
 		return $data;
 	} 
 }
+
 
 //รับค่าคะแนนเข้าดาต้าเบส
 function insterstudent(mysqli $conn,$data){
@@ -113,7 +126,7 @@ function updatestudentuser(mysqli $conn,$data=[],$cus){
 		$sql = " UPDATE `studentuser` 
 				SET namep_th = '".$data['namep_th']."', namep_eng = '".$data['namep_eng']."' ,  related = '".$data['related']."',
 				phonenumber = '".$data['phonenumber']."', email = '".$data['email']."',line = '".$data['line']."'
-				WHERE id = '".$cus['id']."' " ;
+				WHERE id = '".$cus['id']."' ";
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {

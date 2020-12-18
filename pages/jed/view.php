@@ -246,7 +246,7 @@
     eventcalendar.push( {
       id: 'a',
       title: value.title,
-      start: value.start_time,
+      start: value.start_time'T10:30:00',
       end: value.end_time,
       extendedProps: {
         status: ''

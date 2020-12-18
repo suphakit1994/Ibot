@@ -24,35 +24,30 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         $_SESSION["id"] = $row["id"];
         $_SESSION["name"] = $row["name"];
         $_SESSION["level"] = $row["level"];
+        $_SESSION["nlevel"] = $row["nlevel"];
 
-        if($_SESSION["level"]=="superadmin"){ 
-          Header("Location: ../superadmin.php");
-        }
-        if($_SESSION["level"]=="admin"){ 
-          Header("Location: ../admin.php");
-        }
-        if ($_SESSION["level"]=="teacher"){ 
-          Header("Location: ../teacher.php");
-        }
-        if ($_SESSION["level"]=="student"){ 
-          Header("Location: ../student.php");
+        if($_SESSION["level"]=="superadmin" || $_SESSION["level"]=="admin" || $_SESSION["level"]=="teacher" || $_SESSION["level"]=="student"){ 
+          Header("Location: ../index.php?app=home");
         }
         $data[] = $row;
-
       }
       $result->close();
+      echo "<script>";
+      echo "alert(\" user หรือ  password ไม่ถูกต้อง\");"; 
+      echo "window.history.back()";
+      echo "</script>";
       print_r($data);
     }
   }else{
     echo "<script>";
-    echo "alert(\" user หรือ  password ไม่ถูกต้อง\");"; 
+    echo "alert(\"กรุณากรอกข้อมูลให้ครบ\");"; 
     echo "window.history.back()";
     echo "</script>";
 
   }
 }else{
 
-             Header("Location: view.php"); //user & password incorrect back to login again
+             Header("Location: index.php?app=signin"); //user & password incorrect back to login again
 
            }
 

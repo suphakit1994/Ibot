@@ -28,7 +28,7 @@ function getselect(mysqli $conn){
 // 		}
 // 	return $row;
 // }
-function selectmax(mysqli $conn, $data){
+function selectmax(mysqli $conn){
 	$sql = "SELECT MAX(id) as id FROM `studentuser`  ";
 	// echo $sql;
 		
@@ -89,7 +89,7 @@ function insterstudent(mysqli $conn,$data){
 	}
 
 function insertstudentuser(mysqli $conn,$data){
-		$sql = " INSERT INTO `studentuser`(`name_th`, `name_eng`, `nickname_eng`, `birthday`, `school`, `grade`,`id`)  
+		$sql = " INSERT INTO `studentuser`(`name_th`, `name_eng`, `nickname_eng`, `birthday`, `school`, `grade`,`id`,`ourcourse_id`)  
 		VALUES (
 		'".$data['name_th']."',
 		'".$data['name_eng']."',
@@ -97,7 +97,8 @@ function insertstudentuser(mysqli $conn,$data){
 		'".$data['birthday']."',
 		'".$data['school']."',
 		'".$data['grade']."',
-		'".$data['id']."'
+		'".$data['id']."',
+		'".$data['ourcourse_id']."'
 		)";
 	
 	if ( mysqli_query($conn, $sql)) {

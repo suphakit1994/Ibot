@@ -13,18 +13,6 @@ function calendars(mysqli $conn){
 		return $data;
 	}
 }
-function count_calendars(mysqli $conn){
-	$sql = "SELECT * FROM `calendar` WHERE 1 ";
-		if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$total=count($data);
-		$result->close();
-		return $total;
-	}
-}
 function aboutus_news(mysqli $conn){
 	$sql = "SELECT * FROM `news` WHERE 1 ";
 

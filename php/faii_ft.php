@@ -3,7 +3,7 @@
 //ดึงข้อมูลจากดาต้าเบสมาแสดงที่หน้า
 function getselect(mysqli $conn){
 
-	$sql = "SELECT * FROM `our course` WHERE 1";
+	$sql = "SELECT * FROM `course` WHERE 1";
 
 		$result = $conn->query($sql); 
 		

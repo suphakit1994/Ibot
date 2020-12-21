@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2020 at 05:36 PM
+-- Generation Time: Dec 21, 2020 at 05:46 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -64,11 +64,19 @@ CREATE TABLE `course` (
   `course_category` varchar(100) NOT NULL COMMENT 'ชื่อหลักสูตร',
   `course_expension` varchar(100) NOT NULL COMMENT 'ชื่อคอร์ด',
   `course_Age` varchar(100) NOT NULL COMMENT 'ช่วงอายุ',
-  `course_total` varchar(100) NOT NULL COMMENT 'จำนวนคอร์ดเรียน',
+  `course_code` varchar(100) NOT NULL COMMENT 'จำนวนคอร์ดเรียน',
   `course_lesson` varchar(100) NOT NULL COMMENT 'บทเรียน',
   `course_price` varchar(20) NOT NULL COMMENT 'ราคา',
   `course_img` varchar(500) NOT NULL COMMENT 'รูปภาพ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`course_id`, `course_category`, `course_expension`, `course_Age`, `course_code`, `course_lesson`, `course_price`, `course_img`) VALUES
+(1, 'DUPLO', 'imagination coure ', '3 years old and older', 'IM01', '8 Lesson  12 Hours', '฿ 3,100 per course', ''),
+(2, 'DUPLO', 'imagination coure ', '3 years old and older', 'IM02', '8 Lesson  12 Hours', '฿ 3,100 per course', '');
 
 -- --------------------------------------------------------
 
@@ -108,6 +116,29 @@ CREATE TABLE `document` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `file`
+--
+
+CREATE TABLE `file` (
+  `file_id` int(11) NOT NULL COMMENT 'รหัสไฟล์',
+  `file_address` varchar(100) NOT NULL COMMENT 'ที่อยู่ไฟล์',
+  `file_lesson_id` int(11) NOT NULL COMMENT 'รหัสบทเรียน'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lesson`
+--
+
+CREATE TABLE `lesson` (
+  `lesson_id` int(11) NOT NULL COMMENT 'รหัสบทเรียน',
+  `lesson_course_id` int(11) NOT NULL COMMENT 'lesson_course_id'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `parents`
 --
 
@@ -133,6 +164,23 @@ CREATE TABLE `payment` (
   `payment_amount` int(20) NOT NULL COMMENT 'จำนวนเงิน',
   `payment_date` varchar(100) NOT NULL COMMENT 'วัน เวลาที่โอน',
   `payment_student_id` int(11) NOT NULL COMMENT 'รหัสนักเรียน'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quize`
+--
+
+CREATE TABLE `quize` (
+  `quiz_id` int(11) NOT NULL COMMENT 'รหัสคำถาม',
+  `question` varchar(20) NOT NULL COMMENT 'คำถาม',
+  `ans_1` varchar(20) NOT NULL COMMENT 'คำตอบ1',
+  `ans_2` varchar(20) NOT NULL COMMENT 'คำตอบ2',
+  `ans_3` varchar(20) NOT NULL COMMENT 'คำตอบ3',
+  `ans_4` varchar(20) NOT NULL COMMENT 'คำตอบ4',
+  `check_ans` int(5) NOT NULL COMMENT 'เฉลย',
+  `quiz_lesson_id` int(11) NOT NULL COMMENT 'รหัสบทเรียน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -236,6 +284,19 @@ ALTER TABLE `document`
   ADD PRIMARY KEY (`document_id`);
 
 --
+-- Indexes for table `file`
+--
+ALTER TABLE `file`
+  ADD PRIMARY KEY (`file_id`),
+  ADD KEY `FK_file_lesson_id` (`file_lesson_id`);
+
+--
+-- Indexes for table `lesson`
+--
+ALTER TABLE `lesson`
+  ADD PRIMARY KEY (`lesson_id`);
+
+--
 -- Indexes for table `parents`
 --
 ALTER TABLE `parents`
@@ -247,6 +308,13 @@ ALTER TABLE `parents`
 ALTER TABLE `payment`
   ADD PRIMARY KEY (`payment_id`),
   ADD KEY `FK_pstudent_id` (`payment_student_id`);
+
+--
+-- Indexes for table `quize`
+--
+ALTER TABLE `quize`
+  ADD PRIMARY KEY (`quiz_id`),
+  ADD KEY `FK_quiz_lesson_id` (`quiz_lesson_id`);
 
 --
 -- Indexes for table `student`
@@ -288,13 +356,25 @@ ALTER TABLE `calendar`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `course_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสคอร์ด';
+  MODIFY `course_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัสคอร์ด', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `document`
 --
 ALTER TABLE `document`
   MODIFY `document_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัส';
+
+--
+-- AUTO_INCREMENT for table `file`
+--
+ALTER TABLE `file`
+  MODIFY `file_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสไฟล์';
+
+--
+-- AUTO_INCREMENT for table `lesson`
+--
+ALTER TABLE `lesson`
+  MODIFY `lesson_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสบทเรียน';
 
 --
 -- AUTO_INCREMENT for table `parents`
@@ -307,6 +387,12 @@ ALTER TABLE `parents`
 --
 ALTER TABLE `payment`
   MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'รหัส';
+
+--
+-- AUTO_INCREMENT for table `quize`
+--
+ALTER TABLE `quize`
+  MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสคำถาม';
 
 --
 -- AUTO_INCREMENT for table `student`
@@ -338,10 +424,22 @@ ALTER TABLE `course_student`
   ADD CONSTRAINT `FK_student_id` FOREIGN KEY (`cs_student_id`) REFERENCES `student` (`student_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
+-- Constraints for table `file`
+--
+ALTER TABLE `file`
+  ADD CONSTRAINT `FK_file_lesson_id` FOREIGN KEY (`file_lesson_id`) REFERENCES `lesson` (`lesson_id`);
+
+--
 -- Constraints for table `payment`
 --
 ALTER TABLE `payment`
   ADD CONSTRAINT `FK_pstudent_id` FOREIGN KEY (`payment_student_id`) REFERENCES `student` (`student_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `quize`
+--
+ALTER TABLE `quize`
+  ADD CONSTRAINT `FK_quiz_lesson_id` FOREIGN KEY (`quiz_lesson_id`) REFERENCES `lesson` (`lesson_id`);
 
 --
 -- Constraints for table `student`

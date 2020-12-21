@@ -96,7 +96,7 @@ select[name=month]{
 </style>
 
 <body>
-<form  method="post" action="index.php?app=faii&action=enroll&id=<?php echo $cus['id']; ?>">
+<form  method="post" action="index.php?app=faii&action=enroll">
 <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
     <div class="col-md-7" style="padding-top: 5%;">
     <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2>     
@@ -203,8 +203,8 @@ select[name=month]{
                     <p>Nickname</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p><?php echo $_POST['Name_e'];  ?></p>
-                    <p><?php echo $_POST['Nickname_e'];  ?></p>
+                    <p><?php echo $_POST['name_eng'];  ?></p>
+                    <p><?php echo $_POST['nickname_eng'];  ?></p>
                 </div>
                
                 <div class="col-md-6"> 
@@ -220,9 +220,9 @@ select[name=month]{
                     <p>Phone number</p>
                 </div>
                 <div class="col-md-6"> 
-                    <p></p> 
-                    <p></p>
-                    <p></p>
+                    <p><?php echo $_POST['namep_eng'];  ?></p> 
+                    <p><?php echo $_POST['related'];  ?></p>
+                    <p><?php echo $_POST['phonenumber'];  ?></p>
                 </div>
             </div>
 

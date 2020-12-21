@@ -28,7 +28,7 @@
   }    
 </style>
 <body>
-<form method="post" action="index.php?app=faii&action=student_information" >
+
   <div class="container-fluid" style="padding-right:100px ;padding-left:100px ;">
     <h1 style="padding-bottom: 20px;padding-top: 50px;">
       <b>OUR COURSE</b>
@@ -37,6 +37,7 @@
      <?php 
       for($i=0;$i<$arrlength; $i++){  //loop card 
         ?>
+        <form method="post" action="index.php?app=faii&action=student_information" >
         <div href="..faii_ft.php" >
           <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
             <div class="card" >
@@ -108,12 +109,14 @@
                   </div>
                 </div>   
                 <div class="text-center " style="margin-top: 10px ">
-                  <button type="submit"  class=" btn btn:hover" style="width:80% ;border-radius:28px;">Enroll</button>
+                  <button type="submit"  name= "<?php echo $i ?>" class=" btn btn:hover" style="width:80% ;border-radius:28px;">Enroll</button>
                 </div>
               </div>
+               <input type="hidden" name="course_ID" value="<?php echo $data[$i]['ID'];  ?>">
             </div>
           </div>
       </div>  
+      </form>
         <?php  
       }  ?>
     </div>
@@ -126,6 +129,6 @@
   </div>
   <br>
   <br>
-</form>
+
 </body>
 

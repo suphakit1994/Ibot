@@ -9,7 +9,16 @@
 <body>
 	<div class="vertical-nav bg-white" id="sidebar">
 		<ul class="nav flex-column bg-white mb-0">
-			<li class="nav-item" style="padding-top: 50%;">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-sm-3" style="padding: 0px;">
+							<img src="../images/Logo.jpg" style="width: 100%; padding: 0px;">
+						</div>
+					</div>
+				</div>
+			</div>
+			<li class="nav-item" style="padding-top: 10%;">
 				<div class="dropdown">
 					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-1" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-th-large mr-3  fa-fw"></i>
@@ -153,3 +162,11 @@
 	</div>
 </body>
 </html>
+<script>
+	$(function() {
+  // Sidebar toggle behavior
+  $('#sidebarCollapse').on('click', function() {
+  	$('#sidebar, #content').toggleClass('active');
+  });
+});
+</script>

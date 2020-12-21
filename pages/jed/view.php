@@ -196,6 +196,7 @@
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form">
               Create Schedule
             </button> 
+            
           </div>
         </div>
       </div>
@@ -241,21 +242,7 @@
   </div>
 </body>
 <script>
-  var eventcalendar =[];
-  <?php echo $cus; ?>.forEach(value =>{
-    eventcalendar.push( {
-      id: 'a',
-      title: value.title,
-      start: value.start_time,
-      end: value.end_time,
-      extendedProps: {
-        status: ''
-      },
-      borderColor: value.color,
-      themeSystem: 'bootstrap',
-      backgroundColor:value.color
-    });
-  });
+
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -275,11 +262,25 @@
         alert('Date: ' + info.dateStr);
       },
       eventClick:function(info){
-        
+
       },
 
-      events: eventcalendar
-      ,
+      events: [
+      <?php for($i=0;$i<count($cus);$i++){ ?>
+        {
+          id: 'a',
+          title: '<?php echo $cus[$i]['title']; ?>',
+          start: '<?php echo $cus[$i]['start_time']; ?>',
+          end: '<?php echo $cus[$i]['end_time']; ?>',
+          extendedProps: {
+            status: ''
+          },
+          borderColor: '<?php echo $cus[$i]['color']; ?>',
+          themeSystem: 'bootstrap',
+          backgroundColor:'<?php echo $cus[$i]['color']; ?>'
+        },
+      <?php }?>
+      ],
 
       eventOverlap: function(stillEvent, movingEvent) {
         return stillEvent.allDay && movingEvent.allDay;
@@ -314,6 +315,22 @@
     calendar.render();
   });
 
+//----spare----
+// var eventcalendar =[];
+//   <?php echo $cus; ?>.forEach(value =>{
+//     eventcalendar.push( {
+//       id: 'a',
+//       title: value.title,
+//       start: value.start_time,
+//       end: value.end_time,
+//       extendedProps: {
+//         status: ''
+//       },
+//       borderColor: value.color,
+//       themeSystem: 'bootstrap',
+//       backgroundColor:value.color
+//     });
+//   });
 </script>
 
 

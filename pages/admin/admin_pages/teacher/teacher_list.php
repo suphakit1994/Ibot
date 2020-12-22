@@ -1,27 +1,33 @@
 
 <body>
 	<!-- Content -->
-	<div class="container-fluid">
-		<div class="row">
-			<div class="page-content p-5" id="content">
-				<h1>Teacher</h1>
-				<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
-				<button type="button" class="Button" data-toggle="modal" data-target="#form" style="padding: 7px;">
-					Create Schedule
-				</button> 
+	
+ <div class="page-content p-5" id="content">
+  <div class="container-fluid" style="margin:auto;">
+    <div class="row">
+      <h1>Teacher</h1>
+      <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
+      <button type="button" class="Button" data-toggle="modal" data-target="#form" style="padding: 7px;">
+       Create Schedule
+     </button> 
 
-        <form method='get'>
-         <a class="Button" style="margin-top:2%; padding: 5px; width:150px;  text-align: center;"
-         href="index.php?app=admin&action=admin_teacher">Next</a> 
-       </form>
-       <div id="calendar">
+     <form method='get'>
+       <a class="Button" style="margin-top:2%; padding: 5px; width:150px;  text-align: center;"
+       href="index.php?app=admin&action=admin_teacher">Next</a> 
+     </form>
+     <div class="row">
+       <div class="col-sm-12">
+         <div id="calendar">
+         </div>
        </div>
      </div>
    </div>
  </div>
+</div>
 
- <!-- Modals Windows -->
- <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<!-- Modals Windows -->
+<div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
    <div class="modal-content">
     <div class="modal-header border-bottom-0">

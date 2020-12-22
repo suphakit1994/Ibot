@@ -13,7 +13,6 @@ include('../php/function.php');
 		$cus = calendars($conn);
 		require_once('admin_pages/teacher/index.php');
 	}
-
 	if($_GET['action'] == 'asd'){
 		$s = calendars($conn);
 		//$cus = updateidcalendar($conn,$_POST);
@@ -28,7 +27,6 @@ include('../php/function.php');
 		$cus = insertData($conn,$_POST);
 		$suc = calendars($conn);
 		require_once("admin_pages/teacher/teacher_list.php");
-
 	}
 	?>
 </head>

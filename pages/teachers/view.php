@@ -189,52 +189,6 @@
 
         <div class="row">
           <div class="col-md-12" style="text-align:right;">
-            <form method='get'>
-              <a class="Button" style="margin-top:2%; padding: 5px; width:150px;  text-align: center;"
-              href="index.php?app=jed&action=compititions">Next</a> 
-            </form>
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form">
-              Create Schedule
-            </button> 
-            
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header border-bottom-0">
-              <h5 class="modal-title" id="exampleModalLabel">Create Schedule</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="row" style="align-items: center; display: flex; ">
-                <div class="col-md-12">
-                  <form action="index.php?app=jed&action=insert" method="POST">
-                    <label  for="start">Start Time:</label>
-                    <input style="width: 100%;" type="date" id="start" name="start_time">
-                    <br><br>
-                    <label for="end">End Time:</label>
-                    <input style="width: 100%;" type="date" id="end" name="end_time">
-                    <br><br>
-                    <label for="titlee">Title:</label><br>
-                    <input style="width: 100%;" type="text" name="title" id="titlee">
-                    <div style="padding: 2%;">
-                      <label for="cars">Choose a Status:</label>
-                      <select name="color" id="cars">
-                        <option value="blue">Attended</option>
-                        <option value="pink">Take a leave</option>
-                        <option value="black">Schedule</option>
-                      </select>
-                    </div>
-                    <input  class="" style="width: 100%; margin-top: 5%; margin-bottom: 5%" type="submit">
-                  </form>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -248,7 +202,7 @@
     var calendar = new FullCalendar.Calendar(calendarEl, {
       fixedMirrorParent: document.body,
       initialView: 'dayGridMonth',
-      timeZone: 'UTC',
+      timeZone: 'GMT',
       editable:true,
       droppable:true,
       selectable: true,
@@ -261,26 +215,28 @@
       dateClick: function(info) {
         alert('Date: ' + info.dateStr);
       },
-      eventClick:function(info){
 
-      },
 
       events: [
       <?php for($i=0;$i<count($cus);$i++){ ?>
         {
           id: 'a',
-          title: '<?php echo $cus[$i]['title']; ?>',
+          borderColor: '<?php echo $cus[$i]['color']; ?>',
+          backgroundColor:'<?php echo $cus[$i]['color']; ?>',
+          title: '<?php echo $cus[$i]['build_time']; ?>:00-<?php echo $cus[$i]['end_time']; ?>:00',
           start: '<?php echo $cus[$i]['start_time']; ?>',
-          end: '<?php echo $cus[$i]['end_time']; ?>',
+          end: '<?php echo $cus[$i]['start_time']; ?>',
+
           extendedProps: {
             status: ''
-          },
-          borderColor: '<?php echo $cus[$i]['color']; ?>',
-          themeSystem: 'bootstrap',
-          backgroundColor:'<?php echo $cus[$i]['color']; ?>'
+          } 
         },
       <?php }?>
       ],
+
+      eventClick:function(info){
+
+      },
 
       eventOverlap: function(stillEvent, movingEvent) {
         return stillEvent.allDay && movingEvent.allDay;
@@ -313,6 +269,7 @@
     var event = calendar.getEventById('a')
     var start = event.start 
     calendar.render();
+    console.log('<?php echo $cus[1]['start_time']; ?>T<?php echo $cus[1]['build_time']; ?>:00');
   });
 
 //----spare----

@@ -152,7 +152,7 @@ function deleterowcalendar(mysqli $conn, $data){
 		return false;
 	}
 }
-function selectmax(mysqli $conn){
+function selectmaxs(mysqli $conn){
 	$sql = "SELECT * FROM `calendar` WHERE 1 ";
 
 	if ( mysqli_query($conn, $sql)) {

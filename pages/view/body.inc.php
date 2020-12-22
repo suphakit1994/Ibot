@@ -26,10 +26,17 @@ if($_GET['app'] == 'pdf'){
 if($_GET['app'] == 'iframe'){
 	require_once("iframe/index.php");
 }
+
 if($_GET['app'] == 'admin'){
 	require_once("admin/index.php");
 }
 if($_GET['app'] == 'signin'){
 	require_once("signin/index.php");
+}
+if($_GET['app'] == 'students'){
+	require_once("students/index.php");
+}
+if($_GET['app'] == 'teacher'){
+	require_once("teacher/index.php");
 }
 ?>

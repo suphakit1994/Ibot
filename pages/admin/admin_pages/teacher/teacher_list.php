@@ -1,7 +1,7 @@
 
 <body>
 	<!-- Content -->
-	<div class="container" style="margin-left: 5%;">
+	<div class="container-fluid">
 		<div class="row">
 			<div class="page-content p-5" id="content">
 				<h1>Teacher</h1>
@@ -9,34 +9,32 @@
 				<button type="button" class="Button" data-toggle="modal" data-target="#form" style="padding: 7px;">
 					Create Schedule
 				</button> 
-				<form method='get'>
-					<a class="Button" style="margin-top:2%; padding: 5px; width:150px;  text-align: center;"
-					href="index.php?app=admin&action=admin_teacher">Next</a> 
-				</form>
-				<div id="calendar">
-				</div>
-        <div id="demo">
 
-        </div>
-      </div>
-    </div>
+        <form method='get'>
+         <a class="Button" style="margin-top:2%; padding: 5px; width:150px;  text-align: center;"
+         href="index.php?app=admin&action=admin_teacher">Next</a> 
+       </form>
+       <div id="calendar">
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <!-- Modals Windows -->
+ <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+   <div class="modal-content">
+    <div class="modal-header border-bottom-0">
+     <h5 class="modal-title" id="exampleModalLabel">Create Schedule</h5>
+     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
+  <div class="modal-body">
+   <div class="row" style="align-items: center; display: flex; ">
+    <div class="col-md-12">
 
-  <!-- Modals Windows -->
-  <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-     <div class="modal-content">
-      <div class="modal-header border-bottom-0">
-       <h5 class="modal-title" id="exampleModalLabel">Create Schedule</h5>
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-     <div class="row" style="align-items: center; display: flex; ">
-      <div class="col-md-12">
-
-       <form action="index.php?app=admin&action=insert_datetime" method="POST">
+     <form action="index.php?app=admin&action=insert_datetime" method="POST">
         <!-- <label for="titlee">Title:</label><br>
           <input style="width: 100%;" type="text" name="title" id="titlee"> -->
 

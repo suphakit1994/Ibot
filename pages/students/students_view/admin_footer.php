@@ -1,5 +1,3 @@
-
-
 <style type="text/css" media="screen">
 	.vertical-nav {
 		margin-top: ;
@@ -16,7 +14,7 @@
 	}
 
 	.page-content {
-		/* width: calc(100% ); */
+		width: calc(100% );
 		margin-left: 17rem;
 		transition: all 0.4s;
 	}

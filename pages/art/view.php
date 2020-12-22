@@ -21,6 +21,45 @@
         border: none;
         border-bottom: 2px solid #F1ECEC;
     }
+    .dropbtn {
+      background-color: #3498DB;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+  }
+
+  .dropbtn:hover, .dropbtn:focus {
+      background-color: #2980B9;
+  }
+
+  .dropdown {
+      position: relative;
+      display: inline-block;
+  }
+
+  .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+  }
+
+  .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+  }
+
+  .dropdown a:hover {background-color: #ddd;}
+
+  .show {display: block;}
+</style>
 </style>
 <body>
     <div class="container">
@@ -37,80 +76,32 @@
                 <h2 style="font-weight: bold; margin-bottom:2%;">Payment methods</h2>
             </div>
             <div class="row">
-                <div class="col-lg-8" style="padding-right: 3%;">
-                    <!-- Payment -->
-                    <div class=" row" style="width:100%; display: flex;">
-                        <!-- No.1 -->
-                        <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:1%;  margin-left: 1%; width:40%;">
-                            <a href="">
-                                <div class=" col-sm-4">
-                                    <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
-                                </div>
-                                <div class="col-sm-8">
-                                    <p>Credit Card</p>
-                                </div>
-                            </a>
+                <div class="col-lg-8" >
+                    <div class="row">
+                        <div class="col-md-6" style="margin-top: 2%; text-align: end;">
+                            <img src="../images/bank1.jpg" style="width: 300px; height: 150px;" alt="">
                         </div>
-                        <!-- No.2 -->
-                        <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:1%; width:40%;">
-                            <a href="">
-                                <div class="col-sm-4">
-                                    <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
-                                </div>
-                                <div class="col-sm-8">
-                                    <p>Mobile Payment</p>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- No.3 -->
-                        <div class="col-md-3" style="border: 1px solid #D5D0D0; padding:1.8%; margin-right:1%; width:40%;">
-                            <a href="">
-                                <div class="col-sm-4">
-                                    <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
-                                </div>
-                                <div class="col-sm-8">
-                                    <p>Other method</p>
-                                </div>
-                            </a>
+                        <div class="col-md-6" style="margin-top: 2%;">
+                            <p>XXX-XXXX-XXX</p>
+                            <p>IE Thai Software</p>
                         </div>
                     </div>
-                    <!-- Form -->
-                    <div class="row" style="margin-top:3%;">
-                        <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon2" name="name"  style="margin-top: 1%;"/>     <!-- Name -->
-                        <input type="text" class="form-control" placeholder="Surname" aria-label="Surname" aria-describedby="basic-addon2"  name="surname"  style="margin-top: 1%;"/>    <!-- Surname -->
-
-                        <input type="text" class="form-control" placeholder="Email Address" aria-label="Email" aria-describedby="basic-addon2"  name="email"  style="margin-top: 1%;"/>     <!-- Email -->
-
-                        <input type="text" class="form-control" placeholder="Country" aria-label="Country" aria-describedby="basic-addon2"  name="country"  style="margin-top: 1%;"/>     <!-- Country -->
-
-                        <input type="text" class="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon2"  name="city"  style="margin-top: 1%;"/>     <!-- City -->
-
-                        <input type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2"  name="address"  style="margin-top: 1%;"/>        <!-- Address -->
-
-                        <input type="text" class="form-control" placeholder="Zip or postal code" aria-label="postal" aria-describedby="basic-addon2" name="postal"  style="margin-top: 1%;"/>     <!-- Postal -->
-
-                        <input type="text" class="form-control" placeholder="Card number" aria-label="card" aria-describedby="basic-addon2" name="cardnumber"  style="margin-top: 1%;"/>      <!-- CardNumber -->
-                        <!-- month -->
-                        <div class="row" style="margin-top: 2%; margin-left: 0%;">
-                            <select name=month>
-                                <option >month</option>
-                                <?Php
-                                for ($i = 0; $i <= 11; $i++) {
-                                    $month = date('F', strtotime("first day of -$i month"));
-                                    echo "<option value=$month>$month</option> ";
-                                }
-                                ?>
-                            </select>
-                            <!-- year -->
-                            <select name=year>
-                                <option>year</option>
-                                <?Php
-                                for ($i = 0; $i <= 100; $i++) {
-                                    $year = date('Y', strtotime("last day of -$i year"));
-                                    echo "<option name='$year'>$year</option>";
-                                }
-                                ?>
-                            </select>
+                    <div class="row">
+                        <div class="col-md-6" style="margin-top: 2%; text-align: end;">
+                            <img src="../images/bank2.jpeg" style="width: 300px; height: 150px;" alt="">
+                        </div>
+                        <div class="col-md-6" style="margin-top: 2%;">
+                            <p>XXX-XXXX-XXX</p>
+                            <p>IE Thai Software</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" style="margin-top: 2%; text-align: end;">
+                            <img src="../images/bank3.jpg" style="width: 300px; height: 150px;" alt="">
+                        </div>
+                        <div class="col-md-6" style="margin-top: 2%;">
+                            <p>XXX-XXXX-XXX</p>
+                            <p>IE Thai Software</p>
                         </div>
                     </div>
                 </div>
@@ -161,19 +152,38 @@
                     </div>
                 </div>
             </div>
-            <!-- Button -->
-            <div class="row" style=" margin-top:1%; padding-bottom:2%;">
-                <div class="col-md-2" style="padding-left:0%;">
-                    <input name="insert" class="Button" type="submit" style="padding: 4px;  margin: 0px; width: 100%; padding-left:0%;  ">
-                </div>
-                <div class="col-md-2">
-                    <a href="" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">BACK</a>
-                </div>
-                <div class="col-md-2">
-                    <a href="index.php?app=art&action=view_2" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">Page2</a>
-                    <a href="index.php?app=art&action=view_3" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">Page3</a>
+
+
+            <div class="row">
+                <label>Bank</label>
+                <div class="dropdown">
+                  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                  <div id="myDropdown" class="dropdown-content">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
                 </div>
             </div>
-        </form>
+
+            <label>Ref. No.</label>
+
+        </div>
+        <label>Amount</label>
+        <label>Transaction Date</label>
     </div>
+    <!-- Button -->
+    <div class="row" style=" margin-top:1%; padding-bottom:2%;">
+        <div class="col-md-2" style="padding-left:0%;">
+            <input name="insert" class="Button" type="submit" style="padding: 4px;  margin: 0px; width: 100%; padding-left:0%;  ">
+        </div>
+        <div class="col-md-2">
+            <a href="" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">BACK</a>
+        </div>
+        <div class="col-md-2">
+            <a href="index.php?app=art&action=view_2" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">Page2</a>
+            <a href="index.php?app=art&action=view_3" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">Page3</a>
+        </div>
+    </div>
+</form>
+</div>
 </body>

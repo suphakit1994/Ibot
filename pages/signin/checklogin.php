@@ -36,7 +36,6 @@ if(isset($_POST['username']) && isset($_POST['password'])){
       echo "alert(\" user หรือ  password ไม่ถูกต้อง\");"; 
       echo "window.history.back()";
       echo "</script>";
-      print_r($data);
     }
   }else{
     echo "<script>";
@@ -50,24 +49,4 @@ if(isset($_POST['username']) && isset($_POST['password'])){
              Header("Location: index.php?app=signin"); //user & password incorrect back to login again
 
            }
-
-
-                //                     if (result = mysqli_query($conn,"SELECT*
-                //     FROM users
-                //     WHERE(username = '$username' AND password = '$password'"),MYSQLI_USE_RESULT)){
-                //       $data;
-                //       while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
-                //         $data = $row;
-                //     }
-                //     $result->close();
-                //     return $data;
-
-                //   }else{
-                //     echo "<script>";
-                //         echo "alert(\" user หรือ  password ไม่ถูกต้อง\");"; 
-                //         echo "window.history.back()";
-                //     echo "</script>";
-
-                //   }
-                // }
            ?>

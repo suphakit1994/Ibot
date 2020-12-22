@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2020 at 05:46 AM
+-- Generation Time: Dec 22, 2020 at 06:05 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -36,7 +36,9 @@ CREATE TABLE `assessment` (
   `eq` int(5) NOT NULL,
   `meditation` int(5) NOT NULL,
   `synthesis` int(5) NOT NULL,
-  `assessment_total` float NOT NULL
+  `assessment_total` float NOT NULL,
+  `assessment_id` int(11) NOT NULL COMMENT 'รหัสประเมิน',
+  `assessment_student_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -51,6 +53,28 @@ CREATE TABLE `calendar` (
   `calender_starttime` varchar(100) NOT NULL COMMENT 'เวลาเริ่ม',
   `calender_endtime` varchar(100) NOT NULL COMMENT 'เวลาเลิก',
   `calender_color` varchar(20) NOT NULL COMMENT 'สี'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calender_student`
+--
+
+CREATE TABLE `calender_student` (
+  `cs_student_id` int(11) NOT NULL COMMENT 'รหัสนักเรียน',
+  `cs_calender_id` int(11) NOT NULL COMMENT 'รหัสตาราง'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calender_teacher`
+--
+
+CREATE TABLE `calender_teacher` (
+  `ct_teacher_id` int(11) NOT NULL COMMENT 'รหัสครู',
+  `ct_calender_id` int(11) NOT NULL COMMENT 'รหัสตาราง'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -139,6 +163,18 @@ CREATE TABLE `lesson` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `login_id` int(11) NOT NULL COMMENT 'รหัส',
+  `login_pass` varchar(20) NOT NULL COMMENT 'รหัสผ่าน',
+  `login_status` varchar(20) NOT NULL COMMENT 'สถานะ'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `parents`
 --
 
@@ -191,25 +227,15 @@ CREATE TABLE `quize` (
 
 CREATE TABLE `student` (
   `student_id` int(10) NOT NULL COMMENT 'รหัสนักเรียน',
-  `student_password` varchar(10) NOT NULL COMMENT 'รหัสผ่าน',
   `student_name_th` varchar(30) NOT NULL COMMENT 'ชื่อไทย',
   `student_name_eng` varchar(30) NOT NULL COMMENT 'ชื่ออังกฤษ',
   `student_nickname_eng` varchar(20) NOT NULL COMMENT 'ชื่อเล่นอังกฤษ',
   `student_brithday` varchar(100) NOT NULL COMMENT 'วันเกิด',
   `student_school` varchar(100) NOT NULL COMMENT 'โรงเรียน',
   `student_grade` varchar(5) NOT NULL COMMENT 'เกรด',
-  `student_parents_id` int(11) NOT NULL COMMENT 'รหัสผู้ปกครอง'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `student_calender`
---
-
-CREATE TABLE `student_calender` (
-  `sc_student_id` int(11) NOT NULL,
-  `sc_calender_id` int(11) NOT NULL
+  `student_parents_id` int(11) NOT NULL COMMENT 'รหัสผู้ปกครอง',
+  `student_user` varchar(20) NOT NULL COMMENT 'ชื่อผู้ใช้',
+  `student_login_id` int(11) NOT NULL COMMENT 'รหัสล็อกอิน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -227,42 +253,40 @@ CREATE TABLE `teacher` (
   `teacher_phone` varchar(10) NOT NULL COMMENT 'เบอร์โทร',
   `teacher_worktime` varchar(100) NOT NULL COMMENT 'เวลาทำงาน',
   `teacher_password` varchar(10) NOT NULL COMMENT 'รหัสผ่าน',
-  `teacher_img` varchar(500) NOT NULL COMMENT 'รูปภาพ'
+  `teacher_img` varchar(500) NOT NULL COMMENT 'รูปภาพ',
+  `teacher_login_id` int(11) NOT NULL COMMENT 'รหัสล็อกอิน'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-CREATE TABLE `user` (
-  `ID` int(11) NOT NULL,
-  `name` varchar(45) NOT NULL,
-  `user` varchar(45) NOT NULL,
-  `passwort` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`ID`, `name`, `user`, `passwort`) VALUES
-(1, 'ss', 'super', '12347'),
-(2, '111', '111', '111'),
-(3, '222', '222', '222'),
-(7, '333', '33', '33'),
-(8, '444', '44', '44');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `assessment`
+--
+ALTER TABLE `assessment`
+  ADD PRIMARY KEY (`assessment_id`),
+  ADD KEY `FK_astudent_id` (`assessment_student_id`);
+
+--
 -- Indexes for table `calendar`
 --
 ALTER TABLE `calendar`
   ADD PRIMARY KEY (`calender_id`);
+
+--
+-- Indexes for table `calender_student`
+--
+ALTER TABLE `calender_student`
+  ADD KEY `FK_cs_calender_id` (`cs_calender_id`) USING BTREE,
+  ADD KEY `FK_cs_student_id` (`cs_student_id`);
+
+--
+-- Indexes for table `calender_teacher`
+--
+ALTER TABLE `calender_teacher`
+  ADD KEY `FK_ct_teacher_id` (`ct_teacher_id`),
+  ADD KEY `FK_ct_calender_id` (`ct_calender_id`) USING BTREE;
 
 --
 -- Indexes for table `course`
@@ -278,10 +302,18 @@ ALTER TABLE `course_student`
   ADD KEY `FK_student_id` (`cs_student_id`);
 
 --
+-- Indexes for table `course_teacher`
+--
+ALTER TABLE `course_teacher`
+  ADD KEY `FK_ctt_teacher_id` (`ct_teacher_id`),
+  ADD KEY `FK_ct_course_id` (`ct_course_id`);
+
+--
 -- Indexes for table `document`
 --
 ALTER TABLE `document`
-  ADD PRIMARY KEY (`document_id`);
+  ADD PRIMARY KEY (`document_id`),
+  ADD KEY `FK_dcourse_id` (`document_course_id`);
 
 --
 -- Indexes for table `file`
@@ -294,7 +326,14 @@ ALTER TABLE `file`
 -- Indexes for table `lesson`
 --
 ALTER TABLE `lesson`
-  ADD PRIMARY KEY (`lesson_id`);
+  ADD PRIMARY KEY (`lesson_id`),
+  ADD KEY `FK_lesson_course_id` (`lesson_course_id`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`login_id`);
 
 --
 -- Indexes for table `parents`
@@ -321,30 +360,25 @@ ALTER TABLE `quize`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`student_id`),
-  ADD KEY `FK_parents_id` (`student_parents_id`);
-
---
--- Indexes for table `student_calender`
---
-ALTER TABLE `student_calender`
-  ADD KEY `FK_calender_id` (`sc_calender_id`),
-  ADD KEY `FK_cstudent_id` (`sc_student_id`);
+  ADD KEY `FK_parents_id` (`student_parents_id`),
+  ADD KEY `FK_login_id` (`student_login_id`);
 
 --
 -- Indexes for table `teacher`
 --
 ALTER TABLE `teacher`
-  ADD PRIMARY KEY (`teacher_id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`teacher_id`),
+  ADD KEY `FK_tlogin_id` (`teacher_login_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `assessment`
+--
+ALTER TABLE `assessment`
+  MODIFY `assessment_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสประเมิน';
 
 --
 -- AUTO_INCREMENT for table `calendar`
@@ -377,6 +411,12 @@ ALTER TABLE `lesson`
   MODIFY `lesson_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสบทเรียน';
 
 --
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `login_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัส';
+
+--
 -- AUTO_INCREMENT for table `parents`
 --
 ALTER TABLE `parents`
@@ -407,14 +447,28 @@ ALTER TABLE `teacher`
   MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสครู';
 
 --
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `assessment`
+--
+ALTER TABLE `assessment`
+  ADD CONSTRAINT `FK_astudent_id` FOREIGN KEY (`assessment_student_id`) REFERENCES `student` (`student_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `calender_student`
+--
+ALTER TABLE `calender_student`
+  ADD CONSTRAINT `FK_cs_calender_id` FOREIGN KEY (`cs_calender_id`) REFERENCES `calendar` (`calender_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_cs_student_id` FOREIGN KEY (`cs_student_id`) REFERENCES `student` (`student_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `calender_teacher`
+--
+ALTER TABLE `calender_teacher`
+  ADD CONSTRAINT `FK_ct_calender_id` FOREIGN KEY (`ct_calender_id`) REFERENCES `calendar` (`calender_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_ct_teacher_id` FOREIGN KEY (`ct_teacher_id`) REFERENCES `teacher` (`teacher_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `course_student`
@@ -424,10 +478,29 @@ ALTER TABLE `course_student`
   ADD CONSTRAINT `FK_student_id` FOREIGN KEY (`cs_student_id`) REFERENCES `student` (`student_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
+-- Constraints for table `course_teacher`
+--
+ALTER TABLE `course_teacher`
+  ADD CONSTRAINT `FK_ct_course_id` FOREIGN KEY (`ct_course_id`) REFERENCES `course` (`course_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_ctt_teacher_id` FOREIGN KEY (`ct_teacher_id`) REFERENCES `teacher` (`teacher_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `document`
+--
+ALTER TABLE `document`
+  ADD CONSTRAINT `FK_dcourse_id` FOREIGN KEY (`document_course_id`) REFERENCES `course` (`course_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `file`
 --
 ALTER TABLE `file`
   ADD CONSTRAINT `FK_file_lesson_id` FOREIGN KEY (`file_lesson_id`) REFERENCES `lesson` (`lesson_id`);
+
+--
+-- Constraints for table `lesson`
+--
+ALTER TABLE `lesson`
+  ADD CONSTRAINT `FK_lesson_course_id` FOREIGN KEY (`lesson_course_id`) REFERENCES `course` (`course_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `payment`
@@ -445,14 +518,14 @@ ALTER TABLE `quize`
 -- Constraints for table `student`
 --
 ALTER TABLE `student`
+  ADD CONSTRAINT `FK_login_id` FOREIGN KEY (`student_login_id`) REFERENCES `login` (`login_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `FK_parents_id` FOREIGN KEY (`student_parents_id`) REFERENCES `parents` (`parents_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `student_calender`
+-- Constraints for table `teacher`
 --
-ALTER TABLE `student_calender`
-  ADD CONSTRAINT `FK_calender_id` FOREIGN KEY (`sc_calender_id`) REFERENCES `calendar` (`calender_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FK_cstudent_id` FOREIGN KEY (`sc_student_id`) REFERENCES `student` (`student_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `teacher`
+  ADD CONSTRAINT `FK_tlogin_id` FOREIGN KEY (`teacher_login_id`) REFERENCES `login` (`login_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

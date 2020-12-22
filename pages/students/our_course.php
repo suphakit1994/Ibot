@@ -28,7 +28,7 @@
   }    
 </style>
 <body>
-<form method="post" action="index.php?app=faii&action=student_information" >
+
   <div class="container-fluid" style="padding-right:100px ;padding-left:100px ;">
     <h1 style="padding-bottom: 20px;padding-top: 50px;">
       <b>OUR COURSE</b>
@@ -37,13 +37,14 @@
      <?php 
       for($i=0;$i<$arrlength; $i++){  //loop card 
         ?>
+        <form method="post" action="index.php?app=faii&action=student_information" >
         <div href="..faii_ft.php" >
           <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
             <div class="card" >
               <div class="card-image" >
                 <img class="card-img-top" src="../images/img_5terre.jpg" alt="Card image cap" >
                 <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;">
-                    <B><?php echo $data[$i]['category']; ?></B>
+                    <B><?php echo $data[$i]['course_category']; ?></B>
                 </span>
               </div>
               <div class="card-body" >
@@ -55,7 +56,7 @@
                   </div>
                   <div class="col-md-5" >
                     <ul class="nav" style="padding-left:10px">
-                      <li > <span><p ><?php echo $data[$i]['Course_Expension']; ?> </p></span> </li>
+                      <li > <span><p ><?php echo $data[$i]['course_expension']; ?> <u style="color: blue"><?php echo $data[$i]['course_code']; ?></u></span> </li>
                     </ul>
                   </div>
                 </div>   
@@ -67,22 +68,11 @@
                   </div>
                   <div class="col-md-5" >
                     <ul class="nav" style="padding-left:10px">
-                    <li > <span><p ><?php echo $data[$i]['Age_For_class'];?></p></span> </li>
+                    <li > <span><p ><?php echo $data[$i]['course_Age'];?></p></span> </li>
                     </ul>
                   </div>
                 </div>   
-                <div class="row" style="margin-left:0px ;" >
-                  <div class="col-md-5">
-                    <ul class="nav " style="width:150%;">
-                    <li > <span><B><p class = "card-text">Total course</p></B> </span> </li> 
-                    </ul>
-                  </div>
-                  <div class="col-md-5" >
-                    <ul class="nav" style="padding-left:10px">
-                    <li > <span><p ><?php echo $data[$i]['Total_course']; ?></p></span> </li>
-                    </ul>
-                  </div>
-                </div>   
+                
                 <div class="row" style="margin-left:0px ;" >
                   <div class="col-md-5">
                     <ul class="nav " style="width:150%;">
@@ -91,7 +81,7 @@
                   </div>
                   <div class="col-md-5" >
                     <ul class="nav" style="padding-left:10px">
-                    <li > <span><p ><?php echo $data[$i]['Lesson']; ?></p></span> </li>
+                    <li > <span><p ><?php echo $data[$i]['course_lesson']; ?></p></span> </li>
                     </ul>
                   </div>
                 </div>   
@@ -103,17 +93,19 @@
                   </div>
                   <div class="col-md-5" >
                     <ul class="nav" style="padding-left:10px">
-                    <li > <span><p><?php echo $data[$i]['Price']; ?></p></span> </li>
+                    <li > <span><p><?php echo $data[$i]['course_price']; ?></p></span> </li>
                     </ul>
                   </div>
                 </div>   
                 <div class="text-center " style="margin-top: 10px ">
-                  <button type="submit"  class=" btn btn:hover" style="width:80% ;border-radius:28px;">Enroll</button>
+                  <button type="submit"  name= "<?php echo $i ?>" class=" btn btn:hover" style="width:80% ;border-radius:28px;">Enroll</button>
                 </div>
               </div>
+               <input type="hidden" name="course_ID" value="<?php echo $data[$i]['ID'];  ?>">
             </div>
           </div>
       </div>  
+      </form>
         <?php  
       }  ?>
     </div>
@@ -126,6 +118,6 @@
   </div>
   <br>
   <br>
-</form>
+
 </body>
 

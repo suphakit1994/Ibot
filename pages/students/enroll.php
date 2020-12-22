@@ -136,11 +136,11 @@
                     <input type="radio" name="my-input" id="no" required>
                     <label for="yes">I agree the <label style="color:blue";>Terms and Conditions</label></label>   
                 </div>
-                <?php for($i=0;$i<$arrlength;$i++){ ?>
+           <?php for($i=0;$i<$arrlength;$i++){ ?>
                 <div class="rcorners" >
                     <div class="col-md-4" style="padding-top: 10">
                         <b>Sunday</b>
-                        <p><?php echo $_POST['start_time'];  ?></p>
+                        <p><?php echo $_POST[$i]['start_time'];  ?></p>
                     </div>
                     <div class="col-md-4" style="padding-top: 10px;">
                         <b><p>10:30 AM - 12:00 PM</p></b>

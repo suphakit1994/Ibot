@@ -26,8 +26,14 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         $_SESSION["level"] = $row["level"];
         $_SESSION["nlevel"] = $row["nlevel"];
 
-        if($_SESSION["level"]=="superadmin" || $_SESSION["level"]=="admin" || $_SESSION["level"]=="teacher" || $_SESSION["level"]=="student"){ 
-          Header("Location: ../index.php?app=home");
+        if($_SESSION["level"]=="admin"){ 
+          Header("Location: ../index.php?app=admin");
+        }
+        if($_SESSION["level"]=="student"){ 
+          Header("Location: ../index.php?app=students");
+        }
+        if($_SESSION["level"]=="teacher"){ 
+          Header("Location: ../index.php?app=teachers");
         }
         $data[] = $row;
       }

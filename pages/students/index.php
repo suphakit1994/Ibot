@@ -6,7 +6,7 @@ include("../php/function.php");
 
 
 if(!isset($_GET['action'])){
-	// $cus[] = getselect($conn);
+	$cus[] = getselect($conn);
 	$data= getselect($conn);         //เรียกใช้ faction
     $arrlength = count($data); 		//นับข้อมูล
     require_once('our_course.php');
@@ -21,6 +21,8 @@ if($_GET['action']=='student'){
 }
 
 if($_GET['action']=="student_information"){
+	$data= getselect($conn);
+	// print_r( $data['ID']); 
 	// $cus=selectcoureid($conn, $data);
 	require_once('student_information.php');
 }	
@@ -32,8 +34,9 @@ if($_GET['action']=="parent_information"){
 }
 
 if($_GET['action']=="enroll"){
-
+	$cus = selectmax($conn);
 	$cuss = updatestudentuser($conn,$_POST,$cus);
+	
 	$data = calendars($conn);
     $arrlength = count($data);
 	// $data = count_calendars($conn);

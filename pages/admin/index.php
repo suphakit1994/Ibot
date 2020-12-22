@@ -20,8 +20,12 @@ include('../php/function.php');
 		//print_r($cus);
 		require_once('admin_pages/teacher/index.php');
 	}
+
 	if($_GET['action'] == 'admin_course'){
-		require_once('admin_pages/course/index.php');
+		require_once('admin_pages/camp/index.php');
+	}
+	if($_GET['action'] == 'camp'){
+		require_once('admin_pages/camp/index.php');
 	}
 	if($_GET['action'] == 'insert_datetime'){
 		$cus = insertData($conn,$_POST);

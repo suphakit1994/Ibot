@@ -30,10 +30,10 @@ if(isset($_POST['username']) && isset($_POST['password'])){
           Header("Location: ../index.php?app=admin");
         }
         if($_SESSION["level"]=="student"){ 
-          Header("Location: ../index.php?app=students");
+          Header("Location: ../index.php?app=shome");
         }
         if($_SESSION["level"]=="teacher"){ 
-          Header("Location: ../index.php?app=teachers");
+          Header("Location: ../index.php?app=thome");
         }
         $data[] = $row;
       }

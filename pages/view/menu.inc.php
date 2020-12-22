@@ -157,7 +157,7 @@
 					<div class="col-md-9">
 
 						<ul class="nav navbar-nav navbar-right" style="padding-right:2%;">
-							<li><a href="?app=home">Home</a></li>
+							<li><a href="?app=shome">Home</a></li>
 							<li><a href="index.php?app=camp">Camp</a></li>
 							<li><a href="index.php?app=compitition">Compitition</a></li>
 							<li><a href="index.php?app=schedule">Schedule</a></li>
@@ -216,7 +216,7 @@ elseif ($level=='teacher') { ?>
 				<div class="col-md-9">
 
 					<ul class="nav navbar-nav navbar-right" style="padding-right:2%;">
-						<li><a href="?app=home">Home</a></li>
+						<li><a href="?app=thome">Home</a></li>
 						<li><a href="index.php?app=course">Course</a></li>
 						<li><a href="index.php?app=report">Report</a></li>
 						<li>

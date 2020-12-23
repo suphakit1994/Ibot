@@ -1,7 +1,6 @@
 
 <body>
 	<!-- Content -->
-	<?php echo "string"; ?>	
 	<div class="page-content p-5" id="content">
 		<div class="container-fluid" style="margin:auto;">
 			<div class="row">
@@ -22,21 +21,22 @@
 				</div>
 			</div>
 		</div>
-		<!-- Modals Windows -->
-		<div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header border-bottom-0">
-						<h5 class="modal-title" id="exampleModalLabel">Create Schedule</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="row" style="align-items: center; display: flex; ">
-							<div class="col-md-12">
+	</div>
+	<!-- Modals Windows -->
+	<div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header border-bottom-0">
+					<h5 class="modal-title" id="exampleModalLabel">Create Schedule</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row" style="align-items: center; display: flex; ">
+						<div class="col-md-12">
 
-								<form action="index.php?app=admin&action=insert_datetime" method="POST">
+							<form action="index.php?app=admin&action=insert_datetime" method="POST">
         <!-- <label for="titlee">Title:</label><br>
         	<input style="width: 100%;" type="text" name="title" id="titlee"> -->
         	<label  for="start">Day:</label>

@@ -33,7 +33,7 @@ include('../php/function.php');
 				require_once('admin_pages/course/index.php');
 			}
 			if($_GET['action'] == 'teacher_list'){
-				require_once("admin_pages/course/index.php");
+				require_once("admin_pages/teacher/index.php");
 			}
 			if($_GET['action'] == 'camp'){
 				require_once('admin_pages/camp/index.php');

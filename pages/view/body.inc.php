@@ -31,10 +31,10 @@ if($_GET['app'] == 'admin'){
 if($_GET['app'] == 'signin'){
 	require_once("signin/index.php");
 }
-if($_GET['app'] == 'shome'){
-	require_once("shome/index.php");
+if($_GET['app'] == 'student'){
+	require_once("student/index.php");
 }
-if($_GET['app'] == 'thome'){
-	require_once("thome/index.php");
+if($_GET['app'] == 'teacher'){
+	require_once("teacher/index.php");
 }
 ?>

@@ -17,6 +17,8 @@ session_start();
 		$level = $_SESSION['level'];
 		$nlevel = $_SESSION['nlevel'];
 		?>
+
+
 	</style>
 </head>
 <body>

@@ -1,7 +1,7 @@
 
 <body>
 	<!-- Content -->
-	
+  <?php echo "string"; ?>	
  <div class="page-content p-5" id="content">
   <div class="container-fluid" style="margin:auto;">
     <div class="row">

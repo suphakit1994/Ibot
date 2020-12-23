@@ -1,6 +1,6 @@
 
 <style>
-  </style>
+</style>
 <body>
   <form>
     <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
@@ -96,7 +96,7 @@
       
     </div>
     <div >
-      <a  href="index.php?app=student" type="button" name="next" class="Button" style="border-radius:28px; width: 150px;">Back to Home</a>
+      <a  href="index.php?app=home" type="button" name="next" class="Button" style="border-radius:28px; width: 150px;">Back to Home</a>
     </div> 
   </div>  
 </form>  

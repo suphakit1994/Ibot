@@ -2,7 +2,6 @@
 date_default_timezone_set("Asia/Bangkok");
 include("../php/config.php");
 include('../php/test.php');	
-include("../php/student_function.php");
 include('../php/art_ft.php');
 include('../php/course_function.php');
 

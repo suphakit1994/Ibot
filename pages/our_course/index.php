@@ -4,10 +4,6 @@ include("../php/config.php");
 include("../php/faii_ft.php");
 include("../php/function.php");
 
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,11 +11,6 @@ include("../php/function.php");
 	<?php require_once('view/head.inc.php'); ?>
 	<style>
 		<?php 
-		$id = $_SESSION['id '];
-		$name = $_SESSION['name'];
-		$level = $_SESSION['level'];
-		$nlevel = $_SESSION['nlevel'];
-
 		if(!isset($_GET['action'])){
 			$cus[] = getselect($conn);
 				$data= getselect($conn);         //เรียกใช้ faction
@@ -28,7 +19,7 @@ include("../php/function.php");
 			}
 
 
-		}?>
-	</style>
-</head>
-</html> 
+			?>
+		</style>
+	</head>
+	</html> 

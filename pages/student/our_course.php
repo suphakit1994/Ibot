@@ -37,7 +37,7 @@
      <?php 
       for($i=0;$i<$arrlength; $i++){  //loop card 
         ?>
-        <form method="post" action="index.php?app=shome&action=student_information" >
+        <form method="post" action="index.php?app=student&action=student_information" >
           <div href="..faii_ft.php" >
             <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
               <div class="card" >

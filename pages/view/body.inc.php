@@ -49,4 +49,7 @@ if($_GET['app'] == 'payment'){
 if($_GET['app'] == 'success'){
 	require_once("success/index.php");
 }
+if($_GET['app'] == 'art'){
+	require_once("art/index.php");
+}
 ?>

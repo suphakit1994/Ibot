@@ -303,68 +303,6 @@ elseif ($level=='admin') { ?>
 		</div>
 	</nav>
 	
-<?php } 
-elseif ($level=='superadmin') { ?>
-	<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="navbar-header">
-						<div class="row">
-							<div class="col-md-2" style="padding: 0px;">
-								<img src="../images/Logo.jpg" style="width: 100%; padding: 0px;">
-							</div>
-							<div class="col-md-6" style="padding-top: 6px; padding-left: 3px;">
-								<div class="row">
-									<div class="col-md-12" style="height: 17px">
-										<p style="font-size:14px; font-weight: 1000; ">IBE</p>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<p style="font-size:14px; ">Ibot Education</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-9">
-
-
-					<ul class="nav navbar-nav navbar-right" style="padding-right:2%;">
-						<li class="dropdown"><a class="dropdown-toggle notification" data-toggle="dropdown" href="#" ><i class="far fa-bell" style="font-size:30px;"></i>
-							<span class="badge">5</a></span>
-							<ul class="dropdown-menu">
-								<li><a href="index.php?app=admin&action=employees">Franchise</a></li>
-								<li><a href="index.php?app=admin&action=user">ขอสิทธ์การเข้าถึง</a></li>
-							</ul>
-						</li>
-
-						<li>
-							<div class="col-sm-8" style="text-align: end;">
-								<div class="row">
-									<p style="padding-top:5px; font-weight: bold;"><?php echo $name; ?></p>
-									<p style="margin-top:-12px;"><?php echo $nlevel; ?></p>
-								</div>								
-
-							</div>
-							<div class="col-sm-4" style="align-items: center; padding-top: 5px;" >
-								<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../images/images.png" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
-								</a>
-								<ul class="dropdown-menu">
-									<a href="../pages/signin/logout.php">logout</a>
-
-								</ul>
-							</div>
-						</div>
-					</li>
-
-				</ul>
-			</div>
-		</div>
-	</div>
-</nav>
 <?php }else{ ?>
 	<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
 		<div class="container-fluid">

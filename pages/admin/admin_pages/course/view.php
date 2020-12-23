@@ -17,7 +17,7 @@
 			<div class="col-sm-5">
 				<div class="row" style="display: flex; text-align: center;">
 					<div class="col-sm-12">
-						<img src="../images/art.png" alt="" width="450vh" height="225vh" style=" border-radius: 8px;">
+						<img src="../images/art.png" alt="" width="450vw" height="225vh" style=" border-radius: 8px;">
 						<div class="row" style="display: flex; justify-content: flex-end;">
 							<div class="col-sm-12">
 								<input class="list_detail custom-file-input" type="file" id="myFile" name="filename">

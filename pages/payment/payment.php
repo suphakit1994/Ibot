@@ -97,7 +97,7 @@
 
   <body>
     <form  method="post" action="index.php?app=success">
-      <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
+      <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
         <div class="col-md-7" style="padding-top: 5%;">
           <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2>     
           <div  class="form-card" >
@@ -111,82 +111,58 @@
           </div>
           <div>
             <div class="form-card" style=" padding-top: 15%;"> 
-             <div class="col-md-4"style="padding-left: 5px;padding-right: 5px;">
-              <div class="corners">  
-                <a href="">
-                  <div class=" col-md-4" style="padding-left: 0px;padding-right: 0px;">
-                    <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
-                  </div>
-                  <div class="col-md-8" style="padding-left: 0px;padding-right: 0px;">
-                    <p>Credit Card</p>
-                  </div>
-                </a>
+             <div class="col-md-12"style="padding-left: 5px;padding-right: 5px;">
+               <div class="row">
+                <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
+                  <img src="../images/bank1.jpg" style="width: 300px; height: 150px;" alt="">
+                </div>
+                <div class="col-sm-6" style="margin-top: 2%;">
+                  <p>XXX-XXXX-XXX</p>
+                  <p>IE Thai Software</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
+                  <img src="../images/bank2.jpeg" style="width: 300px; height: 150px;" alt="">
+                </div>
+                <div class="col-sm-6" style="margin-top: 2%;">
+                  <p>XXX-XXXX-XXX</p>
+                  <p>IE Thai Software</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
+                  <img src="../images/bank3.jpg" style="width: 300px; height: 150px;" alt="">
+                </div>
+                <div class="col-sm-6" style="margin-top: 2%;">
+                  <p>XXX-XXXX-XXX</p>
+                  <p>IE Thai Software</p>
+                </div>
               </div>
             </div> 
-            <div class="col-md-4"style="padding-left: 5px;padding-right: 5px;">
-              <div class="corners">  
-                <a href="">
-                  <div class=" col-md-4" style="padding-left: 0px;padding-right: 0px;">
-                    <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
-                  </div>
-                  <div class="col-md-8" style="padding-left: 0px;padding-right: 0px;">
-                    <p>Mobile Payment</p>
-                  </div>
-                </a>    
-              </div>
-
-            </div> 
-            <div class="col-md-4"style="padding-left: 5px;padding-right: 5px;">
-              <div class="corners"> 
-                <a href="">
-                  <div class=" col-md-4" style="padding-left: 0px;padding-right: 0px;">
-                    <img src="../images/images.png" alt="Avatar" class="img-circle" width="45px" height="45px">
-                  </div>
-                  <div class="col-md-8" style="padding-left: 0px;padding-right: 0px;">
-                    <p>Other method</p>
-                  </div>
-                </a> 
-              </div>
-
-            </div>  
           </div>
           <div class="form-card" style=" padding-top: 15%;">    
 
-            <p >Name-Surname (Eng) </p> 
-            <input type="text" class="form-control"  >  
-            <p >Email Address</p> 
-            <input type="text" class="form-control" >  
-            <p >Thailand</p> 
-            <input type="text" class="form-control" >   
-            <p >City</p> 
-            <input type="text" class="form-control">  
-            <p >Address</p> 
-            <input type="text" class="form-control" >  
-            <p >Zip or postal code</p> 
-            <input type="text" class="form-control" >  
-            <p >Card number</p>
-            <input type="text" class="form-control" >   
-            <div class="row" style="margin-top: 2%; margin-left: 0%;">  
-              <!-- month -->
-              <select  name=month >
-                <option >month</option>
-                <?Php
-                for ($i = 0; $i <= 11; $i++) {
-                  $month = date('F', strtotime("first day of -$i month"));
-                  echo "<option value=$month>$month</option> ";
-                }
-                ?>
-              </select>
-              <!-- year -->
-              <select name=year >
-                <option>year</option>
-                <?Php
-                for ($i = 0; $i <= 100; $i++) {
-                  $year = date('Y', strtotime("last day of -$i year"));
-                  echo "<option name='$year'>$year</option>";
-                }
-                ?>
-              </select>
+            <div class="row" style="margin-left:8%; margin-top:2%;">
+              <label>Bank</label>
+              <br><div class="custom-select" style="width:200px;">
+                <select>
+                  <option value="0">กรุงไทย</option>
+                  <option value="1">ไทยพาณิชย์</option>
+                  <option value="2">กสิกร</option>
+                  <option value="3">พร้อมเพย์</option>
+                </select>
+                <br><label>Ref. No.</label>
+                <br><input name="Ref" >
+                <br><label>Amount</label>
+                <br><input name="Amount" >
+                <br><label>Transaction Date</label>
+                <br><input name="Transactiondate" >
+                <br><label>Proof of payment</label>
+                <b  r><form action="/action_page.php">
+                  <input type="file" id="myFile" name="filename">
+                </form>
+              </div>
             </div>    
           </div>
 
@@ -249,9 +225,7 @@
       </div>
       <div>
         <a  href="index.php?app=success" type="button" name="next" class="Button" style="border-radius:28px; width: 150px;">Purchase now</a>
-        <input type="submit" >
       </div> 
     </div>  
   </form>
-  <a href="index.php?app=student" "email me">email me</a>  
 </body> 

@@ -37,16 +37,14 @@
 						<div class="col-sm-12">
 							<div><h1>Contact</h1></div>
 						</div>
-						<div class="col-sm-12" style="margin-top: 10px;">
-							<div class="row">
-								<div class="col-sm-6">
-									<p><b>Email Address</b></p>
-									<p><b>progeammer@iethaisoftware.com</b></p>
-								</div>
-								<div class="col-sm-6">
-									<p><b>Telephone</b></p>
-									<p><b>(+66)88 345 9999</b></p>
-								</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<p><b>Email Address</b></p>
+								<p><b>progeammer@iethaisoftware.com</b></p>
+							</div>
+							<div class="col-sm-6">
+								<p><b>Telephone</b></p>
+								<p><b>(+66)88 345 9999</b></p>
 							</div>
 						</div>
 					</div>
@@ -54,20 +52,18 @@
 						<div class="col-sm-12">
 							<div><h1>Work time</h1></div>
 						</div>
-						<div class="col-sm-12" style="margin-top: 10px;">
-							<div class="row">
-								<div class="col-sm-3">
-									<p><b>Date</b></p>
-									<input style="" type="date" id="" name="">
-								</div>
-								<div class="col-sm-3">
-									<p><b>Time</b></p>
-									<input type="time" id="" name="">
-								</div>
-								<div class="col-sm-3">
-									<label><p><b>Pay</b></p></label>
-									<input type="text" id="" name="">
-								</div>
+						<div class="row">
+							<div class="col-sm-3">
+								<p><b>Date</b></p>
+								<input style="" type="date" id="" name="">
+							</div>
+							<div class="col-sm-3">
+								<p><b>Time</b></p>
+								<input type="time" id="" name="">
+							</div>
+							<div class="col-sm-3">
+								<label><p><b>Pay</b></p></label>
+								<input type="text" id="" name="">
 							</div>
 						</div>
 						<div class="col-sm-12" style="margin-top: 10px;">
@@ -77,7 +73,7 @@
 						</div>
 						<div class="col-sm-12" style="margin-top: 10px;">
 							<div class="row">
-								<input type="button" id="" name="" value="Save" style="padding: 3px;">
+								<input class="Button" type="button" id="" name="" value="Save" style="width: 10%;">
 							</div>
 						</div>
 					</div>

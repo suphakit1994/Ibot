@@ -17,6 +17,7 @@
 
 	.page-content {
 		/* width: calc(100% ); */
+		width: unset !important;
 		margin-left: 17rem;
 		transition: all 0.4s;
 	}

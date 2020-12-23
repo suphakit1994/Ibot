@@ -57,18 +57,27 @@
 						<div class="col-sm-12" style="margin-top: 10px;">
 							<div class="row">
 								<div class="col-sm-3">
-									<p><b>Email Address</b></p>
-									
+									<p><b>Date</b></p>
+									<input style="" type="date" id="" name="">
 								</div>
 								<div class="col-sm-3">
-									<p><b>Telephone</b></p>
-									
+									<p><b>Time</b></p>
+									<input type="time" id="" name="">
 								</div>
 								<div class="col-sm-3">
-									<label><p><b>Telephone</b></p></label>
-									
-									
+									<label><p><b>Pay</b></p></label>
+									<input type="text" id="" name="">
 								</div>
+							</div>
+						</div>
+						<div class="col-sm-12" style="margin-top: 10px;">
+							<div class="row">
+								<input type="file" id="" name="">
+							</div>
+						</div>
+						<div class="col-sm-12" style="margin-top: 10px;">
+							<div class="row">
+								<input type="button" id="" name="" value="Save" style="padding: 3px;">
 							</div>
 						</div>
 					</div>

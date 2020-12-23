@@ -65,8 +65,8 @@ include("../php/function.php");
 				
 				require_once('payment.php');
 			}
-
 			if($_GET['action']=="success"){
+				
 				require_once('success.php');
 			}
 

@@ -405,7 +405,7 @@ elseif ($level=='superadmin') { ?>
 						</li>
 
 						<!-- 						<li><a href="index.php?app=test">test</a></li> -->
-						<li><a href="index.php?app=faii">Our course</a></li>
+						<li><a href="index.php?app=our_course">Our course</a></li>
 						<!-- 						<li><a href="index.php?app=jed">jed</a></li> -->
 						<li><a href="index.php?app=about">About Us</a></li>
 <!-- 						<li><a href="index.php?app=pdf">pdf</a></li>

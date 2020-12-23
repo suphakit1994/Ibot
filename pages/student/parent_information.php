@@ -1,16 +1,16 @@
 <style>
-.form-control{
+  .form-control{
    
     border-left-width: 0px !important;
     border-right-width: 0px !important;
     border-bottom-width: 0px !important; 
-}
- .progressbar li{
-      float: left;
-      width: 20%;
-      position: relative;
-      text-align: center;
-    }
+  }
+  .progressbar li{
+    float: left;
+    width: 20%;
+    position: relative;
+    text-align: center;
+  }
  /* .progressbar li:before{
     content:"1";
     width: 30px;
@@ -65,106 +65,106 @@
       color: white!important;
     }
 
- 
-</style>
+    
+  </style>
 
-<body>  
-<form  method="post" action="index.php?app=faii&action=enroll&id=<?php echo $cus['id']; ?>">
-<div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
-    <div class="col-md-7" style="padding-top: 5%;">
-    <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 
-      
-            <div  class="form-card" >
-                <ul class="progressbar">
-                    <li class="active">student information</li>
-                    <li class="active">Parent information</li>
-                    <li>Enroll </li>
-                    <li>Payment</li>
-                    <li>Success</li>
-                </ul>
-            </div>
-            <div class="col-md-9" style="padding:0px">
+  <body>  
+    <form  method="post" action="index.php?app=student&action=enroll&id=<?php echo $cus['id']; ?>">
+      <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
+        <div class="col-md-7" style="padding-top: 5%;">
+          <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 
+          
+          <div  class="form-card" >
+            <ul class="progressbar">
+              <li class="active">student information</li>
+              <li class="active">Parent information</li>
+              <li>Enroll </li>
+              <li>Payment</li>
+              <li>Success</li>
+            </ul>
+          </div>
+          <div class="col-md-9" style="padding:0px">
             <div class="form-card" style=" padding-top: 10%;">   
-                <p>ชื่อ-นามสกุล (Thai) <a style="color: red";> * </a></p> 
-                  <input name="namep_th"type="text" class="form-control" value="" pattern="^[ก-๏\s]+$" title="กรุณากรอกชื่อ นามสกุล ภาษาไทย" required>  
-                <p >Parent's name (Eng) <a style="color: red";> * </a></p> 
-                  <input name="namep_eng"type="text" class="form-control" value="" pattern="^[a-zA-Z\s]+$"  title="กรุณากรอกชื่อ นามสกุล ภาษาอังกฤษ" required >  
-                <p > Related to the applicant <a style="color: red";> * </a></p> 
-                  <select   name="related" id="" class="form-control" style="height: 70%;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;">
-                                        <p> <option value=""></option></p>
-                                        <p> <option value="Mother">Mother</option></p>
-                                        <p> <option value="Father">Father</option></p>
-                                        <p> <option value="brother">brother</option></p>
-                                        <p> <option value="sister">sister</option></p>
-                                        <p> <option value="godfather">godfather</option></p>
-                                        <p> <option value="godmother">godmother</option></p>                                            
-                                    </select> 
-                <p >Phone number <a style="color: red";> * </a></p> 
-                 <input name="phonenumber" type="tel" class="form-control" pattern="[0-9]{10}" style="width: 224px;"  required >  
-                <p >E-mail <a style="color: red";> * </a></p> 
-                  <input name="email" type="email" class="form-control" style="width: 224px;" required>  
-                <p >ID Line <a style="color: red";> * </a></p> 
-                  <input name="line" type="text" class="form-control" style="width: 224px;" required>  
+              <p>ชื่อ-นามสกุล (Thai) <a style="color: red";> * </a></p> 
+              <input name="namep_th"type="text" class="form-control" value="" pattern="^[ก-๏\s]+$" title="กรุณากรอกชื่อ นามสกุล ภาษาไทย" required>  
+              <p >Parent's name (Eng) <a style="color: red";> * </a></p> 
+              <input name="namep_eng"type="text" class="form-control" value="" pattern="^[a-zA-Z\s]+$"  title="กรุณากรอกชื่อ นามสกุล ภาษาอังกฤษ" required >  
+              <p > Related to the applicant <a style="color: red";> * </a></p> 
+              <select   name="related" id="" class="form-control" style="height: 70%;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;">
+                <p> <option value=""></option></p>
+                <p> <option value="Mother">Mother</option></p>
+                <p> <option value="Father">Father</option></p>
+                <p> <option value="brother">brother</option></p>
+                <p> <option value="sister">sister</option></p>
+                <p> <option value="godfather">godfather</option></p>
+                <p> <option value="godmother">godmother</option></p>                                            
+              </select> 
+              <p >Phone number <a style="color: red";> * </a></p> 
+              <input name="phonenumber" type="tel" class="form-control" pattern="[0-9]{10}" style="width: 224px;"  required >  
+              <p >E-mail <a style="color: red";> * </a></p> 
+              <input name="email" type="email" class="form-control" style="width: 224px;" required>  
+              <p >ID Line <a style="color: red";> * </a></p> 
+              <input name="line" type="text" class="form-control" style="width: 224px;" required>  
             </div>
-                  <input type="hidden" name="name_eng" value="<?php echo $_POST['name_eng'];  ?>">
-                  <input type="hidden" name="nickname_eng" value="<?php echo $_POST['nickname_eng'];  ?>">
+            <input type="hidden" name="name_eng" value="<?php echo $_POST['name_eng'];  ?>">
+            <input type="hidden" name="nickname_eng" value="<?php echo $_POST['nickname_eng'];  ?>">
 
-                <a href="index.php?app=faii&action=student_information" type="button" name="Back" class="Button" style="border-radius:28px; width: 120px;">Back</a>
-                <button  type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
-            </div> 
-    </div>
-</form>      
-    <div href="..faii_ft.php"  class="col-md-5" style="padding-top: 5%;padding-bottom: 8%;">
+            <a href="index.php?app=faii&action=student_information" type="button" name="Back" class="Button" style="border-radius:28px; width: 120px;">Back</a>
+            <button  type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
+          </div> 
+        </div>
+      </form>      
+      <div href="..faii_ft.php"  class="col-md-5" style="padding-top: 5%;padding-bottom: 8%;">
         <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
 
-            <h3 style="margin-bottom: 20px;"><b>STUDENT INFORMATION</b></h3>
-            <div class="row">
+          <h3 style="margin-bottom: 20px;"><b>STUDENT INFORMATION</b></h3>
+          <div class="row">
             <div class="col-md-6"> 
-                    <p>Name</p>
-                    <p>Nickname</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p> <?php echo $_POST['name_eng'];  ?></p>
-                    <p> <?php echo $_POST['nickname_eng'];  ?></p>
-                </div>
+              <p>Name</p>
+              <p>Nickname</p>
             </div>
+            <div class="col-md-6"> 
+              <p> <?php echo $_POST['name_eng'];  ?></p>
+              <p> <?php echo $_POST['nickname_eng'];  ?></p>
+            </div>
+          </div>
 
-            <h3 style="margin-bottom: 5%;margin-top: 8%;"><b>PARENT INFORMATION</b></h3>
-            <div class="row">
+          <h3 style="margin-bottom: 5%;margin-top: 8%;"><b>PARENT INFORMATION</b></h3>
+          <div class="row">
             <div class="col-md-6"> 
-                    <p>Name</p>
-                    <p>Nickname</p>
-                    <p>Phone number</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p></p> 
-                    <p></p>
-                    <p></p>
-                </div>
+              <p>Name</p>
+              <p>Nickname</p>
+              <p>Phone number</p>
             </div>
+            <div class="col-md-6"> 
+              <p></p> 
+              <p></p>
+              <p></p>
+            </div>
+          </div>
 
-            <h3 style="margin-bottom: 5%;margin-top: 8%;"><b>ORDER SUMMARY</b></h3>
-            <div class="row">
+          <h3 style="margin-bottom: 5%;margin-top: 8%;"><b>ORDER SUMMARY</b></h3>
+          <div class="row">
             <div class="col-md-6"> 
-                    <p>Course</p> 
-                    <p>Course Expansion</p>
-                    <p>Total Course</p>
-                    <p>class schedule</p>
-                    <p>Make-up class</p>
-                    <p>Study time</p>
-                </div>
-                <div class="col-md-6"> 
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    
-                </div>
+              <p>Course</p> 
+              <p>Course Expansion</p>
+              <p>Total Course</p>
+              <p>class schedule</p>
+              <p>Make-up class</p>
+              <p>Study time</p>
             </div>
+            <div class="col-md-6"> 
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              
+            </div>
+          </div>
         </div>    
-    </div>
-</div>  
+      </div>
+    </div>  
 
-</body>
+  </body>

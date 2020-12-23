@@ -90,7 +90,7 @@
               <p >Parent's name (Eng) <a style="color: red";> * </a></p> 
               <input name="namep_eng"type="text" class="form-control" value="" pattern="^[a-zA-Z\s]+$"  title="กรุณากรอกชื่อ นามสกุล ภาษาอังกฤษ" required >  
               <p > Related to the applicant <a style="color: red";> * </a></p> 
-              <select   name="related" id="" class="form-control" style="height: 70%;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;">
+              <select   name="related" id="" class="form-control" style="height: 70%;">
                 <p> <option value=""></option></p>
                 <p> <option value="Mother">Mother</option></p>
                 <p> <option value="Father">Father</option></p>

@@ -95,7 +95,7 @@
             <p >Nickname (Eng) <a style="color: red";> * </a> </p> 
             <input name="nickname_eng" type="text" class="form-control" pattern="^[a-zA-Z\s]+$"   required >  
             <p >Birthday <a style="color: red";> * </a> </p> 
-            <input name="birthday" class="form-control" style="width: 100%;width: 224px;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px;" type="date" id="start" name="start_time" required>
+            <input name="birthday" class="form-control" style="width: 100%;width: 224px;" type="date" id="start" name="start_time" required>
             <p >School</p> 
             <input name="school" type="text" class="form-control" style="width: 224px;">  
 

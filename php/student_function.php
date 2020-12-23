@@ -1,23 +1,5 @@
 <?php 
 
-//ดึงข้อมูลจากดาต้าเบสมาแสดงที่หน้า
-function getselect(mysqli $conn){
-
-	$sql = "SELECT * FROM `course` WHERE 1";
-
-		$result = $conn->query($sql); 
-		
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
-	}
-}
-
-
 // function selectcoureid(mysqli $conn, $data){
 // 	$sql = "SELECT * FROM `our course` WHERE `ID` = '".$data[]."'";
 // 	echo $sql;

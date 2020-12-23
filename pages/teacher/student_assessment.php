@@ -25,11 +25,9 @@
             <div class="col-md-6" >
                 <ul class="nav " style="padding-right: 40px;">
                     <li > <span> <h1 style=" margin-bottom: 10%; margin-top: 10%;"><b class="monospace">STUDENT ASSESSMENT</b></h1></span> </li>
-                    <li > <h3 style="width: 100%;line-height: 24px;">Loerm ipsum dolor sit amet. con sonsectetuer adipiscing edit. sed diam ninummy nibh euismod tinciduct urt laoreet dolore mayna.</h3>  </li>
-                    <li >  <img class="card-img-top" src="../images/img_5terre.jpg" alt="Card image cap" style="padding-top: 100px;">  </li>
-                    
+                    <li > <h3 style="width: 100%;line-height: 24px;">Loerm ipsum dolor sit amet. con sonsectetuer adipiscing edit. sed diam ninummy nibh euismod tinciduct urt laoreet dolore mayna.</h3>  </li>   
                 </ul>  
-                
+                <img class="card-img-top" src="../images/ass2.png" alt="Card image cap" style="padding-top: 100px;width: 500px;">
             </div>
             <div class="col-md-6" style="padding-left: inherit;">
                 <div class="col" style="padding-left: inherit;" >
@@ -115,7 +113,7 @@
                 <!-- <div class="col-md-4"> <span> <p  id="total" name ="Total"></p>  </span> </div> -->
                 <div class="col-md-4"> 
                     <span> 
-                        <input  id="total" name ="Total" value="0" style="width: 30%;">/5</input>  
+                        <input  id="total" name ="Total" value="0" style="width: 30%;border:0%;border-left-width: 0px;border-top-width: 0px;border-right-width: 0px;border-bottom-width: 0px;">/5</input>  
                     </span> 
                 </div>
                 <div class="col-md-4"> <span> <p> <b class="monospace">Score</b></p></span>  </div>                       

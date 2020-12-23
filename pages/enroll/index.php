@@ -8,7 +8,7 @@ include("../php/student_function.php");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php require_once('view/head.inc.php'); ?>
+	<!-- ?php require_once('view/head.inc.php'); ?> -->
 	<style>
 		<?php 
 		if(!isset($_GET['action'])){

@@ -8,18 +8,12 @@ include("../php/function.php");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php require_once('view/head.inc.php'); ?>
+	<!-- 	<?php require_once('view/head.inc.php'); ?> -->
 	<style>
 		<?php 
 		if(!isset($_GET['action'])){
-			$cus[] = getselect($conn);
-				$data= getselect($conn);         //เรียกใช้ faction
-			    $arrlength = count($data); 		//นับข้อมูล
-			    require_once('payment.php');
-			}
-
-
-			?>
-		</style>
-	</head>
-	</html> 
+			require_once('payment.php');
+		}?>
+	</style>
+</head>
+</html> 

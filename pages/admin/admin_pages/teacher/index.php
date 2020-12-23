@@ -11,7 +11,7 @@ if($_GET['action'] == 'admin_calendar'){
 if($_GET['action'] == 'teacher_list'){
 	require_once("teacher_list.php");
 }
-if($_GET['action'] == 'teacher_edit'){
+if($_GET['action'] == 'edit_data'){
 	require_once("teacher_edit.php");
 }
 if($_GET['action'] == 'insert_datetime'){

@@ -58,7 +58,7 @@
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
 									<ul class="dropdown-menu">
 										<li><a href="#"><i class="fa fa-refresh" style="font-size:15px"></i> Reset</a></li>
-										<li><a href="#"><i class="far fa-edit" style="font-size:15px"></i> Edit</a></li>
+										<li><a href="index.php?app=admin&action=edit_data"><i class="far fa-edit" style="font-size:15px"></i> Edit</a></li>
 										<li><a href="#"><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
 									</ul>
 								</div>

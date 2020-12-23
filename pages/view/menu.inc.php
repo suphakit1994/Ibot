@@ -158,10 +158,10 @@
 
 						<ul class="nav navbar-nav navbar-right" style="padding-right:2%;">
 							<li><a href="?app=student">Home</a></li>
-							<li><a href="index.php?app=camp">Camp</a></li>
-							<li><a href="index.php?app=compitition">Compitition</a></li>
-							<li><a href="index.php?app=schedule">Schedule</a></li>
-							<li><a href="index.php?app=mycourse">Mycourse</a></li>
+							<li><a href="index.php?app=student&action=ibot_camp">Camp</a></li>
+							<li><a href="index.php?app=student&action=compitition">Compitition</a></li>
+							<li><a href="index.php?app=student&action=schedule">Schedule</a></li>
+							<li><a href="index.php?app=student&action=mycourse">Mycourse</a></li>
 
 							<li>
 								<div class="col-sm-8" style="text-align: end;">

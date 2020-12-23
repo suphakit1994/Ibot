@@ -1,3 +1,4 @@
+
 <style>
   select[name=month]{
     border-color: #ffffff;
@@ -224,7 +225,7 @@ input[type=text] {
 </div> 
 </div>
 <div>
-    <a  href="index.php?app=success" type="button" name="next" class="Button" style="border-radius:28px; width: 150px;">Purchase now</a>
+    <a  href="index.php?app=student&action=success" type="button" name="next" class="Button" style="border-radius:28px; width: 150px;">Purchase now</a>
 </div> 
 </div>  
 </form>

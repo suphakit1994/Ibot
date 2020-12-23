@@ -96,8 +96,8 @@
   </style>
 
   <body>
-    <form  method="post" action="index.php?app=student&action=payment">
-     
+    <form  method="post" action="index.php?app=student&action=student&action=payment">
+
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="row">
           <div class="col-md-7" style=" padding-top: 5%;"> 

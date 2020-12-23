@@ -142,20 +142,4 @@
 		console.log('<?php echo $cus[1]['start_time']; ?>T<?php echo $cus[1]['build_time']; ?>:00');
 	});
 
-//----spare----
-// var eventcalendar =[];
-//   <?php echo $cus; ?>.forEach(value =>{
-//     eventcalendar.push( {
-//       id: 'a',
-//       title: value.title,
-//       start: value.start_time,
-//       end: value.end_time,
-//       extendedProps: {
-//         status: ''
-//       },
-//       borderColor: value.color,
-//       themeSystem: 'bootstrap',
-//       backgroundColor:value.color
-//     });
-//   });
 </script>

@@ -20,48 +20,14 @@
         box-sizing: border-box;
         border: none;
         border-bottom: 2px solid #F1ECEC;
-    }
-    .dropbtn {
-      background-color: #3498DB;
-      color: white;
-      padding: 16px;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
-  }
+        }.select-selected {
+          background-color: DodgerBlue;
+      }
 
-  .dropbtn:hover, .dropbtn:focus {
-      background-color: #2980B9;
-  }
 
-  .dropdown {
-      position: relative;
-      display: inline-block;
-  }
 
-  .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f1f1f1;
-      min-width: 160px;
-      overflow: auto;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-  }
-
-  .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-  }
-
-  .dropdown a:hover {background-color: #ddd;}
-
-  .show {display: block;}
-</style>
-</style>
-<body>
+  </style>
+  <body>
     <div class="container">
         <form action="index.php?app=art&action=insert" method="post">
             <!-- row1 -->
@@ -153,37 +119,39 @@
                 </div>
             </div>
 
+            <form action="index.php?app=parent_information" method="post">
+                <div class="row" style="margin-left:5%;">
+                    <label>Bank</label>
+                    <br><div class="custom-select" style="width:200px;">
+                      <select>
+                        <option value="0">กรุงไทย</option>
+                        <option value="1">ไทยพาณิชย์</option>
+                        <option value="2">กสิกร</option>
+                        <option value="3">พร้อมเพย์</option>
+                    </select>
+                    <br><label>Ref. No.</label>
+                    <br><input name="Ref" >
+                    <br><label>Amount</label>
+                    <br><input name="Amount" >
+                    <br><label>Transaction Date</label>
+                    <br><input name="Transactiondate" >
+                    <br><label>Proof of payment</label>
+                    <b  r><form action="/action_page.php">
+                      <input type="file" id="myFile" name="filename">
+                  </form>
+              </div>
+          </div>
 
-            <div class="row">
-                <label>Bank</label>
-                <div class="dropdown">
-                  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-                  <div id="myDropdown" class="dropdown-content">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
 
-            <label>Ref. No.</label>
 
-        </div>
-        <label>Amount</label>
-        <label>Transaction Date</label>
-    </div>
-    <!-- Button -->
-    <div class="row" style=" margin-top:1%; padding-bottom:2%;">
-        <div class="col-md-2" style="padding-left:0%;">
-            <input name="insert" class="Button" type="submit" style="padding: 4px;  margin: 0px; width: 100%; padding-left:0%;  ">
-        </div>
-        <div class="col-md-2">
-            <a href="" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">BACK</a>
-        </div>
-        <div class="col-md-2">
-            <a href="index.php?app=art&action=view_2" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">Page2</a>
-            <a href="index.php?app=art&action=view_3" class="ButtonBack" style="padding: 4px;  margin: 0px; width: 70%;  ">Page3</a>
-        </div>
-    </div>
+      </div>
+
+  </div>
+  <!-- Button -->
+  <div class="row" style=" margin-top:1%; padding-bottom:2%;">
+    <div class="Button" style="padding: 5px; padding-left: 20px; padding-right: 20px; margin-left: 20%;">Purchase now</div>
+</div>
 </form>
 </div>
+
 </body>

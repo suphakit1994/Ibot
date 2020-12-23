@@ -3,7 +3,7 @@ date_default_timezone_set("Asia/Bangkok");
 include("../php/config.php");
 include("../php/student_function.php");
 include("../php/function.php");
-
+include('../php/course_function.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +17,6 @@ include("../php/function.php");
 				// $cus=selectcoureid($conn, $data);
 			require_once('student_information.php');
 		}	
-
-
 		?>
 	</style>
 </head>

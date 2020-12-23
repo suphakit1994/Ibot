@@ -22,7 +22,7 @@ include('../php/function.php');
 				require_once('admin_pages/teacher/index.php');
 			}
 
-			if($_GET['action'] == 'asd'){
+			if($_GET['action'] == 'admin_calendar'||'teacher_list'){
 				$s = calendars($conn);
 				//$cus = updateidcalendar($conn,$_POST);
 				//$cus = selectmax($conn);
@@ -32,7 +32,7 @@ include('../php/function.php');
 			if($_GET['action'] == 'admin_course'){
 				require_once('admin_pages/course/index.php');
 			}
-			if($_GET['action'] == 'teacher_list'){
+			if($_GET['action'] == 'teacher_edit'){
 				require_once("admin_pages/teacher/index.php");
 			}
 			if($_GET['action'] == 'camp'){

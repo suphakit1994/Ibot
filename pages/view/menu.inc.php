@@ -217,7 +217,7 @@ elseif ($level=='teacher') { ?>
 
 					<ul class="nav navbar-nav navbar-right" style="padding-right:2%;">
 						<li><a href="?app=teacher">Home</a></li>
-						<li><a href="index.php?app=course">Course</a></li>
+						<li><a href="index.php?app=our_course">Course</a></li>
 						<li><a href="index.php?app=report">Report</a></li>
 						<li>
 							<div class="col-sm-8" style="text-align: end;">

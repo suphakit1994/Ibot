@@ -1,25 +1,17 @@
-<?php  error_reporting(~E_NOTICE);
+<?php
 date_default_timezone_set("Asia/Bangkok");
 include("../php/config.php");
-include("../php/faii_ft.php");
-include("../php/function.php");
+include('../php/test.php');	
+include("../php/student_function.php");
+include('../php/art_ft.php');
+
+
+if(!isset($_GET['action'])){
+	$cus[] = getselect($conn);
+	$data= getselect($conn);         //เรียกใช้ faction
+	$arrlength = count($data); 	
+
+	require_once('our_course.php');
+}
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<?php require_once('view/head.inc.php'); ?>
-	<style>
-		<?php 
-		if(!isset($_GET['action'])){
-			$cus[] = getselect($conn);
-				$data= getselect($conn);         //เรียกใช้ faction
-			    $arrlength = count($data); 		//นับข้อมูล
-			    require_once('our_course.php');
-			}
-
-
-			?>
-		</style>
-	</head>
-	</html> 

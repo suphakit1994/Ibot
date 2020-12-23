@@ -1,43 +1,49 @@
-<style type="text/css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/css">
 
-  .card{
-    box-shadow: 0 4px 10px 0 rgb(0 0 0), 0 4px 20px 0 rgba(0,0,0,0.19);
-    width: 100%;
-    padding-bottom: 10px;
-    border-radius:10px; 
-  }
-  .card-img-top{
-    width: 100%;
-    border-radius: 10px 10px 0px 0px;
-  }
-  .btn {
-    color: #ffffff;
-    background-color: #dedede ;
-  }         
-  .btn:hover {
-    border-radius:28px;
-    border:1px solid #18ab29;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff !important;
-    font-size:14;
-    text-decoration:none;
-    text-align: center; 
-    background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);    
-    border: 1px solid #ffffff;
-  }    
-</style>
-<body>
+    .card{
+      box-shadow: 0 4px 10px 0 rgb(0 0 0), 0 4px 20px 0 rgba(0,0,0,0.19);
+      width: 100%;
+      padding-bottom: 10px;
+      border-radius:10px; 
+    }
+    .card-img-top{
+      width: 100%;
+      border-radius: 10px 10px 0px 0px;
+    }
+    .btn {
+      color: #ffffff;
+      background-color: #dedede ;
+    }         
+    .btn:hover {
+      border-radius:28px;
+      border:1px solid #18ab29;
+      display:inline-block;
+      cursor:pointer;
+      color:#ffffff !important;
+      font-size:14;
+      text-decoration:none;
+      text-align: center; 
+      background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);    
+      border: 1px solid #ffffff;
+    }    
+  </style>
+  <body>
 
-  <div class="container-fluid" style="padding-right:100px ;padding-left:100px ;">
-    <h1 style="padding-bottom: 20px;padding-top: 50px;">
-      <b>OUR COURSE</b>
-    </h1 > 
-    <div class="row" style="padding-bottom: 0px;" >
-     <?php 
+    <div class="container-fluid" style="padding-right:100px ;padding-left:100px ;">
+      <h1 style="padding-bottom: 20px;padding-top: 50px;">
+        <b>OUR COURSE</b>
+      </h1 > 
+      <div class="row" style="padding-bottom: 0px;" >
+       <?php 
       for($i=0;$i<$arrlength; $i++){  //loop card 
         ?>
-        <form method="post" action="index.php?app=shome&action=student_information" >
+        <form method="post" action="index.php?app=student_information" >
           <div href="..faii_ft.php" >
             <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
               <div class="card" >
@@ -110,14 +116,15 @@
         }  ?>
       </div>
       <div class="text-center "> 
-        <a href="index.php?app=student&action=student"   class="Button" style="border-radius:28px;"> Student Assessment</a>
+        <a href="index.php?app=student"   class="Button" style="border-radius:28px;"> Student Assessment</a>
       </div>
       <div class="text-center "> 
-        <a href="index.php?app=student&action=student_information"   class="Button" style="border-radius:28px;"> Student information</a>
+        <a href="index.php?app=student_information"   class="Button" style="border-radius:28px;"> Student information</a>
       </div>
     </div>
     <br>
     <br>
 
   </body>
-
+</head>
+</html>

@@ -70,7 +70,7 @@
   </style>
 
   <body>
-    <form method="post" action="index.php?app=student&action=parent_information" >
+    <form method="post" action="index.php?app=parent_information" >
      <input type="hidden" name="ourcourse_id" value="<?php echo $_POST['course_ID']; ?>">
 
      <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
@@ -121,7 +121,7 @@
             </div>
             
             <div class="col-md-6"> 
-              
+
             </div>
           </div>
           

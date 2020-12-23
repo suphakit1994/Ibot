@@ -1,6 +1,6 @@
 <style>
   .form-control{
-   
+
     border-left-width: 0px !important;
     border-right-width: 0px !important;
     border-bottom-width: 0px !important; 
@@ -69,7 +69,7 @@
   </style>
 
   <body>  
-    <form  method="post" action="index.php?app=student&action=enroll&id=<?php echo $cus['id']; ?>">
+    <form  method="post" action="index.php?app=enroll&id=<?php echo $cus['id']; ?>">
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="col-md-7" style="padding-top: 5%;">
           <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 
@@ -109,7 +109,7 @@
             <input type="hidden" name="name_eng" value="<?php echo $_POST['name_eng'];  ?>">
             <input type="hidden" name="nickname_eng" value="<?php echo $_POST['nickname_eng'];  ?>">
 
-            <a href="index.php?app=faii&action=student_information" type="button" name="Back" class="Button" style="border-radius:28px; width: 120px;">Back</a>
+            <a href="index.php?app=student_information" type="button" name="Back" class="Button" style="border-radius:28px; width: 120px;">Back</a>
             <button  type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
           </div> 
         </div>

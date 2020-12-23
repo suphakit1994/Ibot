@@ -36,19 +36,6 @@ include("../php/function.php");
 				$data[] = insterstudent( $conn,$data);
 			}
 
-			if($_GET['action']=="student_information"){
-				$data= getselect($conn);
-				// print_r( $data['ID']); 
-				// $cus=selectcoureid($conn, $data);
-				require_once('student_information.php');
-			}	
-
-			if($_GET['action']=="parent_information"){
-				$cusp = selectstudentuser($conn);
-				$cus = insertstudentuser($conn,$_POST);
-				require_once('parent_information.php');
-			}
-
 			if($_GET['action']=="enroll"){
 				$cus = selectmax($conn);
 				$cuss = updatestudentuser($conn,$_POST,$cus);

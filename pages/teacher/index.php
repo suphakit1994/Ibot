@@ -22,10 +22,13 @@ include('../php/function.php');
 				require_once('view.php');
 			}
 
-			if($_GET['action'] == 'compititions'){
-				require_once('compititions.php');
-			}
-		}?>
-	</style>
-</head>
-</html> 
+			if($_GET['action'] == 'our_course'){
+				$cus[] = getselect($conn);
+					$data= getselect($conn);         //เรียกใช้ faction
+					$arrlength = count($data); 	
+					require_once('our_course.php');
+				}
+			}?>
+		</style>
+	</head>
+	</html> 

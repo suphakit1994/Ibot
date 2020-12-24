@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="row" style="position: relative;">
-            <img src="../images/images.png" style="width:45%; height:40%; border-radius:2%; margin-left:50%; margin-top:10%;">
+            <img src="../images/comp.jpg" style="width:45%; height:40%; border-radius:2%; margin-left:50%; margin-top:19%;">
 
         </div>
         <div class="row" style="position: relative;">

@@ -66,7 +66,7 @@ if ( mysqli_query($conn, $sql)) {
 	return true;
 } else {
 	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	return false;
+	return false; 	
 }
 mysqli_close($conn);
 }

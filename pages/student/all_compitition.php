@@ -94,6 +94,15 @@
         text-align: center;
         margin: auto;
     }
+    .card{
+        border-radius: 5px;
+        border-style: solid;
+        border-color: #DEDEDE;
+        border-width: 1px;
+        box-shadow:unset !important;
+        width: ;
+        padding-bottom: unset !important;
+    }
     button:disabled,
     button[disabled]{
         background-color: #DEDEDE !important;

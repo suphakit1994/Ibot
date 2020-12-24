@@ -96,7 +96,7 @@
 			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) !important;
 			transition: 0.3s !important;
 			width: 100% !important;
-			border-radius: 5px !important;
+			border-radius: 8px !important;
 		}
 
 		.card:hover {
@@ -106,6 +106,49 @@
 		img {
 			border-radius: 5px 5px 0 0 !important;
 		}
+		.btnrd{
+			border-radius:28px;
+			border:1px solid #18ab29;
+			display:inline-block;
+			cursor:pointer;
+			color:#ffffff;
+			font-size:14;
+			text-decoration:none;
+			text-align: center; 
+			background: #FF5894;    
+			border: 1px solid #ffffff;
+			width: 40%;
+		}
+		.blue {
+			height: 20px;
+			width: 20px;
+			border-radius: 5px;
+			background-color: #0050ef;
+
+		}
+		.pink {
+			height: 20px;
+			width: 20px;
+			border-radius: 5px;
+			margin-left: 25px;
+			background-color: #FF5894;
+
+		}
+		.gray {
+			height: 20px;
+			width: 20px;
+			border-radius: 5px;
+			margin-left: 25px;
+			background-color: #DEDEDE;
+
+		}
+		.black {
+			height: 20px;
+			width: 20px;
+			border-radius: 5px;
+			margin-left: 50px;
+			background-color: #050A17;
+		}
 
 	</style>
 </head>
@@ -113,7 +156,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-4">
-				<div class="card">
+				<div class="card" style="height: 100vh;">
 					<div class="container-fluid">
 						<div class="row" style="display: flex; align-items: center;">
 							<div class="col-sm-5">
@@ -125,14 +168,18 @@
 							</div>
 						</div>
 						<div class="row" style="display: flex; justify-content: flex-start;">
-							<div class="col-sm-12">
+							<div class="col-sm-12" style=" margin-top:15px;">
 								<p><b>Sat 7 Oct 2020</b></p>
 							</div>
 						</div>
 						<div  class="row" style="display: flex; justify-content: flex-start;">	
-							<div class="col-sm-12">
-								<p><b>Deatails</b></p>
+							<div class="col-sm-12" style=" padding-top:15px;">
 								<div class="row">
+									<div class="col-sm-12">
+										<p><b>Deatails</b></p>
+									</div>
+								</div>
+								<div class="row" style=" padding-top:15px;">
 									<div class="col-sm-5">
 										<p>Class</p>
 										<p>Detail</p>
@@ -146,7 +193,29 @@
 										<p>1 class</p>
 									</div>
 								</div>
-								<button>Take a leave</button>
+								<div class="row">
+									<div class="col-sm-12">
+										<button class="btnrd" style="padding: 5px;">Take a leave</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row" style="margin-top: 40px;">
+							<div class="container" style="display: flex;flex-direction:row; justify-content: flex-start; align-items: flex-end;">
+								<div class="row">
+									<div class="col-sm-3">
+										<div  class="blue" style=""><p style="padding-left: 25px">Attended</p></div>
+									</div>
+									<div class="col-sm-3">
+										<div  class="pink" style=""><p style="padding-left: 25px">Take a leave</p></div>
+									</div>
+									<div class="col-sm-3">
+										<div  class="gray" style=""><p style="padding-left: 25px">Avariable</p></div>
+									</div>
+									<div class="col-sm-3">
+										<div  class="black" style=""><p style="padding-left: 25px">Schedule</p></div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

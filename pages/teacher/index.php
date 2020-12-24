@@ -2,6 +2,7 @@
 date_default_timezone_set("Asia/Bangkok");
 include("../php/config.php");
 include('../php/function.php');
+include("../php/course_function.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +37,10 @@ include('../php/function.php');
 				if($_GET['action'] == 'compititions'){
 
 					require_once('compititions.php');
+				}
+				if($_GET['action'] == 'report'){
+
+					require_once('report.php');
 				}
 			}
 			?>

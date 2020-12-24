@@ -1,3 +1,4 @@
+
 <style>
   select[name=month]{
     border-color: #ffffff;
@@ -113,8 +114,8 @@
             <div class="form-card" style=" padding-top: 15%;"> 
              <div class="col-md-12"style="padding-left: 5px;padding-right: 5px;">
                <div class="row">
-                <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
-                  <img src="../images/bank1.jpg" style="width: 300px; height: 150px;" alt="">
+                <div class="col-sm-6" style="margin-top: 0%; text-align: end;">
+                  <img src="../images/bank1.jpg" style="width: 275px; height: 125px;" alt="">
                 </div>
                 <div class="col-sm-6" style="margin-top: 2%;">
                   <p>XXX-XXXX-XXX</p>
@@ -123,7 +124,7 @@
               </div>
               <div class="row">
                 <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
-                  <img src="../images/bank2.jpeg" style="width: 300px; height: 150px;" alt="">
+                  <img src="../images/bank2.jpeg" style="width: 275px; height: 125px;" alt="">
                 </div>
                 <div class="col-sm-6" style="margin-top: 2%;">
                   <p>XXX-XXXX-XXX</p>
@@ -132,7 +133,7 @@
               </div>
               <div class="row">
                 <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
-                  <img src="../images/bank3.jpg" style="width: 300px; height: 150px;" alt="">
+                  <img src="../images/bank3.jpg" style="width: 275px; height: 125px;" alt="">
                 </div>
                 <div class="col-sm-6" style="margin-top: 2%;">
                   <p>XXX-XXXX-XXX</p>
@@ -143,9 +144,9 @@
           </div>
           <div class="form-card" style=" padding-top: 15%;">    
 
-            <div class="row" style="margin-left:8%; margin-top:2%;">
-              <label>Bank</label>
-              <br><div class="custom-select" style="width:200px;">
+            <div class="row" >
+              <label style="margin-top: 5%; ">Bank</label>
+              <br><div class="custom-select" style="width:200px; ">
                 <select>
                   <option value="0">กรุงไทย</option>
                   <option value="1">ไทยพาณิชย์</option>
@@ -153,16 +154,19 @@
                   <option value="3">พร้อมเพย์</option>
                 </select>
                 <br><label>Ref. No.</label>
-                <br><input name="Ref" >
+                <br><input name="Ref" style="width: 350%;">
                 <br><label>Amount</label>
-                <br><input name="Amount" >
+                <br><input name="Amount" style="width: 350%;">
                 <br><label>Transaction Date</label>
-                <br><input name="Transactiondate" >
+                <br><input name="Transactiondate" style="width: 350%;">
                 <br><label>Proof of payment</label>
                 <b  r><form action="/action_page.php">
                   <input type="file" id="myFile" name="filename">
                 </form>
               </div>
+              <div style="padding-top: 20px;">
+                <a  href="index.php?app=success" type="button" name="next" class="Button" style="border-radius:28px; margin-top: 15px; width: 150px; ">Purchase now</a>
+              </div> 
             </div>    
           </div>
 
@@ -222,9 +226,6 @@
             </div>
           </div>
         </div> 
-      </div>
-      <div>
-        <a  href="index.php?app=success" type="button" name="next" class="Button" style="border-radius:28px; width: 150px;">Purchase now</a>
       </div> 
     </div>  
   </form>

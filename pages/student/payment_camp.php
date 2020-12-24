@@ -97,17 +97,18 @@
   </style>
 
   <body>
-    <form  method="post" action="index.php?app=success_compitition">
+    <form  method="post" action="index.php?app=success_camp">
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
+        <h1 style="text-align: center; font-weight: bold;padding-top: 3%;">IBOT CAMP</h1>
         <div class="col-md-7" style="padding-top: 2%;">
-          <h1 style="text-align: center;">IBOT CAMP</h1>
+
           <h2 style=" margin-top: 7%; margin-bottom: 20px;"><b>Your account is being verified</b></h2>     
           <div>
             <div class="form-card" > 
              <div class="col-md-12"style="padding-left: 5px;padding-right: 5px;">
-               <div class="row">
+              <div class="row" style="margin-top: 5%;">
                 <div class="col-sm-6" style="margin-top: 0%; text-align: end;">
-                  <img src="../images/bank1.jpg" style="width: 300px; height: 150px;" alt="">
+                  <img src="../images/bank1.jpg" style="width: 275px; height: 125px;" alt="">
                 </div>
                 <div class="col-sm-6" style="margin-top: 2%;">
                   <p>XXX-XXXX-XXX</p>
@@ -116,7 +117,7 @@
               </div>
               <div class="row">
                 <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
-                  <img src="../images/bank2.jpeg" style="width: 300px; height: 150px;" alt="">
+                  <img src="../images/bank2.jpeg" style="width: 275px; height: 125px;" alt="">
                 </div>
                 <div class="col-sm-6" style="margin-top: 2%;">
                   <p>XXX-XXXX-XXX</p>
@@ -125,7 +126,7 @@
               </div>
               <div class="row">
                 <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
-                  <img src="../images/bank3.jpg" style="width: 300px; height: 150px;" alt="">
+                  <img src="../images/bank3.jpg" style="width: 275px; height: 125px;" alt="">
                 </div>
                 <div class="col-sm-6" style="margin-top: 2%;">
                   <p>XXX-XXXX-XXX</p>
@@ -136,9 +137,9 @@
           </div>
           <div class="form-card" style=" padding-top: 15%;">    
 
-            <div class="row" style="margin-left:8%; margin-top:2%;">
-              <label>Bank</label>
-              <br><div class="custom-select" style="width:200px;">
+            <div class="row" >
+              <label style="margin-top: 5%; ">Bank</label>
+              <br><div class="custom-select" style="width:200px; ">
                 <select>
                   <option value="0">กรุงไทย</option>
                   <option value="1">ไทยพาณิชย์</option>
@@ -146,79 +147,67 @@
                   <option value="3">พร้อมเพย์</option>
                 </select>
                 <br><label>Ref. No.</label>
-                <br><input name="Ref" >
+                <br><input name="Ref" style="width: 350%;">
                 <br><label>Amount</label>
-                <br><input name="Amount" >
+                <br><input name="Amount" style="width: 350%;">
                 <br><label>Transaction Date</label>
-                <br><input name="Transactiondate" >
+                <br><input name="Transactiondate" style="width: 350%;">
                 <br><label>Proof of payment</label>
                 <b  r><form action="/action_page.php">
                   <input type="file" id="myFile" name="filename">
                 </form>
               </div>
-            </div>    
-          </div>
+              <div style="padding-top: 20px;">
+                <a  href="index.php?app=student&action=success_camp" type="button" name="next" class="Button" style="border-radius:28px; margin-top: 15px; width: 150px; ">Purchase now</a>
+              </div> 
+            </div>
 
+          </div>
         </div>
 
       </div>
 
-      <div class="col-md-5" style="padding-top: 5%;padding-bottom: 8%;">
+      <div class="col-md-5" style="padding-top: 12%;padding-bottom: 8%;">
         <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
-          <h3 style="margin-bottom: 20px;"><b>STUDENT INFORMATION</b></h3>
-          <div class="row">
+          <h3 style="margin-bottom: 20px; font-weight: bold;"><h2>ORDER SUMMARY</h2></h3>
+          <div class="row" style="padding-top: 50px">
             <div class="col-md-6"> 
-              <p>Name</p>
-              <p>Nickname</p>
+              <p>IBOT Camp :</p>
             </div>
             <div class="col-md-6"> 
               <p><?php echo $_POST['name_eng'];  ?></p>
-              <p><?php echo $_POST['nickname_eng'];  ?></p>
-            </div>
-
-            <div class="col-md-6"> 
-
             </div>
           </div>
-
-          <h3 style="margin-bottom: 5%;margin-top: 8%;"><b>PARENT INFORMATION</b></h3>
-          <div class="row">
+          <div class="row" style="text-align: start; padding: 10px 140px 0px 15px;">
+            Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam nonummy nibh euismod tinciduct urt laoreet dolore mayna.
+          </div>
+          <div class="row" style="padding-top: 15px;">
             <div class="col-md-6"> 
-              <p>Name</p>
-              <p>Nickname</p>
-              <p>Phone number</p>
+              <p>Camp :</p>
             </div>
             <div class="col-md-6"> 
-              <p><?php echo $_POST['namep_eng'];  ?></p> 
-              <p><?php echo $_POST['related'];  ?></p>
-              <p><?php echo $_POST['phonenumber'];  ?></p>
+              <p><?php echo $_POST['name_eng'];  ?></p>
             </div>
           </div>
-
-          <h3 style="margin-bottom: 5%;margin-top: 8%;"><b>ORDER SUMMARY</b></h3>
-          <div class="row">
+          <div class="row" style="padding-top: 15px;">
             <div class="col-md-6"> 
-              <p>Course</p> 
-              <p>Course Expansion</p>
-              <p>Total Course</p>
-              <p>class schedule</p>
-              <p>Make-up class</p>
-              <p>Study time</p>
+              <p>Program :</p>
             </div>
             <div class="col-md-6"> 
-              <p><?php echo $data[2]['Course_Expension']; ?></p>
-              <p></p>
-              <p></p>
-              <p></p>
-              <p></p>
-              <p></p>              
+              <p><?php echo $_POST['name_eng'];  ?></p>
             </div>
           </div>
-        </div> 
+          <div class="row" style="padding-top: 15px;">
+            <div class="col-md-6"> 
+              <p>Camp Date :</p>
+            </div>
+            <div class="col-md-6"> 
+              <p><?php echo $_POST['name_eng'];  ?></p>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div>
-        <a  href="index.php?app=student&action=success_camp" type="button" name="next" class="Button" style="border-radius:28px; width: 150px;">Purchase now</a>
-      </div> 
     </div>  
   </form>
 </body> 

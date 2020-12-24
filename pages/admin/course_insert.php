@@ -1,5 +1,6 @@
-
+ <meta charset="utf-8">
 <style>
+
 	.list_detail{
 		padding-top: 3%;
 	}
@@ -8,7 +9,7 @@
 	height: 200px;
 	width: 300px;
 	margin: 50px auto;
-	/*border-radius: 50%;*/
+	border-radius: 5%;
 	overflow: hidden;
 	box-shadow: 1px 1px 15px -5px black;
 	transition: all .3s ease;
@@ -18,6 +19,7 @@
 	}
 	&:hover .profile-pic{
 		opacity: .5;
+
 	}
 	.profile-pic {
     height: 100%;
@@ -27,8 +29,8 @@
 			font-family: FontAwesome;
 			content: "\f007";
 			top: 0; left: 0;
-			width: 100%;
-			height: 100%;
+			/*width: 100% ;
+			height: 100%;*/
 			position: absolute;
 			font-size: 190px;
 			background: #ecf0f1;
@@ -39,8 +41,8 @@
 	.upload-button {
 		position: absolute;
 		top: 0; left: 0;
-		height: 100%;
-		width: 100%;
+		height: 100% ;
+		width: 100% ;
 		.fa-arrow-circle-up{
 			position: absolute;
 			font-size: 234px;
@@ -52,7 +54,7 @@
 			color: #34495e;
 		}
 		&:hover .fa-arrow-circle-up{
-			opacity: .9;
+			opacity: 0;
 		}
 	}
 }
@@ -71,13 +73,13 @@
 				<div class="row" style="display: flex; text-align: center;">
 					<div class="col-sm-12">
 						<div class="avatar-wrapper">
-							<img class="profile-pic" src="" />
+							<img class="profile-pic" style=" height: 100%;  width: 100%;" >
 								<div class="upload-button">
 									<i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
 								</div>
 								
 						</div>
-						<input class="file-upload" type="file" accept="image/*">
+						<input class="file-upload" type="file" accept="images/*" name="course_img">
 					</div>
 				</div>
 			</div>
@@ -113,7 +115,7 @@
 				<div class="col-sm-5">
 					<div class="row" style="display: flex; text-align: center;">
 						<div class="col-sm-12">
-							<button type="submit" name="save"  class="Button">Save</button>
+							<button type="submit" name="save"  class="Button" style="width: 30%;">Save</button>
 						</div>
 					</div>
 				</div>

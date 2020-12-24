@@ -1,4 +1,5 @@
-<?php
+<?php error_reporting(~E_NOTICE);
+
 date_default_timezone_set("Asia/Bangkok");
 include("../php/config.php");
 include('../php/function.php');
@@ -30,10 +31,7 @@ include('../php/course_function.php');
 				//print_r($cus);
 				require_once('teacher_list.php');
 			}
-			if($_GET['action'] == 'admin_course'){
-				$cus = instercourse( $conn,$_POST);
-				require_once('course_insert.php');	
-			}
+			
 			if($_GET['action'] == 'admin_calendar'){
 				$cus = calendars($conn);
 				require_once('calendar_schedule.php');
@@ -49,6 +47,10 @@ include('../php/course_function.php');
 				$cus = insertData($conn,$_POST);
 				$suc = calendars($conn);
 				require_once("calendar_schedule.php");
+			}
+			if($_GET['action'] == 'admin_course'){
+				
+				require_once('course_insert.php');	$cus = instercourse( $conn,$_POST);
 			}
 		}
 		?>

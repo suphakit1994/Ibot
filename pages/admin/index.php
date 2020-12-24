@@ -16,35 +16,34 @@ include('../php/function.php');
 		<?php
 		require_once('admin_view/admin_footer.php');
 		if ($level=='admin') {
-
+			// ---------------------------View--------------------------------
 			if(!isset($_GET['action']) ){
 				$cus = calendars($conn);
-				require_once('admin_pages/teacher/index.php');
+				require_once('calendar_schedule.php');
 			}
 
-			if($_GET['action'] == 'admin_calendar'||'teacher_list'){
+			if($_GET['action'] == 'teacher_list'){
 				$s = calendars($conn);
 				//$cus = updateidcalendar($conn,$_POST);
 				//$cus = selectmax($conn);
 				//print_r($cus);
-				require_once('admin_pages/teacher/index.php');
+				require_once('teacher_list.php');
 			}
 			if($_GET['action'] == 'admin_course'){
-				require_once('admin_pages/course/index.php');
+				require_once('course_insert.php');
 			}
-			if($_GET['action'] == 'teacher_edit'){
-				require_once("admin_pages/teacher/index.php");
+			if($_GET['action'] == 'edit_data'){
+				require_once("teacher_edit.php");
 			}
 			if($_GET['action'] == 'camp'){
-				require_once('admin_pages/camp/index.php');
+				require_once('.php');
 			}
+			// ---------------------------Insert--------------------------------
 			if($_GET['action'] == 'insert_datetime'){
 				$cus = insertData($conn,$_POST);
 				$suc = calendars($conn);
-				require_once("admin_pages/teacher/admin_calendar.php");
+				require_once("calendar_schedule.php");
 			}
-
-
 		}
 		?>
 	</style>

@@ -200,7 +200,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="row" style="margin-top: 40px;">
+						<div class="row" style="margin-top: 60px;">
 							<div class="container" style="display: flex;flex-direction:row; justify-content: flex-start; align-items: flex-end;">
 								<div class="row">
 									<div class="col-sm-3">

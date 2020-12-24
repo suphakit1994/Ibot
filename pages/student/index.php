@@ -94,6 +94,9 @@ include("../php/course_function.php");
 				require_once('all_camp.php');
 
 			}
+			if($_GET['action']=="compitions_team"){
+				require_once('compitions_team.php');
+			}
 			if($_GET['action']=="schedule"){
 				$cus = calendars($conn);
 				require_once('schedule.php');

@@ -73,7 +73,7 @@
 					</a>
 					<ul id="submenu-4" class="collapse">
 						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.2</a></li>
+						<li><a href="index.php?app=admin&action=students_list"><i class=""></i>Students List</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>
@@ -86,7 +86,7 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-5" class="collapse">
-						<li><a href="index.php?app=admin&action=admin_course"><i class="fa fa-angle-double-right"></i> SUBMENU 1.1</a></li>
+						<li><a href="index.php?app=admin&action=admin_course"><i class="fa fa-angle-double-right"></i> Add course</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.2</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>

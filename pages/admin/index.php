@@ -41,8 +41,8 @@ include('../php/course_function.php');
 			if($_GET['action'] == 'edit_data'){
 				require_once("teacher_edit.php");
 			}
-			if($_GET['action'] == 'camp'){
-				require_once('.php');
+			if($_GET['action'] == 'students_list'){
+				require_once('students_list.php');
 			}
 			// ---------------------------Insert--------------------------------
 			if($_GET['action'] == 'insert_datetime'){

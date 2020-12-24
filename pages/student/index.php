@@ -58,6 +58,9 @@ include("../php/course_function.php");
 				require_once('viewtest.php');
 
 			}
+			if($_GET['action']=="ibot_compitition"){
+				require_once('ibot_compitition.php');
+			}
 
 			if($_GET['action']=="ibot_camp"){
 				require_once('ibot_camp.php');
@@ -65,6 +68,35 @@ include("../php/course_function.php");
 			}
 			if($_GET['action']=="sorry"){
 				require_once('sorry.php');
+
+			}
+			if($_GET['action']=="all_compitition"){
+				require_once('all_compitition.php');
+
+			}
+			if($_GET['action']=="payment_compitition"){
+				require_once('payment_compitition.php');
+
+			}
+			if($_GET['action']=="success_compitition"){
+				require_once('success_compitition.php');
+
+			}
+			if($_GET['action']=="success_camp"){
+				require_once('success_camp.php');
+
+			}
+			if($_GET['action']=="payment_camp"){
+				require_once('payment_camp.php');
+
+			}
+			if($_GET['action']=="all_camp"){
+				require_once('all_camp.php');
+
+			}
+			if($_GET['action']=="schedule"){
+				$cus = calendars($conn);
+				require_once('schedule.php');
 
 			}
 

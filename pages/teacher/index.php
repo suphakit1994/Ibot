@@ -28,13 +28,17 @@ include('../php/function.php');
 					$arrlength = count($data); 	
 					require_once('our_course.php');
 				}
-			
-			if($_GET['action'] == 'student_assessment'){
-		
+
+				if($_GET['action'] == 'student_assessment'){
+
 					require_once('student_assessment.php');
 				}
+				if($_GET['action'] == 'compititions'){
+
+					require_once('compititions.php');
+				}
 			}
-		?>
+			?>
 		</style>
 	</head>
 	</html> 

@@ -32,6 +32,10 @@ include('../php/function.php');
 			if($_GET['action'] == 'admin_course'){
 				require_once('course_insert.php');
 			}
+			if($_GET['action'] == 'admin_calendar'){
+				$cus = calendars($conn);
+				require_once('calendar_schedule.php');
+			}
 			if($_GET['action'] == 'edit_data'){
 				require_once("teacher_edit.php");
 			}

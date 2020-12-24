@@ -60,7 +60,6 @@ include("../php/course_function.php");
 			}
 			if($_GET['action']=="ibot_compitition"){
 				require_once('ibot_compitition.php');
-
 			}
 
 			if($_GET['action']=="ibot_camp"){
@@ -93,6 +92,11 @@ include("../php/course_function.php");
 			}
 			if($_GET['action']=="all_camp"){
 				require_once('all_camp.php');
+
+			}
+			if($_GET['action']=="schedule"){
+				$cus = calendars($conn);
+				require_once('schedule.php');
 
 			}
 

@@ -5,11 +5,9 @@ if($_GET['app'] == 'home'){
 if($_GET['app'] == 'test'){
 	require_once("test/index.php");
 }
-
 if($_GET['app'] == 'art'){
 	require_once("art/index.php");
 }
-
 if($_GET['app'] == 'about'){
 	require_once("about/index.php");
 }

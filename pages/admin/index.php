@@ -2,6 +2,7 @@
 date_default_timezone_set("Asia/Bangkok");
 include("../php/config.php");
 include('../php/function.php');
+include('../php/course_function.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +31,8 @@ include('../php/function.php');
 				require_once('teacher_list.php');
 			}
 			if($_GET['action'] == 'admin_course'){
-				require_once('course_insert.php');
+				$cus = instercourse( $conn,$_POST);
+				require_once('course_insert.php');	
 			}
 			if($_GET['action'] == 'admin_calendar'){
 				$cus = calendars($conn);

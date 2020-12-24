@@ -7,19 +7,19 @@ function instercourse(mysqli $conn,$data){
 	`course_Age`,
 	`course_code`,  
 	`course_lesson`, 
-	`course_price` 
+	`course_price`,
+	`course_img` 
 	) 
 	
 	 VALUES (	
-	 '".$data['category']."',	  
+	 '".$data['course_category']."',	  
 	 '".$data['course_expension']."',
 	 '".$data['course_Age']."',
 	 '".$data['course_code']."',
 	 '".$data['course_lesson']."',
-	 '".$data['course_price']."'
+	 '".$data['course_price']."',
+	 '".$data['course_img']."'
 	 )";
-	
-echo $sql;
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {

@@ -54,10 +54,6 @@ include("../php/course_function.php");
 				require_once('success.php');
 			}
 
-			if($_GET['action']=="viewtest"){
-				require_once('viewtest.php');
-
-			}
 			if($_GET['action']=="ibot_compitition"){
 				require_once('ibot_compitition.php');
 			}
@@ -93,6 +89,9 @@ include("../php/course_function.php");
 			if($_GET['action']=="all_camp"){
 				require_once('all_camp.php');
 
+			}
+			if($_GET['action']=="compitions_team"){
+				require_once('compitions_team.php');
 			}
 			if($_GET['action']=="schedule"){
 				$cus = calendars($conn);

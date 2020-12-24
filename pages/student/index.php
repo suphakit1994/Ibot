@@ -54,10 +54,6 @@ include("../php/course_function.php");
 				require_once('success.php');
 			}
 
-			if($_GET['action']=="viewtest"){
-				require_once('viewtest.php');
-
-			}
 			if($_GET['action']=="ibot_compitition"){
 				require_once('ibot_compitition.php');
 			}

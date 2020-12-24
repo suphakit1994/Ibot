@@ -1,37 +1,34 @@
 <?php
 
-// function insterstudent(mysqli $conn,$data){
-// 	$sql = " INSERT INTO `student_assessment` ( 
-// 		Total,
-// 		Science, 
-// 		Technology, 
-// 		Engineering, 
-// 		Teamwork, 
-// 		EQ, 
-// 		Mathematics, 
-// 		Synthesis, 
-// 		Meditation) 
-// 	 VALUES (	
-// 	 '".$data['Total']."',	  
-// 	 '".$data['Science']."',
-// 	 '".$data['Technology']."',
-// 	 '".$data['Engineering']."',
-// 	 '".$data['Teamwork']."',
-// 	 '".$data['EQ']."',
-// 	 '".$data['Mathematics']."',
-// 	 '".$data['Synthesis']."',
-// 	 '".$data['Meditation']."')";
+function instercourse(mysqli $conn,$data){
+	$sql = " INSERT INTO `course`(
+	`course_category`, 
+	`course_expension`, 
+	`course_Age`,
+	`course_code`,  
+	`course_lesson`, 
+	`course_price` 
+	) 
 	
-
-// 	if ( mysqli_query($conn, $sql)) {
-// 		return true;
-// 	} else {
-// 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-// 		return false;
-// 	}
+	 VALUES (	
+	 '".$data['category']."',	  
+	 '".$data['course_expension']."',
+	 '".$data['course_Age']."',
+	 '".$data['course_code']."',
+	 '".$data['course_lesson']."',
+	 '".$data['course_price']."'
+	 )";
 	
-// 	mysqli_close($conn);
-// 	}
+echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+	
+	mysqli_close($conn);
+}
 
 
 function getselect(mysqli $conn){

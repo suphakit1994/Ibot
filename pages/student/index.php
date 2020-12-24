@@ -1,13 +1,12 @@
 <?php  error_reporting(~E_NOTICE);
 date_default_timezone_set("Asia/Bangkok");
 include("../php/config.php");
-include("../php/course_function.php");
 include("../php/function.php");
+include("../php/course_function.php");
 
 
 
 ?>
-<!DOCTYPE html>
 <html lang="en">
 <head>
 	<?php require_once('view/head.inc.php'); ?>
@@ -37,12 +36,12 @@ include("../php/function.php");
 			}
 
 			if($_GET['action']=="enroll"){
-				$cus = selectmax($conn);
-				$cuss = updatestudentuser($conn,$_POST,$cus);
-				
+				// $cus = selectmax($conn);
+				// $cuss = updatestudentuser($conn,$_POST,$cus);
+
 				$data = calendars($conn);
 				$arrlength = count($data);
-				// $data = count_calendars($conn);
+				// // $data = count_calendars($conn);
 				require_once('enroll.php');
 			}
 
@@ -60,8 +59,8 @@ include("../php/function.php");
 
 			}
 
-			if($_GET['action']=="ibot_cam"){
-				require_once('ibot_cam.php');
+			if($_GET['action']=="ibot_camp"){
+				require_once('ibot_camp.php');
 
 			}
 			if($_GET['action']=="sorry"){

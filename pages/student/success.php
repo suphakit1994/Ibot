@@ -1,12 +1,12 @@
 <style type="text/css" media="screen">
-    
+
 </style>
 <body>
     <form>
         <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
-          
+
             <div class="col-md-7" style="padding-top: 5%;"> 
-                
+
                 <img class="card-img-top" src="../images/img_5terre.jpg" alt="Card image cap" style="padding-top: 25%;">  
             </div>
 
@@ -43,9 +43,9 @@
                             <p>Nickname</p>
                         </div>
                         <div class="col-md-6"> 
-                           <p>555555555</p>
-                       </div>
-                       <div class="col-md-6"> 
+                         <p>555555555</p>
+                     </div>
+                     <div class="col-md-6"> 
                         <p>Phone number</p>
                     </div>
                     <div class="col-md-6"> 
@@ -96,7 +96,7 @@
             
         </div>
         <div >
-            <a  href="index.php?app=student&action=student" type="button" name="next" class="Button" style="border-radius:28px; width: 150px;">Back to Home</a>
+            <a  href="index.php?app=student" type="button" name="next" class="Button" style="border-radius:28px; width: 150px;">Back to Home</a>
         </div> 
     </div>  
 </form>  

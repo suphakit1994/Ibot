@@ -1,15 +1,4 @@
 <?php 
-
-// function selectcoureid(mysqli $conn, $data){
-// 	$sql = "SELECT * FROM `our course` WHERE `ID` = '".$data[]."'";
-// 	echo $sql;
-		
-// 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-// 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-		
-// 		}
-// 	return $row;
-// }
 function selectmax(mysqli $conn){
 	$sql = "SELECT MAX(id) as id FROM `studentuser`  ";
 	// echo $sql;

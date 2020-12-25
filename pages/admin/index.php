@@ -49,8 +49,8 @@ include('../php/course_function.php');
 				require_once("calendar_schedule.php");
 			}
 			if($_GET['action'] == 'admin_course'){
-				
-				require_once('course_insert.php');	$cus = instercourse( $conn,$_POST);
+				require_once('course_insert.php');	
+				$cus = instercourse( $conn,$_POST);
 			}
 		}
 		?>

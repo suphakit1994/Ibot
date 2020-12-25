@@ -30,7 +30,7 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-1" class="collapse">
-						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
+						<li><a href="index.php?app=admin&action=dashboard"><i class=""></i>Dashboard</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.2</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>

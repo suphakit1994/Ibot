@@ -2,9 +2,8 @@
 <body>
 	<!-- Content -->
 	<div class="page-content p-5" id="content">
-		<div class="container-fluid" style="margin:auto;">
+		<div class="container">
 			<div class="row">
-				<h1>Teacher</h1>
 				<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 				<button type="button" class="Button" data-toggle="modal" data-target="#form" style="padding: 7px;">
 					Create Schedule
@@ -16,7 +15,7 @@
 				</form>
 				<div class="row">
 					<div class="col-sm-12">
-						<div id="calendar"></div>
+						<div id="calendar" ></div>
 					</div>
 				</div>
 			</div>

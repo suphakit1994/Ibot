@@ -44,7 +44,8 @@
 		}
 		#content.active {
 			margin-left: 17rem;
-			width: calc(100% - 17rem);
+			width: unset !important;
+			/* width: calc(100% - 17rem); */
 		}
 	}
 	.separator {

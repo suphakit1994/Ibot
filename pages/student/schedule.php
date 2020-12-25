@@ -1,156 +1,156 @@
-<head>
-	<style>
+15ad>
+<style>
 
 
-		$grey: #F5F5F5;
-		$dark-grey: #323B40;
+	$grey: #F5F5F5;
+	$dark-grey: #323B40;
 
-		$light-blue: #E0F5FF;
-		$blue: #B9E5FE;
-		$dark-blue: #00A5FA;
+	$light-blue: #E0F5FF;
+	$blue: #B9E5FE;
+	$dark-blue: #00A5FA;
 
-		$green: #B7E0DC;
-		$dark-green: #019888;
+	$green: #B7E0DC;
+	$dark-green: #019888;
 
-		$lime: #C7E8C8;
-		$dark-lime: #42B045;
+	$lime: #C7E8C8;
+	$dark-lime: #42B045;
 
-		$yellow: #FFEEBA;
-		$dark-yellow: #FF9901;
+	$yellow: #FFEEBA;
+	$dark-yellow: #FF9901;
 
-		$pink: #FABAD0;
-		$dark-pink: #EF075F;
+	$pink: #FABAD0;
+	$dark-pink: #EF075F;
 
-		$red: #FEC9C6;
-		$dark-red: #FD3D08;
+	$red: #FEC9C6;
+	$dark-red: #FD3D08;
 
-		@mixin color-div($color1, $color2){
-			background-color: $color1;
-			color: $color2;
+	@mixin color-div($color1, $color2){
+		background-color: $color1;
+		color: $color2;
+	}
+
+	.container {
+		padding: 2rem 0rem;
+	}
+
+	h4 {
+		margin: 2rem 0rem;
+	}
+
+	.panel {
+		border-radius: 4px;
+		padding: 1rem;
+		margin-top: 0.2rem;
+
+		@include color-div($grey, $dark-grey);
+
+		&.panel-blue {
+			@include color-div($light-blue, $dark-blue);
 		}
 
-		.container {
-			padding: 2rem 0rem;
+		&.panel-big-height{
+			min-height: 150px;
+		}
+	}
+
+	.item {
+		border-radius: 4px;
+		padding: 0.5rem;
+		margin: 0.2rem;
+
+		&.item-blue {
+			@include color-div($blue, $dark-blue);
 		}
 
-		h4 {
-			margin: 2rem 0rem;
+		&.item-green {
+			@include color-div($green, $dark-green);
 		}
 
-		.panel {
-			border-radius: 4px;
-			padding: 1rem;
-			margin-top: 0.2rem;
-
-			@include color-div($grey, $dark-grey);
-
-			&.panel-blue {
-				@include color-div($light-blue, $dark-blue);
-			}
-
-			&.panel-big-height{
-				min-height: 150px;
-			}
+		&.item-lime {
+			@include color-div($lime, $dark-lime);
 		}
 
-		.item {
-			border-radius: 4px;
-			padding: 0.5rem;
-			margin: 0.2rem;
-
-			&.item-blue {
-				@include color-div($blue, $dark-blue);
-			}
-
-			&.item-green {
-				@include color-div($green, $dark-green);
-			}
-
-			&.item-lime {
-				@include color-div($lime, $dark-lime);
-			}
-
-			&.item-yellow {
-				@include color-div($yellow, $dark-yellow);
-			}
-
-			&.item-pink {
-				@include color-div($pink, $dark-pink);
-			}
-
-			&.item-red {
-				@include color-div($red, $dark-red);
-			}
-
-			&.item-big-width{
-				min-width: 380px;
-			}
-		}
-		.modal-backdrop{
-			position: inherit !IMPORTANT;
-		}
-		.fc-daygrid-event{
-			border-radius: 10px !IMPORTANT;
-		}
-		.card {
-			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) !important;
-			transition: 0.3s !important;
-			width: 100% !important;
-			border-radius: 8px !important;
+		&.item-yellow {
+			@include color-div($yellow, $dark-yellow);
 		}
 
-		.card:hover {
-			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2) !important;
+		&.item-pink {
+			@include color-div($pink, $dark-pink);
 		}
 
-		img {
-			border-radius: 5px 5px 0 0 !important;
-		}
-		.btnrd{
-			border-radius:28px;
-			border:1px solid #18ab29;
-			display:inline-block;
-			cursor:pointer;
-			color:#ffffff;
-			font-size:14;
-			text-decoration:none;
-			text-align: center; 
-			background: #FF5894;    
-			border: 1px solid #ffffff;
-			width: 40%;
-		}
-		.blue {
-			height: 20px;
-			width: 20px;
-			border-radius: 5px;
-			background-color: #0050ef;
-
-		}
-		.pink {
-			height: 20px;
-			width: 20px;
-			border-radius: 5px;
-			margin-left: 25px;
-			background-color: #FF5894;
-
-		}
-		.gray {
-			height: 20px;
-			width: 20px;
-			border-radius: 5px;
-			margin-left: 25px;
-			background-color: #DEDEDE;
-
-		}
-		.black {
-			height: 20px;
-			width: 20px;
-			border-radius: 5px;
-			margin-left: 50px;
-			background-color: #050A17;
+		&.item-red {
+			@include color-div($red, $dark-red);
 		}
 
-	</style>
+		&.item-big-width{
+			min-width: 380px;
+		}
+	}
+	.modal-backdrop{
+		position: inherit !IMPORTANT;
+	}
+	.fc-daygrid-event{
+		border-radius: 10px !IMPORTANT;
+	}
+	.card {
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) !important;
+		transition: 0.3s !important;
+		width: 100% !important;
+		border-radius: 8px !important;
+	}
+
+	.card:hover {
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2) !important;
+	}
+
+	img {
+		border-radius: 5px 5px 0 0 !important;
+	}
+	.btnrd{
+		border-radius:28px;
+		border:1px solid #18ab29;
+		display:inline-block;
+		cursor:pointer;
+		color:#ffffff;
+		font-size:14;
+		text-decoration:none;
+		text-align: center; 
+		background: #FF5894;    
+		border: 1px solid #ffffff;
+		width: 40%;
+	}
+	.blue {
+		height: 15px;
+		width: 15px;
+		border-radius: 5px;
+		background-color: #0050ef;
+
+	}
+	.pink {
+		height: 15px;
+		width: 15px;
+		border-radius: 5px;
+		margin-left: 25px;
+		background-color: #FF5894;
+
+	}
+	.gray {
+		height: 15px;
+		width: 15px;
+		border-radius: 5px;
+		margin-left: 25px;
+		background-color: #DEDEDE;
+
+	}
+	.black {
+		height: 15px;
+		width: 15px;
+		border-radius: 5px;
+		margin-left: 50px;
+		background-color: #050A17;
+	}
+
+</style>
 </head>
 <body>
 	<div class="container-fluid">
@@ -164,7 +164,7 @@
 							</div>
 							<div class="col-sm-6">
 								<p><b>Jedsada Tipsang</b></p>
-								<p><b>Jedsada Tipsang</b></p>
+								<p>Jedsada Tipsang</p>
 							</div>
 						</div>
 						<div class="row" style="display: flex; justify-content: flex-start;">
@@ -201,7 +201,7 @@
 							</div>
 						</div>
 						<div class="row" style="margin-top: 60px;">
-							<div class="container" style="display: flex;flex-direction:row; justify-content: flex-start; align-items: flex-end;">
+							<div class="container" style="display: flex;flex-direction:row; justify-content: flex-start; align-items: center;">
 								<div class="row">
 									<div class="col-sm-3">
 										<div  class="blue" style=""><p style="padding-left: 25px">Attended</p></div>

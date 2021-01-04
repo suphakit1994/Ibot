@@ -174,4 +174,65 @@ function selectmaxs(mysqli $conn){
 	}
 	mysqli_close($conn);
 }
+function student_payment_competition(mysqli $conn,$data=[]){
+
+	$sql = "INSERT INTO student_payment_competition (bank,ref,amount,date_payment,image)
+	VALUES (
+	'".$data['bank']."',
+	'".$data['ref']."',
+	'".$data['amount']."',
+	'".$data['date_payment']."',
+	'".$data['image']."'
+)";
+echo $sql;
+
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false; 	
+}
+mysqli_close($conn);
+}
+
+function student_payment_camp(mysqli $conn,$data=[]){
+
+	$sql = "INSERT INTO student_payment_camp (bank,ref,amount,date_payment,image)
+	VALUES (
+	'".$data['bank']."',
+	'".$data['ref']."',
+	'".$data['amount']."',
+	'".$data['date_payment']."',
+	'".$data['image']."'
+)";
+echo $sql;
+
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false; 	
+}
+mysqli_close($conn);
+}
+function student_payment(mysqli $conn,$data=[]){
+
+	$sql = "INSERT INTO student_payment (bank,ref,amount,date_payment,image)
+	VALUES (
+	'".$data['bank']."',
+	'".$data['ref']."',
+	'".$data['amount']."',
+	'".$data['date_payment']."',
+	'".$data['image']."'
+)";
+echo $sql;
+
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false; 	
+}
+mysqli_close($conn);
+}
 ?>

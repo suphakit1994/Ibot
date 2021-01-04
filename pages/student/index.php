@@ -50,12 +50,12 @@ include("../php/course_function.php");
 				require_once('payment.php');
 			}
 			if($_GET['action']=="success"){
-				
+				$cus = student_payment($conn,$_POST);
 				require_once('success.php');
 			}
 
-			if($_GET['action']=="ibot_compitition"){
-				require_once('ibot_compitition.php');
+			if($_GET['action']=="ibot_compeitition"){
+				require_once('ibot_compeitition.php');
 			}
 
 			if($_GET['action']=="ibot_camp"){
@@ -66,19 +66,21 @@ include("../php/course_function.php");
 				require_once('sorry.php');
 
 			}
-			if($_GET['action']=="all_compitition"){
-				require_once('all_compitition.php');
+			if($_GET['action']=="all_compeitition"){
+				require_once('all_compeitition.php');
 
 			}
-			if($_GET['action']=="payment_compitition"){
-				require_once('payment_compitition.php');
+			if($_GET['action']=="payment_compeitition"){
+				require_once('payment_compeitition.php');
 
 			}
-			if($_GET['action']=="success_compitition"){
-				require_once('success_compitition.php');
+			if($_GET['action']=="success_compeitition"){
+				$cus = student_payment_competition($conn,$_POST);
+				require_once('success_compeitition.php');
 
 			}
 			if($_GET['action']=="success_camp"){
+				$cus = student_payment_camp($conn,$_POST);
 				require_once('success_camp.php');
 
 			}
@@ -90,14 +92,15 @@ include("../php/course_function.php");
 				require_once('all_camp.php');
 
 			}
-			if($_GET['action']=="compitions_team"){
-				require_once('compitions_team.php');
+			if($_GET['action']=="compeitions_team"){
+				require_once('compeitions_team.php');
 			}
 			if($_GET['action']=="schedule"){
 				$cus = calendars($conn);
 				require_once('schedule.php');
 
 			}
+
 
 
 		}?>

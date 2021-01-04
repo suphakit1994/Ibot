@@ -112,7 +112,7 @@
 <body>
     <div class="container">
         <div class="col-md-12">
-            <h1 class="h-text" style="text-align: center;">IBOT COMPITITIONS</h1>
+            <h1 class="h-text" style="text-align: center;">IBOT COMPEITITIONS</h1>
         </div>
         <div>
             <p class="des-text">Loerm ipsum dolor sit amet.
@@ -150,7 +150,7 @@
                         </p>
                     </div>
                     <div class="col-md-3 btn-position center-box">
-                        <a href="index.php?app=student&action=payment_compitition" type="Button" class="Button"
+                        <a href="index.php?app=student&action=payment_compeitition" type="Button" class="Button"
                         style="padding: 5px; width:150px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
                     </div>
                 </div>

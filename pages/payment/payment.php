@@ -147,26 +147,24 @@
             <div class="row" >
               <label style="margin-top: 5%; ">Bank</label>
               <br><div class="custom-select" style="width:200px; ">
-                <select>
-                  <option value="0">กรุงไทย</option>
-                  <option value="1">ไทยพาณิชย์</option>
-                  <option value="2">กสิกร</option>
-                  <option value="3">พร้อมเพย์</option>
+                <select name="bank">
+                  <p><option value="กรุงไทย">กรุงไทย</option></p>
+                  <p><option value="ไทยพาณิชย์">ไทยพาณิชย์</option></p>
+                  <p><option value="กสิกร">กสิกร</option></p>
                 </select>
                 <br><label>Ref. No.</label>
-                <br><input name="Ref" style="width: 350%;">
+                <br><input name="ref" style="width: 350%;">
                 <br><label>Amount</label>
-                <br><input name="Amount" style="width: 350%;">
+                <br><input name="amount" style="width: 350%;">
                 <br><label>Transaction Date</label>
-                <br><input name="Transactiondate" style="width: 350%;">
+                <br><input name="date_payment" style="width: 350%;">
                 <br><label>Proof of payment</label>
-                <b  r><form action="/action_page.php">
-                  <input type="file" id="myFile" name="filename">
-                </form>
+                <br>
+                <input type="file" id="image" name="image">
               </div>
               <div style="padding-top: 20px;">
-                <a  href="index.php?app=success" type="button" name="next" class="Button" style="border-radius:28px; margin-top: 15px; width: 150px; ">Purchase now</a>
-              </div> 
+                <input type="submit" >
+              </div>
             </div>    
           </div>
 

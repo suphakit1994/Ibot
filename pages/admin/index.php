@@ -52,6 +52,9 @@ include('../php/course_function.php');
 				
 				require_once('course_insert.php');	$cus = instercourse( $conn,$_POST);
 			}
+			if($_GET['action'] == 'addteam_compitition'){
+				require_once('addteam_compitition.php');
+			}
 		}
 		?>
 	</style>

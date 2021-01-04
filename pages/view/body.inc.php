@@ -50,4 +50,7 @@ if($_GET['app'] == 'success'){
 if($_GET['app'] == 'art'){
 	require_once("art/index.php");
 }
+if($_GET['app'] == 'contact_us'){
+	require_once("contact_us/index.php");
+}
 ?>

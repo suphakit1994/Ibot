@@ -60,8 +60,6 @@ function insertData(mysqli $conn,$data=[]){
 	'".$data['color']."',
 	'".$data['build_time']."'
 )";
-echo $sql;
-
 if ( mysqli_query($conn, $sql)) {
 	return true;
 } else {
@@ -173,5 +171,42 @@ function selectmaxs(mysqli $conn){
 		return false;
 	}
 	mysqli_close($conn);
+}
+
+
+function enter(mysqli $conn,$data=[]){
+	if(isset($_POST['uploadfilesub'])) {
+		$filename = $_FILES['uploadfile']['name'];
+		$filetmpname = $_FILES['uploadfile']['tmp_name'];
+		$folder = 'imagesuploadedf/';
+		move_uploaded_file($filetmpname, $folder.$filename);
+		$sql = "INSERT INTO `uploadedimage` (`imagename`) VALUES ('$filename')";
+		$qry = mysqli_query($conn, $sql);
+		if( $qry) {
+			echo "</br>image uploaded";
+		}
+		echo $sql;
+		echo $filename;
+		echo $filetmpname;
+		echo $folder;
+		echo $qry;
+	}
+}
+function contact(mysqli $conn,$data=[]){
+	$sql = "INSERT INTO `contact_us` (fname, lname, email, country, subject) 
+	VALUES (
+	'".$data['firstname']."',
+	'".$data['lastname']."',
+	'".$data['email']."',
+	'".$data['country']."',
+	'".$data['subject']."'
+)";
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false; 	
+}
+mysqli_close($conn);
 }
 ?>

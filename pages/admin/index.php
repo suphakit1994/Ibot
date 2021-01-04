@@ -45,15 +45,23 @@ include('../php/course_function.php');
 			if($_GET['action'] == 'dashboard'){
 				require_once('dashboard.php');
 			}
+			if($_GET['action'] == 'uploadimage'){
+				require_once('uploadimage.php');
+			}
+			if($_GET['action'] == 'euploadimage'){
+				$cus = enter($conn,$_POST);
+				require_once('uploadimage.php');
+			}
 			// ---------------------------Insert--------------------------------
 			if($_GET['action'] == 'insert_datetime'){
 				$cus = insertData($conn,$_POST);
 				$suc = calendars($conn);
 				require_once("calendar_schedule.php");
 			}
+
 			if($_GET['action'] == 'admin_course'){
-				
-				require_once('course_insert.php');	$cus = instercourse( $conn,$_POST);
+				$cus = instercourse( $conn,$_POST);
+				require_once('course_insert.php');	
 			}
 		}
 		?>

@@ -73,7 +73,7 @@
 		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 
 	<!--  Demo content -->
-		<form method="POST" accept-charset="utf-8" action="index.php?app=admin&action=admin_course" enctype="multipart/from-data">
+		<form method="POST"  action="index.php?app=admin&action=admin_course" enctype="multipart/form-data">
 		<h1>ADD Course</h1>
 		<div class="separator"></div>
 		<div class="row">
@@ -88,7 +88,7 @@
 								</div>
 		
 						</div>
-						<input class="file-upload" type="file" name="course_img" >
+						<input class="file-upload" type="file" name="course_img" required accept="image/*">
 
 					</div>
 				</div>
@@ -123,7 +123,7 @@
 				<div class="col-sm-5">
 					<div class="row" style="display: flex; text-align: center;">
 						<div class="col-sm-12">
-							<button type="submit" name="submit" value="upload" class="Button" style="width: 30%;">Save</button>
+							<input type="submit" name="submit" value="Save" class="Button" style="width: 30%;">
 						</div>
 					</div>
 				</div>
@@ -167,9 +167,23 @@
 	</div>
 </div>
 </body>
+
 <script>
+	// $date1 = date("Ymd_His");
+	// $numrand = (mt_rand());
+	// $course_img = (isset($_POST ['course_img']) ? $_POST['course_img'] : '');
+	// $upload = $_FILES ['course_img']['name'];
+	// if($upload != ''){
+	// 	$path ="./pimg/";
+	// 	$typs = strrchr($_FILES['course_img']['name'],".");
+	// 	$newname = $numrand.$date1.$type;
+	// 	$path_copy = $path.$newname;
+	// 	$path_link = "./pimg";
+	// 	move_uploaded_file($_FILES['course_img']['tmp_name'],$path_copy);
+	// }
+
+
 $(document).ready(function() {
-	
     var readURL = function(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();

@@ -54,6 +54,9 @@ include('../php/course_function.php');
 			if($_GET['action'] == 'admin_course'){
 				require_once('course_insert.php');	
 				$cus = instercourse( $conn,$_POST);
+				clearstatcache();
+
+				// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
 			}
 		}
 		?>

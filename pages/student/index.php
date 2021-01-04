@@ -36,12 +36,11 @@ include("../php/course_function.php");
 			}
 
 			if($_GET['action']=="enroll"){
-				// $cus = selectmax($conn);
-				// $cuss = updatestudentuser($conn,$_POST,$cus);
-
-				$data = calendars($conn);
-				$arrlength = count($data);
-				// // $data = count_calendars($conn);
+				
+				
+				// $data = calendars($conn);
+				// $arrlength = count($data);
+				
 				require_once('enroll.php');
 			}
 

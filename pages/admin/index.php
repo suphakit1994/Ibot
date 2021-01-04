@@ -42,6 +42,9 @@ include('../php/course_function.php');
 			if($_GET['action'] == 'students_list'){
 				require_once('students_list.php');
 			}
+			if($_GET['action'] == 'dashboard'){
+				require_once('dashboard.php');
+			}
 			// ---------------------------Insert--------------------------------
 			if($_GET['action'] == 'insert_datetime'){
 				$cus = insertData($conn,$_POST);
@@ -49,8 +52,11 @@ include('../php/course_function.php');
 				require_once("calendar_schedule.php");
 			}
 			if($_GET['action'] == 'admin_course'){
-				
-				require_once('course_insert.php');	$cus = instercourse( $conn,$_POST);
+				require_once('course_insert.php');	
+				$cus = instercourse( $conn,$_POST);
+				clearstatcache();
+
+				// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
 			}
 			if($_GET['action'] == 'addteam_compitition'){
 				require_once('addteam_compitition.php');

@@ -11,9 +11,11 @@
 	}
 
 	tr:hover {background-color:#f5f5f5;}
+
+	
 </style>
 <body>
-	<div class="page-content p-5" id="content">
+	<div class="page-content p-5" id="content" style="padding: 2%;">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">

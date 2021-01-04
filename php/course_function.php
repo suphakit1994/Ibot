@@ -1,6 +1,29 @@
 <?php
 
+
 function instercourse(mysqli $conn,$data){
+
+	$course_category = $_POST['course_category'];
+	$course_expension = $_POST['course_expension'];
+	$course_Age = $_POST['course_Age'];
+	$course_code = $_POST['course_code'];
+	$course_lesson = $_POST['course_lesson'];
+	$course_price = $_POST['course_price'];
+
+	//upload image
+	$ext = pathinfo(basename($_FILES['course_img']['name']),PATHINFO_EXTENSION);
+	$new_image_name = 'img_'.uniqid().".".$ext;
+	$image_path = "../pimg/";
+	$upload_path = $image_path.$new_image_name;
+	//uploading
+	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
+		move_uploaded_file($_FILES['course_img']['tmp_name'], $upload_path);
+		$course_img  = $new_image_name;	
+    	echo "upload at file.";   
+	}else{
+		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	}
+
 	$sql = " INSERT INTO `course`(
 	`course_category`, 
 	`course_expension`, 
@@ -10,24 +33,26 @@ function instercourse(mysqli $conn,$data){
 	`course_price`,
 	`course_img` 
 	) 
-	
-	 VALUES (	
-	 '".$data['course_category']."',	  
-	 '".$data['course_expension']."',
-	 '".$data['course_Age']."',
-	 '".$data['course_code']."',
-	 '".$data['course_lesson']."',
-	 '".$data['course_price']."',
-	 '".$data['course_img']."'
+
+	 VALUES ( 
+	 '$course_category',
+	 '$course_expension',
+	 '$course_Age',
+	 '$course_code',
+	 '$course_lesson',
+	 '$course_price',
+	 '$course_img '
 	 )";
-	if ( mysqli_query($conn, $sql)) {
+
+	 $resuit =  mysqli_query($conn, $sql);
+	if ($resuit) {
 		return true;
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		return false;
-	}
-	
-	mysqli_close($conn);
+	}	
+	mysqli_close($conn);	
+	error_reporting(0);
 }
 
 

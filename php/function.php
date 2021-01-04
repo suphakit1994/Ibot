@@ -60,8 +60,6 @@ function insertData(mysqli $conn,$data=[]){
 	'".$data['color']."',
 	'".$data['build_time']."'
 )";
-echo $sql;
-
 if ( mysqli_query($conn, $sql)) {
 	return true;
 } else {
@@ -193,5 +191,22 @@ function enter(mysqli $conn,$data=[]){
 		echo $folder;
 		echo $qry;
 	}
+}
+function contact(mysqli $conn,$data=[]){
+	$sql = "INSERT INTO `contact_us` (fname, lname, email, country, subject) 
+	VALUES (
+	'".$data['firstname']."',
+	'".$data['lastname']."',
+	'".$data['email']."',
+	'".$data['country']."',
+	'".$data['subject']."'
+)";
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false; 	
+}
+mysqli_close($conn);
 }
 ?>

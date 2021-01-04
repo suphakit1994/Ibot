@@ -262,14 +262,14 @@
 		</div>
 		<!-- Location map -->
 		<div class="side">
-			<h2>Location</h2>
+			<h1>Location</h1>
 			<div id="map"></div>
 		</div>
 		<!-- Contaxt Text -->
 		<div class="main">
-			<h2>Contact US</h2>
+			<h1>Contact US</h1>
 			<div class="form_contact">
-				<form action="/action_page.php">
+				<form action="index.php?app=contact_us&action=submit_text" method="POST">
 					<label for="fname">First Name</label>
 					<input type="text" id="fname" name="firstname" placeholder="Name..">
 
@@ -361,7 +361,7 @@
 					</select>
 					<label for="subject">Subject</label>
 					<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-					<input style="border-radius: 100px;" type="submit" value="ส่งข้อความ">
+					<input style="border-radius: 100px;" type="submit" value="Sent">
 				</form>
 			</div>
 		</div>
@@ -372,8 +372,7 @@
 			<div class="row">
 				<div class="col-sm-12 col-md-6">
 					<h6>About</h6>
-					<p class="text-justify"> © 2020 IE Thai Software Company Limited. All rights reserved.
-					199/36 หมู่ที่ 5 ต. ปรุใหญ่ อ.เมือง จ. นครราชสีมา 30000</p>
+					<p class="text-justify">Ibot Education is................ ................................... .............................................................</p>
 				</div>
 
 				<div class="col-xs-6 col-md-3">
@@ -400,7 +399,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-sm-6 col-xs-12">
-					
+					<p class="text-justify"> © 2020 Ibot Education Company Limited. All rights reserved.
+					199/36 หมู่ที่ 5 ต. ปรุใหญ่ อ.เมือง จ. นครราชสีมา 30000</p>
 				</div>
 				<div class="col-md-4 col-sm-6 col-xs-12">
 					<ul class="social-icons">

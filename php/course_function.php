@@ -28,6 +28,33 @@ function instercourse(mysqli $conn,$data){
 	}
 	
 	mysqli_close($conn);
+	
+	error_reporting(0);
+
+// if(isset($_POST['submit'])) {
+
+// 	    $image_name = $_FILES['course_img']['name'];
+// 	    $temp_name = $_FILES["course_img"]["tmp_name"];
+// 	    $file_extension = strtolower(end(explode('.',$_FILES['course_img']['name'])));
+// 	    $file_size =$_FILES['course_img']['size'];
+//      	$expensions = array("jpeg","jpg","png","gif");
+
+//       if(in_array($file_extension,$expensions)=== false){
+//          $message = "File Type Not allowed, Please choose a JPEG or PNG file.";
+//       }
+
+//       if($file_size > 500000){
+//          $message = '<h1> File size Too Large !! </h1>';
+//       }
+
+//       if(empty($message)==true){
+//          move_uploaded_file($temp_name,$_SERVER['DOCUMENT_ROOT']."/images/".$image_name);
+//          $message = "<h1> Your file upload successfully. </h1>";
+//       }
+//       else{
+//          $message = "<h1> Something is Wrong  </h1>";
+//       }
+// 	}
 }
 
 

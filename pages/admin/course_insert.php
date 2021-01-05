@@ -73,7 +73,7 @@
 		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 
 	<!--  Demo content -->
-		<form method="POST"  action="index.php?app=admin&action=admin_course" enctype="multipart/form-data">
+		<form method="POST"  action="index.php?app=admin&action=admin_course/add" enctype="multipart/form-data">
 		<h1>ADD Course</h1>
 		<div class="separator"></div>
 		<div class="row">
@@ -123,7 +123,7 @@
 				<div class="col-sm-5">
 					<div class="row" style="display: flex; text-align: center;">
 						<div class="col-sm-12">
-							<input type="submit" name="submit" value="Save" class="Button" style="width: 30%;">
+							<button type="submit" name="submit" value="Save" class="Button" style="width: 30%;"> Save </button> 
 						</div>
 					</div>
 				</div>

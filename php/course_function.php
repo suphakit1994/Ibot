@@ -2,7 +2,6 @@
 
 
 function instercourse(mysqli $conn,$data){
-
 	$course_category = $_POST['course_category'];
 	$course_expension = $_POST['course_expension'];
 	$course_Age = $_POST['course_Age'];
@@ -23,7 +22,7 @@ function instercourse(mysqli $conn,$data){
 	}else{
 		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 	}
-
+// echo $upload_path;
 	$sql = " INSERT INTO `course`(
 	`course_category`, 
 	`course_expension`, 
@@ -46,6 +45,7 @@ function instercourse(mysqli $conn,$data){
 
 	 $resuit =  mysqli_query($conn, $sql);
 	if ($resuit) {
+		
 		return true;
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);

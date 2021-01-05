@@ -99,7 +99,7 @@
             <input name="student_school" type="text" class="form-control" style="width: 224px;">  
 
             <p >Grade</p> 
-            <input name="student_grade" type="text"  class="numeric form-control" style="width: 224px;">  
+            <input name="student_grade" type="text"  min = "0.01" max = "4.00" step="0.1" class="numeric form-control" style="width: 224px;">  
           </div>
           <button  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
         </div>

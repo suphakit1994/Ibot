@@ -52,11 +52,13 @@ include('../php/course_function.php');
 				require_once("calendar_schedule.php");
 			}
 			if($_GET['action'] == 'admin_course'){
+				// $_POST = ' ';
+				require_once('course_insert.php');	
+				clearstatcache();
+			}if($_GET['action'] == 'admin_course/add'){
 				require_once('course_insert.php');	
 				$cus = instercourse( $conn,$_POST);
-				clearstatcache();
-
-				// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_course">';
 			}
 		}
 		?>

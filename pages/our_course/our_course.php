@@ -14,7 +14,7 @@
     }
     .card-img-top{
       width:100%;
-      height: 170px;
+      height: 300px;
       border-radius: 10px 10px 0px 0px;
     }
     .btn {
@@ -49,7 +49,7 @@
             <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
               <div class="card" >
                 <div class="card-image" >
-                  <img class="card-img-top" src="../images/<?php echo $data[$i]['course_img'];  ?>" alt="Card image cap" >
+                  <img class="card-img-top" src="../pimg/<?php echo $data[$i]['course_img'];  ?>" alt="Card image cap" >
                   <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;">
                     <B><?php echo $data[$i]['course_category']; ?></B>
                   </span>

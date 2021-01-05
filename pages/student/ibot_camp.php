@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="row" style="position: relative;">
-            <img src="../images/camp.jpg" style="width:45%; height:40%; border-radius:2%; margin-left:50%; margin-top:19%;">
+            <img src="../images/camp.jpg" style="width:45%; height:40%; border-radius:2%; margin-left:50%; margin-top:18%;">
 
         </div>
         <div class="row" style="position: relative;">

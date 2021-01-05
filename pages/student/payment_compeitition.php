@@ -98,7 +98,7 @@
 
   <body>
     <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
-      <h1 style="text-align: center; font-weight: bold;padding-top: 3%;">IBOT CAMP</h1>
+      <h1 style="text-align: center; font-weight: bold; text-align: center; padding-top: 3%;">IBOT COMPEITITION</h1>
       <div class="col-md-7" style="padding-top: 2%;">
 
         <h2 style=" margin-top: 7%; margin-bottom: 20px;"><b>Your account is being verified</b></h2>     
@@ -137,9 +137,10 @@
         <div class="form-card" style=" padding-top: 15%;">    
           <div class="row" >
 
-            <form action="index.php?app=student&action=success_camp" method="post">
+            <form action="index.php?app=student&action=success_compeitition" method="post" accept-charset="utf-8">
               <label style="margin-top: 5%; ">Bank</label>
-              <br><div class="custom-select" style="width:200px; ">
+              <br>
+              <div class="custom-select" style="width:200px; ">
                 <select name="bank">
                   <p><option value="กรุงไทย">กรุงไทย</option></p>
                   <p><option value="ไทยพาณิชย์">ไทยพาณิชย์</option></p>
@@ -160,18 +161,15 @@
               </div>
             </form>
           </div>
-
         </div>
       </div>
-
     </div>
-
     <div class="col-md-5" style="padding-top: 12%;padding-bottom: 8%;">
       <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
         <h3 style="margin-bottom: 20px; font-weight: bold;"><h2>ORDER SUMMARY</h2></h3>
         <div class="row" style="padding-top: 50px">
           <div class="col-md-6"> 
-            <p>IBOT Camp :</p>
+            <p>IBOT Compeitition :</p>
           </div>
           <div class="col-md-6"> 
             <p><?php echo $_POST['name_eng'];  ?></p>
@@ -182,7 +180,7 @@
         </div>
         <div class="row" style="padding-top: 15px;">
           <div class="col-md-6"> 
-            <p>Camp :</p>
+            <p>Compeitition :</p>
           </div>
           <div class="col-md-6"> 
             <p><?php echo $_POST['name_eng'];  ?></p>
@@ -198,14 +196,13 @@
         </div>
         <div class="row" style="padding-top: 15px;">
           <div class="col-md-6"> 
-            <p>Camp Date :</p>
+            <p>Compeitition Date :</p>
           </div>
           <div class="col-md-6"> 
             <p><?php echo $_POST['name_eng'];  ?></p>
           </div>
         </div>
       </div>
-
     </div>
   </div>  
 </body> 

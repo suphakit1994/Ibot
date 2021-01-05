@@ -54,7 +54,7 @@
 <body>
 	<main>
 		<div class="box">
-			<h1>IBOT COMPITITIONS</h1>
+			<h1>IBOT COMPEITITIONS</h1>
 		</div>
 		<div class="box">
 			<p>Box 1Box 1Box 1Box 1BoxBox 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1</p>

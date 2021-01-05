@@ -10,7 +10,7 @@
 <body>
     <div class="container" style="padding-bottom: 5%;">
         <div class="row" style="text-align: center;">
-            <h1 style="font-weight: bold;">IBOT COMPITITION</h1>
+            <h1 style="font-weight: bold;">IBOT COMPEITITION</h1>
             <p style="padding-left: 30%; padding-right:30%;">Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam
             nonummy nibh euismod tinciduct urt laoreet dolore mayna</p>
         </div>
@@ -38,11 +38,11 @@
             </div>
         </div>
         <div class="row" style="position: relative;">
-            <img src="../images/comp.jpg" style="width:45%; height:40%; border-radius:2%; margin-left:50%; margin-top:19%;">
+            <img src="../images/comp.jpg" style="width:45%; height:40%; border-radius:2%; margin-left:50%; margin-top:18%;">
 
         </div>
         <div class="row" style="position: relative;">
-            <a  href="index.php?app=student&action=all_compitition" type="button" name="next" class="Button" style="border-radius:28px; width: 150px; margin-top: 50px;">Enroll</a>
+            <a  href="index.php?app=student&action=all_compeitition" type="button" name="next" class="Button" style="border-radius:28px; width: 150px; margin-top: 50px;">Enroll</a>
         </div>
     </div>
 </body>

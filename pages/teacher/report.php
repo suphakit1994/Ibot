@@ -1,7 +1,6 @@
 
 <style>
 
-
 </style>
 
 <body>
@@ -10,32 +9,32 @@
     <div class="row" style="padding-top: 3%;">
       <div class="col-lg-2">
         <div class="row-sm-4">
-          <p>Salary</p>
+          <p style="color:#6000E8">Salary</p>
         </div>
         <div class="row-sm-8">
-          <h2>฿ X,XXXX.XX</h2>
+          <h2 style="color:#6000E8">฿ X,XXXX.XX</h2>
         </div>
       </div>
       <div class="col-lg-2">
         <div class="row-sm-4">
-          <p>Check in (Day)</p>
+          <p style="color:#6000E8">Check in (Day)</p>
         </div>
         <div class="row-sm-8">
-          <h2>XX</h2>
+          <h2 style="color:#6000E8">XX</h2>
         </div>
       </div>
       <div class="col-lg-2">
         <div class="row-sm-4">
-          <p>Leave(Day)</p>
+          <p style="color:#6000E8">Leave(Day)</p>
         </div>
         <div class="row-sm-8">
-          <h2>XX</h2>
+          <h2 style="color:#6000E8">XX</h2>
         </div>
       </div>
     </div>
     <div class="row" style="padding-top: 2%; border-bottom: solid #eeeeee 1px;">
       <div class="col-md-6">
-        <h1>Report</h1>
+        <h1 >Report</h1>
       </div>
       <div class="col-md-6" style="text-align: end;">
         <input type="text" placeholder="Search..">

@@ -56,7 +56,14 @@ include('../php/course_function.php');
 				require_once('course_insert.php');	
 				clearstatcache();
 			}if($_GET['action'] == 'admin_course/add'){
-				require_once('course_insert.php');	
+				require_once('course_insert.php');
+				$up_pdf_file1 = uploadpdf1($conn,$_POST);
+				$up_pdf_file2 = uploadpdf2($conn,$_POST);
+				$up_pdf_file3 = uploadpdf3($conn,$_POST);
+				$up_pdf_file4 = uploadpdf4($conn,$_POST);
+				$up_pdf_file5 = uploadpdf5($conn,$_POST);
+				$up_pdf_file6 = uploadpdf6($conn,$_POST);
+				$up_pdf_file7 = uploadpdf7($conn,$_POST);
 				$cus = instercourse( $conn,$_POST);
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_course">';
 			}

@@ -1,5 +1,19 @@
  <meta charset="utf-8">
  <style>
+ 	.modals-flex{
+ 		display: flex;
+ 		flex-wrap: wrap;
+ 	}
+ 	.modals-content{
+ 		display: flex;
+ 		flex-direction: column;
+ 		width: 100vw;
+ 	}
+ 	.modlas-input{
+ 		display: flex;
+ 		padding: 2% 2%;
+ 		margin: 2% 2%;
+ 	}
 
  	.list_detail{
  		padding-top: 3%;
@@ -75,7 +89,9 @@
 		<!--  Demo content -->
 		<form method="POST"  action="index.php?app=admin&action=admin_course/add" enctype="multipart/form-data">
 			<h1>ADD Course</h1>
-			<div class="separator"></div>
+			<div class="separator">
+				
+			</div>
 			<div class="row">
 				<div class="col-sm-5">
 					<div class="row" style="display: flex; text-align: center;">
@@ -150,7 +166,7 @@
 							<div class="row" style="display: flex; text-align: center;">
 								<div class="col-sm-12">
 									<p><b>Quiz</b></p>
-									<input class="list_detail custom-file-input" type="button" id="myBtn" value="modals">
+									<input class="list_detail custom-file-input" type="button" id="myBtn" value="modals" data-toggle="modal" data-target="#myModal">
 									<input class="list_detail custom-file-input" type="file" id="myFile" name="filename">
 									<input class="list_detail custom-file-input" type="file" id="myFile" name="filename">
 									<input class="list_detail custom-file-input" type="file" id="myFile" name="filename">
@@ -163,9 +179,52 @@
 					</div>
 				</div>
 			</div>
+			<div id="myModal" class="modal fade" role="dialog">
+				<div id="myCarousel" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<?php for ($i=1; $i < 5 ; $i++) {  ?>
+							<li data-target="#myCarousel" data-slide-to="<?php echo $i ?>"></li>
+						<?php }?>
+					</ol>
+					<div class="carousel-inner">
+						<?php for ($i=1; $i < 6 ; $i++) {  ?>
+							<div class="item <?php if($i==1){ echo("active");}?> ">
+								<div class="modal-dialog">
+									<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">Question <?php echo $i; ?></h4>
+										</div>
+										<div class="modal-body modals-flex">
+											<div class="modals-content">
+												<input class="modlas-input" type="text" placeholder="Question<?php echo $i; ?>" name="quest<?php echo $i; ?>">
+												<?php for ($j=1; $j < 5 ; $j++) {  ?>
+													<input class="modlas-input" type="text" placeholder="Choice<?php echo $j; ?>" name="ans<?php echo $j; ?>">
+												<?php }?>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						<?php }?>
+						<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="right carousel-control" href="#myCarousel" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+			</div>
 		</form>
 	</div>
-</div>
 </body>
 
 <script>

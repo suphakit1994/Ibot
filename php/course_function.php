@@ -280,4 +280,27 @@ function uploadpdf7(mysqli $conn,$data){
 	mysqli_close($conn);	
 	error_reporting(0);
 }
+
+// ยังำม่เสร็จค่ะ
+function upload_quiz(mysqli $conn,$data){
+	$sql = " INSERT INTO `quiz`(`question`,`ans1`,`ans2`,`ans3`,`ans4`) 
+	VALUES ( 
+	'".$data['Question']."',
+	'".$data['ans1']."',
+	'".$data['ans2']."',
+	'".$data['ans3']."',
+	'".$data['ans4']."')";
+
+	echo $sql;
+
+	$resuit =  mysqli_query($conn, $sql);
+	if ($resuit) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+	mysqli_close($conn);	
+	error_reporting(0);
+}
 ?>

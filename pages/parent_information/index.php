@@ -12,9 +12,10 @@ include("../php/function.php");
 	<style>
 		<?php 
 		if(!isset($_GET['action'])){
+			$cus=insertstudent($conn,$_POST);
 			$cc[]=selectstudent( $conn);
 			require_once('parent_information.php');
-			echo $cc;
+			// echo $cc;
 			// $cus=inserparenttuser($conn,$_POST);
 		}
 

@@ -14,11 +14,11 @@ include("../php/student_function.php");
 		if(!isset($_GET['action'])){
 			$cus = selectmax($conn);
 			$cuss = updatestudentuser($conn,$_POST,$cus);
-
-			$data = calendars($conn);
+			require_once('enroll.php');	
+			// $data = calendars($conn);
 			$arrlength = count($data);
 				// $data = count_calendars($conn);
-			require_once('enroll.php');
+			
 		}
 
 

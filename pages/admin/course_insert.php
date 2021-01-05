@@ -88,7 +88,7 @@
 								</div>
 		
 						</div>
-						<input class="file-upload" type="file" name="course_img" required accept="image/*">
+						<input class="file-upload" type="file" name="course_img" accept="image/*" required >
 
 					</div>
 				</div>
@@ -100,20 +100,20 @@
 					</div>
 					
 						<div class="col-sm-6">
-							<p class="list_detail"><b>Category</b></p>
-							<input type="text" name="course_category" class="form-control">
+							<p class="list_detail"><b>Category</b> <small style="color: red;">Format : EV3</small></p>
+							<input type="text" name="course_category" class="form-control" required>
 							<p class="list_detail"><b>Age for class</b></p>
-							<input type="text" name="course_Age" class="form-control">
-							<p class="list_detail"><b>Lesson</b></p>
-							<input type="text" name="course_lesson" class="form-control">
+							<input type="text" name="course_Age" class="form-control" required>
+							<p class="list_detail"><b>Lesson  </b><small style="color: red;">Format : 24 Lesson 36 Hours</small></p>
+							<input type="text" name="course_lesson" class="form-control" required>
 						</div>
 						<div class="col-sm-6">
-							<p class="list_detail"><b>Course Expension</b></p>
-							<input type="text" name="course_expension" class="form-control">
-							<p class="list_detail"><b>Course Code</b></p>
-							<input type="text" name="course_code" class="form-control">
+							<p class="list_detail"><b>Course Expension </b></p>
+							<input type="text" name="course_expension" class="form-control" required>
+							<p class="list_detail"><b>Course Code   </b><small style="color: red;">Format : IM01</small></p>
+							<input type="text" name="course_code" class="form-control"  required>
 							<p class="list_detail"><b>Price</b></p>
-							<input type="text" name="course_price" class="form-control">
+							<input type="text" name="course_price" class="form-control" OnChange="JavaScript:chkNum(this)" required>
 						</div>
 				</div>
 			</div>
@@ -169,20 +169,6 @@
 </body>
 
 <script>
-	// $date1 = date("Ymd_His");
-	// $numrand = (mt_rand());
-	// $course_img = (isset($_POST ['course_img']) ? $_POST['course_img'] : '');
-	// $upload = $_FILES ['course_img']['name'];
-	// if($upload != ''){
-	// 	$path ="./pimg/";
-	// 	$typs = strrchr($_FILES['course_img']['name'],".");
-	// 	$newname = $numrand.$date1.$type;
-	// 	$path_copy = $path.$newname;
-	// 	$path_link = "./pimg";
-	// 	move_uploaded_file($_FILES['course_img']['tmp_name'],$path_copy);
-	// }
-
-
 $(document).ready(function() {
     var readURL = function(input) {
         if (input.files && input.files[0]) {
@@ -204,5 +190,26 @@ $(document).ready(function() {
        $(".file-upload").click();
     });
 });
+</script>
+<script language="JavaScript">
+
+			function addCommas(nStr)
+			{
+				nStr += '';
+				x = nStr.split('.');
+				x1 = x[0];
+				//x2 = x.length > 1 ? '.' + x[1] : '';
+				var rgx = /(\d+)(\d{3})/;
+				while (rgx.test(x1)) {
+					x1 = x1.replace(rgx, '$1' + ',' + '$2');
+				}
+				return x1 ;
+			}
+
+			function chkNum(ele)
+			{
+				var num = parseFloat(ele.value);
+				ele.value = addCommas(num.toFixed(2));
+			}
 </script>
 

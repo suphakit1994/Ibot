@@ -69,7 +69,7 @@
   </style>
 
   <body>  
-    <form  method="post" action="index.php?app=parent_information">
+    <form  method="post" action="index.php?app=enroll">
     <input type="hidden" name="student_id" value="<?php echo $_POST['student_id']; ?>">
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="col-md-7" style="padding-top: 5%;">

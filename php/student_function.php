@@ -76,20 +76,20 @@ function insertstudent(mysqli $conn,$data){
 	mysqli_close($conn);
 }
 
+function updatestudentuser(mysqli $conn,$data=[],$cus){
+	 // print_r($cus['id']);
+		$sql = " UPDATE `student` 
+				SET parents_name_th = '".$data['parents_name_th']."', parents_name_eng = '".$data['parents_name_eng']."' ,  parents_related = '".$data['parents_related']."',
+				parents_phonnumber = '".$data['parents_phonnumber']."', parents_email = '".$data['parents_email']."',parents_line = '".$data['parents_line']."'
+				WHERE id = '".$cus['id']."' ";
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
 
-// function updatestudentuser(mysqli $conn,$data=[],$cus){
-// 	 // print_r($cus['id']);
-// 		$sql = " UPDATE `studentuser` 
-// 				SET namep_th = '".$data['namep_th']."', namep_eng = '".$data['namep_eng']."' ,  related = '".$data['related']."',
-// 				phonenumber = '".$data['phonenumber']."', email = '".$data['email']."',line = '".$data['line']."'
-// 				WHERE id = '".$cus['id']."' ";
-// 	if ( mysqli_query($conn, $sql)) {
-// 		return true;
-// 	} else {
-// 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-// 		return false;
-// 	}
-// }
 function inserparenttuser(mysqli $conn,$data){
 		$sql = " INSERT INTO `parents`
 		(`parents_name_th`,

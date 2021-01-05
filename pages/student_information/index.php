@@ -13,10 +13,9 @@ include('../php/course_function.php');
 		<?php 
 		if(!isset($_GET['action'])){
 			
-				// $cus=selectcoureid($conn, $data);
+			// $cus=selectcoureid($conn, $data);
 			require_once('student_information.php');
-			$cus=insertstudent($conn,$_POST);
-			// echo $cus;
+			
 		}
 		
 		?>

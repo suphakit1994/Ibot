@@ -70,8 +70,8 @@
   </style>
 
   <body>
-    <form method="POST" action="index.php?app=parent_information" >
-    
+    <form method="POST" action="index.php?app=payment&action=parent_information" >
+      
      <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
       <div class="col-md-7" style="padding-top: 5%;">
         <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 

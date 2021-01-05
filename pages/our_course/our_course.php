@@ -45,7 +45,7 @@
        <?php 
       for($i=0;$i<$arrlength; $i++){  //loop card 
         ?>
-        <form method="post" action="index.php?app=student_information" >
+        <form method="post" action="index.php?app=payment" >
           <div>
             <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
               <div class="card" >

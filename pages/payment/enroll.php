@@ -96,7 +96,7 @@
   </style>
 
   <body>
-    <form  method="post" action="index.php?app=payment">
+    <form  method="post" action="index.php?app=payment&action=payment">
 
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="row">

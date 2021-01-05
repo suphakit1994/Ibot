@@ -69,8 +69,8 @@
   </style>
 
   <body>  
-    <form  method="post" action="index.php?app=enroll">
-    <input type="hidden" name="student_id" value="<?php echo $_POST['student_id']; ?>">
+    <form  method="post" action="index.php?app=payment&action=enroll">
+      <input type="hidden" name="student_id" value="<?php echo $_POST['student_id']; ?>">
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="col-md-7" style="padding-top: 5%;">
           <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 
@@ -110,7 +110,7 @@
             <input type="hidden" name="student_name_eng" value="<?php echo $_POST['student_name_eng'];  ?>">
             <input type="hidden" name="student_nickname_eng" value="<?php echo $_POST['student_nickname_eng'];  ?>">
 
-           <!--  <a href="index.php?app=student_information" type="button" name="Back" class="Button" style="border-radius:28px; width: 120px;">Back</a> -->
+            <!--  <a href="index.php?app=student_information" type="button" name="Back" class="Button" style="border-radius:28px; width: 120px;">Back</a> -->
             <button  type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
           </div> 
         </div>

@@ -97,7 +97,7 @@
   </style>
 
   <body>
-    <form  method="post" action="index.php?app=success">
+    <form  method="post" action="index.php?app=payment&action=success">
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
         <div class="col-md-7" style="padding-top: 5%;">
           <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2>     

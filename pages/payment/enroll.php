@@ -153,11 +153,11 @@
             </div>
             
             <div>
-              <input type="hidden" name="name_eng" value="<?php echo $_POST['name_eng'];  ?>">
-              <input type="hidden" name="nickname_eng" value="<?php echo $_POST['nickname_eng'];  ?>">
-              <input type="hidden" name="namep_eng" value="<?php echo $_POST['namep_eng'];  ?>">
-              <input type="hidden" name="related" value="<?php echo $_POST['related'];  ?>">
-              <input type="hidden" name="phonenumber" value="<?php echo $_POST['phonenumber'];  ?>">
+              <input type="hidden" name="student_name_eng" value="<?php echo $_POST['student_name_eng'];  ?>">
+              <input type="hidden" name="student_nickname_eng" value="<?php echo $_POST['student_nickname_eng'];  ?>">
+              <input type="hidden" name="parents_name_eng" value="<?php echo $_POST['parents_name_eng'];  ?>">
+              <input type="hidden" name="parents_related" value="<?php echo $_POST['parents_related'];  ?>">
+              <input type="hidden" name="parents_phonnumber" value="<?php echo $_POST['phonenumber'];  ?>">
 
               <button  type="submit" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
             </div>    
@@ -173,8 +173,8 @@
                   <p>Nickname</p>
                 </div>
                 <div class="col-md-6"> 
-                  <p><?php echo $_POST['name_eng'];  ?></p>
-                  <p><?php echo $_POST['nickname_eng'];  ?></p>
+                  <p><?php echo $_POST['student_name_eng'];  ?></p>
+                  <p><?php echo $_POST['student_nickname_eng'];  ?></p>
                 </div>
               </div>
               
@@ -186,9 +186,9 @@
                   <p>Phone number</p>
                 </div>
                 <div class="col-md-6"> 
-                  <p><?php echo $_POST['namep_eng'];  ?></p> 
-                  <p><?php echo $_POST['related'];  ?></p>
-                  <p><?php echo $_POST['phonenumber'];  ?></p>
+                  <p><?php echo $_POST['parents_name_eng'];  ?></p> 
+                  <p><?php echo $_POST['parents_related'];  ?></p>
+                  <p><?php echo $_POST['parents_phonnumber'];  ?></p>
                 </div>
               </div>
 

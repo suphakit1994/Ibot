@@ -70,7 +70,8 @@
 
   <body>  
     <form  method="post" action="index.php?app=payment&action=enroll">
-      <input type="hidden" name="student_id" value="<?php echo $_POST['student_id']; ?>">
+      <!-- <input type="hidden" name="student_id" value="<?php echo $_POST['student_id']; ?>"> -->
+
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="col-md-7" style="padding-top: 5%;">
           <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 

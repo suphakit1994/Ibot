@@ -20,13 +20,15 @@ include("../php/student_function.php");
 		if($_GET['action']=='parent_information'){
 			$cus=insertstudent($conn,$_POST);
 			$cc[]=selectstudent( $conn);
-
 			require_once('parent_information.php');
 		}
 		if($_GET['action']=='enroll'){
-			// $cus = selectmax($conn);
-			// $cuss = updatestudentuser($conn,$_POST,$cus);
+			
+			// $cuss = updatestudent($conn,$_POST,$cus);
+			// $arrlength = count($data);
 			require_once('enroll.php');
+			$cus = selectmax($conn);
+			echo $cus;
 		}
 		if($_GET['action']=='payment'){
 

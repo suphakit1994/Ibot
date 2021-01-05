@@ -75,13 +75,21 @@ function insertstudent(mysqli $conn,$data){
 	
 	mysqli_close($conn);
 }
+function selectmax(mysqli $conn){
+	$sql = "SELECT MAX(student_id) as id FROM `student`  ";
+	echo $sql;		
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		}
+	return $row;
+}
 
-function updatestudentuser(mysqli $conn,$data=[],$cus){
-	 // print_r($cus['id']);
+function updatestudent(mysqli $conn,$data=[],$cus){
+	 print_r($cus['student_id']);
 		$sql = " UPDATE `student` 
 				SET parents_name_th = '".$data['parents_name_th']."', parents_name_eng = '".$data['parents_name_eng']."' ,  parents_related = '".$data['parents_related']."',
 				parents_phonnumber = '".$data['parents_phonnumber']."', parents_email = '".$data['parents_email']."',parents_line = '".$data['parents_line']."'
-				WHERE id = '".$cus['id']."' ";
+				WHERE student_id = '".$cus['student_id']."' ";
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -90,30 +98,31 @@ function updatestudentuser(mysqli $conn,$data=[],$cus){
 	}
 }
 
-function inserparenttuser(mysqli $conn,$data){
-		$sql = " INSERT INTO `parents`
-		(`parents_name_th`,
-		 `parents_name_eng`, 
-		 `parents_related`, 
-		 `parents_phonnumber`, 
-		 `parents_email`, 
-		 `parents_line`)
-		VALUES (
-		'".$data['parents_name_th']."',
-		'".$data['parents_name_eng']."',
-		'".$data['parents_related']."',
-		'".$data['parents_phonnumber']."',
-		'".$data['parents_email']."',
-		'".$data['parents_line']."'
-		)";
-	 // echo $sql;
+
+// function inserparenttuser(mysqli $conn,$data){
+// 		$sql = " INSERT INTO `parents`
+// 		(`parents_name_th`,
+// 		 `parents_name_eng`, 
+// 		 `parents_related`, 
+// 		 `parents_phonnumber`, 
+// 		 `parents_email`, 
+// 		 `parents_line`)
+// 		VALUES (
+// 		'".$data['parents_name_th']."',
+// 		'".$data['parents_name_eng']."',
+// 		'".$data['parents_related']."',
+// 		'".$data['parents_phonnumber']."',
+// 		'".$data['parents_email']."',
+// 		'".$data['parents_line']."'
+// 		)";
+// 	 // echo $sql;
 	
-	if ( mysqli_query($conn, $sql)) {
-		return true;
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		return false;
-	}
-	mysqli_close($conn);
-	}
+// 	if ( mysqli_query($conn, $sql)) {
+// 		return true;
+// 	} else {
+// 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+// 		return false;
+// 	}
+// 	mysqli_close($conn);
+// 	}
 ?>

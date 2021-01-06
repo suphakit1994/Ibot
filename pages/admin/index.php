@@ -10,10 +10,10 @@ include('../php/course_function.php');
 <head>
 	<style>
 		<?php 
-		$id = $_SESSION['id '];
-		$name = $_SESSION['name'];
-		$level = $_SESSION['level'];
-		$nlevel = $_SESSION['nlevel'];
+		$id = $_SESSION['admin_id'];
+		$name = $_SESSION['admin_fname'];
+		$level = $_SESSION['a_level'];
+		$nlevel = $_SESSION['a_nlevel'];
 		?>
 		<?php
 		require_once('admin_view/admin_footer.php');
@@ -57,16 +57,24 @@ include('../php/course_function.php');
 				
 			}
 			if($_GET['action'] == 'admin_course/add'){
-				
-				$up_pdf_file1 = uploadpdf($conn,$_POST,'file1');
-				$up_pdf_file2 = uploadpdf($conn,$_POST,'file2');
-				$up_pdf_file3 = uploadpdf($conn,$_POST,'file3');
-				$up_pdf_file4 = uploadpdf($conn,$_POST,'file4');
-				$up_pdf_file5 = uploadpdf($conn,$_POST,'file5');
-				$up_pdf_file6 = uploadpdf($conn,$_POST,'file6');
-				$up_pdf_file7 = uploadpdf($conn,$_POST,'file7');
+				// Up load pdf file
+				for ($i=1; $i < 8 ; $i++) {
+					$new_pdf_name = 'up_pdf_file'.$i;
+					$valable_pdf = 'file'.$i;
+					echo $new_pdf_name = uploadpdf($conn,$_POST,$valable_pdf);
+				}
+				// Up load quiz
+				$choice11 = $_POST['choice11'];
+				$choice12 = $_POST['choice12'];
+				$choice13 = $_POST['choice13'];
+				$choice14 = $_POST['choice14'];
+				$quest1 = $_POST['quest1'];
+				$ans1 = $_POST['ans1']; 
+				echo "................................................................................................................................".$choice11.$choice12.$choice13.$choice14.$quest1.$ans1;
+				// $upload_quize1 = upload_quiz($conn,$_POST);
+
 				$cus = instercourse( $conn,$_POST);
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_course">';
+				// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_course">';
 			}
 			if($_GET['action'] == 'addteam_compitition'){
 				require_once('addteam_compitition.php');

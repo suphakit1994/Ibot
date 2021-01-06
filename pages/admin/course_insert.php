@@ -74,13 +74,6 @@
 }
 </style>
 
-
-<?php
-
-
-?>
-
-
 <body>
 	<div class="page-content p-5" id="content" style="padding: 2%;">
 		<!-- Toggle button -->
@@ -151,78 +144,80 @@
 						<div class="col-sm-6">
 							<div class="row" style="display: flex; text-align: center;">
 								<div class="col-sm-12">
-									<p><b>Lesson</b></p>
-									<input class="list_detail custom-file-input" type="file" id="" name="file1" accept="application/pdf">
-									<input class="list_detail custom-file-input" type="file" id="" name="file2" accept="application/pdf">
-									<input class="list_detail custom-file-input" type="file" id="" name="file3" accept="application/pdf">
-									<input class="list_detail custom-file-input" type="file" id="" name="file4" accept="application/pdf">
-									<input class="list_detail custom-file-input" type="file" id="" name="file5" accept="application/pdf">
-									<input class="list_detail custom-file-input" type="file" id="" name="file6" accept="application/pdf">
-									<input class="list_detail custom-file-input" type="file" id="" name="file7" accept="application/pdf">
+									<h2><b>Lesson</b></h2>
+									<?php for($o=1; $o<8; $o++){ ?>
+										<label style="">Number <?php echo $o;?></label>
+										<input style="width: 100%; margin: 2% 2%;" class="custom-file-input" type="file" name="file<?php echo $o;?>" accept="application/pdf">
+									<?php }?>
 								</div>
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="row" style="display: flex; text-align: center;">
 								<div class="col-sm-12">
-									<p><b>Quiz</b></p>
-									<input class="list_detail custom-file-input" type="button" id="myBtn" value="modals" data-toggle="modal" data-target="#myModal">
-									<input class="list_detail custom-file-input" type="file" id="myFile" name="filename">
-									<input class="list_detail custom-file-input" type="file" id="myFile" name="filename">
-									<input class="list_detail custom-file-input" type="file" id="myFile" name="filename">
-									<input class="list_detail custom-file-input" type="file" id="myFile" name="filename">
-									<input class="list_detail custom-file-input" type="file" id="myFile" name="filename">
-									<input class="list_detail custom-file-input" type="file" id="myFile" name="filename">
+									<h2><b>Quiz</b></h2>
+									<?php for($p=1; $p<8; $p++){ ?>
+										<label>Number <?php echo $p;?></label>
+										<input style="width: 100%; margin: 2% 2%;" class="custom-file-input" type="button" id="myBtn" value="modals" data-toggle="modal" data-target="#myModal<?php echo $p;?>">
+									<?php }?>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div id="myModal" class="modal fade" role="dialog">
-				<div id="myCarousel" class="carousel slide" data-ride="carousel">
-					<ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<?php for ($i=1; $i < 5 ; $i++) {  ?>
-							<li data-target="#myCarousel" data-slide-to="<?php echo $i ?>"></li>
-						<?php }?>
-					</ol>
-					<div class="carousel-inner">
-						<?php for ($i=1; $i < 6 ; $i++) {  ?>
-							<div class="item <?php if($i==1){ echo("active");}?> ">
-								<div class="modal-dialog">
-									<!-- Modal content-->
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-											<h4 class="modal-title">Question <?php echo $i; ?></h4>
-										</div>
-										<div class="modal-body modals-flex">
-											<div class="modals-content">
-												<input class="modlas-input" type="text" placeholder="Question<?php echo $i; ?>" name="quest<?php echo $i; ?>">
-												<?php for ($j=1; $j < 5 ; $j++) {  ?>
-													<input class="modlas-input" type="text" placeholder="Choice<?php echo $j; ?>" name="ans<?php echo $j; ?>">
-												<?php }?>
+			<?php for($p=1; $p<8; $p++){ ?>
+				<div id="myModal<?php echo $p;?>" class="modal fade" role="dialog">
+					<div id="myCarousel<?php echo $p;?>" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#myCarousel<?php echo $p;?>" data-slide-to="0" class="active"></li>
+							<?php for ($k=1; $k < 5 ; $k++) {  ?>
+								<li data-target="#myCarousel<?php echo $p;?>" data-slide-to="<?php echo $k ?>"></li>
+							<?php }?>
+						</ol>
+						<div class="carousel-inner">
+							<?php for ($i=1; $i < 6 ; $i++) {  ?>
+								<div class="item <?php if($i==1){ echo("active");}?> ">
+									<div class="modal-dialog">
+										<!-- Modal content-->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 class="modal-title">Question <?php echo $i; ?></h4>
 											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											<div class="modal-body modals-flex">
+
+												<div class="modals-content">
+													<label>Question <?php echo $i;?></label>
+													<input class="modlas-input" type="text" placeholder="Question<?php echo $i; ?>" name="quest<?php echo $i; ?>">
+													<?php for ($j=1; $j < 6 ; $j++) {  ?>
+														<label><?php if($j == 5){echo "Answer";}else{ echo "choice".$j;} ?></label>
+														<input class="modlas-input" type="text" 
+														placeholder="<?php if($j == 5){echo "Answer";}else{ echo "choice".$i.$j;} ?>" 
+														name="<?php if($j == 5){echo "ans";}else{ echo "choice".$i.$j;} ?>">
+													<?php }?>
+												</div>
+
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						<?php }?>
-						<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-							<span class="glyphicon glyphicon-chevron-left"></span>
-							<span class="sr-only">Previous</span>
-						</a>
-						<a class="right carousel-control" href="#myCarousel" data-slide="next">
-							<span class="glyphicon glyphicon-chevron-right"></span>
-							<span class="sr-only">Next</span>
-						</a>
+							<?php }?>
+							<a class="left carousel-control" href="#myCarousel<?php echo $p;?>" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left"></span>
+								<span class="sr-only">Previous</span>
+							</a>
+							<a class="right carousel-control" href="#myCarousel<?php echo $p;?>" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+								<span class="sr-only">Next</span>
+							</a>
+						</div>
 					</div>
 				</div>
-			</div>
+			<?php }?>
 		</form>
 	</div>
 </body>

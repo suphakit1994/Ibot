@@ -52,21 +52,21 @@ include('../php/course_function.php');
 				require_once("calendar_schedule.php");
 			}
 			if($_GET['action'] == 'admin_course'){
-				// $_POST = ' ';
 				require_once('course_insert.php');	
-				clearstatcache();
 			}
 			if($_GET['action'] == 'admin_course/add'){
-				require_once('course_insert.php');
-				$up_pdf_file1 = uploadpdf($conn,$_POST,'file1');
-				$up_pdf_file2 = uploadpdf($conn,$_POST,'file2');
-				$up_pdf_file3 = uploadpdf($conn,$_POST,'file3');
-				$up_pdf_file4 = uploadpdf($conn,$_POST,'file4');
-				$up_pdf_file5 = uploadpdf($conn,$_POST,'file5');
-				$up_pdf_file6 = uploadpdf($conn,$_POST,'file6');
-				$up_pdf_file7 = uploadpdf($conn,$_POST,'file7');
+				// Up load pdf file
+				for ($i=1; $i < 8 ; $i++) {
+					$new_pdf_name = 'up_pdf_file'.$i;
+					$valable_pdf = 'file'.$i;
+					echo $new_pdf_name = uploadpdf($conn,$_POST,$valable_pdf);
+				}
+				// Up load quiz
+				for ($j=1; $j < 8 ; $j++) {
+
+				}
 				$cus = instercourse( $conn,$_POST);
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_course">';
+				// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_course">';
 			}
 			if($_GET['action'] == 'addteam_compitition'){
 				require_once('addteam_compitition.php');

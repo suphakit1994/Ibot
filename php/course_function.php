@@ -101,6 +101,7 @@ function uploadpdf(mysqli $conn,$data,$nump){
 	}
 	mysqli_close($conn);	
 	error_reporting(0);
+	console_log($resuit);
 
 }
 function console_log($output, $with_script_tags = true) {
@@ -114,12 +115,12 @@ function console_log($output, $with_script_tags = true) {
 
 
 // ยังำม่เสร็จค่ะ
-function upload_quiz(mysqli $conn,$data){
+function upload_quiz(mysqli $conn,$data,$nump){
 	$sql = " INSERT INTO `quiz`(`question`,`ans1`,`ans2`,`ans3`,`ans4`) 
 	VALUES ( 
-	'".$data['Question']."',
-	'".$data['ans1']."',
-	'".$data['ans2']."',
+	'".$data['quest']."',
+	'".$data['choice']."',
+	'".$data['ans']."',
 	'".$data['ans3']."',
 	'".$data['ans4']."')";
 

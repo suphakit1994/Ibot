@@ -66,7 +66,7 @@ include('../php/course_function.php');
 
 				}
 				$cus = instercourse( $conn,$_POST);
-				// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_course">';
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_course">';
 			}
 			if($_GET['action'] == 'addteam_compitition'){
 				require_once('addteam_compitition.php');

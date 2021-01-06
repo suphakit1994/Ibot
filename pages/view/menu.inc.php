@@ -2,17 +2,17 @@
 
 	<style type="text/css">
 
-		<?php 	$s_level = $_SESSION['s_level'];
+		<?php 	$s_level = $_SESSION['student_level'];
 		$s_name = $_SESSION['student_fname'];
-		$s_nlevel = $_SESSION['s_nlevel'];
+		$s_nlevel = $_SESSION['student_nlevel'];
 
-		$t_level = $_SESSION['t_level'];
+		$t_level = $_SESSION['teacher_level'];
 		$t_name = $_SESSION['teacher_fname'];
-		$t_nlevel = $_SESSION['t_nlevel'];
+		$t_nlevel = $_SESSION['teacher_nlevel'];
 
-		$a_level = $_SESSION['a_level'];
+		$a_level = $_SESSION['admin_level'];
 		$a_name = $_SESSION['admin_fname'];
-		$a_nlevel = $_SESSION['a_nlevel'];
+		$a_nlevel = $_SESSION['admin_nlevel'];
 		?>
 		
 		.notification {

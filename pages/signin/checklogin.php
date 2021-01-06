@@ -21,16 +21,16 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 
     $keys = substr($username, 0 , 2);
     while($keys == 'A_'){
-      $sql = "SELECT * FROM `admin` WHERE (a_username='$username' AND a_password='$password')";
+      $sql = "SELECT * FROM `admin` WHERE (admin_username='$username' AND admin_password='$password')";
       if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
         $data =[];
         while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
           $_SESSION["admin_id"] = $row["admin_id"];
           $_SESSION["admin_fname"] = $row["admin_fname"];
-          $_SESSION["a_level"] = $row["a_level"];
-          $_SESSION["a_nlevel"] = $row["a_nlevel"];
+          $_SESSION["admin_level"] = $row["admin_level"];
+          $_SESSION["admin_nlevel"] = $row["admin_nlevel"];
 
-          if($_SESSION["a_level"]=="admin"){ 
+          if($_SESSION["admin_level"]=="admin"){ 
             Header("Location: ../index.php?app=admin");
           }
 
@@ -47,16 +47,16 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 
     }
     while($keys == 'T_'){
-      $sql = "SELECT * FROM `teacher` WHERE (t_username='$username' AND t_password='$password')";
+      $sql = "SELECT * FROM `teacher` WHERE (teacher_username='$username' AND teacher_password='$password')";
       if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
         $data =[];
         while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
           $_SESSION["teacher_id"] = $row["teacher_id"];
           $_SESSION["teacher_fname"] = $row["teacher_fname"];
-          $_SESSION["t_level"] = $row["t_level"];
-          $_SESSION["t_nlevel"] = $row["t_nlevel"];
+          $_SESSION["teacher_level"] = $row["teacher_level"];
+          $_SESSION["teacher_nlevel"] = $row["teacher_nlevel"];
 
-          if($_SESSION["t_level"]=="teacher"){ 
+          if($_SESSION["teacher_level"]=="teacher"){ 
             Header("Location: ../index.php?app=teacher");
           }
 
@@ -72,16 +72,16 @@ if(isset($_POST['username']) && isset($_POST['password'])){
     }
 
     while($keys == 'S_'){
-      $sql = "SELECT * FROM `student` WHERE (s_username='$username' AND s_password='$password')";
+      $sql = "SELECT * FROM `student` WHERE (student_username='$username' AND student_password='$password')";
       if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
         $data =[];
         while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
           $_SESSION["student_id"] = $row["student_id  "];
           $_SESSION["student_fname"] = $row["student_fname"];
-          $_SESSION["s_level"] = $row["s_level"];
-          $_SESSION["s_nlevel"] = $row["s_nlevel"];
+          $_SESSION["student_level"] = $row["student_level"];
+          $_SESSION["student_nlevel"] = $row["student_nlevel"];
 
-          if($_SESSION["s_level"]=="student"){ 
+          if($_SESSION["student_level"]=="student"){ 
             Header("Location: ../index.php?app=student");
           }
 

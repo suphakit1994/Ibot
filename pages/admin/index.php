@@ -58,11 +58,11 @@ include('../php/course_function.php');
 			}
 			if($_GET['action'] == 'admin_course/add'){
 				// Up load pdf file
-				for ($i=1; $i < 8 ; $i++) {
-					$new_pdf_name = 'up_pdf_file'.$i;
-					$valable_pdf = 'file'.$i;
-					echo $new_pdf_name = uploadpdf($conn,$_POST,$valable_pdf);
-				}
+				// for ($i=1; $i < 8 ; $i++) {
+				// 	$new_pdf_name = 'up_pdf_file'.$i;
+				// 	$valable_pdf = 'file'.$i;
+				// 	echo $new_pdf_name = uploadpdf($conn,$_POST,$valable_pdf);
+				// }
 				// Up load quiz
 				$choice11 = $_POST['choice11'];
 				$choice12 = $_POST['choice12'];
@@ -70,10 +70,10 @@ include('../php/course_function.php');
 				$choice14 = $_POST['choice14'];
 				$quest1 = $_POST['quest1'];
 				$ans1 = $_POST['ans1']; 
-				echo "................................................................................................................................".$choice11.$choice12.$choice13.$choice14.$quest1.$ans1;
+				echo "................................................................................................................................".$choice11."5555";
 				// $upload_quize1 = upload_quiz($conn,$_POST);
 
-				$cus = instercourse( $conn,$_POST);
+				// $cus = instercourse( $conn,$_POST);
 				// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_course">';
 			}
 			if($_GET['action'] == 'addteam_compitition'){

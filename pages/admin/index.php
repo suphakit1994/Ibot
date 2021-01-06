@@ -10,10 +10,10 @@ include('../php/course_function.php');
 <head>
 	<style>
 		<?php 
-		$id = $_SESSION['id '];
-		$name = $_SESSION['name'];
-		$level = $_SESSION['level'];
-		$nlevel = $_SESSION['nlevel'];
+		$id = $_SESSION['admin_id'];
+		$name = $_SESSION['admin_fname'];
+		$level = $_SESSION['a_level'];
+		$nlevel = $_SESSION['a_nlevel'];
 		?>
 		<?php
 		require_once('admin_view/admin_footer.php');

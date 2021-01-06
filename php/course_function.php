@@ -72,15 +72,11 @@ function getselect(mysqli $conn){
 	}
 }
 function uploadpdf(mysqli $conn,$data,$nump){
-
 	$course_lesson = $_POST['course_lesson'];
-	//upload image
 	$ext = pathinfo(basename($_FILES[$nump]['name']),PATHINFO_EXTENSION);
-	
 	$new_pdf_name = 'pdf_'.$course_lesson.$nump.".".$ext;
 	$pdf_path = "../pless/";
 	$upload_path = $pdf_path.$new_pdf_name;
-	//uploading
 	if($ext == "pdf" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
 		move_uploaded_file($_FILES[$nump]['tmp_name'], $upload_path);
 		$numpb  = $new_pdf_name;
@@ -101,8 +97,9 @@ function uploadpdf(mysqli $conn,$data,$nump){
 	}
 	mysqli_close($conn);	
 	error_reporting(0);
-
+	console_log($resuit);
 }
+
 function console_log($output, $with_script_tags = true) {
 	$js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
 	');';
@@ -113,15 +110,26 @@ function console_log($output, $with_script_tags = true) {
 }
 
 
-// ยังำม่เสร็จค่ะ
+
 function upload_quiz(mysqli $conn,$data){
-	$sql = " INSERT INTO `quiz`(`question`,`ans1`,`ans2`,`ans3`,`ans4`) 
+	$course_lesson = $_POST['course_lesson'];
+	$course_code = $_POST['course_code'];
+	$choice11 = $_POST['choice11'];
+	$choice12 = $_POST['choice12'];
+	$choice13 = $_POST['choice13'];
+	$choice14 = $_POST['choice14'];
+	$quest1 = $_POST['quest1'];
+	$ans1 = $_POST['ans1'];
+	$sql = " INSERT INTO `quize`(`question`,`ans_1`,`ans_2`,`ans_3`,`ans_4`,`check_ans`,`lesson`,`course_name`) 
 	VALUES ( 
-	'".$data['Question']."',
-	'".$data['ans1']."',
-	'".$data['ans2']."',
-	'".$data['ans3']."',
-	'".$data['ans4']."')";
+	'$quest1',
+	'$choice11',
+	'$choice12',
+	'$choice13',
+	'$choice14',
+	'$ans1',
+	'$course_lesson',
+	'$course_code')";
 
 	echo $sql;
 

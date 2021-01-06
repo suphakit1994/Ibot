@@ -71,23 +71,25 @@ function getselect(mysqli $conn){
 		return $data;
 	}
 }
-function uploadpdf1(mysqli $conn,$data){
+function uploadpdf(mysqli $conn,$data,$nump){
+
 	$course_lesson = $_POST['course_lesson'];
 	//upload image
-	$ext = pathinfo(basename($_FILES['file1']['name']),PATHINFO_EXTENSION);
-	$new_pdf_name = 'pdf_'.$course_lesson.'1'.".".$ext;
+	$ext = pathinfo(basename($_FILES[$nump]['name']),PATHINFO_EXTENSION);
+	
+	$new_pdf_name = 'pdf_'.$course_lesson.$nump.".".$ext;
 	$pdf_path = "../pless/";
 	$upload_path = $pdf_path.$new_pdf_name;
 	//uploading
 	if($ext == "pdf" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
-		move_uploaded_file($_FILES['file1']['tmp_name'], $upload_path);
-		$file1  = $new_pdf_name;
+		move_uploaded_file($_FILES[$nump]['tmp_name'], $upload_path);
+		$numpb  = $new_pdf_name;
 		echo "upload at file.";
 	}else{
 		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 	}
 
-	$sql = " INSERT INTO `file`(`file_address`) VALUES ( '$file1')";
+	$sql = " INSERT INTO `file`(`file_address`) VALUES ( '$numpb')";
 	echo $sql;
 
 	$resuit =  mysqli_query($conn, $sql);
@@ -99,187 +101,17 @@ function uploadpdf1(mysqli $conn,$data){
 	}
 	mysqli_close($conn);	
 	error_reporting(0);
+
+}
+function console_log($output, $with_script_tags = true) {
+	$js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
+	');';
+	if ($with_script_tags) {
+		$js_code = '<script>' . $js_code . '</script>';
+	}
+	echo $js_code;
 }
 
-function uploadpdf2(mysqli $conn,$data){
-	$course_lesson = $_POST['course_lesson'];
-	//upload image
-	$ext = pathinfo(basename($_FILES['file2']['name']),PATHINFO_EXTENSION);
-	$new_pdf_name = 'pdf_'.$course_lesson.'2'.".".$ext;
-	$pdf_path = "../pless/";
-	$upload_path = $pdf_path.$new_pdf_name;
-	//uploading
-	if($ext == "pdf" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
-		move_uploaded_file($_FILES['file2']['tmp_name'], $upload_path);
-		$file2  = $new_pdf_name;
-		echo "upload at file.";
-	}else{
-		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-	}
-
-	$sql = " INSERT INTO `file`(`file_address`) VALUES ( '$file2')";
-	echo $sql;
-
-	$resuit =  mysqli_query($conn, $sql);
-	if ($resuit) {
-		return true;
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		return false;
-	}
-	mysqli_close($conn);	
-	error_reporting(0);
-}
-
-function uploadpdf3(mysqli $conn,$data){
-	$course_lesson = $_POST['course_lesson'];
-	//upload image
-	$ext = pathinfo(basename($_FILES['file3']['name']),PATHINFO_EXTENSION);
-	$new_pdf_name = 'pdf_'.$course_lesson.'3'.".".$ext;
-	$pdf_path = "../pless/";
-	$upload_path = $pdf_path.$new_pdf_name;
-	//uploading
-	if($ext == "pdf" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
-		move_uploaded_file($_FILES['file3']['tmp_name'], $upload_path);
-		$file3  = $new_pdf_name;
-		echo "upload at file.";
-	}else{
-		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-	}
-
-	$sql = " INSERT INTO `file`(`file_address`) VALUES ( '$file3')";
-	echo $sql;
-
-	$resuit =  mysqli_query($conn, $sql);
-	if ($resuit) {
-		return true;
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		return false;
-	}
-	mysqli_close($conn);	
-	error_reporting(0);
-}
-
-function uploadpdf4(mysqli $conn,$data){
-	$course_lesson = $_POST['course_lesson'];
-	//upload image
-	$ext = pathinfo(basename($_FILES['file4']['name']),PATHINFO_EXTENSION);
-	$new_pdf_name = 'pdf_'.$course_lesson.'4'.".".$ext;
-	$pdf_path = "../pless/";
-	$upload_path = $pdf_path.$new_pdf_name;
-	//uploading
-	if($ext == "pdf" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
-		move_uploaded_file($_FILES['file4']['tmp_name'], $upload_path);
-		$file4  = $new_pdf_name;
-		echo "upload at file.";
-	}else{
-		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-	}
-
-	$sql = " INSERT INTO `file`(`file_address`) VALUES ( '$file4')";
-	echo $sql;
-
-	$resuit =  mysqli_query($conn, $sql);
-	if ($resuit) {
-		return true;
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		return false;
-	}
-	mysqli_close($conn);	
-	error_reporting(0);
-}
-
-function uploadpdf5(mysqli $conn,$data){
-	$course_lesson = $_POST['course_lesson'];
-	//upload image
-	$ext = pathinfo(basename($_FILES['file5']['name']),PATHINFO_EXTENSION);
-	$new_pdf_name = 'pdf_'.$course_lesson.'5'.".".$ext;
-	$pdf_path = "../pless/";
-	$upload_path = $pdf_path.$new_pdf_name;
-	//uploading
-	if($ext == "pdf" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
-		move_uploaded_file($_FILES['file5']['tmp_name'], $upload_path);
-		$file5  = $new_pdf_name;
-		echo "upload at file.";
-	}else{
-		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-	}
-
-	$sql = " INSERT INTO `file`(`file_address`) VALUES ( '$file5')";
-	echo $sql;
-
-	$resuit =  mysqli_query($conn, $sql);
-	if ($resuit) {
-		return true;
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		return false;
-	}
-	mysqli_close($conn);	
-	error_reporting(0);
-}
-
-function uploadpdf6(mysqli $conn,$data){
-	$course_lesson = $_POST['course_lesson'];
-	//upload image
-	$ext = pathinfo(basename($_FILES['file6']['name']),PATHINFO_EXTENSION);
-	$new_pdf_name = 'pdf_'.$course_lesson.'6'.".".$ext;
-	$pdf_path = "../pless/";
-	$upload_path = $pdf_path.$new_pdf_name;
-	//uploading
-	if($ext == "pdf" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
-		move_uploaded_file($_FILES['file6']['tmp_name'], $upload_path);
-		$file6  = $new_pdf_name;
-		echo "upload at file.";
-	}else{
-		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-	}
-
-	$sql = " INSERT INTO `file`(`file_address`) VALUES ( '$file6')";
-	echo $sql;
-
-	$resuit =  mysqli_query($conn, $sql);
-	if ($resuit) {
-		return true;
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		return false;
-	}
-	mysqli_close($conn);	
-	error_reporting(0);
-}
-
-function uploadpdf7(mysqli $conn,$data){
-	$course_lesson = $_POST['course_lesson'];
-	//upload image
-	$ext = pathinfo(basename($_FILES['file7']['name']),PATHINFO_EXTENSION);
-	$new_pdf_name = 'pdf_'.$course_lesson.'7'.".".$ext;
-	$pdf_path = "../pless/";
-	$upload_path = $pdf_path.$new_pdf_name;
-	//uploading
-	if($ext == "pdf" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
-		move_uploaded_file($_FILES['file7']['tmp_name'], $upload_path);
-		$file7  = $new_pdf_name;
-		echo "upload at file.";
-	}else{
-		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-	}
-
-	$sql = " INSERT INTO `file`(`file_address`) VALUES ( '$file7')";
-	echo $sql;
-
-	$resuit =  mysqli_query($conn, $sql);
-	if ($resuit) {
-		return true;
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		return false;
-	}
-	mysqli_close($conn);	
-	error_reporting(0);
-}
 
 // ยังำม่เสร็จค่ะ
 function upload_quiz(mysqli $conn,$data){

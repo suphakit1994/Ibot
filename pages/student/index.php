@@ -12,10 +12,10 @@ include("../php/course_function.php");
 	<?php require_once('view/head.inc.php'); ?>
 	<style>
 		<?php 
-		$id = $_SESSION['id '];
-		$name = $_SESSION['name'];
-		$level = $_SESSION['level'];
-		$nlevel = $_SESSION['nlevel'];
+		$id = $_SESSION['student_id '];
+		$name = $_SESSION['student_fname'];
+		$level = $_SESSION['s_level'];
+		$nlevel = $_SESSION['s_nlevel'];
 		?>
 		<?php
 		if ($level=='student') {

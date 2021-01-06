@@ -2,9 +2,17 @@
 
 	<style type="text/css">
 
-		<?php 	$level = $_SESSION['level'];
-		$name = $_SESSION['name'];
-		$nlevel = $_SESSION['nlevel'];
+		<?php 	$s_level = $_SESSION['s_level'];
+		$s_name = $_SESSION['student_fname'];
+		$s_nlevel = $_SESSION['s_nlevel'];
+
+		$t_level = $_SESSION['t_level'];
+		$t_name = $_SESSION['teacher_fname'];
+		$t_nlevel = $_SESSION['t_nlevel'];
+
+		$a_level = $_SESSION['a_level'];
+		$a_name = $_SESSION['admin_fname'];
+		$a_nlevel = $_SESSION['a_nlevel'];
 		?>
 		
 		.notification {
@@ -129,7 +137,7 @@
 	</style>
 
 	<?php
-	if ($level=='student') { ?>
+	if ($s_level=='student') { ?>
 		<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
 			<div class="container-fluid">
 				<div class="row">
@@ -166,8 +174,8 @@
 							<li>
 								<div class="col-sm-8" style="text-align: end;">
 									<div class="row">
-										<p style="padding-top:5px; font-weight: bold;"><?php echo $name; ?></p>
-										<p style="margin-top:-12px;"><?php echo $nlevel; ?></p>
+										<p style="padding-top:5px; font-weight: bold;"><?php echo $s_name; ?></p>
+										<p style="margin-top:-12px;"><?php echo $s_nlevel; ?></p>
 									</div>								
 
 								</div>
@@ -188,7 +196,7 @@
 		</div>
 	</nav>
 <?php } 
-elseif ($level=='teacher') { ?>
+elseif ($t_level=='teacher') { ?>
 	<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
 		<div class="container-fluid">
 			<div class="row">
@@ -229,8 +237,8 @@ elseif ($level=='teacher') { ?>
 							<li>
 								<div class="col-sm-8" style="text-align: end;">
 									<div class="row">
-										<p style="padding-top:5px; font-weight: bold;"><?php echo $name; ?></p>
-										<p style="margin-top:-12px;"><?php echo $nlevel; ?></p>
+										<p style="padding-top:5px; font-weight: bold;"><?php echo $t_name; ?></p>
+										<p style="margin-top:-12px;"><?php echo $t_nlevel; ?></p>
 									</div>								
 
 								</div>
@@ -252,7 +260,7 @@ elseif ($level=='teacher') { ?>
 		</div>
 	</nav>
 <?php } 
-elseif ($level=='admin') { ?>
+elseif ($a_level=='admin') { ?>
 	<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
 		<div class="container-fluid">
 			<div class="row">
@@ -290,8 +298,8 @@ elseif ($level=='admin') { ?>
 							<li>
 								<div class="col-sm-8" style="text-align: end;">
 									<div class="row">
-										<p style="padding-top:5px; font-weight: bold;"><?php echo $name; ?></p>
-										<p style="margin-top:-12px;"><?php echo $nlevel; ?></p>
+										<p style="padding-top:5px; font-weight: bold;"><?php echo $a_name; ?></p>
+										<p style="margin-top:-12px;"><?php echo $a_nlevel; ?></p>
 									</div>								
 
 								</div>

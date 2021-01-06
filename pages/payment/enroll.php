@@ -96,8 +96,10 @@
   </style>
 
   <body>
-    <form  method="post" action="index.php?app=payment&action=payment">
-
+    <form  method="POST" action="index.php?app=payment&action=payment">
+       <input type="hidden" name="id" value="<?php echo $cus['id']; ?>">
+       <?php echo $cus['id']; ?>
+       <?php echo $_POST['course_id']; ?>
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="row">
           <div class="col-md-7" style=" padding-top: 5%;"> 

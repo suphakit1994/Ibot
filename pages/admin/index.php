@@ -54,10 +54,10 @@ include('../php/course_function.php');
 			if($_GET['action'] == 'admin_course'){
 				// $_POST = ' ';
 				require_once('course_insert.php');	
-				clearstatcache();
+				
 			}
 			if($_GET['action'] == 'admin_course/add'){
-				require_once('course_insert.php');
+				
 				$up_pdf_file1 = uploadpdf($conn,$_POST,'file1');
 				$up_pdf_file2 = uploadpdf($conn,$_POST,'file2');
 				$up_pdf_file3 = uploadpdf($conn,$_POST,'file3');

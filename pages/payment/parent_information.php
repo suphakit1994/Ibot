@@ -64,14 +64,12 @@
       background: #0050ef  !important;
       color: white!important;
     }
-
     
   </style>
 
   <body>  
-    <form  method="post" action="index.php?app=payment&action=enroll">
-      <!-- <input type="hidden" name="student_id" value="<?php echo $_POST['student_id']; ?>"> -->
-
+    <form  method="POST" action="index.php?app=payment&action=enroll&id=<?php echo $cus['id']; ?>">
+       <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="col-md-7" style="padding-top: 5%;">
           <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 

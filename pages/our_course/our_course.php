@@ -109,7 +109,7 @@
                       <button type="submit"  name= "<?php echo $i ?>" class=" btn btn:hover" style="width:80% ;border-radius:28px;">Enroll</button>
                     </div>
                   </div>
-                  <input type="hidden" name="course_ID" value="<?php echo $data[$i]['ID'];  ?>">
+                  <input type="hidden" name="course_id" value="<?php echo $data[$i]['course_id'];  ?>">
                 </div>
               </div>
             </div>  

@@ -66,8 +66,19 @@ function insertstudent(mysqli $conn,$data){
 		'".$data['student_school']."',
 		'".$data['student_grade']."'
 		)";
-		if ( mysqli_query($conn, $sql)) {
-		return true;
+	if ( mysqli_query($conn, $sql)) {
+		$sql = "SELECT MAX(student_id) as id FROM `student` ";
+	 echo $sql;
+
+		$result = $conn->query($sql); 
+		if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+			$data ;
+			while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+				$data = $row;
+			}
+			$result->close();
+			return $data;
+		}
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		return false;
@@ -85,11 +96,11 @@ function selectmax(mysqli $conn){
 }
 
 function updatestudent(mysqli $conn,$data=[],$cus){
-	 print_r($cus['student_id']);
+	 // print_r($cus['student_id']);
 		$sql = " UPDATE `student` 
 				SET parents_name_th = '".$data['parents_name_th']."', parents_name_eng = '".$data['parents_name_eng']."' ,  parents_related = '".$data['parents_related']."',
 				parents_phonnumber = '".$data['parents_phonnumber']."', parents_email = '".$data['parents_email']."',parents_line = '".$data['parents_line']."'
-				WHERE student_id = '".$cus['student_id']."' ";
+				WHERE student_id = '".$cus['id']."' ";
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -98,31 +109,21 @@ function updatestudent(mysqli $conn,$data=[],$cus){
 	}
 }
 
-
-// function inserparenttuser(mysqli $conn,$data){
-// 		$sql = " INSERT INTO `parents`
-// 		(`parents_name_th`,
-// 		 `parents_name_eng`, 
-// 		 `parents_related`, 
-// 		 `parents_phonnumber`, 
-// 		 `parents_email`, 
-// 		 `parents_line`)
-// 		VALUES (
-// 		'".$data['parents_name_th']."',
-// 		'".$data['parents_name_eng']."',
-// 		'".$data['parents_related']."',
-// 		'".$data['parents_phonnumber']."',
-// 		'".$data['parents_email']."',
-// 		'".$data['parents_line']."'
-// 		)";
-// 	 // echo $sql;
-	
-// 	if ( mysqli_query($conn, $sql)) {
-// 		return true;
-// 	} else {
-// 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-// 		return false;
-// 	}
-// 	mysqli_close($conn);
-// 	}
+function insertcourse_student(mysqli $conn,$data){
+		$sql = " INSERT INTO `course_student`(
+			`cs_course_id` 
+			) 
+			VALUES (
+			'".$data['course_id']."'
+			
+			)";
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+	mysqli_close($conn);
+	}
+	echo $sql;
 ?>

@@ -183,7 +183,7 @@
 										<div class="modal-content">
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal">&times;</button>
-												<h4 class="modal-title">Question <?php echo $i; ?></h4>
+												<h4 class="modal-title">Number <?php echo $i; ?></h4>
 											</div>
 											<div class="modal-body modals-flex">
 
@@ -193,27 +193,20 @@
 													<?php for ($j=1; $j < 6 ; $j++) {  ?>
 														<label><?php if($j == 5){echo "Answer";}else{ echo "choice".$j;} ?></label>
 														<input class="modlas-input" type="text" 
-														placeholder="<?php if($j == 5){echo "Answer";}else{ echo "choice".$i.$j;} ?>" 
-														name="<?php if($j == 5){echo "ans";}else{ echo "choice".$i.$j;} ?>">
+														placeholder="<?php if($j == 5){echo "ans".$i;}else{ echo "choice".$i.$j;} ?>" 
+														name="<?php if($j == 5){echo "ans".$i;}else{ echo "choice".$i.$j;} ?>">
 													<?php }?>
 												</div>
 
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+												<a type="button" class="btn btn-default" data-slide="prev"  href="#myCarousel<?php echo $p;?>">Previous</a>
+												<a type="button" class="btn btn-default" data-slide="next"  href="#myCarousel<?php echo $p;?>">Next</a>
 											</div>
 										</div>
 									</div>
 								</div>
 							<?php }?>
-							<a class="left carousel-control" href="#myCarousel<?php echo $p;?>" data-slide="prev">
-								<span class="glyphicon glyphicon-chevron-left"></span>
-								<span class="sr-only">Previous</span>
-							</a>
-							<a class="right carousel-control" href="#myCarousel<?php echo $p;?>" data-slide="next">
-								<span class="glyphicon glyphicon-chevron-right"></span>
-								<span class="sr-only">Next</span>
-							</a>
 						</div>
 					</div>
 				</div>

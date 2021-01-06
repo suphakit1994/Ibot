@@ -52,7 +52,7 @@ include('../php/course_function.php');
 				require_once("calendar_schedule.php");
 			}
 			if($_GET['action'] == 'admin_course'){
-				require_once('course_insert.php');	
+				require_once('course_insert.php');
 			}
 			if($_GET['action'] == 'admin_course/add'){
 				// Up load pdf file
@@ -62,11 +62,17 @@ include('../php/course_function.php');
 					echo $new_pdf_name = uploadpdf($conn,$_POST,$valable_pdf);
 				}
 				// Up load quiz
-				for ($j=1; $j < 8 ; $j++) {
+				$choice11 = $_POST['choice11'];
+				$choice12 = $_POST['choice12'];
+				$choice13 = $_POST['choice13'];
+				$choice14 = $_POST['choice14'];
+				$quest1 = $_POST['quest1'];
+				$ans1 = $_POST['ans1']; 
+				echo "................................................................................................................................".$choice11.$choice12.$choice13.$choice14.$quest1.$ans1;
+				// $upload_quize1 = upload_quiz($conn,$_POST);
 
-				}
 				$cus = instercourse( $conn,$_POST);
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_course">';
+				// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_course">';
 			}
 			if($_GET['action'] == 'addteam_compitition'){
 				require_once('addteam_compitition.php');

@@ -166,50 +166,48 @@
 					</div>
 				</div>
 			</div>
-			<?php for($p=1; $p<8; $p++){ ?>
-				<div id="myModal<?php echo $p;?>" class="modal fade" role="dialog">
-					<div id="myCarousel<?php echo $p;?>" class="carousel slide" data-ride="carousel">
+			<?php for($q=1; $q<8; $q++){ ?>
+				<div id="myModal<?php echo $q;?>" class="modal fade" role="dialog">
+					<div id="myCarousel<?php echo $q;?>" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
-							<li data-target="#myCarousel<?php echo $p;?>" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel<?php echo $q;?>" data-slide-to="0" class="active"></li>
 							<?php for ($k=1; $k < 5 ; $k++) {  ?>
-								<li data-target="#myCarousel<?php echo $p;?>" data-slide-to="<?php echo $k ?>"></li>
+								<li data-target="#myCarousel<?php echo $q;?>" data-slide-to="<?php echo $k ?>"></li>
 							<?php }?>
 						</ol>
 						<div class="carousel-inner">
-							<form action="course_insert_submit" method="get" accept-charset="utf-8">
-								<?php for ($i=1; $i < 6 ; $i++) {  ?>
-									<div class="item <?php if($i==1){ echo("active");}?> ">
-										<div class="modal-dialog">
-											<!-- Modal content-->
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h4 class="modal-title">Number <?php echo $i; ?></h4>
-												</div>
-												<div class="modal-body modals-flex">
+							<?php for ($i=1; $i < 6 ; $i++) {  ?>
+								<div class="item <?php if($i==1){ echo("active");}?> ">
+									<div class="modal-dialog">
+										<!-- Modal content-->
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 class="modal-title">Number <?php echo $i; ?></h4>
+											</div>
+											<div class="modal-body modals-flex">
 
-													<div class="modals-content">
-														<label>Question <?php echo $i;?></label>
-														<input class="modlas-input" type="text" placeholder="Question<?php echo $i; ?>" name="quest<?php echo $i; ?>">
-														<?php for ($j=1; $j < 6 ; $j++) {  ?>
-															<label><?php if($j == 5){echo "Answer";}else{ echo "choice".$j;} ?></label>
-															<input class="modlas-input" type="text" 
-															placeholder="<?php if($j == 5){echo "ans".$i;}else{ echo "choice".$i.$j;} ?>" 
-															name="<?php if($j == 5){echo "ans".$i;}else{ echo "choice".$i.$j;} ?>">
-														<?php }?>
-													</div>
+												<div class="modals-content">
+													<label>Question <?php echo $i;?></label>
+													<input class="modlas-input" type="text" placeholder="Question<?php echo $i.$q; ?>" name="quest<?php echo $i.$q; ?>">
+													<?php for ($j=1; $j < 6 ; $j++) {  ?>
+														<label><?php if($j == 5){echo "Answer";}else{ echo "choice".$j;} ?></label>
+														<input class="modlas-input" type="text" 
+														placeholder="<?php if($j == 5){echo "ans".$i.$q;}else{ echo "choice".$i.$j.$q;} ?>" 
+														name="<?php if($j == 5){echo "ans".$i.$q;}else{ echo "choice".$i.$j.$q;} ?>">
+													<?php }?>
+												</div>
 
-												</div>
-												<div class="modal-footer">
-													<a type="button" class="btn btn-default" data-slide="prev"  href="#myCarousel<?php echo $p;?>">Previous</a>
-													<a type="submit" class="btn btn-default" data-slide="next"  href="#myCarousel<?php echo $p;?>">Next</a>
-													<input type="submit" value="Submit">
-												</div>
+											</div>
+											<div class="modal-footer">
+												<a type="button" class="btn btn-default" data-slide="prev"  href="#myCarousel<?php echo $q;?>">Previous</a>
+												<a type="submit" class="btn btn-default" data-slide="next"  href="#myCarousel<?php echo $q;?>">Next</a>
+												<input type="submit" value="Submit">
 											</div>
 										</div>
 									</div>
-								<?php }?>
-							</form>
+								</div>
+							<?php }?>
 						</div>
 					</div>
 				</div>

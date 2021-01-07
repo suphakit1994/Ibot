@@ -111,24 +111,35 @@ function console_log($output, $with_script_tags = true) {
 
 
 
-function upload_quiz(mysqli $conn,$data,$choice11,$choice12,
-	$choice13,
-	$choice14,
-	$quest1,
-	$ans1){
+function upload_quiz(mysqli $conn,$data,$new_var_quest,$new_var_ans){
 	$course_lesson = $_POST['course_lesson'];
 	$course_code = $_POST['course_code'];
 
-	$sql = " INSERT INTO `quize`(`question`,`ans_1`,`ans_2`,`ans_3`,`ans_4`,`check_ans`,`lesson`,`course_name`,`quiz_lesson_id`) 
+
+	$sql = " INSERT INTO `quize`(`question`,`check_ans`,`lesson`,`course_name`,`quiz_lesson_id`) 
 	VALUES ( 
-	'$quest1',
-	'$choice11',
-	'$choice12',
-	'$choice13',
-	'$choice14',
-	'$ans1',
+	'$new_var_quest',
+	'$new_var_ans',
 	'$course_lesson',
 	'$course_code','1')";
+
+	echo $sql;
+
+	$resuit =  mysqli_query($conn, $sql);
+	if ($resuit) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+	mysqli_close($conn);	
+	error_reporting(0);
+}
+
+function upload_choice(mysqli $conn,$data,$new_use_var){
+
+	$sql = " INSERT INTO `choice`(`selected`,`key_all`) 
+	VALUES ('$new_use_var','470')";
 
 	echo $sql;
 

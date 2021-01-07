@@ -63,19 +63,20 @@ include('../php/course_function.php');
 					echo $new_pdf_name = uploadpdf($conn,$_POST,$valable_pdf);
 				}
 					// Up load quiz
-				for($j=1; $j < 8; $j++){
+				for ($j=1; $j < 8; $j++) { 
 					for ($k=1; $k < 6; $k++) { 
-						$new_quest = 'quest'.$k;
-						$new_quest2 = "'".$new_quest."'";
-						$new_var_quest = '$_POST'.'['.$new_quest2.'];';
+						$new_quest = 'quest'.$k.$j;
+						$new_var_quest = $_POST[$new_quest];
+						$new_ans = 'ans'.$k.$j;
+						$new_var_ans = $_POST[$new_ans];
 						for ($l=1; $l < 5; $l++) { 
-							$new_choice = 'choice'.$k.$l;
-							$new_choice2 = "'".$new_choice."'";
-							$new_var_choice = '$_POST'.'['.$new_choice2.']'.';';
+							$new_use_var = 'upload_quizz'.$l;
+							$new_choice = 'choice'.$k.$l.$j;
+							$new_var_choice = $_POST[$new_choice];
+							echo $new_use_var = $new_var_choice;
+							$use_func1 = upload_choice($conn,$_POST,$new_use_var);
 						}
-						$new_ans = 'ans'.$k;
-						$new_ans2 = "'".$new_ans."'";
-						$new_var_ans = '$_POST'.'['.$new_ans2.']'.';';
+						$use_func = upload_quiz($conn,$_POST,$new_var_quest,$new_var_ans);	
 						// $choice11 = $_POST['choice11'];
 						// $choice12 = $_POST['choice12'];
 						// $choice13 = $_POST['choice13'];
@@ -83,11 +84,11 @@ include('../php/course_function.php');
 						// $quest1 = $_POST['quest1'];
 						// $ans1 = $_POST['ans1'];
 					}
-					
+
 				}
 				
 
-				// $user_func = upload_quiz($conn,$_POST,$choice11,$choice12,$choice13,$choice14,$quest1,$ans1);
+				
 					// $upload_quize1 = upload_quiz($conn,$_POST);
 
 					// $cus = instercourse( $conn,$_POST);

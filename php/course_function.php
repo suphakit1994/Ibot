@@ -111,16 +111,15 @@ function console_log($output, $with_script_tags = true) {
 
 
 
-function upload_quiz(mysqli $conn,$data){
+function upload_quiz(mysqli $conn,$data,$choice11,$choice12,
+	$choice13,
+	$choice14,
+	$quest1,
+	$ans1){
 	$course_lesson = $_POST['course_lesson'];
 	$course_code = $_POST['course_code'];
-	$choice11 = $_POST['choice11'];
-	$choice12 = $_POST['choice12'];
-	$choice13 = $_POST['choice13'];
-	$choice14 = $_POST['choice14'];
-	$quest1 = $_POST['quest1'];
-	$ans1 = $_POST['ans1'];
-	$sql = " INSERT INTO `quize`(`question`,`ans_1`,`ans_2`,`ans_3`,`ans_4`,`check_ans`,`lesson`,`course_name`) 
+
+	$sql = " INSERT INTO `quize`(`question`,`ans_1`,`ans_2`,`ans_3`,`ans_4`,`check_ans`,`lesson`,`course_name`,`quiz_lesson_id`) 
 	VALUES ( 
 	'$quest1',
 	'$choice11',
@@ -129,7 +128,7 @@ function upload_quiz(mysqli $conn,$data){
 	'$choice14',
 	'$ans1',
 	'$course_lesson',
-	'$course_code')";
+	'$course_code','1')";
 
 	echo $sql;
 

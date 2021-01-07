@@ -12,8 +12,8 @@ include("../php/course_function.php");
 		<?php 
 		$id = $_SESSION['teacher_id'];
 		$name = $_SESSION['teacher_fname'];
-		$level = $_SESSION['t_level'];
-		$nlevel = $_SESSION['t_nlevel'];
+		$level = $_SESSION['teacher_level'];
+		$nlevel = $_SESSION['teacher_nlevel'];
 		?>
 		<?php
 		if ($level=='teacher') {

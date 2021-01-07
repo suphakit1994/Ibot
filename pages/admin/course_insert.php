@@ -110,19 +110,19 @@
 
 						<div class="col-sm-6">
 							<p class="list_detail"><b>Category</b> <small style="color: red;">Format : EV3</small></p>
-							<input type="text" name="course_category" class="form-control" required>
+							<input type="text" name="course_category" class="form-control" >
 							<p class="list_detail"><b>Age for class</b></p>
-							<input type="text" name="course_Age" class="form-control" required>
+							<input type="text" name="course_Age" class="form-control" >
 							<p class="list_detail"><b>Lesson  </b><small style="color: red;">Format : 24 Lesson 36 Hours</small></p>
-							<input type="text" name="course_lesson" class="form-control" required>
+							<input type="text" name="course_lesson" class="form-control" >
 						</div>
 						<div class="col-sm-6">
 							<p class="list_detail"><b>Course Expension </b></p>
-							<input type="text" name="course_expension" class="form-control" required>
+							<input type="text" name="course_expension" class="form-control" >
 							<p class="list_detail"><b>Course Code   </b><small style="color: red;">Format : IM01</small></p>
-							<input type="text" name="course_code" class="form-control"  required>
+							<input type="text" name="course_code" class="form-control"  >
 							<p class="list_detail"><b>Price</b></p>
-							<input type="text" name="course_price" class="form-control" OnChange="JavaScript:chkNum(this)" required>
+							<input type="text" name="course_price" class="form-control" OnChange="JavaScript:chkNum(this)" >
 						</div>
 					</div>
 				</div>
@@ -176,37 +176,40 @@
 							<?php }?>
 						</ol>
 						<div class="carousel-inner">
-							<?php for ($i=1; $i < 6 ; $i++) {  ?>
-								<div class="item <?php if($i==1){ echo("active");}?> ">
-									<div class="modal-dialog">
-										<!-- Modal content-->
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal">&times;</button>
-												<h4 class="modal-title">Number <?php echo $i; ?></h4>
-											</div>
-											<div class="modal-body modals-flex">
-
-												<div class="modals-content">
-													<label>Question <?php echo $i;?></label>
-													<input class="modlas-input" type="text" placeholder="Question<?php echo $i; ?>" name="quest<?php echo $i; ?>">
-													<?php for ($j=1; $j < 6 ; $j++) {  ?>
-														<label><?php if($j == 5){echo "Answer";}else{ echo "choice".$j;} ?></label>
-														<input class="modlas-input" type="text" 
-														placeholder="<?php if($j == 5){echo "ans".$i;}else{ echo "choice".$i.$j;} ?>" 
-														name="<?php if($j == 5){echo "ans".$i;}else{ echo "choice".$i.$j;} ?>">
-													<?php }?>
+							<form action="course_insert_submit" method="get" accept-charset="utf-8">
+								<?php for ($i=1; $i < 6 ; $i++) {  ?>
+									<div class="item <?php if($i==1){ echo("active");}?> ">
+										<div class="modal-dialog">
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+													<h4 class="modal-title">Number <?php echo $i; ?></h4>
 												</div>
+												<div class="modal-body modals-flex">
 
-											</div>
-											<div class="modal-footer">
-												<a type="button" class="btn btn-default" data-slide="prev"  href="#myCarousel<?php echo $p;?>">Previous</a>
-												<a type="button" class="btn btn-default" data-slide="next"  href="#myCarousel<?php echo $p;?>">Next</a>
+													<div class="modals-content">
+														<label>Question <?php echo $i;?></label>
+														<input class="modlas-input" type="text" placeholder="Question<?php echo $i; ?>" name="quest<?php echo $i; ?>">
+														<?php for ($j=1; $j < 6 ; $j++) {  ?>
+															<label><?php if($j == 5){echo "Answer";}else{ echo "choice".$j;} ?></label>
+															<input class="modlas-input" type="text" 
+															placeholder="<?php if($j == 5){echo "ans".$i;}else{ echo "choice".$i.$j;} ?>" 
+															name="<?php if($j == 5){echo "ans".$i;}else{ echo "choice".$i.$j;} ?>">
+														<?php }?>
+													</div>
+
+												</div>
+												<div class="modal-footer">
+													<a type="button" class="btn btn-default" data-slide="prev"  href="#myCarousel<?php echo $p;?>">Previous</a>
+													<a type="submit" class="btn btn-default" data-slide="next"  href="#myCarousel<?php echo $p;?>">Next</a>
+													<input type="submit" value="Submit">
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-							<?php }?>
+								<?php }?>
+							</form>
 						</div>
 					</div>
 				</div>

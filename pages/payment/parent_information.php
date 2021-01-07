@@ -69,7 +69,6 @@
 
   <body>  
     <form  method="POST" action="index.php?app=payment&action=enroll">
-        <?php echo $cus['id']; ?>
         <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
        <!--  หน้า student -->
         <input type="hidden" name="student_name_th" value="<?php echo $_POST['student_name_th'];  ?>">

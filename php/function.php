@@ -235,4 +235,17 @@ if ( mysqli_query($conn, $sql)) {
 }
 mysqli_close($conn);
 }
+
+function listmsg(mysqli $conn){
+	$sql = "SELECT * FROM `notification` WHERE status = 0 ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+
 ?>

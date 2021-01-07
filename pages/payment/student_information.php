@@ -91,7 +91,7 @@
             <p>ชื่อ-นามสกุล (Thai) <a style="color: red";> * </a></p>
             <input name="student_name_th" type="text" class="form-control is-valid"  value="" pattern="^[ก-๏\s]+$" title="กรุณากรอกชื่อ นามสกุล ภาษาไทย" required >  
             <p >Name-Surname (Eng) <a style="color: red";> * </a> </p> 
-            <input name="student_name_eng" type="text" class="form-control" value="" pattern="^[a-zA-Z\s]+$"  title="กรุณากรอกชื่อ นามสกุล ภาษาอังกฤษ" required  >
+            <input name="student_name_eng" type="text" class="form-control" onchange="this.value=jsUcfirst(this.value)" / value="" pattern="^[a-zA-Z\s]+$"  title="กรุณากรอกชื่อ นามสกุล ภาษาอังกฤษ" required  >
             <p >Nickname (Eng) <a style="color: red";> * </a> </p> 
             <input name="student_nickname_eng" type="text" class="form-control" pattern="^[a-zA-Z\s]+$"   required >  
             <p >Birthday <a style="color: red";> * </a> </p> 
@@ -167,8 +167,9 @@
       </div>
     </div>
   </form>  
-
-<!-- <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
-<script src="https://unpkg.com/bootstrap@4.1.0/dist/js/bootstrap.min.js"></script>
--->
 </body>
+<script type="text/javascript">
+  function jsUcfirst(string)  { 
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+</script>

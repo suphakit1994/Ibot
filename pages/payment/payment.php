@@ -98,6 +98,12 @@
 
   <body>
     <form  method="post" action="index.php?app=payment&action=success">
+
+      <input type="hidden" name="student_id" value="<?php echo $cus['student_id']; ?>">
+      <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
+        <?php echo $cus['student_id']; ?>
+        <?php echo $_POST['course_id']; ?>
+
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
         <div class="col-md-7" style="padding-top: 5%;">
           <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2>     
@@ -147,23 +153,23 @@
             <div class="row" >
               <label style="margin-top: 5%; ">Bank</label>
               <br><div class="custom-select" style="width:200px; ">
-                <select name="bank">
+                <select name="payment_bank" class="form-control">
                   <p><option value="กรุงไทย">กรุงไทย</option></p>
                   <p><option value="ไทยพาณิชย์">ไทยพาณิชย์</option></p>
                   <p><option value="กสิกร">กสิกร</option></p>
                 </select>
                 <br><label>Ref. No.</label>
-                <br><input name="ref" style="width: 350%;">
+                <br><input name="payment_no"class="form-control" style="width: 350%;">
                 <br><label>Amount</label>
-                <br><input name="amount" style="width: 350%;">
+                <br><input name="payment_amount" class="form-control" style="width: 350%;">
                 <br><label>Transaction Date</label>
-                <br><input name="date_payment" style="width: 350%;">
+                <br><input name="payment_date" class="form-control" style="width: 350%;">
                 <br><label>Proof of payment</label>
                 <br>
-                <input type="file" id="image" name="image">
+                <input name="payment_img" type="file" id="image" >
               </div>
               <div style="padding-top: 20px;">
-                <input type="submit" >
+                <button  type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
               </div>
             </div>    
           </div>

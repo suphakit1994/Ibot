@@ -86,6 +86,7 @@ include('../php/course_function.php');
 					}
 
 				}
+
 				
 
 				
@@ -97,6 +98,10 @@ include('../php/course_function.php');
 			if ($_GET['action'] == 'addteam_compitition') {
 				require_once('addteam_compitition.php');
 			}
+		}
+		if($_GET['action'] == 'list_msg'){
+			$cus = listmsg($conn);
+			require_once('list_msg.php');
 		}
 		?>
 	</style>

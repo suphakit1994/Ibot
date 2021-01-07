@@ -1,3 +1,8 @@
+<?php include_once '../php/config.php'; 
+$sql_getnoti= mysqli_query($conn,"SELECT * FROM notification WHERE status=0");
+$count = mysqli_num_rows($sql_getnoti);
+?>
+
 <body>
 
 	<style type="text/css">
@@ -11,7 +16,7 @@
 		$t_nlevel = $_SESSION['teacher_nlevel'];
 
 		$a_level = $_SESSION['admin_level'];
-		$a_name = $_SESSION['admin_fname'];
+		$a_name = $_SESSION['admin_name'];
 		$a_nlevel = $_SESSION['admin_nlevel'];
 		?>
 		
@@ -29,9 +34,9 @@
 		}
 
 		.notification .badge {
-			position: absolute;
-			top: -5px;
-			right: -9px;
+			position: relative;
+			top: -25px;
+			right: 10px;
 			border-radius: 50%;
 			background-color: blue;
 			color: white;
@@ -132,6 +137,9 @@
 		}
 		.space_of_items{
 			padding-top: 9%;
+		}
+		.count{
+			position: relative;
 		}
 
 	</style>
@@ -287,18 +295,31 @@ elseif ($a_level=='admin') { ?>
 				</div>
 				<div class="col-md-9">
 
-					<ul class="nav navbar-nav navbar-right" style="padding-right:3%;">
-						<li class="dropdown"><a class="dropdown-toggle notification" data-toggle="dropdown" href="#" ><i class="far fa-bell" style="font-size:30px;"></i></span>
-							<span class="badge">5</a>
+					<ul class="nav navbar-nav navbar-right" style="padding-right:3%; ">
+						<li class="dropdown"><a class="dropdown-toggle notification" data-toggle="dropdown" href="#" ><i class="far fa-bell" style="border-radius: 50%; font-size:30px;"></i></span>
+
+							<span class="badge" id="count"><?php echo $count; ?></a>
 								<ul class="dropdown-menu">
-									<li><a href="index.php?app=admin&action=employees">Franchise</a></li>
-									<li><a href="index.php?app=admin&action=user">ขอสิทธ์การเข้าถึง</a></li>
+									<?php $sql_getdata= mysqli_query($conn,"SELECT* FROM notification WHERE status=0");
+									if(mysqli_num_rows($sql_getdata)>0)
+									{
+										while ($result = mysqli_fetch_assoc($sql_getdata)) 
+										{
+											echo '<a class="dropdown-item text-primary font-weight-bold" href="index.php?app=admin&action=list_msg">'.$result['topic'].'</a>';
+											echo '<div class="dropdown-divider"></div>';
+										}
+									}else{
+										echo '<a class="dropdown-item text-danger font-weight-bold" href="#"><i class="fas fa-frown-open"></i> Sorry ! No Messages</a>';
+									} ?>
 								</ul>
 							</li>
 							<li>
 								<div class="col-sm-8" style="text-align: end;">
 									<div class="row">
-										<p style="padding-top:5px; font-weight: bold;"><?php echo $a_name; ?></p>
+										<?php 
+										$cutname_a = substr($a_name, 0 , 10)
+										?>
+										<p style="padding-top:5px; font-weight: bold;"><?php echo $cutname_a; ?></p>
 										<p style="margin-top:-12px;"><?php echo $a_nlevel; ?></p>
 									</div>								
 
@@ -318,7 +339,7 @@ elseif ($a_level=='admin') { ?>
 			</div>
 		</div>
 	</nav>
-	
+
 <?php }else{ ?>
 	<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
 		<div class="container-fluid">

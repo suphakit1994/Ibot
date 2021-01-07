@@ -26,7 +26,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         $data =[];
         while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
           $_SESSION["admin_id"] = $row["admin_id"];
-          $_SESSION["admin_fname"] = $row["admin_fname"];
+          $_SESSION["admin_name"] = $row["admin_name"];
           $_SESSION["admin_level"] = $row["admin_level"];
           $_SESSION["admin_nlevel"] = $row["admin_nlevel"];
 

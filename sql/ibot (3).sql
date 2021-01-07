@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2021 at 10:53 AM
+-- Generation Time: Jan 06, 2021 at 11:21 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -31,9 +31,17 @@ CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL COMMENT 'id',
   `admin_username` varchar(20) NOT NULL COMMENT 'ชื่อผู้ใช้',
   `admin_password` varchar(20) NOT NULL COMMENT 'รหัสเข้าระบบ',
-  `admin_lavel` varchar(20) NOT NULL COMMENT 'id สถานะ',
-  `admin_nlevel` varchar(20) NOT NULL COMMENT 'สถานะที่นำไปแสดง'
+  `admin_level` varchar(20) NOT NULL COMMENT 'id สถานะ',
+  `admin_nlevel` varchar(20) NOT NULL COMMENT 'สถานะที่นำไปแสดง',
+  `admin_name` varchar(50) NOT NULL COMMENT 'ชื่อ'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `admin_username`, `admin_password`, `admin_level`, `admin_nlevel`, `admin_name`) VALUES
+(1, 'A_012345', '012345', 'admin', 'Admin', 'I BOT');
 
 -- --------------------------------------------------------
 
@@ -272,18 +280,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`student_id`, `student_name_th`, `student_name_eng`, `student_nickname_eng`, `student_brithday`, `student_school`, `student_grade`, `student_username`, `student_login_id`, `parents_name_th`, `parents_name_eng`, `parents_related`, `parents_phonnumber`, `parents_email`, `parents_line`, `student_password`, `student_level`, `student_nlevel`) VALUES
-(70, 'กนกอร', 'kanokorn', 'fk', '2021-01-02', 'rmuti', '3.0', '', 0, 'ระเบียบ', 'ra', 'Father', '0611630391', 'fai_tam_2569@hotmail.com', '1122', '', '', ''),
-(71, 'กนกอร', 'kanokorn', 'fk', '2021-01-02', 'rmuti', '4.0', '', 0, 'ระเบียบ', 'ra', 'brother', '0611630391', 'fai_tam_2569@hotmail.com', '1122', '', '', ''),
-(72, 'กนกอร', 'kanokorn', 'fk', '2021-01-02', 'rmuti', '4.0', '', 0, '', '', '', '', '', '', '', '', ''),
-(73, 'กนกอร', 'kanokorn', 'fk', '2021-01-02', 'rmuti', '4.0', '', 0, 'ระเบียบ', 'ra', 'sister', '0611630391', 'fai_tam_2569@hotmail.com', '1122', '', '', ''),
-(74, 'กนกอร', 'kanokorn', 'fk', '2021-01-02', 'rmuti', '4.0', '', 0, 'ระเบียบ', 'ra', 'brother', '0611630391', 'fai_tam_2569@hotmail.com', '1122', '', '', ''),
-(75, 'กนกอร', 'kanokorn', 'fk', '2021-01-02', 'rmuti', '4.0', '', 0, 'ระเบียบ', 'ra', 'Father', '0611630391', 'fai_tam_2569@hotmail.com', '1122', '', '', ''),
-(76, 'กนกอร', 'kanokorn', 'fk', '2021-01-02', 'rmuti', '4.0', '', 0, 'ระเบียบ', 'ra', 'Mother', '0611630391', 'fai_tam_2569@hotmail.com', '1122', '', '', ''),
-(77, 'กนกอร', 'kanokorn', 'fk', '2021-01-02', 'rmuti', '4.0', '', 0, 'ระเบียบ', 'ra', 'Mother', '0611630391', 'fai_tam_2569@hotmail.com', '1122', '', '', ''),
-(78, 'กนกอร', 'kanokorn', 'fk', '2021-01-01', 'rmuti', '3.0', '', 0, 'ระเบียบ', 'ra', 'Mother', '0611630391', 'fai_tam_2569@hotmail.com', '1122', '', '', ''),
-(79, 'กนกอร', 'kanokorn', 'fk', '2021-01-01', 'rmuti', '3.0', '', 0, '', '', '', '', '', '', '', '', ''),
-(80, 'กนกอร', 'kanokorn', 'fk', '2021-01-01', 'rmuti', '3.0', '', 0, '', '', '', '', '', '', '', 'student', 'Student'),
-(81, 'กนกอร', 'kanokorn', 'fk', '2021-01-07', 'rmuti', '3.0', '', 0, '', '', '', '', '', '', '', 'student', 'Student');
+(1, '', 'kanokorn ', 'faiy', '', '', '', 'S_212345', 0, '', '', '', '', '', '', '56789', 'student', 'Student');
 
 -- --------------------------------------------------------
 
@@ -334,6 +331,32 @@ INSERT INTO `student_assessment` (`Total`, `id_student`, `Mathematics`, `Science
 (0, 23, 0, 0, 0, 0, 0, 0, 0, 0),
 (0, 24, 0, 0, 0, 0, 0, 0, 0, 0),
 (0, 25, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 26, 0, 0, 0, 0, 0, 0, 0, 0),
+(2.625, 1, 4, 1, 3, 1, 4, 1, 2, 5),
+(0, 2, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 3, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 4, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 5, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 6, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 7, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 8, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 9, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 10, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 11, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 12, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 13, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 14, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 15, 1, 1, 1, 1, 1, 1, 1, 1),
+(0, 16, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 17, 1, 1, 1, 1, 1, 1, 1, 1),
+(0, 18, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 19, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 20, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 21, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 22, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 23, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 24, 0, 0, 0, 0, 0, 0, 0, 0),
+(0, 25, 0, 0, 0, 0, 0, 0, 0, 0),
 (0, 26, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -346,7 +369,6 @@ CREATE TABLE `teacher` (
   `teacher_id` int(11) NOT NULL COMMENT 'รหัสครู',
   `teacher_fname` varchar(30) NOT NULL COMMENT 'ชื่อจริง',
   `teacher_lname` varchar(30) NOT NULL COMMENT 'นามสกุล',
-  `teacher_position` varchar(30) NOT NULL COMMENT 'ตำแหน่ง',
   `teacher_email` varchar(30) NOT NULL COMMENT 'อีเมลล์',
   `teacher_phone` varchar(10) NOT NULL COMMENT 'เบอร์โทร',
   `teacher_worktime` varchar(100) NOT NULL COMMENT 'เวลาทำงาน',
@@ -356,6 +378,13 @@ CREATE TABLE `teacher` (
   `teacher_nlevel` varchar(20) NOT NULL COMMENT 'สถนะที่นำไปแสดง',
   `teacher_username` varchar(20) NOT NULL COMMENT 'ชื่อผู้ใช้'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `teacher`
+--
+
+INSERT INTO `teacher` (`teacher_id`, `teacher_fname`, `teacher_lname`, `teacher_email`, `teacher_phone`, `teacher_worktime`, `teacher_password`, `teacher_img`, `teacher_level`, `teacher_nlevel`, `teacher_username`) VALUES
+(1, 'Peggy', 'Bryan', '', '', '', '12345', '', 'teacher', 'Teacher', 'T_112345');
 
 -- --------------------------------------------------------
 
@@ -513,7 +542,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id';
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `assessment`
@@ -585,7 +614,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสครู';
+  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'รหัสครู', AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`

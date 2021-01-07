@@ -68,9 +68,20 @@
   </style>
 
   <body>  
-    <form  method="POST" action="index.php?app=payment&action=enroll&id=<?php echo $cus['id']; ?>">
-       <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
-      <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
+    <form  method="POST" action="index.php?app=payment&action=enroll">
+        <?php echo $cus['id']; ?>
+        <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
+       <!--  หน้า student -->
+        <input type="hidden" name="student_name_th" value="<?php echo $_POST['student_name_th'];  ?>">
+        <input type="hidden" name="student_name_eng" value="<?php echo $_POST['student_name_eng'];  ?>">
+        <input type="hidden" name="student_nickname_eng" value="<?php echo $_POST['student_nickname_eng'];  ?>">
+        <input type="hidden" name="student_brithday" value="<?php echo $_POST['student_brithday'];  ?>">
+        <input type="hidden" name="student_school" value="<?php echo $_POST['student_school'];  ?>">
+        <input type="hidden" name="student_grade" value="<?php echo $_POST['student_grade'];  ?>">
+
+
+
+ <input type="hidden" name="student_school" value="<?php echo $_POST['student_school'];  ?>">      <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="col-md-7" style="padding-top: 5%;">
           <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 
           
@@ -106,9 +117,6 @@
               <p >ID Line <a style="color: red";> * </a></p> 
               <input name="parents_line" type="text" class="form-control" style="width: 224px;" required>  
             </div>
-            <input type="hidden" name="student_name_eng" value="<?php echo $_POST['student_name_eng'];  ?>">
-            <input type="hidden" name="student_nickname_eng" value="<?php echo $_POST['student_nickname_eng'];  ?>">
-
             <!--  <a href="index.php?app=student_information" type="button" name="Back" class="Button" style="border-radius:28px; width: 120px;">Back</a> -->
             <button  type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
           </div> 

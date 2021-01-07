@@ -177,7 +177,6 @@
 						</ol>
 						<div class="carousel-inner">
 							<form action="course_insert_submit" method="get" accept-charset="utf-8">
-								
 								<?php for ($i=1; $i < 6 ; $i++) {  ?>
 									<div class="item <?php if($i==1){ echo("active");}?> ">
 										<div class="modal-dialog">

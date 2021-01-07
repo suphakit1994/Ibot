@@ -97,9 +97,28 @@
 
   <body>
     <form  method="POST" action="index.php?app=payment&action=payment">
-       <input type="hidden" name="id" value="<?php echo $cus['id']; ?>">
-       <?php echo $cus['id']; ?>
-       <?php echo $_POST['course_id']; ?>
+      
+      <input type="hidden" name="student_id" value="<?php echo $cus['student_id']; ?>">
+      <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
+        <?php echo $cus['student_id']; ?>
+        <?php echo $_POST['course_id']; ?>
+
+      <!--  หน้า student -->
+      <input type="hidden" name="student_name_th" value="<?php echo $_POST['student_name_th'];  ?>">
+      <input type="hidden" name="student_name_eng" value="<?php echo $_POST['student_name_eng'];  ?>">
+      <input type="hidden" name="student_nickname_eng" value="<?php echo $_POST['student_nickname_eng'];  ?>">
+      <input type="hidden" name="student_brithday" value="<?php echo $_POST['student_brithday'];  ?>">
+      <input type="hidden" name="student_school" value="<?php echo $_POST['student_school'];  ?>">
+      <input type="hidden" name="student_grade" value="<?php echo $_POST['student_grade'];  ?>">
+      
+      <!-- หน้า parent -->
+      <input type="hidden" name="parents_name_th" value="<?php echo $_POST['parents_name_th'];  ?>">
+      <input type="hidden" name="parents_name_eng" value="<?php echo $_POST['parents_name_eng'];  ?>">
+      <input type="hidden" name="parents_related" value="<?php echo $_POST['parents_related'];  ?>">
+      <input type="hidden" name="parents_phonnumber" value="<?php echo $_POST['parents_phonnumber'];  ?>">
+      <input type="hidden" name="parents_email" value="<?php echo $_POST['parents_email'];  ?>">
+      <input type="hidden" name="parents_line" value="<?php echo $_POST['parents_line'];  ?>">
+     
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="row">
           <div class="col-md-7" style=" padding-top: 5%;"> 
@@ -155,8 +174,7 @@
             </div>
             
             <div>
-              <input type="hidden" name="student_name_eng" value="<?php echo $_POST['student_name_eng'];  ?>">
-              <input type="hidden" name="student_nickname_eng" value="<?php echo $_POST['student_nickname_eng'];  ?>">
+
               <input type="hidden" name="parents_name_eng" value="<?php echo $_POST['parents_name_eng'];  ?>">
               <input type="hidden" name="parents_related" value="<?php echo $_POST['parents_related'];  ?>">
               <input type="hidden" name="parents_phonnumber" value="<?php echo $_POST['phonenumber'];  ?>">

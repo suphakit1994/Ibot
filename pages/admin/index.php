@@ -147,6 +147,24 @@ include('../php/course_function.php');
 			$cus = listmsg($conn);
 			require_once('list_msg.php');
 		}
+		$si = listmsg($conn);
+		for($i=0; $i<count($si); $i++) { 
+			# code...
+			$cus = listmsg($conn);
+			if($_GET['action'] == 'check_msg'. $cus[$i]['id']){
+				$value = $cus[$i]['id'];
+				$status = updatestatus($conn,$value);
+
+				// print_r($cus);
+			// print_r($cus);
+			// $approve = updatestatus($conn);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
+
+			}
+
+
+		}
+		
 		?>
 	</style>
 </head>
@@ -159,3 +177,4 @@ include('../php/course_function.php');
 </body>
 
 </html>
+

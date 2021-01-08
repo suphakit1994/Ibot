@@ -7,8 +7,8 @@ include('../php/course_function.php');
 
 
 if(!isset($_GET['action'])){
-	$cus[] = getselect($conn);
-	$data= getselect($conn);         //เรียกใช้ faction
+	$cus[] = selectcourse($conn);
+	$data= selectcourse($conn);         //เรียกใช้ faction
 	$arrlength = count($data); 	
 
 	require_once('our_course.php');

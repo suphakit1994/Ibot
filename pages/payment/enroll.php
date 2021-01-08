@@ -97,7 +97,7 @@
 
   <body>
     <form  method="POST" action="index.php?app=payment&action=payment">
-      
+
       <input type="hidden" name="student_id" value="<?php echo $cus['student_id']; ?>">
       <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
         <?php echo $cus['student_id']; ?>
@@ -149,7 +149,7 @@
                     <p> xxxxxxxxx</p> 
                     <p> xxxxxxxxx</p> 
                     <p> xxxxxxxxx</p> 
-                    <p><b>฿ <?php echo $_POST['Price']; ?></b></p>                       
+                    <p><b>฿ <?php echo $_POST['course_price']; ?></b></p>                       
                   </span> 
                 </div> 
               </div>
@@ -161,10 +161,10 @@
                 <div class="rcorners" >
                   <div class="col-md-4" style="padding-top: 10">
                     <b>Sunday</b>
-                    <p><?php echo $_POST[$i]['start_time'];  ?></p>
+                    <p><?php echo $_POST[$i]['calender_date'];  ?></p>
                   </div>
                   <div class="col-md-4" style="padding-top: 10px;">
-                    <b><p>10:30 AM - 12:00 PM</p></b>
+                    <b><p><?php echo $_POST[$i]['calender_starttime'];  ?> - <?php echo $_POST[$i]['calender_endtime'];  ?> </p></b>
                   </div>
                   <div class="col-md-4"style="padding-right: 0px;px;text-align: end;">
                     <a  href="#" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;margin-top:5px">Enroll</a>

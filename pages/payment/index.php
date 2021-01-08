@@ -13,7 +13,7 @@ include("../php/course_function.php");
 	<style>
 		<?php 
 		if(!isset($_GET['action'])){
-			$data= getselect($conn);
+			$data= selectcourse($conn);
 			require_once('student_information.php');	
 		}
 		
@@ -25,8 +25,12 @@ include("../php/course_function.php");
 		if($_GET['action']=='enroll'){
 			$cus=insertstudent($conn,$_POST);
 			$cus = selectmax($conn);
-			$cuss = updatestudent($conn,$_POST,$cus);
+			$cuss = updatestudent($conn,$_POST,$cus);	
 			require_once('enroll.php');
+			$pri = selectcourse_prices($conn);	
+			
+			print_r($pri);
+			
 		}
 
 		if($_GET['action']=='payment'){

@@ -26,27 +26,31 @@
 							<td><?php echo $cus[$i]['topic']; ?></td>
 							<td><?php echo $cus[$i]['cr_date']; ?></td>
 							<td>
-								<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal<?php echo $i;?>">Information</button>
-								<!-- Modal -->
-								<div class="modal fade" id="myModal<?php echo $i;?>" role="dialog">
-									<div class="modal-dialog">
-										<!-- Modal content-->
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal">&times;</button>
-												<h4 class="modal-title">ID : <?php echo $cus[$i]['id']; ?>_<?php echo $cus[$i]['topic']; ?></h4>
-											</div>
-											<div class="modal-body">
-												<p>ID : <?php echo $cus[$i]['id']; ?></p>
-												<p>Topic : <?php echo $cus[$i]['topic']; ?></p>
-												<p>Message : <?php echo $cus[$i]['message']; ?></p>
-												<p>Bank : <?php echo $cus[$i]['bank']; ?></p>
-												<p>Date : <?php echo $cus[$i]['cr_date']; ?></p>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-default" data-dismiss="modal">Approve</button>
-												<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-											</div>
+								<form action="index.php?app=admin&action=check_msg<?php echo $cus[$i]['id']; ?>" method="post" accept-charset="utf-8">
+									<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal<?php echo $i;?>">Information</button>
+									<!-- Modal -->
+									<div class="modal fade" id="myModal<?php echo $i;?>" role="dialog">
+										<div class="modal-dialog">
+											<!-- Modal content-->
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">&times;</button>
+													<h4 class="modal-title">ID : <?php echo $cus[$i]['id']; ?>_<?php echo $cus[$i]['topic']; ?></h4>
+												</div>
+												<div class="modal-body">
+													<p>ID : index.php?app=admin&action=check_msg<?php echo $cus[$i]['id']; ?></p>
+													<p>Topic : <?php echo $cus[$i]['topic']; ?></p>
+													<p>Message : <?php echo $cus[$i]['message']; ?></p>
+													<p>Bank : <?php echo $cus[$i]['bank']; ?></p>
+													<p>Date : <?php echo $cus[$i]['cr_date']; ?></p>
+												</div>
+												<div class="modal-footer">
+													<input type="submit" name="" class="btn btn-default">
+
+													<button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+												</div>
+											</form>
 										</div>
 									</div>
 								</div>
@@ -74,3 +78,7 @@
 		</div>
 	</div>	
 </body>
+<script>  ///ทำscriptให้เสร้จ
+</script>
+
+

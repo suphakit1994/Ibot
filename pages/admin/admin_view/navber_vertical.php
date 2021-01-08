@@ -87,7 +87,7 @@
 					</a>
 					<ul id="submenu-5" class="collapse">
 						<li><a href="index.php?app=admin&action=admin_course"><i class="fa fa-angle-double-right"></i> Add course</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.2</a></li>
+						<li><a href="index.php?app=admin&action=course_list"><i class=""></i> Course list</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>

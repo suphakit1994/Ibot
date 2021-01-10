@@ -45,13 +45,13 @@
 							<th>Price</th>
 							<th></th>
 						</tr>
-						<?php for($i = 0; $i< 10; $i++){ ?>
+						<?php for($i = 0; $i< count($course_list); $i++){ ?>
 							<tr>
-								<td>Peter</td>
-								<td>Griffin</td>
-								<td>$100</td>
-								<td>Griffin</td>
-								<td>$100</td>
+								<td><?php echo $course_list[$i]['course_code']; ?></td>
+								<td><?php echo $course_list[$i]['course_expension']; ?></td>
+								<td><?php echo $course_list[$i]['course_Age']; ?></td>
+								<td><?php echo $course_list[$i]['course_lesson']; ?></td>
+								<td><?php echo $course_list[$i]['course_price']; ?></td>
 								<td>
 									<div class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>

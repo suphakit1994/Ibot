@@ -46,7 +46,14 @@ include('../php/course_function.php');
 				require_once('dashboard.php');
 			}
 			if ($_GET['action'] == 'course_list') {
+				$course_list = selectcourse($conn);
 				require_once('course_list.php');
+			}
+			if ($_GET['action'] == 'course_edit') {
+				require_once('course_edit.php');
+			}
+			if ($_GET['action'] == 'choice_edit') {
+				require_once('choice_edit.php');
 			}
 				// ---------------------------Insert--------------------------------
 			if ($_GET['action'] == 'insert_datetime') {

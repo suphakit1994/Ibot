@@ -86,7 +86,7 @@
 		<div style="display: flex; text-align: center;justify-content: center;padding: 25px;">
 			<h1>ADD Course</h1>
 		</div>
-		<form method="POST"  action="index.php?app=admin&action=admin_course/add" enctype="multipart/form-data">
+		<form method="POST"  action="index.php?app=admin&action=admin_course/addcourse" enctype="multipart/form-data">
 			<div class="flex-upload-pic">
 				<div class="avatar-wrapper">
 					<img class="profile-pic" style=" height: 100%;  width: 100%;" >

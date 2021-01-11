@@ -71,6 +71,21 @@ function selectcourse(mysqli $conn){
 		return $data;
 	}
 }
+function selectfile(mysqli $conn){
+
+	$sql = "SELECT * FROM `file` WHERE 1";
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
 function selectcourse_prices(mysqli $conn){
 
 	$sql = "SELECT `course_price`FROM `course` WHERE course_id = '1235' ";
@@ -86,21 +101,24 @@ function selectcourse_prices(mysqli $conn){
 		return $data;
 	}
 }
-function uploadpdf(mysqli $conn,$data,$nump){
-	$course_lesson = $_POST['course_lesson'];
+function uploadpdf(mysqli $conn,$data,$nump,$id_lesson,$number_of_lesson){
 	$ext = pathinfo(basename($_FILES[$nump]['name']),PATHINFO_EXTENSION);
-	$new_pdf_name = 'pdf_'.$course_lesson.$nump.".".$ext;
+	$new_pdf_name = 'pdf_'.uniqid().$nump.".".$ext;
 	$pdf_path = "../pless/";
 	$upload_path = $pdf_path.$new_pdf_name;
+	$var_t = getcwd();
+
+	// echo "====================================================>".$var_t;
 	if($ext == "pdf" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
 		move_uploaded_file($_FILES[$nump]['tmp_name'], $upload_path);
 		$numpb  = $new_pdf_name;
-		echo "upload at file.";
+		// // echo "upload at file.";
+		
 	}else{
 		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 	}
 
-	$sql = " INSERT INTO `file`(`file_address`) VALUES ( '$numpb')";
+	$sql = " INSERT INTO `file`(`file_address`,`file_lesson_id`,`number`) VALUES ( '$numpb','$id_lesson','$number_of_lesson')";
 	echo $sql;
 
 	$resuit =  mysqli_query($conn, $sql);
@@ -110,9 +128,8 @@ function uploadpdf(mysqli $conn,$data,$nump){
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		return false;
 	}
-	mysqli_close($conn);	
+	mysqli_close($conn);
 	error_reporting(0);
-	console_log($resuit);
 }
 
 function console_log($output, $with_script_tags = true) {
@@ -126,19 +143,18 @@ function console_log($output, $with_script_tags = true) {
 
 
 
-function upload_quiz(mysqli $conn,$data,$new_var_quest,$new_var_ans){
-	$course_lesson = $_POST['course_lesson'];
-	$course_code = $_POST['course_code'];
-
-
-	$sql = " INSERT INTO `quize`(`question`,`check_ans`,`lesson`,`course_name`,`quiz_lesson_id`) 
+function upload_quiz(mysqli $conn,$data,$new_var_quest,$new_var_ans,$id_lesson,$n_number){
+	// echo $id_lesson;
+	// echo $n_number;
+	$sql = " INSERT INTO `quize`(`question`,`check_ans`,`quiz_lesson_id`,`number`) 
 	VALUES ( 
 	'$new_var_quest',
 	'$new_var_ans',
-	'$course_lesson',
-	'$course_code','1')";
+	'$id_lesson',
+	'$n_number')";
 
-	echo $sql;
+	// echo $sql;
+
 
 	$resuit =  mysqli_query($conn, $sql);
 	if ($resuit) {
@@ -147,12 +163,12 @@ function upload_quiz(mysqli $conn,$data,$new_var_quest,$new_var_ans){
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		return false;
 	}
-	mysqli_close($conn);	
+	mysqli_close($conn);
 	error_reporting(0);
 }
 
 
-// ต้องเช็คไอดีได้ก่อนที่จะจัดเก็บตัวเลือกลงไปในเทเบิ้ลได้ เพื่อให้ คำถามตรงกับ ตัวเลือก
+
 function upload_choice(mysqli $conn,$data,$new_use_var,$id_quize){
 	$sql = " INSERT INTO `choice`(`selected`,`key_all`) 
 	VALUES ('$new_use_var','$id_quize')";

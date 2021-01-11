@@ -100,8 +100,8 @@
 
       <input type="hidden" name="student_id" value="<?php echo $cus['student_id']; ?>">
       <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
-        <?php echo $cus['student_id']; ?>
-        <?php echo $_POST['course_id']; ?>
+      <?php echo $cus['student_id']; ?>
+      <?php echo $_POST['course_id']; ?>
 
       <!--  หน้า student -->
       <input type="hidden" name="student_name_th" value="<?php echo $_POST['student_name_th'];  ?>">
@@ -118,7 +118,15 @@
       <input type="hidden" name="parents_phonnumber" value="<?php echo $_POST['parents_phonnumber'];  ?>">
       <input type="hidden" name="parents_email" value="<?php echo $_POST['parents_email'];  ?>">
       <input type="hidden" name="parents_line" value="<?php echo $_POST['parents_line'];  ?>">
-     
+
+
+      <!-- หน้า enroll -->
+      <input type="hidden" name="course_category" value="<?php echo $pri['course_category'];  ?>">
+      <input type="hidden" name="course_expension" value="<?php echo $pri['course_expension'];  ?>">
+      <input type="hidden" name="course_expension" value="<?php echo $pri['course_expension'];  ?>">
+      <input type="hidden" name="course_category" value="<?php echo $pri['course_category'];  ?>">
+      <input type="hidden" name="course_category" value="<?php echo $pri['course_category'];  ?>">
+
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="row">
           <div class="col-md-7" style=" padding-top: 5%;"> 
@@ -135,21 +143,21 @@
             
             <div class="form-card" style=" padding-top: 10%;">    
               <div class="card-body"  > 
-                <div class="row" style="margin-bottom: 10px;padding-left: 30px;"><b>imagination 1st course</b> </div>
+                <div class="row" style="margin-bottom: 10px;padding-left: 30px;"><b><?php echo $pri['course_expension']." " ?><u ><?php echo $pri['course_code']; ?></u></b> </div>
                 <div class="col-md-6">
                   <span>
                     <p> class schedule</p> 
                     <p> Make-up week</p> 
                     <p> Study time</p> 
-                    <p><b>Prices</b></p>                      
+                    <p>Prices</p>                      
                   </span> 
                 </div> 
                 <div class="col-md-6">
                   <span> 
                     <p> xxxxxxxxx</p> 
                     <p> xxxxxxxxx</p> 
-                    <p> xxxxxxxxx</p> 
-                    <p><b>฿ <?php echo $_POST['course_price']; ?></b></p>                       
+                    <p> 1:30 hrs / 8 times / once a week.</p> 
+                    <p>฿ <?php echo $pri['course_price']; ?></p>                       
                   </span> 
                 </div> 
               </div>
@@ -158,32 +166,28 @@
                 <label for="yes">I agree the <label style="color:blue";>Terms and Conditions</label></label>   
               </div>
               <?php for($i=0;$i<$arrlength;$i++){ ?>
-                <div class="rcorners" >
+                <div class="row" >
                   <div class="col-md-4" style="padding-top: 10">
-                    <b>Sunday</b>
-                    <p><?php echo $_POST[$i]['calender_date'];  ?></p>
+                    <!-- <b>Sunday</b> -->
+                    <p><?php echo $data[$i]['calender_date'];  ?></p>
                   </div>
                   <div class="col-md-4" style="padding-top: 10px;">
-                    <b><p><?php echo $_POST[$i]['calender_starttime'];  ?> - <?php echo $_POST[$i]['calender_endtime'];  ?> </p></b>
+                    <b><p><?php echo $data[$i]['calender_starttime'];  ?> - <?php echo $data[$i]['calender_endtime'];  ?> </p></b>
                   </div>
-                  <div class="col-md-4"style="padding-right: 0px;px;text-align: end;">
-                    <a  href="#" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;margin-top:5px">Enroll</a>
+                  <div class="col-md-4"style="padding-right: 0px;px;text-align: center;">
+                    <input  href="#" type="radio" name="calender_id"  value="<?php echo $data[$i]['calender_id'];  ?>" >
                   </div> 
                 </div>
               <?php } ?>
             </div>
-            
-            <div>
 
-              <input type="hidden" name="parents_name_eng" value="<?php echo $_POST['parents_name_eng'];  ?>">
-              <input type="hidden" name="parents_related" value="<?php echo $_POST['parents_related'];  ?>">
-              <input type="hidden" name="parents_phonnumber" value="<?php echo $_POST['phonenumber'];  ?>">
+            <div>
 
               <button  type="submit" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
             </div>    
-            
+
           </div>
-          
+
           <div class="col-md-5" style=" padding-top: 5%;">
             <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
               <h3 style="margin-bottom: 20px;"><b>STUDENT INFORMATION</b></h3>
@@ -197,7 +201,7 @@
                   <p><?php echo $_POST['student_nickname_eng'];  ?></p>
                 </div>
               </div>
-              
+
               <h3 style="margin-bottom: 5%;margin-top: 8%;"><b>PARENT INFORMATION</b></h3>
               <div class="row">
                 <div class="col-md-6"> 
@@ -217,7 +221,6 @@
                 <div class="col-md-6"> 
                   <p>Course</p> 
                   <p>Course Expansion</p>
-                  <p>Total Course</p>
                   <p>class schedule</p>
                   <p>Make-up class</p>
                   <p>Study time</p>
@@ -228,12 +231,11 @@
                   <p></p>
                   <p></p>
                   <p></p>
-                  <p></p>
-                  
+
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>  
       </div> 

@@ -71,16 +71,16 @@ function selectcourse(mysqli $conn){
 		return $data;
 	}
 }
-function selectcourse_prices(mysqli $conn){
+function selectcourse_prices(mysqli $conn,$data){
 
-	$sql = "SELECT `course_price`FROM `course` WHERE course_id = '1235' ";
+	$sql = "SELECT* FROM `course` WHERE course_id = '".$_POST['course_id']."' ";
 
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
+		$data ;
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
+			$data = $row;
 		}
 		$result->close();
 		return $data;
@@ -151,10 +151,11 @@ function upload_quiz(mysqli $conn,$data,$new_var_quest,$new_var_ans){
 	error_reporting(0);
 }
 
-function upload_choice(mysqli $conn,$data,$new_use_var){
 
+// ต้องเช็คไอดีได้ก่อนที่จะจัดเก็บตัวเลือกลงไปในเทเบิ้ลได้ เพื่อให้ คำถามตรงกับ ตัวเลือก
+function upload_choice(mysqli $conn,$data,$new_use_var,$id_quize){
 	$sql = " INSERT INTO `choice`(`selected`,`key_all`) 
-	VALUES ('$new_use_var','470')";
+	VALUES ('$new_use_var','$id_quize')";
 
 	echo $sql;
 
@@ -167,5 +168,13 @@ function upload_choice(mysqli $conn,$data,$new_use_var){
 	}
 	mysqli_close($conn);	
 	error_reporting(0);
+}
+function select_idquize(mysqli $conn){
+	$sql = "SELECT MAX(quiz_id) as quiz_id FROM `quize`  ";
+	echo $sql;		
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+	}
+	return $row;
 }
 ?>

@@ -7,7 +7,8 @@ $count = mysqli_num_rows($sql_getnoti);
 
 	<style type="text/css">
 
-		<?php 	$s_level = $_SESSION['student_level'];
+		<?php 	
+		$s_level = $_SESSION['student_level'];
 		$s_name = $_SESSION['student_fname'];
 		$s_nlevel = $_SESSION['student_nlevel'];
 

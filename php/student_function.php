@@ -157,6 +157,16 @@ if ( mysqli_query($conn, $sql)) {
 }
 mysqli_close($conn);
 }
+function selectcourse_students(mysqli $conn){
+
+	$sql = "SELECT * FROM course AS c  INNER JOIN course_student AS cs  ON  cs.cs_course_id =  c.course_id WHERE  cs.cs_student_id =357 ";
+	echo $sql;		
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+	}
+	return $row;
+	// print_r($sql);
+}
 
 function insertcalender_student(mysqli $conn,$data,$cus){
 
@@ -214,5 +224,9 @@ if ( mysqli_query($conn, $sql)) {
 }
 mysqli_close($conn);
 }
+
+
+
+
 
 ?>

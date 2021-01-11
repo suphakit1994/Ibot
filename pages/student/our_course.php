@@ -1,3 +1,4 @@
+
 <style type="text/css">
 
   .card{
@@ -33,12 +34,14 @@
     <h1 style="padding-bottom: 20px;padding-top: 50px;">
       <b>OUR COURSE</b>
     </h1 > 
+    <?php echo $_SESSION['student_id']; ?>
     <div class="row" style="padding-bottom: 0px;" >
-     <?php 
+
+      <?php 
       for($i=0;$i<$arrlength; $i++){  //loop card 
         ?>
         <form method="post" action="index.php?app=student&action=enroll" >
-          <div href="..faii_ft.php" >
+          <div >
             <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
               <div class="card" >
                 <div class="card-image" >

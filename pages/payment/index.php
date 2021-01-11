@@ -23,30 +23,27 @@ include("../php/course_function.php");
 		}
 
 		if($_GET['action']=='enroll'){
-			$cus=insertstudent($conn,$_POST);
-			$cus = selectmax($conn);
-			$cuss = updatestudent($conn,$_POST,$cus);	
+			$data= calendars($conn);		//select calendars
+			$arrlength = count($data);
+			$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
 			require_once('enroll.php');
-			$pri = selectcourse_prices($conn);	
-			
-			print_r($pri);
-			
 		}
 
 		if($_GET['action']=='payment'){
-			
-			// $cus = selectmax($conn);
-			$add = insertcourse_student($conn,$_POST);
+			$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
+
 			require_once('payment.php');
 
 		}
 		if($_GET['action']=='success'){
-
+			$pri = selectcourse_prices($conn,$_POST,$cus); // แสดงข้อมูลคอสที่ลง
+			$add = insertstudent($conn,$_POST);
+			$cus = selectmax($conn);
 			require_once('success.php');
-		}
-
-
-
+			$paym = insertpayment($conn,$_POST,$cus);  // insert payment	
+			$calendar = insertcalender_student($conn,$_POST,$cus); 
+			$add = insertcourse_student($conn,$_POST,$cus);	
+		}		
 
 		?>
 	</style>

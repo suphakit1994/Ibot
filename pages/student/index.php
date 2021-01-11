@@ -3,6 +3,7 @@ date_default_timezone_set("Asia/Bangkok");
 include("../php/config.php");
 include("../php/function.php");
 include("../php/course_function.php");
+include("../php/student_function.php");
 
 
 
@@ -12,22 +13,23 @@ include("../php/course_function.php");
 	<?php require_once('view/head.inc.php'); ?>
 	<style>
 		<?php 
-		$id = $_SESSION['student_id '];
+		$id = $_SESSION['student_id'];
 		$name = $_SESSION['student_fname'];
 		$level = $_SESSION['student_level'];
 		$nlevel = $_SESSION['student_nlevel'];
 		?>
 		<?php
 		if ($level=='student') {
-
 			if(!isset($_GET['action'])){
-				$cus[] = getselect($conn);
-				$data= getselect($conn);         //เรียกใช้ faction
-			    $arrlength = count($data); 		//นับข้อมูล
+
+				$cus = selectcourse_students($conn);
+				print_r($cus);
+				// // $data= getselect($conn);         //เรียกใช้ faction
+			    $arrlength = count($cus); 		//นับข้อมูล
 			    require_once('our_course.php');
 			}
 
-			if($_GET['action']=='student'){
+			if($_GET['action']=='student_assessment'){
 				$data=$_POST;
 				$stem1=["Science","Technology","Engineering","Mathematics"];
 				$stem2=["Synthesis","Teamwork","EQ","Meditation"];
@@ -36,16 +38,16 @@ include("../php/course_function.php");
 			}
 
 			if($_GET['action']=="enroll"){
-				
-				
+
+
 				// $data = calendars($conn);
 				// $arrlength = count($data);
-				
+
 				require_once('enroll.php');
 			}
 
 			if($_GET['action']=="payment"){
-				
+
 				require_once('payment.php');
 			}
 			if($_GET['action']=="success"){

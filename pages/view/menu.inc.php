@@ -7,7 +7,8 @@ $count = mysqli_num_rows($sql_getnoti);
 
 	<style type="text/css">
 
-		<?php 	$s_level = $_SESSION['student_level'];
+		<?php 	
+		$s_level = $_SESSION['student_level'];
 		$s_name = $_SESSION['student_fname'];
 		$s_nlevel = $_SESSION['student_nlevel'];
 
@@ -142,6 +143,18 @@ $count = mysqli_num_rows($sql_getnoti);
 			position: relative;
 		}
 
+		.dropdown-menu{
+			height:200px;
+			overflow-y: scroll;
+		}
+		.dropdown-menu a:hover{
+			display: inline-block;
+			background-color: #d9d9d9;
+
+		}
+
+
+
 	</style>
 
 	<?php
@@ -182,15 +195,15 @@ $count = mysqli_num_rows($sql_getnoti);
 							<li>
 								<div class="col-sm-8" style="text-align: end;">
 									<div class="row">
-										<p style="padding-top:5px; font-weight: bold;"><?php echo $s_name; ?></p>
-										<p style="margin-top:-12px;"><?php echo $s_nlevel; ?></p>
+										<p style="padding-top:5px; font-weight: bold; margin-bottom: 0px;"><?php echo $s_name; ?></p>
+										<p><?php echo $s_nlevel; ?></p>
 									</div>								
 
 								</div>
 								<div class="col-sm-4" style="align-items: center; padding-top: 5px;" >
 									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../images/images.png" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
 									</a>
-									<ul class="dropdown-menu">
+									<ul class="dropdown-menu" style="overflow: hidden; height: 100px; padding-left: 20px; padding-top: 15px;">
 										<a href="../pages/signin/logout.php">logout</a>
 
 									</ul>
@@ -245,8 +258,8 @@ elseif ($t_level=='teacher') { ?>
 							<li>
 								<div class="col-sm-8" style="text-align: end;">
 									<div class="row">
-										<p style="padding-top:5px; font-weight: bold;"><?php echo $t_name; ?></p>
-										<p style="margin-top:-12px;"><?php echo $t_nlevel; ?></p>
+										<p style="padding-top:5px; font-weight: bold; margin-bottom: 0px;"><?php echo $t_name; ?></p>
+										<p ><?php echo $t_nlevel; ?></p>
 									</div>								
 
 								</div>
@@ -254,7 +267,7 @@ elseif ($t_level=='teacher') { ?>
 								<div class="col-sm-4" style="align-items: center; padding-top: 5px;" >
 									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../images/images.png" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
 									</a>
-									<ul class="dropdown-menu">
+									<ul class="dropdown-menu" style="overflow: hidden; height: 100px; padding-left: 20px; padding-top: 15px;">
 										<a href="../pages/signin/logout.php">logout</a>
 
 									</ul>
@@ -299,7 +312,7 @@ elseif ($a_level=='admin') { ?>
 						<li class="dropdown"><a class="dropdown-toggle notification" data-toggle="dropdown" href="#" ><i class="far fa-bell" style="border-radius: 50%; font-size:30px;"></i></span>
 
 							<span class="badge" id="count"><?php echo $count; ?></a>
-								<ul class="dropdown-menu">
+								<ul class="dropdown-menu" style="padding-left: 10px; padding-right: 10px;">
 									<?php $sql_getdata= mysqli_query($conn,"SELECT* FROM notification WHERE status=0");
 									if(mysqli_num_rows($sql_getdata)>0)
 									{
@@ -307,6 +320,11 @@ elseif ($a_level=='admin') { ?>
 										{
 											echo '<a class="dropdown-item text-primary font-weight-bold" href="index.php?app=admin&action=list_msg">'.$result['topic'].'</a>';
 											echo '<div class="dropdown-divider"></div>';
+
+											?>
+											<div style="border-bottom: 1px solid grey; padding-bottom: 5px;"></div>
+
+											<?php
 										}
 									}else{
 										echo '<a class="dropdown-item text-danger font-weight-bold" href="#"><i class="fas fa-frown-open"></i> Sorry ! No Messages</a>';
@@ -319,16 +337,18 @@ elseif ($a_level=='admin') { ?>
 										<?php 
 										$cutname_a = substr($a_name, 0 , 10)
 										?>
-										<p style="padding-top:5px; font-weight: bold;"><?php echo $cutname_a; ?></p>
-										<p style="margin-top:-12px;"><?php echo $a_nlevel; ?></p>
+										<p style="padding-top:5px; margin-bottom: 0px; font-weight: bold;"><?php echo $cutname_a; ?></p>
+										<p ><?php echo $a_nlevel; ?></p>
 									</div>								
 
 								</div>
 								<div class="col-sm-4" style="align-items: center; padding-top: 5px;" >
 									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../images/images.png" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
 									</a>
-									<ul class="dropdown-menu">
+									<ul class="dropdown-menu" style="overflow: hidden; height: 100px; padding-left: 15px; padding-top: 10px;">
+
 										<a href="../pages/signin/logout.php">logout</a>
+
 
 									</ul>
 								</div>

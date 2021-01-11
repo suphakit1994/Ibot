@@ -12,7 +12,7 @@ include("../php/course_function.php");
 	<?php require_once('view/head.inc.php'); ?>
 	<style>
 		<?php 
-		$id = $_SESSION['student_id '];
+		$id = $_SESSION['student_id'];
 		$name = $_SESSION['student_fname'];
 		$level = $_SESSION['student_level'];
 		$nlevel = $_SESSION['student_nlevel'];

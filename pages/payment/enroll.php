@@ -119,6 +119,14 @@
       <input type="hidden" name="parents_email" value="<?php echo $_POST['parents_email'];  ?>">
       <input type="hidden" name="parents_line" value="<?php echo $_POST['parents_line'];  ?>">
 
+
+      <!-- หน้า enroll -->
+      <input type="hidden" name="course_category" value="<?php echo $pri['course_category'];  ?>">
+      <input type="hidden" name="course_expension" value="<?php echo $pri['course_expension'];  ?>">
+      <input type="hidden" name="course_expension" value="<?php echo $pri['course_expension'];  ?>">
+      <input type="hidden" name="course_category" value="<?php echo $pri['course_category'];  ?>">
+      <input type="hidden" name="course_category" value="<?php echo $pri['course_category'];  ?>">
+
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="row">
           <div class="col-md-7" style=" padding-top: 5%;"> 
@@ -158,16 +166,16 @@
                 <label for="yes">I agree the <label style="color:blue";>Terms and Conditions</label></label>   
               </div>
               <?php for($i=0;$i<$arrlength;$i++){ ?>
-                <div class="rcorners" >
+                <div class="row" >
                   <div class="col-md-4" style="padding-top: 10">
-                    <b>Sunday</b>
-                    <p><?php echo $_POST[$i]['calender_date'];  ?></p>
+                    <!-- <b>Sunday</b> -->
+                    <p><?php echo $data[$i]['calender_date'];  ?></p>
                   </div>
                   <div class="col-md-4" style="padding-top: 10px;">
-                    <b><p><?php echo $_POST[$i]['calender_starttime'];  ?> - <?php echo $_POST[$i]['calender_endtime'];  ?> </p></b>
+                    <b><p><?php echo $data[$i]['calender_starttime'];  ?> - <?php echo $data[$i]['calender_endtime'];  ?> </p></b>
                   </div>
-                  <div class="col-md-4"style="padding-right: 0px;px;text-align: end;">
-                    <a  href="#" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;margin-top:5px">Enroll</a>
+                  <div class="col-md-4"style="padding-right: 0px;px;text-align: center;">
+                    <input  href="#" type="radio" name="calender_id"  value="<?php echo $data[$i]['calender_id'];  ?>" >
                   </div> 
                 </div>
               <?php } ?>
@@ -213,13 +221,11 @@
                 <div class="col-md-6"> 
                   <p>Course</p> 
                   <p>Course Expansion</p>
-                  <p>Total Course</p>
                   <p>class schedule</p>
                   <p>Make-up class</p>
                   <p>Study time</p>
                 </div>
                 <div class="col-md-6"> 
-                  <p></p>
                   <p></p>
                   <p></p>
                   <p></p>

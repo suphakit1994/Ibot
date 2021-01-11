@@ -73,7 +73,7 @@ function selectcourse(mysqli $conn){
 }
 function selectcourse_prices(mysqli $conn,$data){
 
-	$sql = "SELECT  `course_expension`,`course_code`,`course_price` FROM `course` WHERE course_id = '".$_POST['course_id']."' ";
+	$sql = "SELECT* FROM `course` WHERE course_id = '".$_POST['course_id']."' ";
 
 	$result = $conn->query($sql); 
 

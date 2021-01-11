@@ -23,34 +23,27 @@ include("../php/course_function.php");
 		}
 
 		if($_GET['action']=='enroll'){
-			// $data= selectcourse($conn);
-			$pri = selectcourse_prices($conn,$_POST);
-			require_once('enroll.php');	
+			$data= calendars($conn);		//select calendars
+			$arrlength = count($data);
+			$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
+			require_once('enroll.php');
 		}
 
 		if($_GET['action']=='payment'){
-			
+			$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
+
 			require_once('payment.php');
 
-			if($_GET['action']=='payment/add'){
-				// require_once('payment.php');
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=payment">';
-			}	
-			
 		}
-
 		if($_GET['action']=='success'){
-			$cus=insertstudent($conn,$_POST);
+			$pri = selectcourse_prices($conn,$_POST,$cus); // แสดงข้อมูลคอสที่ลง
+			$add = insertstudent($conn,$_POST);
 			$cus = selectmax($conn);
-			
 			require_once('success.php');
-			$add = insertcourse_student($conn,$_POST);
-		}
-		if($_GET['action']=='modal'){
-			require_once('modal.php');
-
-		}
-		
+			$paym = insertpayment($conn,$_POST,$cus);  // insert payment	
+			$calendar = insertcalender_student($conn,$_POST,$cus); 
+			$add = insertcourse_student($conn,$_POST,$cus);	
+		}		
 
 		?>
 	</style>

@@ -1,8 +1,11 @@
 <style>
 	.table{
-		margin-top: 15% !important;
+		margin-top: 10% !important;
+		height:250px;
+		overflow-y: scroll;
 
 	}
+
 
 </style>
 <body>
@@ -19,66 +22,81 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php for($i=0; $i<count($cus); $i++) {?>
-						<tr>
-							<td><?php echo $cus[$i]['id']; ?></td>
-							<td><?php echo $cus[$i]['name']; ?></td>
-							<td><?php echo $cus[$i]['topic']; ?></td>
-							<td><?php echo $cus[$i]['cr_date']; ?></td>
-							<td>
-								<form action="index.php?app=admin&action=check_msg<?php echo $cus[$i]['id']; ?>" method="post" accept-charset="utf-8">
-									<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal<?php echo $i;?>">Information</button>
-									<!-- Modal -->
-									<div class="modal fade" id="myModal<?php echo $i;?>" role="dialog">
-										<div class="modal-dialog">
-											<!-- Modal content-->
-											<div class="modal-content">
-												<div class="modal-header">
-													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h4 class="modal-title">ID : <?php echo $cus[$i]['id']; ?>_<?php echo $cus[$i]['topic']; ?></h4>
-												</div>
-												<div class="modal-body">
-													<p>ID : index.php?app=admin&action=check_msg<?php echo $cus[$i]['id']; ?></p>
-													<p>Topic : <?php echo $cus[$i]['topic']; ?></p>
-													<p>Message : <?php echo $cus[$i]['message']; ?></p>
-													<p>Bank : <?php echo $cus[$i]['bank']; ?></p>
-													<p>Date : <?php echo $cus[$i]['cr_date']; ?></p>
-												</div>
-												<div class="modal-footer">
-													<input type="submit" name="" class="btn btn-default">
+					<div id="table-data">
+						<?php for($i=0; $i<count($cus); $i++) {?>
+							<tr>
+								<td><?php echo $cus[$i]['id']; ?></td>
+								<td><?php echo $cus[$i]['name']; ?></td>
+								<td><?php echo $cus[$i]['topic']; ?></td>
+								<td><?php echo $cus[$i]['cr_date']; ?></td>
+								<td>
+									<form action="index.php?app=admin&action=check_msg<?php echo $cus[$i]['id']; ?>" method="post" accept-charset="utf-8">
+										<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal<?php echo $i;?>">Information</button>
+										<!-- Modal -->
+										<div class="modal fade" id="myModal<?php echo $i;?>" role="dialog">
+											<div class="modal-dialog">
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h4 class="modal-title">ID : <?php echo $cus[$i]['id']; ?>_<?php echo $cus[$i]['topic']; ?></h4>
+													</div>
+													<div class="modal-body">
+														<p>ID : index.php?app=admin&action=check_msg<?php echo $cus[$i]['id']; ?></p>
+														<p>Topic : <?php echo $cus[$i]['topic']; ?></p>
+														<p>Message : <?php echo $cus[$i]['message']; ?></p>
+														<p>Bank : <?php echo $cus[$i]['bank']; ?></p>
+														<p>Date : <?php echo $cus[$i]['cr_date']; ?></p>
+													</div>
+													<div class="modal-footer">
+														<input type="submit" name="" class="btn btn-default">
 
-													<button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+														<button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 
-												</div>
-											</form>
+													</div>
+												</form>
+											</div>
 										</div>
 									</div>
-								</div>
-							</td>
-						</tr>
-					<?php } ?>
+								</td>
+							</tr>
+						<?php } ?>
 
-				</tbody>
+					</tbody>
+				</div>
 			</table>
 		</div>
-		<div>
-			<nav aria-label="Page navigation example" style="text-align: center;">
-				<ul class="pagination justify-content-center">
-					<li class="page-item disabled">
-						<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-					</li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item">
-						<a class="page-link" href="#">Next</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
+<!-- 		<div id="pagination">
+			<a class="active" id="1" href="">1</a>
+			<a id="2" href="">2</a>
+			<a id="3" href="">3</a>
+
+		</div> -->
 	</div>	
 </body>
-<script>  ///ทำscriptให้เสร้จ
-</script>
+<!-- <script>  ///ทำscriptให้เสร้จ
+
+$(document).ready(function(){
+	function loadTable(page){
+		$.ajax({
+			url:"",
+			type:"POST",
+			data:{page_no :page},
+			success: function(data){
+				$("#table-data").html(data);
+			}
+		});
+	}
+	loadTable();
+
+	//Pagination Code
+	$(document).on("click","#pagination a",function(e){
+		e.preventDefault();
+		var page_id = $(this).attr("id");
+
+		loadTable(page_id);
+	})
+});
+</script> -->
 
 

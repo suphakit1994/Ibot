@@ -23,30 +23,34 @@ include("../php/course_function.php");
 		}
 
 		if($_GET['action']=='enroll'){
-			$cus=insertstudent($conn,$_POST);
-			$cus = selectmax($conn);
-			$cuss = updatestudent($conn,$_POST,$cus);	
-			require_once('enroll.php');
-			$pri = selectcourse_prices($conn);	
-			
-			print_r($pri);
-			
+			// $data= selectcourse($conn);
+			$pri = selectcourse_prices($conn,$_POST);
+			require_once('enroll.php');	
 		}
 
 		if($_GET['action']=='payment'){
 			
-			// $cus = selectmax($conn);
-			$add = insertcourse_student($conn,$_POST);
 			require_once('payment.php');
 
+			if($_GET['action']=='payment/add'){
+				// require_once('payment.php');
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=payment">';
+			}	
+			
 		}
+
 		if($_GET['action']=='success'){
-
+			$cus=insertstudent($conn,$_POST);
+			$cus = selectmax($conn);
+			
 			require_once('success.php');
+			$add = insertcourse_student($conn,$_POST);
 		}
+		if($_GET['action']=='modal'){
+			require_once('modal.php');
 
-
-
+		}
+		
 
 		?>
 	</style>

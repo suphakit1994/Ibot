@@ -101,10 +101,57 @@
 
       <input type="hidden" name="student_id" value="<?php echo $cus['student_id']; ?>">
       <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
-        <?php echo $cus['student_id']; ?>
-        <?php echo $_POST['course_id']; ?>
+      <?php echo $cus['student_id']; ?>
+      <?php echo $_POST['course_id']; ?>
+
+      <!--  หน้า student -->
+      <input type="hidden" name="student_name_th" value="<?php echo $_POST['student_name_th'];  ?>">
+      <input type="hidden" name="student_name_eng" value="<?php echo $_POST['student_name_eng'];  ?>">
+      <input type="hidden" name="student_nickname_eng" value="<?php echo $_POST['student_nickname_eng'];  ?>">
+      <input type="hidden" name="student_brithday" value="<?php echo $_POST['student_brithday'];  ?>">
+      <input type="hidden" name="student_school" value="<?php echo $_POST['student_school'];  ?>">
+      <input type="hidden" name="student_grade" value="<?php echo $_POST['student_grade'];  ?>">
+      
+      <!-- หน้า parent -->
+      <input type="hidden" name="parents_name_th" value="<?php echo $_POST['parents_name_th'];  ?>">
+      <input type="hidden" name="parents_name_eng" value="<?php echo $_POST['parents_name_eng'];  ?>">
+      <input type="hidden" name="parents_related" value="<?php echo $_POST['parents_related'];  ?>">
+      <input type="hidden" name="parents_phonnumber" value="<?php echo $_POST['parents_phonnumber'];  ?>">
+      <input type="hidden" name="parents_email" value="<?php echo $_POST['parents_email'];  ?>">
+      <input type="hidden" name="parents_line" value="<?php echo $_POST['parents_line'];  ?>">
 
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
+
+        <!-- Trigger the modal with a button -->
+
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="index.php?app=payment&action=payment/add" type="submit" class="btn btn-primary" >Save changes"</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <div class="col-md-7" style="padding-top: 5%;">
           <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2>     
           <div  class="form-card" >
@@ -169,6 +216,7 @@
                 <input name="payment_img" type="file" id="image" >
               </div>
               <div style="padding-top: 20px;">
+                <button  type="button"  name="next" class="Button" class="btn btn-primary" data-target="#exampleModal"data-toggle="modal" data-target="#myModal"style="border-radius:28px; width: 120px;">ยืนยันข้อมูล</button>
                 <button  type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
               </div>
             </div>    

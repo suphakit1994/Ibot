@@ -71,16 +71,16 @@ function selectcourse(mysqli $conn){
 		return $data;
 	}
 }
-function selectcourse_prices(mysqli $conn){
+function selectcourse_prices(mysqli $conn,$data){
 
-	$sql = "SELECT `course_price`FROM `course` WHERE course_id = '1235' ";
+	$sql = "SELECT  `course_expension`,`course_code`,`course_price` FROM `course` WHERE course_id = '".$_POST['course_id']."' ";
 
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
+		$data ;
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
+			$data = $row;
 		}
 		$result->close();
 		return $data;

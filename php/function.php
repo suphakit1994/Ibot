@@ -247,5 +247,15 @@ function listmsg(mysqli $conn){
 		return $data;
 	}
 }
+function updatestatus(mysqli $conn, $value){
+	$sql = "UPDATE notification SET status = 1  WHERE id='$value'";
+	
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
 
 ?>

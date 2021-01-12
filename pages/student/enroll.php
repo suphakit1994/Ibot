@@ -96,7 +96,11 @@
   </style>
 
   <body>
-    <form  method="post" action="index.php?app=student&action=student&action=payment">
+    <form  method="post" action="index.php?app=student&action=student&action=payment" >
+
+      <input type="hidden" name="course_id" value="<?php echo  $_POST['course_id']; ?>">
+      <?php echo $id; ?>
+      <?php echo  $_POST['course_id']; ?>
 
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="row">
@@ -111,24 +115,24 @@
                 <li>Success</li>
               </ul>
             </div>
-            
+
             <div class="form-card" style=" padding-top: 10%;">    
               <div class="card-body"  > 
-                <div class="row" style="margin-bottom: 10px;padding-left: 30px;"><b>imagination 1st course</b> </div>
+                <div class="row" style="margin-bottom: 10px;padding-left: 30px;"><b><?php echo $pri['course_expension']." " ?><u ><?php echo $pri['course_code']; ?></u></b> </div>
                 <div class="col-md-6">
                   <span>
                     <p> class schedule</p> 
                     <p> Make-up week</p> 
                     <p> Study time</p> 
-                    <p><b>Prices</b></p>                      
+                    <p>Prices</p>                      
                   </span> 
                 </div> 
                 <div class="col-md-6">
                   <span> 
                     <p> xxxxxxxxx</p> 
                     <p> xxxxxxxxx</p> 
-                    <p> xxxxxxxxx</p> 
-                    <p><b>฿ <?php echo $_POST['Price']; ?></b></p>                       
+                    <p> 1:30 hrs / 8 times / once a week.</p> 
+                    <p>฿ <?php echo $pri['course_price']; ?></p>                       
                   </span> 
                 </div> 
               </div>
@@ -137,33 +141,28 @@
                 <label for="yes">I agree the <label style="color:blue";>Terms and Conditions</label></label>   
               </div>
               <?php for($i=0;$i<$arrlength;$i++){ ?>
-                <div class="rcorners" >
+                <div class="row" >
                   <div class="col-md-4" style="padding-top: 10">
-                    <b>Sunday</b>
-                    <p><?php echo $_POST[$i]['start_time'];  ?></p>
+                    <!-- <b>Sunday</b> -->
+                    <p><?php echo $data[$i]['calender_date'];  ?></p>
                   </div>
                   <div class="col-md-4" style="padding-top: 10px;">
-                    <b><p>10:30 AM - 12:00 PM</p></b>
+                    <b><p><?php echo $data[$i]['calender_starttime'];  ?> - <?php echo $data[$i]['calender_endtime'];  ?> </p></b>
                   </div>
-                  <div class="col-md-4"style="padding-right: 0px;px;text-align: end;">
-                    <a  href="#" type="button" name="next" class="Button" style="border-radius:28px; width: 120px;margin-top:5px">Enroll</a>
+                  <div class="col-md-4"style="padding-right: 0px;px;text-align: center;">
+                    <input  href="#" type="radio" name="calender_id"  value="<?php echo $data[$i]['calender_id'];  ?>" >
                   </div> 
                 </div>
               <?php } ?>
             </div>
-            
+
             <div>
-              <input type="hidden" name="name_eng" value="<?php echo $_POST['name_eng'];  ?>">
-              <input type="hidden" name="nickname_eng" value="<?php echo $_POST['nickname_eng'];  ?>">
-              <input type="hidden" name="namep_eng" value="<?php echo $_POST['namep_eng'];  ?>">
-              <input type="hidden" name="related" value="<?php echo $_POST['related'];  ?>">
-              <input type="hidden" name="phonenumber" value="<?php echo $_POST['phonenumber'];  ?>">
 
               <button  type="submit" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
             </div>    
-            
+
           </div>
-          
+
           <div class="col-md-5" style=" padding-top: 5%;">
             <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
               <h3 style="margin-bottom: 20px;"><b>STUDENT INFORMATION</b></h3>
@@ -173,11 +172,11 @@
                   <p>Nickname</p>
                 </div>
                 <div class="col-md-6"> 
-                  <p><?php echo $_POST['name_eng'];  ?></p>
-                  <p><?php echo $_POST['nickname_eng'];  ?></p>
+                  <p><?php echo $_POST['student_name_eng'];  ?></p>
+                  <p><?php echo $_POST['student_nickname_eng'];  ?></p>
                 </div>
               </div>
-              
+
               <h3 style="margin-bottom: 5%;margin-top: 8%;"><b>PARENT INFORMATION</b></h3>
               <div class="row">
                 <div class="col-md-6"> 
@@ -186,9 +185,9 @@
                   <p>Phone number</p>
                 </div>
                 <div class="col-md-6"> 
-                  <p><?php echo $_POST['namep_eng'];  ?></p> 
-                  <p><?php echo $_POST['related'];  ?></p>
-                  <p><?php echo $_POST['phonenumber'];  ?></p>
+                  <p><?php echo $_POST['parents_name_eng'];  ?></p> 
+                  <p><?php echo $_POST['parents_related'];  ?></p>
+                  <p><?php echo $_POST['parents_phonnumber'];  ?></p>
                 </div>
               </div>
 
@@ -197,7 +196,6 @@
                 <div class="col-md-6"> 
                   <p>Course</p> 
                   <p>Course Expansion</p>
-                  <p>Total Course</p>
                   <p>class schedule</p>
                   <p>Make-up class</p>
                   <p>Study time</p>
@@ -208,14 +206,13 @@
                   <p></p>
                   <p></p>
                   <p></p>
-                  <p></p>
-                  
+
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>  
-      </div> 
+      </div>  
     </form>
   </body>

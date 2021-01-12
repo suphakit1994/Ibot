@@ -48,7 +48,7 @@
         <form method="post" action="index.php?app=payment" >
           <div>
             <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
-              <div class="card" >
+              <div class="card">
                 <div class="card-image" >
                   <img class="card-img-top" src="../pimg/<?php echo $data[$i]['course_img'];  ?>" alt="Card image cap" >
                   <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;">

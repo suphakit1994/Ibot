@@ -3,6 +3,12 @@
 </style>
 <body>
     <form>
+        <input type="hidden" name="calender_id" value="<?php echo $_POST['calender_id']; ?>">
+
+        <?php echo $id; ?>
+        <?php echo $course; ?>
+        <?php echo $calendars_id; ?>
+
         <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
 
             <div class="col-md-7" style="padding-top: 5%;"> 

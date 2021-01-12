@@ -5,8 +5,6 @@ include("../php/function.php");
 include("../php/course_function.php");
 include("../php/student_function.php");
 
-
-
 ?>
 <html lang="en">
 <head>
@@ -21,12 +19,12 @@ include("../php/student_function.php");
 		<?php
 		if ($level=='student') {
 			if(!isset($_GET['action'])){
-
-				$cus = selectcourse_students($conn);
-				print_r($cus);
-				// // $data= getselect($conn);         //เรียกใช้ faction
-			    $arrlength = count($cus); 		//นับข้อมูล
-			    require_once('our_course.php');
+				$data = selectcourse_students($conn,$id);       //เรียกใช้ faction
+				$arrlength = count($data); //นับข้อมูล
+				$cus = selectcourse_student($conn,$id);
+				$arr = count($cus);
+				require_once('our_course.php');
+				$pri = selectcourse_prices($conn,$_POST);
 			}
 
 			if($_GET['action']=='student_assessment'){
@@ -35,23 +33,29 @@ include("../php/student_function.php");
 				$stem2=["Synthesis","Teamwork","EQ","Meditation"];
 				require_once("student_assessment.php");	
 				$data[] = insterstudent( $conn,$data);
+
 			}
 
 			if($_GET['action']=="enroll"){
-
-
-				// $data = calendars($conn);
-				// $arrlength = count($data);
-
+				$course =  $_POST['course_id'];
+				$data= calendars($conn);		//select calendars
+				$arrlength = count($data);
+				$pri = selectcourse_prices($conn,$_POST);
 				require_once('enroll.php');
 			}
 
 			if($_GET['action']=="payment"){
-
+				$course =  $_POST['course_id'];
+				$pri = selectcourse_prices($conn,$_POST);
 				require_once('payment.php');
+				$calendar = insertcalender_students($conn,$_POST,$id);
 			}
 			if($_GET['action']=="success"){
-				$cus = student_payment($conn,$_POST);
+				$course =  $_POST['course_id'];
+				$paym = insertpayments($conn,$_POST,$id);  // insert payment	
+				
+				$add = insertcourse_students($conn,$_POST,$id);	
+				// $pri = selectcourse_prices($conn,$_POST,$cus);
 				require_once('success.php');
 			}
 

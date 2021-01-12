@@ -69,12 +69,12 @@
 							<th>Lesson</th>
 							<th>Quize</th>
 						</tr>
-						<?php for($x = 1; $x < 6; $x++){ ?>
+						<?php for($x = 1; $x < 9; $x++){ ?>
 							<tr>						
 								<td>
 									<label>Number <?php echo $x;?></label>
 									<input style="width: 10%; margin: 2% 2%;" class="custom-file-input" type="file" 
-									name="file<?php echo $x; ?>" accept="application/pdf"><?php echo $x; ?>
+									name="file<?php echo $x; ?>" accept="application/pdf">
 								</td>												
 								<td>
 									
@@ -92,7 +92,7 @@
 			</div>
 
 		</div>
-		<?php for($y = 1; $y < 6 ;$y++){ ?>
+		<?php for($y = 1; $y < 9 ;$y++){ ?>
 			<div id="myModal<?php echo $y;?>" class="modal fade" role="dialog">
 				<div id="myCarousel<?php echo $y;?>" class="carousel slide" data-ride="carousel">
 					<ol class="carousel-indicators">

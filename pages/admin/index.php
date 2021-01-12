@@ -64,22 +64,17 @@ include('../php/course_function.php');
 				if ($_GET['action'] == 'choice_edit'.$edit_choice[$a]['course_id'].'/add') {
 					# add lesson code
 					# add choice code
-					for ($b = 1; $b < 6; $b++) { 
-						# code...
+					for ($b = 1; $b < 9; $b++) { 
 						$id_lesson = $edit_choice[$a]['course_id'];
 						$number_of_lesson = $b;
-
 						$new_pdf_name = 'up_pdf_file'.$b;
 						$valable_pdf = 'file'.$b;
 						$new_pdf_name = uploadpdf($conn,$_POST,$valable_pdf,$id_lesson,$number_of_lesson);
-						
-						
-
-						if ($var_what_ever) {
+						if ($new_pdf_name) {
 							$select_idfile = selectfile($conn);
 							for ($k=1; $k < 6; $k++) { 
-								$n_number = $select_idfile[$k]['number'];
-
+								// $n_number = $select_idfile[$k]['number'];
+								$n_number = $b;
 								$new_quest = 'quest'.$k.$b;
 								$new_ans = 'ans'.$k.$b;
 								$new_var_quest = $_POST[$new_quest];
@@ -92,16 +87,13 @@ include('../php/course_function.php');
 								}else{
 									$cus = upload_quiz($conn,$_POST,$string_array_quest,$string_array_ans,$id_lesson,$n_number);
 								}
-
 								if ($cus) {
 									$show_id = select_idquize($conn);
 									$string_array = implode(",", $show_id);
 									for ($l=1; $l < 5; $l++) { 
-									// $new_use_var = 'upload_quizz'.$l;
 										$new_choice = 'choice'.$k.$l.$b;
 										$new_var_choice = $_POST[$new_choice];
 										$string_array_choice = implode(",", $new_var_choice);
-									// $new_use_var = $new_var_choice;
 										echo "----------------->".$string_array.'<br>';
 										echo "----------------------------------------->".$string_array_choice.'<br>';
 										if ($string_array_choice  =='') {
@@ -115,6 +107,7 @@ include('../php/course_function.php');
 							}
 						}	
 					}
+
 				}
 			}
 

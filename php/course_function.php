@@ -101,35 +101,43 @@ function selectcourse_prices(mysqli $conn){
 		return $data;
 	}
 }
-function uploadpdf(mysqli $conn,$data,$nump,$id_lesson,$number_of_lesson){
-	$ext = pathinfo(basename($_FILES[$nump]['name']),PATHINFO_EXTENSION);
-	$new_pdf_name = 'pdf_'.uniqid().$nump.".".$ext;
-	$pdf_path = "../pless/";
-	$upload_path = $pdf_path.$new_pdf_name;
-	$var_t = getcwd();
+function uploadpdf(mysqli $conn,$data,$file_app_pdf,$id_lesson,$number_of_lesson){
 
-	// echo "====================================================>".$var_t;
-	if($ext == "pdf" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
-		move_uploaded_file($_FILES[$nump]['tmp_name'], $upload_path);
-		$numpb  = $new_pdf_name;
-		// // echo "upload at file.";
-		
+	if($file_app_pdf ==''){
+		echo "=================>NOvalue";
 	}else{
-		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-	}
+		$ext = pathinfo(basename($_FILES[$file_app_pdf]['name']),PATHINFO_EXTENSION);
+		$new_pdf_name = 'pdf_'.uniqid().$file_app_pdf.".".$ext;
+		$pdf_path = "../pless/";
+		$upload_path = $pdf_path.$new_pdf_name;
 
-	$sql = " INSERT INTO `file`(`file_address`,`file_lesson_id`,`number`) VALUES ( '$numpb','$id_lesson','$number_of_lesson')";
-	echo $sql;
+		if($ext == "pdf" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
+			move_uploaded_file($_FILES[$file_app_pdf]['tmp_name'], $upload_path);
+			$name_file_pdf  = $new_pdf_name;
+			// echo "upload at file.";
+			
+			$sql = " INSERT INTO `file`(`file_address`,`file_lesson_id`,`number`) VALUES ( '$name_file_pdf','$id_lesson','$number_of_lesson')";
+			echo $sql;
 
-	$resuit =  mysqli_query($conn, $sql);
-	if ($resuit) {
-		return true;
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		return false;
+			$resuit =  mysqli_query($conn, $sql);
+			if ($resuit) {
+				return true;
+			} else {
+				echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+				return false;
+			}
+			mysqli_close($conn);
+			error_reporting(0);
+
+		}else{
+			echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+		}
+
+
+		
 	}
-	mysqli_close($conn);
-	error_reporting(0);
+	
+	
 }
 
 function console_log($output, $with_script_tags = true) {
@@ -143,13 +151,13 @@ function console_log($output, $with_script_tags = true) {
 
 
 
-function upload_quiz(mysqli $conn,$data,$new_var_quest,$new_var_ans,$id_lesson,$n_number){
+function upload_quiz(mysqli $conn,$data,$string_array_quest,$string_array_ans,$id_lesson,$n_number){
 	// echo $id_lesson;
 	// echo $n_number;
 	$sql = " INSERT INTO `quize`(`question`,`check_ans`,`quiz_lesson_id`,`number`) 
 	VALUES ( 
-	'$new_var_quest',
-	'$new_var_ans',
+	'$string_array_quest',
+	'$string_array_ans',
 	'$id_lesson',
 	'$n_number')";
 

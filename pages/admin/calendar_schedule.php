@@ -163,6 +163,7 @@
 						$("#myModal1"+eventObj.id).hide();
 					});
 					console.log(eventObj.id);
+
 				}		
 			},
 

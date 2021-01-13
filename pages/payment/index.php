@@ -42,7 +42,8 @@ include("../php/course_function.php");
 			require_once('success.php');
 			$paym = insertpayment($conn,$_POST,$cus);  // insert payment	
 			$calendar = insertcalender_student($conn,$_POST,$cus); 
-			$add = insertcourse_student($conn,$_POST,$cus);	
+			$addnoti = insertnoticourse_student($conn,$_POST,$cus);
+			$add = insertcourse_student($conn,$_POST,$cus);
 		}		
 
 		?>

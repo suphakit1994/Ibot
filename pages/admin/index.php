@@ -149,27 +149,26 @@ include('../php/course_function.php');
 			if ($_GET['action'] == 'addteam_compitition') {
 				require_once('addteam_compitition.php');
 			}
-		}
-		if($_GET['action'] == 'list_msg'){
-			$cus = listmsg($conn);
-			require_once('list_msg.php');
-		}
-		$si = listmsg($conn);
-		for($i=0; $i<count($si); $i++) { 
+			if($_GET['action'] == 'list_msg'){
+				$cus = listmsg($conn);
+				require_once('list_msg.php');
+			}
+			$si = listmsg($conn);
+			for($i=0; $i<count($si); $i++) { 
 			# code...
-			$cus = listmsg($conn);
-			if($_GET['action'] == 'check_msg'. $cus[$i]['id']){
+				$cus = listmsg($conn);
 				$value = $cus[$i]['id'];
-				$status = updatestatus($conn,$value);
+				$fn = findname($conn,$value);
+				if($_GET['action'] == 'check_msg'. $cus[$i]['id']){
+					$status = updatestatus($conn,$value);
 
 				// print_r($cus);
 			// print_r($cus);
 			// $approve = updatestatus($conn);
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
 
+				}
 			}
-
-
 		}
 		
 		?>

@@ -13,7 +13,7 @@ include("../php/course_function.php");
 	<style>
 		<?php 
 		$id = $_SESSION['student_id'];
-		$name = $_SESSION['student_fname'];
+		$name = $_SESSION['student_name_eng'];
 		$level = $_SESSION['student_level'];
 		$nlevel = $_SESSION['student_nlevel'];
 		?>

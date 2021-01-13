@@ -215,4 +215,21 @@ if ( mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 }
 
-?>
+function insertnoticourse_student(mysqli $conn,$data,$cus){
+
+	$sql = " INSERT INTO `notification`(
+	`course_id`,`student_id` 
+	) 
+	VALUES (
+	'".$data['course_id']."',
+	'".$cus['student_id']."'
+
+)";
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false;
+}
+mysqli_close($conn);
+}

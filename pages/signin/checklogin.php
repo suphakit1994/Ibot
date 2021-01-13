@@ -77,7 +77,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         $data =[];
         while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
           $_SESSION["student_id"] = $row["student_id"];
-          $_SESSION["student_fname"] = $row["student_fname"];
+          $_SESSION["student_name_eng"] = $row["student_name_eng"];
           $_SESSION["student_level"] = $row["student_level"];
           $_SESSION["student_nlevel"] = $row["student_nlevel"];
 

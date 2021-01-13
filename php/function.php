@@ -254,5 +254,20 @@ function updatestatus(mysqli $conn, $value){
 		return false;
 	}
 }
+function findname(mysqli $conn, $value){
+	$sql = "SELECT s.student_name_th
+	FROM notification
+	INNER JOIN student ON notification.student_id.$value=student.student_id.$value";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+
+
+
 
 ?>

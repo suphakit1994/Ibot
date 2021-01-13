@@ -50,6 +50,44 @@ function selectstudent(mysqli $conn){
 // 	mysqli_close($conn);
 // 	}
 
+
+
+
+//แสดงคอสที่ลงทะเบียนไว้
+
+function selectcourse_students(mysqli $conn,$id){
+
+	$sql = "SELECT * FROM course_student AS cs  INNER JOIN course AS c  ON  cs.cs_course_id =  c.course_id WHERE  cs.cs_student_id = $id " ;
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+//แสดงคอสที่ยังไม่ได้ลงทะเบียน
+function selectcourse_student(mysqli $conn,$id){
+
+	$sql = "SELECT* FROM course_student AS cs  RIGHT JOIN course AS c  ON  cs.cs_course_id =  c.course_id  WHERE   cs.cs_course_id is null or cs.cs_student_id != $id " ;
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$cus =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$cus[] = $row;
+		}
+		$result->close();
+		return $cus;
+	}
+}
+
+//หน้าลงทะเบียน
 function insertstudent(mysqli $conn,$data){
 		//random usernameนักศึกษา
 	$name = $data['student_name_eng'];
@@ -116,7 +154,6 @@ function insertstudent(mysqli $conn,$data){
 
 	mysqli_close($conn);
 }
-
 function selectmax(mysqli $conn){
 	$sql = "SELECT MAX(student_id) as student_id FROM `student`  ";
 	echo $sql;		
@@ -127,50 +164,28 @@ function selectmax(mysqli $conn){
 }
 
 
-//แสดงคอสที่ลงทะเบียนไว้
-
-function selectcourse_students(mysqli $conn,$id){
-
-	$sql = "SELECT * FROM course_student AS cs  INNER JOIN course AS c  ON  cs.cs_course_id =  c.course_id WHERE  cs.cs_student_id = $id " ;
-
-	$result = $conn->query($sql); 
-
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
+function updatestudent(mysqli $conn,$data=[],$cus){
+	 // print_r($cus['student_id']);
+	$sql = " UPDATE `student` 
+	SET parents_name_th = '".$data['parents_name_th']."', parents_name_eng = '".$data['parents_name_eng']."' ,  parents_related = '".$data['parents_related']."',
+	parents_phonnumber = '".$data['parents_phonnumber']."', parents_email = '".$data['parents_email']."',parents_line = '".$data['parents_line']."'
+	WHERE student_id = '".$cus['student_id']."' ";
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
 	}
 }
 
-function selectcourse_student(mysqli $conn,$id){
-
-	$sql = "SELECT* FROM course_student AS cs  RIGHT JOIN course AS c  ON  cs.cs_course_id =  c.course_id  WHERE   cs.cs_course_id is null or cs.cs_student_id != $id " ;
-
-	$result = $conn->query($sql); 
-
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$cus =[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$cus[] = $row;
-		}
-		$result->close();
-		return $cus;
-	}
-}
-
-//หน้าลงทะเบียน
 function insertcourse_student(mysqli $conn,$data,$cus){
-
 	$sql = " INSERT INTO `course_student`(
 	`cs_course_id`,`cs_student_id` 
 	) 
 	VALUES (
 	'".$data['course_id']."',
 	".$cus['student_id']."
-
+	
 )";
 if ( mysqli_query($conn, $sql)) {
 	return true;
@@ -194,7 +209,6 @@ function insertpayment(mysqli $conn,$data,$cus){
 	}else{
 		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 	}
-
 	$sql = " INSERT INTO `payment`(
 
 	`payment_no`, 
@@ -224,11 +238,10 @@ mysqli_close($conn);
 
 function insertcalender_student(mysqli $conn,$data,$cus){
 
-	$sql = " INSERT INTO  `calender_student`(`cs_student_id`, `cs_calender_id`,`cs_courses_id`)
+	$sql = " INSERT INTO  `calender_student`(`cs_student_id`, `cs_calender_id`)
 	VALUES (
 	'".$cus['student_id']."',
-	'".$data['calender_id']."',
-	'".$data['course_id']."'
+	'".$data['calender_id']."'
 
 )";
 if ( mysqli_query($conn, $sql)) {
@@ -240,29 +253,7 @@ if ( mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 }
 
-
-//หน้าเพิ่มคอสเรียน
-function insertcourse_students(mysqli $conn,$data,$id){
-
-	$sql = " INSERT INTO `course_student`(
-	`cs_course_id`,`cs_student_id` 
-	) 
-	VALUES (
-	'".$data['course_id']."',
-	'$id'
-
-)";
-if ( mysqli_query($conn, $sql)) {
-	return true;
-} else {
-	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	return false;
-}
-mysqli_close($conn);
-}
-
-
-function insertpayments(mysqli $conn,$data,$id){  
+function insertpayment(mysqli $conn,$data,$cus){
 	$ext = pathinfo(basename($_FILES['payment_img']['name']),PATHINFO_EXTENSION);
 	$new_image_name = 'paym_'.uniqid().".".$ext;
 	$image_path = "../pimg/";
@@ -283,16 +274,15 @@ function insertpayments(mysqli $conn,$data,$id){
 	`payment_date`, 
 	`payment_student_id`, 
 	`payment_bank`, 
-	`payment_img`,
-	`payment_type`) 
+	`payment_img`) 
 	VALUES (
 	'".$data['payment_no']."',
 	'".$data['payment_amount']."',
 	'".$data['payment_date']."',
-	'$id',
+	'".$cus['student_id']."',
 	'".$data['payment_bank']."',
-	'$payment_img',
-	'".$data['payment_type']."'
+	'$payment_img'
+
 )";
 if ( mysqli_query($conn, $sql)) {
 	return true;
@@ -303,13 +293,14 @@ if ( mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 }
 
-function insertcalender_students(mysqli $conn,$data,$id){
+function insertnoticourse_student(mysqli $conn,$data,$cus){
 
-	$sql = " INSERT INTO  `calender_student`(`cs_student_id`, `cs_calender_id`,`cs_courses_id`)
+	$sql = " INSERT INTO `notification`(
+	`course_id`,`student_id` 
+	) 
 	VALUES (
-	'$id',
-	'".$data['calender_id']."',
-	'".$data['course_id']."'
+	'".$data['course_id']."',
+	'".$cus['student_id']."'
 
 )";
 if ( mysqli_query($conn, $sql)) {
@@ -320,6 +311,3 @@ if ( mysqli_query($conn, $sql)) {
 }
 mysqli_close($conn);
 }
-
-
-?>

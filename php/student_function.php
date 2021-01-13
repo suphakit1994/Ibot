@@ -162,8 +162,7 @@ function selectmax(mysqli $conn){
 	}
 	return $row;
 }
-<<<<<<< HEAD
-=======
+
 
 function updatestudent(mysqli $conn,$data=[],$cus){
 	 // print_r($cus['student_id']);
@@ -179,16 +178,14 @@ function updatestudent(mysqli $conn,$data=[],$cus){
 	}
 }
 
->>>>>>> 059dedbb4c8ca0f0d4a2f283182ba3ab917db368
 function insertcourse_student(mysqli $conn,$data,$cus){
 	$sql = " INSERT INTO `course_student`(
-	`cs_course_id`,`cs_student_id`,`course_payment_id` 
+	`cs_course_id`,`cs_student_id` 
 	) 
 	VALUES (
 	'".$data['course_id']."',
-<<<<<<< HEAD
-	".$cus['student_id'].",
-	'".pp."'
+	".$cus['student_id']."
+	
 )";
 if ( mysqli_query($conn, $sql)) {
 	return true;
@@ -212,12 +209,23 @@ function insertpayment(mysqli $conn,$data,$cus){
 	}else{
 		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
 	}
-
 	$sql = " INSERT INTO `payment`(
-=======
-	'".$cus['student_id']."'
->>>>>>> 059dedbb4c8ca0f0d4a2f283182ba3ab917db368
 
+	`payment_no`, 
+	`payment_amount`, 
+	`payment_date`, 
+	`payment_student_id`, 
+	`payment_bank`, 
+	`payment_img`,
+	`payment_type`) 
+	VALUES (
+	'".$data['payment_no']."',
+	'".$data['payment_amount']."',
+	'".$data['payment_date']."',
+	'".$cus['student_id']."',
+	'".$data['payment_bank']."',
+	'$payment_img',
+	'".$data['payment_type']."'
 )";
 if ( mysqli_query($conn, $sql)) {
 	return true;

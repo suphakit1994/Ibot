@@ -34,6 +34,7 @@ include('../php/course_function.php');
 
 			if ($_GET['action'] == 'admin_calendar') {
 				$cus = calendars($conn);
+				print_r($cus);
 				require_once('calendar_schedule.php');
 			}
 			if ($_GET['action'] == 'edit_data') {
@@ -52,9 +53,62 @@ include('../php/course_function.php');
 			if ($_GET['action'] == 'course_edit') {
 				require_once('course_edit.php');
 			}
-			if ($_GET['action'] == 'choice_edit') {
-				require_once('choice_edit.php');
+			$edit_choice = selectcourse($conn);
+			for ($a=0; $a < count($edit_choice); $a++) { 
+				# code...
+				if ($_GET['action'] == 'choice_edit'.$edit_choice[$a]['course_id']) {
+					$call_func = $edit_choice;
+					$selet_path_html = $edit_choice[$a]['course_id'];
+					
+					require_once('choice_edit.php');
+				}
+				if ($_GET['action'] == 'choice_edit'.$edit_choice[$a]['course_id'].'/add') {
+					# add lesson code
+					# add choice code
+					for ($b = 1; $b < 9; $b++) { 
+						$id_lesson = $edit_choice[$a]['course_id'];
+						$number_of_lesson = $b;
+						$new_pdf_name = 'up_pdf_file'.$b;
+						$valable_pdf = 'file'.$b;
+						$new_pdf_name = uploadpdf($conn,$_POST,$valable_pdf,$id_lesson,$number_of_lesson);
+						if ($new_pdf_name) {
+							$select_idfile = selectfile($conn);
+							for ($k=1; $k < 6; $k++) { 
+								// $n_number = $select_idfile[$k]['number'];
+								$n_number = $b;
+								$new_quest = 'quest'.$k.$b;
+								$new_ans = 'ans'.$k.$b;
+								$new_var_quest = $_POST[$new_quest];
+								$string_array_quest = implode(",", $new_var_quest);
+								$new_var_ans = $_POST[$new_ans];
+								$string_array_ans = implode(",", $new_var_ans);
+								if ($string_array_quest =='') {
+									echo "========================>Novalue";
+								}else{
+									$cus = upload_quiz($conn,$_POST,$string_array_quest,$string_array_ans,$id_lesson,$n_number);
+								}
+								if ($cus) {
+									$show_id = select_idquize($conn);
+									$string_array = implode(",", $show_id);
+									for ($l=1; $l < 5; $l++) { 
+										$new_choice = 'choice'.$k.$l.$b;
+										$new_var_choice = $_POST[$new_choice];
+										$string_array_choice = implode(",", $new_var_choice);
+										if ($string_array_choice  =='') {
+											echo "========================>Novalue";
+										}else{
+											$add_choice_func = upload_choice($conn,$_POST,$string_array_choice,$string_array);
+										}
+
+									}
+								}
+							}
+						}	
+					}
+
+				}
 			}
+
 				// ---------------------------Insert--------------------------------
 			if ($_GET['action'] == 'insert_datetime') {
 				$cus = insertData($conn, $_POST);
@@ -65,86 +119,60 @@ include('../php/course_function.php');
 					// $_POST = ' ';
 				require_once('course_insert.php');
 			}
+			if ($_GET['action'] == 'admin_course/addcourse') {
+				$instercourse =instercourse($conn,$data);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="2;index.php?app=admin&action=course_list">';
+			}
+
 			if ($_GET['action'] == 'admin_course/add') {
-					// Up load pdf file
-				for ($i=1; $i < 8 ; $i++) {
-					$new_pdf_name = 'up_pdf_file'.$i;
-					$valable_pdf = 'file'.$i;
-					echo $new_pdf_name = uploadpdf($conn,$_POST,$valable_pdf);
-				}
+				// Up load pdf file
+
+				// for ($i=1; $i < 8 ; $i++) {
+				// 	$new_pdf_name = 'up_pdf_file'.$i;
+				// 	$valable_pdf = 'file'.$i;
+				// 	echo $new_pdf_name = uploadpdf($conn,$_POST,$valable_pdf);
+				// }
+				// $new_pdf_name = 'up_pdf_file';
+				// $valable_pdf = 'file';
+				// echo $new_pdf_name = uploadpdf($conn,$_POST,$valable_pdf);
+
 				// Up load quiz
-				$show_id = select_idquize($conn);
 				
-				$course_code = $_POST['course_code'];
-				for ($j=1; $j < 8; $j++) { 
-					foreach ($show_id as $key => $id_quize) {
-						$id_quize = $id_quize + 1;
-						echo "Max id".$id_quize;
-					}
-					for ($k=1; $k < 6; $k++) { 
-						$new_quest = 'quest'.$k.$j;
-						$new_var_quest = $_POST[$new_quest];
-						$new_ans = 'ans'.$k.$j;
-						$new_var_ans = $_POST[$new_ans];
-						$use_func = upload_quiz($conn,$_POST,$new_var_quest,$new_var_ans);
-
-
-						for ($l=1; $l < 5; $l++) { 
-							$new_use_var = 'upload_quizz'.$l;
-							$new_choice = 'choice'.$k.$l.$j;
-							$new_var_choice = $_POST[$new_choice];
-							$new_use_var = $new_var_choice;
-							// echo "-----------------------------------------------".$new_var_quest.'===>';
-							// echo $new_use_var;
-							$loop = $new_var_quest.$new_use_var;
-							echo "----------------------------------------------->".$loop.'<br>';
-							
-							$use_func1 = upload_choice($conn,$_POST,$new_use_var,$id_quize);
-						}
-
-						
-					}
-				}
 
 				// for ($j=1; $j < 8; $j++) { 
+				// 	foreach ($show_id as $key => $id_quize) {
+				// 		$id_quize = $id_quize + 1;
+				// 		echo "Max id".$id_quize;
+				// 	}
 				// 	for ($k=1; $k < 6; $k++) { 
 				// 		$new_quest = 'quest'.$k.$j;
 				// 		$new_var_quest = $_POST[$new_quest];
 				// 		$new_ans = 'ans'.$k.$j;
 				// 		$new_var_ans = $_POST[$new_ans];
+				// 		$use_func = upload_quiz($conn,$_POST,$new_var_quest,$new_var_ans);
+
 
 				// 		for ($l=1; $l < 5; $l++) { 
 				// 			$new_use_var = 'upload_quizz'.$l;
 				// 			$new_choice = 'choice'.$k.$l.$j;
-				// 			$new_var_choice[] = $_POST[$new_choice];
-				// 			echo $new_use_var = $new_var_choice;
-				// 			$new_use_var=$new_var_ans[]
+				// 			$new_var_choice = $_POST[$new_choice];
+				// 			$new_use_var = $new_var_choice;
+				// 			// echo "-----------------------------------------------".$new_var_quest.'===>';
+				// 			// echo $new_use_var;
+				// 			$loop = $new_var_quest.$new_use_var;
+				// 			echo "----------------------------------------------->".$loop.'<br>';
 
-				// 			$use_func1 = upload_choice($conn,$_POST,$new_use_var);
+				// 			$use_func1 = upload_choice($conn,$_POST,$new_use_var,$id_quize);
 				// 		}
 
 
-				// 		$use_func = upload_quiz($conn,$_POST,$new_var_quest,$new_var_ans);
-
-				// 		// $choice11 = $_POST['choice11'];
-				// 		// $choice12 = $_POST['choice12'];
-				// 		// $choice13 = $_POST['choice13'];
-				// 		// $choice14 = $_POST['choice14'];
-				// 		// $quest1 = $_POST['quest1'];
-				// 		// $ans1 = $_POST['ans1'];
 				// 	}
-
-
 				// }
 
 
-
-
-					// $upload_quize1 = upload_quiz($conn,$_POST);
-
 					// $cus = instercourse( $conn,$_POST);
 					// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_course">';
-				
+
 			}
 			if ($_GET['action'] == 'addteam_compitition') {
 				require_once('addteam_compitition.php');
@@ -170,7 +198,7 @@ include('../php/course_function.php');
 				}
 			}
 		}
-		
+
 		?>
 	</style>
 </head>
@@ -183,4 +211,5 @@ include('../php/course_function.php');
 </body>
 
 </html>
+
 

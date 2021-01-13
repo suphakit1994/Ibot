@@ -25,7 +25,8 @@
     <input type="hidden" name="parents_phonnumber" value="<?php echo $_POST['parents_phonnumber'];  ?>">
     <input type="hidden" name="parents_email" value="<?php echo $_POST['parents_email'];  ?>">
     <input type="hidden" name="parents_line" value="<?php echo $_POST['parents_line'];  ?>">
-    
+
+    <input type="hidden" name="payment_type" value="<?php echo $_POST['payment_type'];  ?>">  
     <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
 
       <div class="col-md-7" style="padding-top: 5%;"> 

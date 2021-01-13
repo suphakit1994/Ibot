@@ -123,6 +123,8 @@
       <input type="hidden" name="parents_email" value="<?php echo $_POST['parents_email'];  ?>">
       <input type="hidden" name="parents_line" value="<?php echo $_POST['parents_line'];  ?>">
 
+      
+
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
 
         <div class="col-md-7" style="padding-top: 5%;">
@@ -190,7 +192,7 @@
                 <input name="payment_img" type="file" accept="image/*" >
               </div>
               <div style="padding-top: 20px;">
-                <input type="radio" name="my-input" id="no" required>
+                <input type="radio" name="payment_type"  value="Enroll"  required>
                 <label >ยืนยันข้อมูล</label>
                 <button type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
               </div>

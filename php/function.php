@@ -50,13 +50,12 @@ function aboutus_performance(mysqli $conn){
 }
 function insertData(mysqli $conn,$data=[]){
 
-	$sql = "INSERT INTO calendar (title,start_time,end_time,color,build_time)
+	$sql = "INSERT INTO calendar (calender_date,calender_starttime,calender_endtime,calender_color)
 	VALUES ('".
-	$data['title']."',
-	'".$data['start_time']."',
+	$data['start_time']."',
+	'".$data['build_time']."',
 	'".$data['end_time']."',
-	'".$data['color']."',
-	'".$data['build_time']."'
+	'".$data['color']."'
 )";
 echo $sql;
 

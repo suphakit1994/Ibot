@@ -34,6 +34,7 @@ include('../php/course_function.php');
 
 			if ($_GET['action'] == 'admin_calendar') {
 				$cus = calendars($conn);
+				print_r($cus);
 				require_once('calendar_schedule.php');
 			}
 			if ($_GET['action'] == 'edit_data') {
@@ -81,7 +82,6 @@ include('../php/course_function.php');
 								$string_array_quest = implode(",", $new_var_quest);
 								$new_var_ans = $_POST[$new_ans];
 								$string_array_ans = implode(",", $new_var_ans);
-								echo "----------------------------------------------------------->".$string_array_quest.'<br>';
 								if ($string_array_quest =='') {
 									echo "========================>Novalue";
 								}else{
@@ -94,8 +94,6 @@ include('../php/course_function.php');
 										$new_choice = 'choice'.$k.$l.$b;
 										$new_var_choice = $_POST[$new_choice];
 										$string_array_choice = implode(",", $new_var_choice);
-										echo "----------------->".$string_array.'<br>';
-										echo "----------------------------------------->".$string_array_choice.'<br>';
 										if ($string_array_choice  =='') {
 											echo "========================>Novalue";
 										}else{

@@ -109,11 +109,11 @@
 			<?php for($i=0;$i<count($cus);$i++){ ?>
 				{
 					id: 'a',
-					borderColor: '<?php echo $cus[$i]['color']; ?>',
-					backgroundColor:'<?php echo $cus[$i]['color']; ?>',
-					title: '<?php echo $cus[$i]['build_time']; ?>:00-<?php echo $cus[$i]['end_time']; ?>:00',
-					start: '<?php echo $cus[$i]['start_time']; ?>',
-					end: '<?php echo $cus[$i]['start_time']; ?>',
+					borderColor: '<?php echo $cus[$i]['calender_color']; ?>',
+					backgroundColor:'<?php echo $cus[$i]['calender_color']; ?>',
+					title: '<?php echo $cus[$i]['calender_starttime']; ?>:00-<?php echo $cus[$i]['calender_endtime']; ?>:00',
+					start: '<?php echo $cus[$i]['calender_date']; ?>',
+					end: '<?php echo $cus[$i]['calender_date']; ?>',
 
 					extendedProps: {
 						status: ''

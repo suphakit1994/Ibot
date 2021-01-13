@@ -34,7 +34,6 @@ include('../php/course_function.php');
 
 			if ($_GET['action'] == 'admin_calendar') {
 				$cus = calendars($conn);
-				print_r($cus);
 				require_once('calendar_schedule.php');
 			}
 			if ($_GET['action'] == 'edit_data') {
@@ -113,7 +112,7 @@ include('../php/course_function.php');
 			if ($_GET['action'] == 'insert_datetime') {
 				$cus = insertData($conn, $_POST);
 				$suc = calendars($conn);
-				require_once("calendar_schedule.php");
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_calendar">';
 			}
 			if ($_GET['action'] == 'admin_course') {
 					// $_POST = ' ';

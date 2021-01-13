@@ -12,30 +12,25 @@ include("../php/student_function.php");
 	<style>
 		<?php 
 		$id = $_SESSION['student_id'];
-		$name = $_SESSION['student_fname'];
+		$name = $_SESSION['student_name_eng'];
 		$level = $_SESSION['student_level'];
 		$nlevel = $_SESSION['student_nlevel'];
+		$cus = $id ;
 		?>
 		<?php
 		if ($level=='student') {
 			if(!isset($_GET['action'])){
-				$data = selectcourse_students($conn,$id);       //เรียกใช้ faction
+				//แสดงคอสที่ลงทะเบียนไว้
+				$data = selectcourse_students($conn,$id);  
 				$arrlength = count($data); //นับข้อมูล
-				$cus = selectcourse_student($conn,$id);
+				//แสดงคอสที่ยังไม่ได้ลงทะเบียน
+				$cus = selectcourse_student($conn,$id);	
 				$arr = count($cus);
 				require_once('our_course.php');
-				$pri = selectcourse_prices($conn,$_POST);
+				$pri = selectcourse_prices($conn,$_POST);   //แสดงข้อมูลคอสในหน้าสมัครคอส
 			}
 
-			if($_GET['action']=='student_assessment'){
-				$data=$_POST;
-				$stem1=["Science","Technology","Engineering","Mathematics"];
-				$stem2=["Synthesis","Teamwork","EQ","Meditation"];
-				require_once("student_assessment.php");	
-				$data[] = insterstudent( $conn,$data);
-
-			}
-
+			
 			if($_GET['action']=="enroll"){
 				$course =  $_POST['course_id'];
 				$data= calendars($conn);		//select calendars
@@ -53,7 +48,6 @@ include("../php/student_function.php");
 			if($_GET['action']=="success"){
 				$course =  $_POST['course_id'];
 				$paym = insertpayments($conn,$_POST,$id);  // insert payment	
-				
 				$add = insertcourse_students($conn,$_POST,$id);	
 				// $pri = selectcourse_prices($conn,$_POST,$cus);
 				require_once('success.php');
@@ -64,6 +58,7 @@ include("../php/student_function.php");
 			}
 
 			if($_GET['action']=="ibot_camp"){
+				
 				require_once('ibot_camp.php');
 
 			}
@@ -105,6 +100,15 @@ include("../php/student_function.php");
 				require_once('schedule.php');
 
 			}
+			if($_GET['action']=='student_assessment'){
+				$data=$_POST;
+				$stem1=["Science","Technology","Engineering","Mathematics"];
+				$stem2=["Synthesis","Teamwork","EQ","Meditation"];
+				require_once("student_assessment.php");	
+				$data[] = insterstudent( $conn,$data);
+
+			}
+
 
 
 

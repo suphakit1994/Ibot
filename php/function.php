@@ -50,13 +50,12 @@ function aboutus_performance(mysqli $conn){
 }
 function insertData(mysqli $conn,$data=[]){
 
-	$sql = "INSERT INTO calendar (title,start_time,end_time,color,build_time)
+	$sql = "INSERT INTO calendar (calender_date,calender_starttime,calender_endtime,calender_color)
 	VALUES ('".
-	$data['title']."',
-	'".$data['start_time']."',
+	$data['start_time']."',
+	'".$data['build_time']."',
 	'".$data['end_time']."',
-	'".$data['color']."',
-	'".$data['build_time']."'
+	'".$data['color']."'
 )";
 echo $sql;
 
@@ -255,5 +254,20 @@ function updatestatus(mysqli $conn, $value){
 		return false;
 	}
 }
+function findname(mysqli $conn, $value){
+	$sql = "SELECT s.student_name_th
+	FROM notification
+	INNER JOIN student ON notification.student_id.$value=student.student_id.$value";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+
+
+
 
 ?>

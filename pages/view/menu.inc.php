@@ -1,6 +1,5 @@
 <?php include_once '../php/config.php'; 
-$sql_getnoti= mysqli_query($conn,"SELECT * FROM notification WHERE status=0");
-$count = mysqli_num_rows($sql_getnoti);
+
 ?>
 
 <body>
@@ -8,8 +7,13 @@ $count = mysqli_num_rows($sql_getnoti);
 	<style type="text/css">
 
 		<?php 	
+
+		$sql_getnoti= mysqli_query($conn,"SELECT* FROM notification WHERE status=0");
+		$count = mysqli_num_rows($sql_getnoti);
+
+
 		$s_level = $_SESSION['student_level'];
-		$s_name = $_SESSION['student_fname'];
+		$s_name = $_SESSION['student_name_eng'];
 		$s_nlevel = $_SESSION['student_nlevel'];
 
 		$t_level = $_SESSION['teacher_level'];
@@ -313,22 +317,27 @@ elseif ($a_level=='admin') { ?>
 
 							<span class="badge" id="count"><?php echo $count; ?></a>
 								<ul class="dropdown-menu" style="padding-left: 10px; padding-right: 10px;">
-									<?php $sql_getdata= mysqli_query($conn,"SELECT* FROM notification WHERE status=0");
+									
+<!-- 									$sql_getdata= mysqli_query($conn,"SELECT* FROM notification WHERE status=0");
+
 									if(mysqli_num_rows($sql_getdata)>0)
 									{
 										while ($result = mysqli_fetch_assoc($sql_getdata)) 
 										{
-											echo '<a class="dropdown-item text-primary font-weight-bold" href="index.php?app=admin&action=list_msg">'.$result['topic'].'</a>';
-											echo '<div class="dropdown-divider"></div>';
+											$keys = $result['course_id'];
+											$name_course = mysqli_query($conn,"SELECT course_expension FROM course WHERE course_id=$keys ");
+											echo  -->
+											<a class="dropdown-item text-primary font-weight-bold" href="index.php?app=admin&action=list_msg">มีการแจ้งเตือน</a>
+											
 
-											?>
+											<!-- ?> -->
 											<div style="border-bottom: 1px solid grey; padding-bottom: 5px;"></div>
 
-											<?php
-										}
-									}else{
+											
+											<!-- } -->
+<!-- 									}else{
 										echo '<a class="dropdown-item text-danger font-weight-bold" href="#"><i class="fas fa-frown-open"></i> Sorry ! No Messages</a>';
-									} ?>
+									} ?> -->
 								</ul>
 							</li>
 							<li>

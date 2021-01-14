@@ -1,4 +1,5 @@
 <head>
+
 	<style type="text/css" media="screen">
 		.modals_content{
 			display: flex;
@@ -20,17 +21,15 @@
 <body>
 	<!-- Content -->
 	<div class="page-content p-5" id="content">
+		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 		<div class="container">
 			<div class="row">
-				<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
-				<button type="button" class="Button" data-toggle="modal" data-target="#myModal" style="padding: 7px;">
-					Create Schedule
-				</button> 
-
-				<form method='get'>
-					<a class="Button" style="margin-top:2%; padding: 5px; width:150px;  text-align: center;"
-					href="index.php?app=admin&action=admin_teacher">Next</a> 
-				</form>
+				
+				<div style="padding: 1%;">
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+						Create Schedule++
+					</button>
+				</div> 
 				<div class="row">
 					<div class="col-sm-12">
 						<div id="calendar" ></div>
@@ -82,6 +81,50 @@
 			</div>
 		</div>
 	</div>
+	<?php for($j = 0; $j<count($cus);$j++){ ?>
+		<div class="modal" id="myModal1<?php echo $cus[$j]['calender_id']; ?>" role="dialog">
+			<form action="index.php?app=admin&action=edit_calendar<?php echo $cus[$j]['calender_id']; ?>" method="POST">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content" >
+						<div class="modal-header" style="background-color: white; color: black;">
+							<span class="close">&times;</span>
+							<h4 class="modal-title">Create Schedule</h4>
+						</div>
+
+						<div class="modal-body">
+							<h3>
+								ID==><?php echo $cus[$j]['calender_id']; ?>
+							</h3>
+							<label for="start">Day:<?php echo $cus[$j]['calender_date']; ?></label>
+							<input type="date" id="start" name="start_time<?php echo $cus[$j]['calender_id']; ?>"><br>
+
+							<label for="appt">Start time:<?php echo $cus[$j]['calender_starttime']; ?></label>
+							<input type="time" id="build_time" name="build_time<?php echo $cus[$j]['calender_id']; ?>"><br>
+
+							<label for="appt">End time:<?php echo $cus[$j]['calender_endtime']; ?></label>
+							<input type="time" id="build_time" name="end_time<?php echo $cus[$j]['calender_id']; ?>"><br>
+
+							<div class="" style="padding: 10px 10px;">
+								<label for="cars">Choose a Status:</label>
+								<select name="color<?php echo $cus[$j]['calender_id']; ?>" id="cars">
+									<option value="blue">Attended</option>
+									<option value="pink">Take a leave</option>
+									<option value="black">Schedule</option>
+								</select>
+							</div>
+						</div>
+						<div class="modal-footer" style="background-color: white;">
+							<input style="width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="Edit">
+							<button onclick="location.href='index.php?app=admin&action=delete_calendar<?php echo $cus[$j]['calender_id']; ?>'" style="width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" id="delete<?php echo $cus[$j]['calender_id']; ?>" type="button" data-dismiss="modal">Delete</button>
+							<button style="width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" id="close<?php echo $cus[$j]['calender_id']; ?>" type="button" data-dismiss="modal">Close</button>
+						</div>
+
+					</div>
+				</div>
+			</form>
+		</div>
+	<?php }?>
 </body>
 <script>
 
@@ -101,14 +144,17 @@
 				right: 'dayGridMonth,timeGridWeek,timeGridDay'
 			},
 			dateClick: function(info) {
-				alert('Date: ' + info.dateStr);
+				// alert('Date: ' + info.dateStr);
+				console.log(info);
+
+				
 			},
 
 
 			events: [
 			<?php for($i=0;$i<count($cus);$i++){ ?>
 				{
-					id: 'a',
+					id: '<?php echo $cus[$i]['calender_id']; ?>',
 					borderColor: '<?php echo $cus[$i]['calender_color']; ?>',
 					backgroundColor:'<?php echo $cus[$i]['calender_color']; ?>',
 					title: '<?php echo $cus[$i]['calender_starttime']; ?>:00-<?php echo $cus[$i]['calender_endtime']; ?>:00',
@@ -123,7 +169,13 @@
 			],
 
 			eventClick:function(info){
-
+				var eventObj = info.event;
+				if(eventObj.id){
+					$("#myModal1"+eventObj.id).show();
+					$("#close"+eventObj.id).click(function() {
+						$("#myModal1"+eventObj.id).hide();
+					});
+				}		
 			},
 
 			eventOverlap: function(stillEvent, movingEvent) {
@@ -154,10 +206,11 @@
 				return event.rendering === 'background';
 			}
 		});
-		var event = calendar.getEventById('a')
+		<?php for($l=0;$l<count($cus);$l++){ ?>
+			var event = calendar.getEventById('<?php echo $cus[$l]['calender_id']; ?>')
+		<?php }?>
 		var start = event.start 
 		calendar.render();
-		console.log('<?php echo $cus[1]['start_time']; ?>T<?php echo $cus[1]['build_time']; ?>:00');
-	});
 
+	});
 </script>

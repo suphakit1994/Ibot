@@ -97,12 +97,13 @@
   </style>
 
   <body>
-    <form  method="post" action="index.php?app=student&action=student&action=success" enctype="multipart/form-data">
-      <input type="hidden" name="course_id" value="<?php echo  $_POST['course_id']; ?>">
-      <?php echo $id; ?>
-      <?php echo  $_POST['course_id']; ?>
-      <?php echo $_POST['calender_id']; ?>
 
+    <input type="hidden" name="course_id" value="<?php echo  $_POST['course_id']; ?>">
+    <input type="hidden" name="calender_id" value="<?php echo  $_POST['calender_id']; ?>">
+    <?php echo $id; ?>
+    <?php echo  $_POST['course_id']; ?>
+    <?php echo $_POST['calender_id']; ?>
+    <form  method="post" action="index.php?app=student&action=student&action=success" enctype="multipart/form-data">
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
 
         <div class="col-md-7" style="padding-top: 5%;">
@@ -172,7 +173,7 @@
               <div style="padding-top: 20px;">
                 <input type="radio" name="payment_type"  value="Add Course"  required>
                 <label >ยืนยันข้อมูล</label>
-                <button type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
+                <button type="submit"  name="submit" class="Button" style="border-radius:28px; width: 120px;">Next</button>
               </div>
             </div>    
           </div>
@@ -190,8 +191,8 @@
               <p>Nickname</p>
             </div>
             <div class="col-md-6"> 
-              <p><?php echo $_POST['student_name_eng'];  ?></p>
-              <p><?php echo $_POST['student_nickname_eng'];  ?></p>
+              <p> <?php echo  $student['student_name_eng']; ?></p>
+              <p><?php echo $student['student_nickname_eng'];  ?></p>
             </div>
           </div>
 
@@ -203,9 +204,9 @@
               <p>Phone number</p>
             </div>
             <div class="col-md-6"> 
-              <p><?php echo $_POST['parents_name_eng'];  ?></p> 
-              <p><?php echo $_POST['parents_related'];  ?></p>
-              <p><?php echo $_POST['parents_phonnumber'];  ?></p>
+              <p><?php echo $student['parents_name_eng'];  ?></p> 
+              <p><?php echo $student['parents_related'];  ?></p>
+              <p><?php echo $student['parents_phonnumber'];  ?></p>
             </div>
           </div>
 
@@ -234,3 +235,4 @@
   </form>
 
 </body>
+

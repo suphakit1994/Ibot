@@ -7,7 +7,7 @@ include("../php/course_function.php");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php require_once('view/head.inc.php'); ?>
+	<?php require_once('footer.php'); ?>
 	<style>
 		<?php 
 		$id = $_SESSION['teacher_id'];
@@ -20,6 +20,7 @@ include("../php/course_function.php");
 
 			if(!isset($_GET['action']) ){
 				$cus = calendars($conn);
+				
 				require_once('view.php');
 			}
 
@@ -39,7 +40,7 @@ include("../php/course_function.php");
 					require_once('compititions.php');
 				}
 				if($_GET['action'] == 'report'){
-
+					
 					require_once('report.php');
 				}
 			}

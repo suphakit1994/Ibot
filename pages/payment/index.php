@@ -31,19 +31,18 @@ include("../php/course_function.php");
 
 		if($_GET['action']=='payment'){
 			$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
-
+			$add = insertstudent($conn,$_POST);
 			require_once('payment.php');
-
 		}
 		if($_GET['action']=='success'){
-			$pri = selectcourse_prices($conn,$_POST,$cus); // แสดงข้อมูลคอสที่ลง
-			$add = insertstudent($conn,$_POST);
 			$cus = selectmax($conn);
+			$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
+			$paym = insertpayment($conn,$_POST,$cus);  // insert payment
+			$paymax = maxpayment($conn);	
 			require_once('success.php');
-			$paym = insertpayment($conn,$_POST,$cus);  // insert payment	
 			$calendar = insertcalender_student($conn,$_POST,$cus); 
 			$addnoti = insertnoticourse_student($conn,$_POST,$cus);
-			$add = insertcourse_student($conn,$_POST,$cus);
+			$add = insertcourse_student($conn,$_POST,$cus,$paymax);
 		}		
 
 		?>

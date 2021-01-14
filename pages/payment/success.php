@@ -9,6 +9,7 @@
     <?php echo $cus['student_id']; ?>
     <?php echo $_POST['course_id']; ?>
     <?php echo $_POST['calender_id']; ?>
+    <?php echo $paym['payment_id']; ?>
 
     <!--  หน้า student -->
     <input type="hidden" name="student_name_th" value="<?php echo $_POST['student_name_th'];  ?>">

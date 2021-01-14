@@ -4,6 +4,7 @@ date_default_timezone_set("Asia/Bangkok");
 include("../php/config.php");
 include('../php/function.php');
 include('../php/course_function.php');
+include('../php/camp_function.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +35,6 @@ include('../php/course_function.php');
 
 			if ($_GET['action'] == 'admin_calendar') {
 				$cus = calendars($conn);
-				print_r($cus);
 				require_once('calendar_schedule.php');
 			}
 			if ($_GET['action'] == 'edit_data') {
@@ -47,6 +47,7 @@ include('../php/course_function.php');
 				require_once('dashboard.php');
 			}
 			if ($_GET['action'] == 'course_list') {
+				
 				$course_list = selectcourse($conn);
 				require_once('course_list.php');
 			}
@@ -82,6 +83,7 @@ include('../php/course_function.php');
 								$string_array_quest = implode(",", $new_var_quest);
 								$new_var_ans = $_POST[$new_ans];
 								$string_array_ans = implode(",", $new_var_ans);
+								echo "----------------------------------------------------------->".$string_array_quest.'<br>';
 								if ($string_array_quest =='') {
 									echo "========================>Novalue";
 								}else{
@@ -94,6 +96,8 @@ include('../php/course_function.php');
 										$new_choice = 'choice'.$k.$l.$b;
 										$new_var_choice = $_POST[$new_choice];
 										$string_array_choice = implode(",", $new_var_choice);
+										echo "----------------->".$string_array.'<br>';
+										echo "----------------------------------------->".$string_array_choice.'<br>';
 										if ($string_array_choice  =='') {
 											echo "========================>Novalue";
 										}else{
@@ -114,10 +118,6 @@ include('../php/course_function.php');
 				$cus = insertData($conn, $_POST);
 				$suc = calendars($conn);
 				require_once("calendar_schedule.php");
-			}
-			if ($_GET['action'] == 'admin_course') {
-					// $_POST = ' ';
-				require_once('course_insert.php');
 			}
 			if ($_GET['action'] == 'admin_course/addcourse') {
 				$instercourse =instercourse($conn,$data);
@@ -177,15 +177,19 @@ include('../php/course_function.php');
 			if ($_GET['action'] == 'addteam_compitition') {
 				require_once('addteam_compitition.php');
 			}
-<<<<<<< HEAD
 		}
 		if ($_GET['action'] == 'admin_camp') {
-
+			$cam=camp_select($conn);  //แสดงแคมป์ทั้งหมด
 			require_once('camp_insert.php');
 		}
 		if ($_GET['action'] == 'admin_camp_add') {
-			
 			require_once('camp_add.php');
+		}
+		if ($_GET['action'] == 'admin_camp_add/add') {
+			$camp=camp_insert($conn,$data);		//เพิ่มแคมป์
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_camp">';
+
+			
 		}
 		if($_GET['action'] == 'list_msg'){
 			$cus = listmsg($conn);
@@ -194,28 +198,20 @@ include('../php/course_function.php');
 
 		$si = listmsg($conn);
 		for($i=0; $i<count($si); $i++) { 
-=======
-			if($_GET['action'] == 'list_msg'){
-				$cus = listmsg($conn);
-				require_once('list_msg.php');
-			}
-			$si = listmsg($conn);
-			for($i=0; $i<count($si); $i++) { 
->>>>>>> 059dedbb4c8ca0f0d4a2f283182ba3ab917db368
 			# code...
-				$cus = listmsg($conn);
+			$cus = listmsg($conn);
+			if($_GET['action'] == 'check_msg'. $cus[$i]['id']){
 				$value = $cus[$i]['id'];
-				$fn = findname($conn,$value);
-				if($_GET['action'] == 'check_msg'. $cus[$i]['id']){
-					$status = updatestatus($conn,$value);
+				$status = updatestatus($conn,$value);
 
 				// print_r($cus);
 			// print_r($cus);
 			// $approve = updatestatus($conn);
-					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
 
-				}
 			}
+
+
 		}
 
 		?>

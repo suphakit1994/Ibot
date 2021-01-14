@@ -18,10 +18,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-
-
-
-
 					<div class="row" style="display: flex; align-items: center;">
 						<div class="col-sm-6">
 							<div style="display: flex;justify-content: flex-start">
@@ -38,20 +34,19 @@
 				<div class="col-sm-12">
 					<table>
 						<tr>
-							<th>Course</th>
-							<th>Course Expension</th>
-							<th>Age for class</th>
-							<th>Lesson</th>
-							<th>Price</th>
+							<th>Program</th>
+							<th>Age for program</th>
+							<th></th>
+							<th></th>
 							<th></th>
 						</tr>
-						<?php for($i = 0; $i< count($course_list); $i++){ ?>
+						<?php for($i = 0; $i< count($cam); $i++){ ?>
 							<tr>
-								<td><?php echo $course_list[$i]['course_code']; ?><?php echo "array=>".$i; ?></td>
-								<td><?php echo $course_list[$i]['course_expension']; ?></td>
-								<td><?php echo $course_list[$i]['course_Age']; ?></td>
-								<td><?php echo $course_list[$i]['course_lesson']; ?></td>
-								<td><?php echo $course_list[$i]['course_price']; ?></td>
+								<td><?php echo $cam[$i]['camp_program']; ?><?php echo "array=>".$i; ?></td>
+								<td><?php echo $cam[$i]['camp_Age']; ?></td>
+								<td></td>
+								<td></td>
+								<td></td>
 								<td>
 									<div class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>

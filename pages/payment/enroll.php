@@ -100,6 +100,8 @@
 
       <input type="hidden" name="student_id" value="<?php echo $cus['student_id']; ?>">
       <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
+      <input type="hidden" name="student_id" value="<?php echo $cus['student_id']; ?>">
+      <?php echo $cus['student_id']; ?>
       <?php echo $cus['student_id']; ?>
       <?php echo $_POST['course_id']; ?>
 
@@ -182,7 +184,7 @@
             </div>
 
             <div>
-
+             
               <button  type="submit" name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
             </div>    
 

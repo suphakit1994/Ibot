@@ -23,6 +23,7 @@
 		$a_level = $_SESSION['admin_level'];
 		$a_name = $_SESSION['admin_name'];
 		$a_nlevel = $_SESSION['admin_nlevel'];
+
 		?>
 		
 		.notification {
@@ -162,7 +163,7 @@
 	</style>
 
 	<?php
-	if ($s_level=='student') { ?>
+	if ($s_level=='student') {?>
 		<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
 			<div class="container-fluid">
 				<div class="row">

@@ -36,6 +36,37 @@ include('../php/course_function.php');
 				$cus = calendars($conn);
 				require_once('calendar_schedule.php');
 			}
+			$select_calendar = calendars($conn);
+			for ($c=0; $c < count($select_calendar); $c++) { 
+				# code...
+				if ($_GET['action'] == 'edit_calendar'.$select_calendar[$c]['calender_id']) {
+					echo "===================================>".$select_calendar[$c]['calender_id'].'<br>';
+					$id_of_calendar = $select_calendar[$c]['calender_id'];
+
+					$date_value_calendar = 'start_time'.$id_of_calendar;
+					$value_date = $_POST[$date_value_calendar];
+
+					$start_value_calendar = 'build_time'.$id_of_calendar;
+					$value_start = $_POST[$start_value_calendar];
+
+					$end_value_calendar = 'end_time'.$id_of_calendar;
+					$value_end = $_POST[$end_value_calendar];
+
+					$color_value_calendar = 'color'.$id_of_calendar;
+					$value_color = $_POST[$color_value_calendar];
+					echo "===================================>".$value_date.'=>'.$value_start.'=>'.$value_end.'=>'.$value_color;
+
+					$update_func = update_date($conn,$_POST,$value_date,$value_start,$value_end,$value_color,$id_of_calendar);
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
+
+					
+				}
+				if ($_GET['action'] == 'delete_calendar'.$select_calendar[$c]['calender_id']) {
+					$id_of_calendar = $select_calendar[$c]['calender_id'];
+					$delete_func =deleterowcalendar($conn,$_POST,$id_of_calendar);
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
+				}
+			}
 			if ($_GET['action'] == 'edit_data') {
 				require_once("teacher_edit.php");
 			}

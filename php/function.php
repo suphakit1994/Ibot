@@ -51,8 +51,8 @@ function aboutus_performance(mysqli $conn){
 function insertData(mysqli $conn,$data=[]){
 
 	$sql = "INSERT INTO calendar (calender_date,calender_starttime,calender_endtime,calender_color)
-	VALUES ('".
-	$data['start_time']."',
+	VALUES (
+	'".$data['start_time']."',
 	'".$data['build_time']."',
 	'".$data['end_time']."',
 	'".$data['color']."'
@@ -66,6 +66,24 @@ if ( mysqli_query($conn, $sql)) {
 	return false; 	
 }
 mysqli_close($conn);
+}
+function update_date(mysqli $conn,$data=[],$value_date,$value_start,$value_end,$value_color,$id_of_calendar){
+
+	$sql = "UPDATE `calendar` 
+	SET `calender_date`='$value_date',
+	`calender_starttime`='$value_start',
+	`calender_endtime`='$value_end',
+	`calender_color`='$value_color' 
+	WHERE `calender_id`='$id_of_calendar'";
+	echo $sql;
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
 }
 
 
@@ -138,9 +156,9 @@ function updateidcalendar(mysqli $conn, $data){
 		return false;
 	}
 }
-function deleterowcalendar(mysqli $conn, $data){
+function deleterowcalendar(mysqli $conn, $data,$id_of_calendar){
 	$sql = "DELETE FROM calendar 
-	WHERE id = '61'";
+	WHERE calender_id = '$id_of_calendar'";
 	echo $sql;
 	if ( mysqli_query($conn, $sql)) {
 		return true;

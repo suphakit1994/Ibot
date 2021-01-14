@@ -83,33 +83,46 @@
 	</div>
 	<?php for($j = 0; $j<count($cus);$j++){ ?>
 		<div class="modal" id="myModal1<?php echo $cus[$j]['calender_id']; ?>" role="dialog">
+			<form action="index.php?app=admin&action=edit_calendar<?php echo $cus[$j]['calender_id']; ?>" method="POST">
+				<div class="modal-dialog">
+					<!-- Modal content-->
+					<div class="modal-content" >
+						<div class="modal-header" style="background-color: white; color: black;">
+							<span class="close">&times;</span>
+							<h4 class="modal-title">Create Schedule</h4>
+						</div>
 
-			<div class="modal-dialog">
-				<!-- Modal content-->
-				<div class="modal-content" >
-					<div class="modal-header" style="background-color: white; color: black;">
-						<span class="close">&times;</span>
-						<h4 class="modal-title">Create Schedule</h4>
-					</div>
+						<div class="modal-body">
+							<h3>
+								ID==><?php echo $cus[$j]['calender_id']; ?>
+							</h3>
+							<label for="start">Day:<?php echo $cus[$j]['calender_date']; ?></label>
+							<input type="date" id="start" name="start_time<?php echo $cus[$j]['calender_id']; ?>"><br>
 
-					<div class="modal-body">
-						<h1>
-							ID=======><?php echo $cus[$j]['calender_id']; ?>
-						</h1>
-						<h3>
-							H!=======><?php echo $cus[$j]['calender_starttime']; ?>
-						</h3>
-						<p>
-							P!=======><?php echo $cus[$j]['calender_color']; ?>
-						</p>
-					</div>
-					<div class="modal-footer" style="background-color: white;">
-						<input style="width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="Submit">
-						<button style="width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" id="close<?php echo $cus[$j]['calender_id']; ?>" type="button" data-dismiss="modal">Close</button>
-					</div>
+							<label for="appt">Start time:<?php echo $cus[$j]['calender_starttime']; ?></label>
+							<input type="time" id="build_time" name="build_time<?php echo $cus[$j]['calender_id']; ?>"><br>
 
+							<label for="appt">End time:<?php echo $cus[$j]['calender_endtime']; ?></label>
+							<input type="time" id="build_time" name="end_time<?php echo $cus[$j]['calender_id']; ?>"><br>
+
+							<div class="" style="padding: 10px 10px;">
+								<label for="cars">Choose a Status:</label>
+								<select name="color<?php echo $cus[$j]['calender_id']; ?>" id="cars">
+									<option value="blue">Attended</option>
+									<option value="pink">Take a leave</option>
+									<option value="black">Schedule</option>
+								</select>
+							</div>
+						</div>
+						<div class="modal-footer" style="background-color: white;">
+							<input style="width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="Edit">
+							<button onclick="location.href='index.php?app=admin&action=delete_calendar<?php echo $cus[$j]['calender_id']; ?>'" style="width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" id="delete<?php echo $cus[$j]['calender_id']; ?>" type="button" data-dismiss="modal">Delete</button>
+							<button style="width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" id="close<?php echo $cus[$j]['calender_id']; ?>" type="button" data-dismiss="modal">Close</button>
+						</div>
+
+					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	<?php }?>
 </body>
@@ -162,8 +175,6 @@
 					$("#close"+eventObj.id).click(function() {
 						$("#myModal1"+eventObj.id).hide();
 					});
-					console.log(eventObj.id);
-
 				}		
 			},
 

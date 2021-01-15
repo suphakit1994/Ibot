@@ -97,13 +97,13 @@
   </style>
 
   <body>
-
-    <input type="hidden" name="course_id" value="<?php echo  $_POST['course_id']; ?>">
-    <input type="hidden" name="calender_id" value="<?php echo  $_POST['calender_id']; ?>">
-    <?php echo $id; ?>
-    <?php echo  $_POST['course_id']; ?>
-    <?php echo $_POST['calender_id']; ?>
     <form  method="post" action="index.php?app=student&action=student&action=success" enctype="multipart/form-data">
+      <input type="hidden" name="course_id" value="<?php echo  $_POST['course_id']; ?>">
+      <input type="hidden" name="calender_id" value="<?php echo  $_POST['calender_id']; ?>">
+      
+
+      
+
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
 
         <div class="col-md-7" style="padding-top: 5%;">
@@ -160,15 +160,15 @@
                   <p><option value="กสิกร">กสิกร</option></p>
                 </select>
                 <br><label>Ref. No.</label>
-                <input name="payment_no"class="form-control" style="width: 350%;">
+                <input name="payment_no"class="form-control" style="width: 350%;" required>
                 <br><label>Amount</label>
-                <input name="payment_amount" class="form-control" style="width: 350%;">
+                <input name="payment_amount" class="form-control" style="width: 350%;" required>
                 <br><label>Transaction Date</label>
                 <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
 
                 <br><label>Proof of payment</label>
                 <br>
-                <input name="payment_img" type="file" accept="image/*" >
+                <input name="payment_img" type="file" accept="image/*" required>
               </div>
               <div style="padding-top: 20px;">
                 <input type="radio" name="payment_type"  value="Add Course"  required>
@@ -229,7 +229,6 @@
             </div>
           </div>
         </div>
-
       </div> 
     </div>  
   </form>

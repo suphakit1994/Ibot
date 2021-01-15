@@ -43,6 +43,7 @@ include("../php/course_function.php");
 			$calendar = insertcalender_student($conn,$_POST,$cus); 
 			$addnoti = insertnoticourse_student($conn,$_POST,$cus);
 			$add = insertcourse_student($conn,$_POST,$cus,$paymax);
+			echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=home'>";
 		}		
 
 		?>

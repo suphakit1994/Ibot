@@ -271,7 +271,7 @@ function selectstudentadd(mysqli $conn,$id){
 function insertcourse_students(mysqli $conn,$data,$id,$paymax){
 
 	$sql = " INSERT INTO `course_student`(
-	`cs_course_id`,`cs_student_id` 
+	`cs_course_id`,`cs_student_id`,`course_payment_id`  
 	) 
 	VALUES (
 	'".$data['course_id']."',
@@ -288,7 +288,6 @@ if ( mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 }
 
-
 function insertpayments(mysqli $conn,$data,$id){  
 	$ext = pathinfo(basename($_FILES['payment_img']['name']),PATHINFO_EXTENSION);
 	$new_image_name = 'paym_'.uniqid().".".$ext;
@@ -298,9 +297,9 @@ function insertpayments(mysqli $conn,$data,$id){
 	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
 		move_uploaded_file($_FILES['payment_img']['tmp_name'], $upload_path);
 		$payment_img  = $new_image_name;	
-		echo "upload at file.";   
+		
 	}else{
-		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+		
 	}
 
 	$sql = " INSERT INTO `payment`(

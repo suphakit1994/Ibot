@@ -79,27 +79,31 @@
 		<!-- Toggle button -->
 		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 		<div style="display: flex; padding: 25px;">
-			<h1>ADD Camp</h1>
+			<h1>ADD Compititions</h1>
 		</div>
 		<form method="POST"  action="index.php?app=admin&action=admin_camp_add/add" enctype="multipart/form-data">
 
 			<div class="flex-container">
 				<div class="flex-col1">
-					<p class="list_detail"><b>Program</b> </p>
+					<p class="list_detail"><b>Compititions</b> </p>
+					<input type="text" name="camp_program" class="form-control" required>
+					<p class="list_detail" style="margin-top:  20px;"><b>Age for program</b> </p>
 					<input type="text" name="camp_program" class="form-control" required>
 					<p class="list_detail" style="margin-top:  20px;"><b>Start Date</b></p>
 					<input name="camp_date_start" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
-					<p class="list_detail" style="margin-top:  20px;"><b>Price</b></p>
-					<input type="text" name="camp_price" class="form-control" OnChange="JavaScript:chkNum(this)" style="width: 100%;width: 224px; " required>
+					<p class="list_detail" style="margin-top:  20px;"><b>Program detail</b></p>
+					<input class="file-upload" type="file" name="camp_file" accept="application/pdf" required>
+					
 					
 				</div>
 				<div class="flex-col1">
-					<p class="list_detail" ><b>Age for program</b></p>
+					<p class="list_detail" ><b>Program </b></p>
 					<input type="text" name="camp_Age" class="form-control" required>
+					<p class="list_detail" style="margin-top:  20px;"><b>Price</b></p>
+					<input type="text" name="camp_price" class="form-control" OnChange="JavaScript:chkNum(this)" style="width: 100%;width: 224px; " required>
 					<p class="list_detail" style="margin-top:  20px;"><b>End Date</b></p>
 					<input name="camp_date_end" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
-					<p class="list_detail" style="margin-top:  20px;"><b>Program detail</b></p>
-					<input class="file-upload" type="file" name="camp_file" accept="application/pdf" required>
+					
 				</div>
 			</div>
 			<button type="submit" name="submit" value="Save" class="Button" style=" width: 10%; text-align: center;"> Save </button> 

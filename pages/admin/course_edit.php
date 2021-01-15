@@ -146,9 +146,9 @@
 </script>
 <script language="JavaScript">
 
-	function addCommas(nStr)
+function addCommas(nStr)
 	{
-		nStr += '';
+	nStr += '';
 		x = nStr.split('.');
 		x1 = x[0];
 				//x2 = x.length > 1 ? '.' + x[1] : '';
@@ -159,10 +159,10 @@
 				return x1 ;
 			}
 
-			function chkNum(ele)
-			{
-				var num = parseFloat(ele.value);
-				ele.value = addCommas(num.toFixed(2));
-			}
-		</script>
+function chkNum(ele)
+	{
+		var num = parseFloat(ele.value);
+		ele.value = addCommas(num.toFixed(2));
+	}
+</script>
 

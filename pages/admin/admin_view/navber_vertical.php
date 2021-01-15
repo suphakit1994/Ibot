@@ -100,8 +100,8 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-6" class="collapse">
-						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.2</a></li>
+						<li><a href="index.php?app=admin&action=admin_compitition"><i class=""></i>Competitions list</a></li>
+						<li><a href="index.php?app=admin&action=addteam_compitition"><i class=""></i> Add team 1.2</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>
@@ -114,7 +114,7 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-7" class="collapse">
-						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
+						<li><a href="index.php?app=admin&action=admin_camp"><i class=""></i> Camp list</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.2</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>

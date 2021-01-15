@@ -19,8 +19,7 @@ include('../php/camp_function.php');
 		<?php
 		require_once('footer.php');
 		if ($level=='student') {
-			
-			$_POST['course_id'];
+			$id_course = $_POST['course_id'];
 			$student= selectstudentadd($conn,$id); //แสดงข้อมูลนักเรียนและผู้ปกครอง
 
 			if(!isset($_GET['action'])){
@@ -46,25 +45,23 @@ include('../php/camp_function.php');
 				$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
 				require_once('payment.php');
 			}
-			// if($_GET['action']=="payment/add"){
-			// 	$paym = insertpayments($conn,$_POST,$id);// insert payment
-			// 	echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=student&action=student&action=success">';
 
-			// }
 			if($_GET['action']=="success"){
-				$paym = insertpayments($conn,$_POST,$id);// insert payment
-				$paymax = maxpayment($conn);
 				$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง	 
+				$paym = insertpayments($conn,$_POST,$id);// insert payment
+
 				require_once('success.php');
+				$paymax = maxpayment($conn);
 				$calendar = insertcalender_students($conn,$_POST,$id); 
-				$add = insertcourse_students($conn,$_POST,$id,$paymax);	
+				$add = insertcourse_students($conn,$_POST,$id,$paymax);
+				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student'>"; 
 			}
+
 			if($_GET['action']=="ibot_compeitition"){
 				require_once('ibot_compeitition.php');
 			}
 
 			if($_GET['action']=="ibot_camp"){
-
 				require_once('ibot_camp.php');
 
 			}
@@ -81,16 +78,18 @@ include('../php/camp_function.php');
 
 			}
 			if($_GET['action']=="success_compeitition"){
-				$cus = student_payment_competition($conn,$_POST);
+
 				require_once('success_compeitition.php');
 
 			}
 			if($_GET['action']=="success_camp"){
-				$cus = student_payment_camp($conn,$_POST);
+				$paym = insertpayments($conn,$_POST,$id); // insert payment
 				require_once('success_camp.php');
+				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_camp'>"; 
 
 			}
 			if($_GET['action']=="payment_camp"){
+				$camadd = campadd_select($conn,$cam); //แสดงข้อมูลแคมป์ที่ลงทะเบียน
 				require_once('payment_camp.php');
 
 			}

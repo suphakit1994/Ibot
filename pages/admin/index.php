@@ -24,7 +24,6 @@ include('../php/camp_function.php');
 				$cus = calendars($conn);
 				require_once('calendar_schedule.php');
 			}
-
 			if ($_GET['action'] == 'teacher_list') {
 				$s = calendars($conn);
 					//$cus = updateidcalendar($conn,$_POST);
@@ -32,7 +31,6 @@ include('../php/camp_function.php');
 					//print_r($cus);
 				require_once('teacher_list.php');
 			}
-
 			if ($_GET['action'] == 'admin_calendar') {
 				$cus = calendars($conn);
 				require_once('calendar_schedule.php');
@@ -78,7 +76,6 @@ include('../php/camp_function.php');
 				require_once('dashboard.php');
 			}
 			if ($_GET['action'] == 'course_list') {
-				
 				$course_list = selectcourse($conn);
 				require_once('course_list.php');
 			}
@@ -154,70 +151,24 @@ include('../php/camp_function.php');
 				$instercourse =instercourse($conn,$data);
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="2;index.php?app=admin&action=course_list">';
 			}
-
-			if ($_GET['action'] == 'admin_course/add') {
-				// Up load pdf file
-
-				// for ($i=1; $i < 8 ; $i++) {
-				// 	$new_pdf_name = 'up_pdf_file'.$i;
-				// 	$valable_pdf = 'file'.$i;
-				// 	echo $new_pdf_name = uploadpdf($conn,$_POST,$valable_pdf);
-				// }
-				// $new_pdf_name = 'up_pdf_file';
-				// $valable_pdf = 'file';
-				// echo $new_pdf_name = uploadpdf($conn,$_POST,$valable_pdf);
-
-				// Up load quiz
-				
-
-				// for ($j=1; $j < 8; $j++) { 
-				// 	foreach ($show_id as $key => $id_quize) {
-				// 		$id_quize = $id_quize + 1;
-				// 		echo "Max id".$id_quize;
-				// 	}
-				// 	for ($k=1; $k < 6; $k++) { 
-				// 		$new_quest = 'quest'.$k.$j;
-				// 		$new_var_quest = $_POST[$new_quest];
-				// 		$new_ans = 'ans'.$k.$j;
-				// 		$new_var_ans = $_POST[$new_ans];
-				// 		$use_func = upload_quiz($conn,$_POST,$new_var_quest,$new_var_ans);
-
-
-				// 		for ($l=1; $l < 5; $l++) { 
-				// 			$new_use_var = 'upload_quizz'.$l;
-				// 			$new_choice = 'choice'.$k.$l.$j;
-				// 			$new_var_choice = $_POST[$new_choice];
-				// 			$new_use_var = $new_var_choice;
-				// 			// echo "-----------------------------------------------".$new_var_quest.'===>';
-				// 			// echo $new_use_var;
-				// 			$loop = $new_var_quest.$new_use_var;
-				// 			echo "----------------------------------------------->".$loop.'<br>';
-
-				// 			$use_func1 = upload_choice($conn,$_POST,$new_use_var,$id_quize);
-				// 		}
-
-
-				// 	}
-				// }
-
-
-					// $cus = instercourse( $conn,$_POST);
-					// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_course">';
-
-			}
-			if ($_GET['action'] == 'addteam_compitition') {
-				require_once('addteam_compitition.php');
-			}
-<<<<<<< HEAD
+		}
+		//-------------------------------------compitition-----------------------------------------
+		if ($_GET['action'] == 'admin_compitition') {  
+			require_once('compitition_list.php');
+		}
+		if ($_GET['action'] == 'admin_compitition_add') {  
+			require_once('compitition_add.php');
+		}
+		if ($_GET['action'] == 'addteam_compitition') {
+			require_once('addteam_compitition.php');
 		}
 		if ($_GET['action'] == 'admin_camp') {
 			$cam=camp_select($conn);  //แสดงแคมป์ทั้งหมด
-			require_once('camp_insert.php');
+			require_once('camp_list.php');
 		}
 		if ($_GET['action'] == 'admin_camp_add') {
 			require_once('camp_add.php');
-=======
->>>>>>> 90c89a03d525df8badd0a0753239368642d7bb28
+
 		}
 		if ($_GET['action'] == 'admin_camp_add/add') {
 			$camp=camp_insert($conn,$data);		//เพิ่มแคมป์
@@ -245,9 +196,7 @@ include('../php/camp_function.php');
 			}
 
 
-		}
-
-		?>
+		} ?>
 	</style>
 </head>
 

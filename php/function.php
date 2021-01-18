@@ -284,7 +284,34 @@ function findname(mysqli $conn, $value){
 		return false;
 	}
 }
+function selectstudent(mysqli $conn){
 
+	$sql = "SELECT * FROM `student` WHERE 1";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function selectteacher(mysqli $conn){
+
+	$sql = "SELECT * FROM `teacher` WHERE 1";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
 
 
 

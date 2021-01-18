@@ -70,18 +70,24 @@ include('../php/camp_function.php');
 
 			}
 			if($_GET['action']=="all_compeitition"){
+				$compi = com_select($conn);
 				require_once('all_compeitition.php');
 
 			}
+
 			if($_GET['action']=="payment_compeitition"){
+				$compiadd = compiadd_select($conn,$compi);
 				require_once('payment_compeitition.php');
 
 			}
 			if($_GET['action']=="success_compeitition"){
 
 				require_once('success_compeitition.php');
-
 			}
+			if($_GET['action']=="compeitions_team"){
+				require_once('compeitions_team.php');
+			}
+
 			if($_GET['action']=="success_camp"){
 				$paym = insertpayments($conn,$_POST,$id); // insert payment
 				require_once('success_camp.php');
@@ -98,9 +104,7 @@ include('../php/camp_function.php');
 				require_once('all_camp.php');
 
 			}
-			if($_GET['action']=="compeitions_team"){
-				require_once('compeitions_team.php');
-			}
+			
 			if($_GET['action']=="schedule"){
 				$cus = calendars($conn);
 				require_once('schedule.php');

@@ -110,22 +110,24 @@
     }
 </style>
 <body>
-    <?php for($i = 0; $i< count($cam); $i++){ ?>
-        <form method="post" action="index.php?app=student&action=payment_camp">
-            <div class="container">
-                <div class="col-md-12">
-                    <h1 class="h-text" style="text-align: center;">IBOT CAMP</h1>
-                </div>
-                <div>
-                    <p class="des-text">Loerm ipsum dolor sit amet.
-                        consectetuer adipiscing edit. sed diam<br>
-                        noummy nibh euismod tinciduct urt laoreet dolore mayna.
-                    </p>
-                </div>
-                <div class="row">  
-                    <div>
-                        <h2>Camp</h2>
-                    </div>
+
+    <form method="post" action="index.php?app=student&action=payment_camp">
+        <div class="container">
+            <div class="col-md-12">
+                <h1 class="h-text" style="text-align: center;">IBOT CAMP</h1>
+            </div>
+            <div>
+                <p class="des-text">Loerm ipsum dolor sit amet.
+                    consectetuer adipiscing edit. sed diam<br>
+                    noummy nibh euismod tinciduct urt laoreet dolore mayna.
+                </p>
+            </div>
+            <div>
+                <h2>Camp</h2>
+            </div>
+            <div class="row">  
+                
+                <?php for($i = 0; $i< count($cam); $i++){ ?>
                     <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
                         <div class="card-body">
                             <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
@@ -149,10 +151,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>   
-            </div>
-        </form>
-    <?php } ?>
-</body>
+                        </div><?php } ?>
+                    </div>   
+                </div>
+            </form>
+            
+        </body>
 

@@ -55,7 +55,7 @@ function camp_select(mysqli $conn){		//แสดงแคมป์ทั้ง�
 }
 
 
-function campadd_select(mysqli $conn,$cam){		//แสดงแคมป์ทั้งหมด หน้านักเรียน
+function campadd_select(mysqli $conn,$cam){		//แสดงรายละเอียดแคมป์ที่จะลง หน้านักเรียน
 
 	$sql = "SELECT * FROM `camp` WHERE camp_id = '".$_POST['camp_id']."'";
 	$result = $conn->query($sql); 
@@ -115,7 +115,7 @@ if ( mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 }
 
-function com_select(mysqli $conn){		//แสดงแคมป์ทั้งหมด
+function com_select(mysqli $conn){		//แสดง compitition ทั้งหมด
 
 	$sql = "SELECT * FROM `compititions` WHERE 1";
 	$result = $conn->query($sql); 
@@ -129,6 +129,22 @@ function com_select(mysqli $conn){		//แสดงแคมป์ทั้งห
 		return $data;
 	} 
 }
+
+function compiadd_select(mysqli $conn,$compi){		//แสดงรายละเอียดแคมป์ที่จะลง หน้านักเรียน
+
+	$sql = "SELECT * FROM `compititions` WHERE com_id = '".$_POST['com_id']."'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+
 
 function com_delete(mysqli $conn,$compi){		//แสดงแคมป์ทั้งหมด
 	$sql = "DELETE  FROM `compititions` WHERE `com_id` = '".$compi['com_id']."' ";

@@ -199,7 +199,13 @@
               <p>Camp Date :</p>
             </div>
             <div class="col-md-6"> 
-              <p><?php echo $_POST['name_eng'];  ?></p>
+              <p> <?php 
+              $time = strtotime($camadd['camp_date_start']);
+              $newformat = date("d/m/Y", $time);
+              $time1 = strtotime($camadd['camp_date_end']);
+              $newformat1 = date("d/m/Y", $time);
+              echo $newformat." - ".$newformat1; 
+              ?></p>
             </div>
           </div>
         </div>

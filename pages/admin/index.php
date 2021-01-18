@@ -4,6 +4,7 @@ date_default_timezone_set("Asia/Bangkok");
 include("../php/config.php");
 include('../php/function.php');
 include('../php/course_function.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,12 +24,9 @@ include('../php/course_function.php');
 				$cus = calendars($conn);
 				require_once('calendar_schedule.php');
 			}
-
+			
 			if ($_GET['action'] == 'teacher_list') {
-				$s = calendars($conn);
-					//$cus = updateidcalendar($conn,$_POST);
-					//$cus = selectmax($conn);
-					//print_r($cus);
+				$select_tch = selectteacher($conn);
 				require_once('teacher_list.php');
 			}
 
@@ -36,11 +34,16 @@ include('../php/course_function.php');
 				$cus = calendars($conn);
 				require_once('calendar_schedule.php');
 			}
+			if ($_GET['action'] == 'insert_datetime') {
+				$cus = insertData($conn, $_POST);
+				$suc = calendars($conn);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_calendar">';
+			}
 			$select_calendar = calendars($conn);
 			for ($c=0; $c < count($select_calendar); $c++) { 
 				# code...
 				if ($_GET['action'] == 'edit_calendar'.$select_calendar[$c]['calender_id']) {
-					echo "===================================>".$select_calendar[$c]['calender_id'].'<br>';
+					// echo "===================================>".$select_calendar[$c]['calender_id'].'<br>';
 					$id_of_calendar = $select_calendar[$c]['calender_id'];
 
 					$date_value_calendar = 'start_time'.$id_of_calendar;
@@ -54,12 +57,14 @@ include('../php/course_function.php');
 
 					$color_value_calendar = 'color'.$id_of_calendar;
 					$value_color = $_POST[$color_value_calendar];
-					echo "===================================>".$value_date.'=>'.$value_start.'=>'.$value_end.'=>'.$value_color;
-
-					$update_func = update_date($conn,$_POST,$value_date,$value_start,$value_end,$value_color,$id_of_calendar);
-					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
-
-					
+					// echo "===================================>".$value_date.'=>'.$value_start.'=>'.$value_end.'=>'.$value_color;
+					if ($value_date ==''||$value_start==''||$value_end==''||$value_color=='') {
+						echo "========================>Novalue";
+						echo '<META HTTP-EQUIV="Refresh" CONTENT="1;index.php?app=admin">';
+					}else{
+						$update_func = update_date($conn,$_POST,$value_date,$value_start,$value_end,$value_color,$id_of_calendar);
+						echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
+					}	
 				}
 				if ($_GET['action'] == 'delete_calendar'.$select_calendar[$c]['calender_id']) {
 					$id_of_calendar = $select_calendar[$c]['calender_id'];
@@ -71,6 +76,7 @@ include('../php/course_function.php');
 				require_once("teacher_edit.php");
 			}
 			if ($_GET['action'] == 'students_list') {
+				$select_std = selectstudent($conn);
 				require_once('students_list.php');
 			}
 			if ($_GET['action'] == 'dashboard') {
@@ -140,11 +146,7 @@ include('../php/course_function.php');
 			}
 
 				// ---------------------------Insert--------------------------------
-			if ($_GET['action'] == 'insert_datetime') {
-				$cus = insertData($conn, $_POST);
-				$suc = calendars($conn);
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_calendar">';
-			}
+			
 			if ($_GET['action'] == 'admin_course') {
 					// $_POST = ' ';
 				require_once('course_insert.php');

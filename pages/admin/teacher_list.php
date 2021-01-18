@@ -48,24 +48,26 @@
 							<th>Password</th>
 							<th></th>
 						</tr>
-						<tr>
-							<td><input type="checkbox" name="" value=""></td>
-							<td>Peter</td>
-							<td>Griffin</td>
-							<td>$100</td>
-							<td>Griffin</td>
-							<td>$100</td>
-							<td>
-								<div class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#"><i class="fa fa-refresh" style="font-size:15px"></i> Reset</a></li>
-										<li><a href="index.php?app=admin&action=edit_data"><i class="far fa-edit" style="font-size:15px"></i> Edit</a></li>
-										<li><a href="#"><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
-									</ul>
-								</div>
-							</td>
-						</tr>
+						<?php for($i=0; $i<count($select_tch); $i++){?>
+							<tr>
+								<td><input type="checkbox" name="" value=""></td>
+								<td><?php echo $select_tch[$i]['teacher_fname']."   ".$select_tch[$i]['teacher_lname']; ?></td>
+								<td>Griffin</td>
+								<td><?php echo $select_tch[$i]['teacher_email']; ?></td>
+								<td><?php echo $select_tch[$i]['teacher_phone']; ?></td>
+								<td><?php echo $select_tch[$i]['teacher_password']; ?></td>
+								<td>
+									<div class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="fa fa-refresh" style="font-size:15px"></i> Reset</a></li>
+											<li><a href="index.php?app=admin&action=edit_data"><i class="far fa-edit" style="font-size:15px"></i> Edit</a></li>
+											<li><a href="#"><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						<?php }?>
 					</table>
 				</div>
 			</div>

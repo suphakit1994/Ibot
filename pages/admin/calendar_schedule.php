@@ -19,14 +19,24 @@
 			border: none;
 			border-radius: 50%;
 			color: white;
-			padding: 5px 7px;
+			padding: 0px 7px;
 			font-size: 10px;
 			cursor: pointer;
+			margin-left: 5px;
+			margin-top: 10px;
 		}
 
 		/* Darker background on mouse-over */
 		.icon_inmodals:hover {
 			background-color: RoyalBlue;
+		}
+		.modal-content{
+			width: 100% !important;
+		}
+		.icon_func_modal{
+			display: flex;
+			justify-content: flex-start;
+			flex-direction: row-reverse;
 		}
 
 	</style>
@@ -101,16 +111,13 @@
 			<div class="modal-dialog">
 				<!-- Modal content-->
 				<div class="modal-content" >
-					<div class="modal-header" style="background-color: white; color: black;">
-						<div>
+					<div class="modal-body" style="margin-bottom: 2%;">
+						<div class="icon_func_modal">
 							<a id="close<?php echo $cus[$j]['calender_id']; ?>"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
 							<a id="toggle_edit<?php echo $cus[$j]['calender_id']; ?>" class="icon_inmodals" style="background-color: green;"><i class="fas fa-pencil-alt"></i></a>
 							<a href="index.php?app=admin&action=delete_calendar<?php echo $cus[$j]['calender_id']; ?>" onclick="myFunction()" class="icon_inmodals" style="background-color: black;"><i class="fa fa-trash"></i></a>
 							
 						</div>
-					</div>
-
-					<div class="modal-body">
 						<div id="class_room">
 							<?php $original_date = $cus[$j]['calender_date'];
 							$timestamp = strtotime($original_date);
@@ -147,9 +154,6 @@
 								</div>	
 							</form>
 						</div>
-					</div>
-					<div class="modal-footer" style="background-color: white;">
-						
 					</div>
 				</div>
 			</div>

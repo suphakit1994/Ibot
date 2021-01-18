@@ -110,180 +110,49 @@
     }
 </style>
 <body>
-    <div class="container">
-        <div class="col-md-12">
-            <h1 class="h-text" style="text-align: center;">IBOT CAMP</h1>
-        </div>
-        <div>
-            <p class="des-text">Loerm ipsum dolor sit amet.
-                consectetuer adipiscing edit. sed diam<br>
-                noummy nibh euismod tinciduct urt laoreet dolore mayna.
-            </p>
-        </div>
-        <div>
-            <h2>Camp</h2>
-        </div>
-        <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
-            <div class="card-body">
-                <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
-                    <div class="col-md-4">
-                        <p style="padding-left:10%; margin: auto; padding-top: 5%; padding-bottom: 5%;">
-                            Elementary ( less than 12 years old)
-                        </p>
-                    </div>
-                    <div class="col-md-5" style="margin: auto !important;">
-                        <p style="text-align:center; margin: auto; ">
-                            <b>
-                                Download rules
-                            </b>
-                        </p>
-                    </div>
-                    <div class="col-md-3 btn-position center-box">
-                        <a href="index.php?app=student&action=payment_camp" type="Button" class="Button"
-                        style="padding: 5px; width:150px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
-                    </div>
+    <?php for($i = 0; $i< count($cam); $i++){ ?>
+        <form method="post" action="index.php?app=student&action=payment_camp">
+            <div class="container">
+                <div class="col-md-12">
+                    <h1 class="h-text" style="text-align: center;">IBOT CAMP</h1>
                 </div>
-            </div>
-        </div>
-        <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
-            <div class="card-body">
-                <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
-                    <div class="col-md-4 center-box" >
-                        <p style="padding-left:10%; margin: auto; padding-top: 5%; padding-bottom: 5%;">
-                            Junior ( less than 15 years old)
-                        </p>
-                    </div>
-                    <div class="col-md-5 center-box">
-                        <p style="text-align:center; margin: auto; ">
-                            <b>
-                                Download rules
-                            </b>
-                        </p>
-                    </div>
-                    <div class="col-md-3 btn-position">
-                        <a href="index.php?app=student&action=payment_camp" type="Button" class="Button"
-                        style="padding: 5px; width:150px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
-                    </div>
+                <div>
+                    <p class="des-text">Loerm ipsum dolor sit amet.
+                        consectetuer adipiscing edit. sed diam<br>
+                        noummy nibh euismod tinciduct urt laoreet dolore mayna.
+                    </p>
                 </div>
+                <div class="row">  
+                    <div>
+                        <h2>Camp</h2>
+                    </div>
+                    <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
+                        <div class="card-body">
+                            <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
+                                <div class="col-md-4">
+                                    <p style="padding-left:10%; margin: auto; padding-top: 5%; padding-bottom: 5%;">
+                                        <?php echo $cam[$i]['camp_program']; ?>(<?php echo $cam[$i]['camp_Age']; ?>)
+                                    </p>
+                                </div>
+                                <div class="col-md-5" style="margin: auto !important;">
+                                    <p style="text-align:center; margin: auto; ">
+                                        <b>
+                                            <a href="../camp_pdf/<?php echo $cam[$i]['camp_file']; ?>" download>
+                                            Download rules </a>
+                                        </b>
+                                    </p>
+                                </div>
+                                <div class="col-md-3 btn-position center-box">
+                                    <button type="submit"  name="<?php echo $i ?>" class="Button" style="width:55% ;border-radius:28px;">Enroll</button>
+
+                                    <input type="hidden" name="camp_id" value="<?php echo $cam[$i]['camp_id'];  ?>">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
             </div>
-        </div>
-        <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
-            <div class="card-body">
-                <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
-                    <div class="col-md-4 center-box">
-                        <p style="padding-left:10%; margin: auto; padding-top: 5%; padding-bottom: 5%;">
-                            Senior ( less than 19 years old)
-                        </p>
-                    </div>
-                    <div class="col-md-5 center-box">
-                        <p style="text-align:center; margin: auto; ">
-                            <b>
-                                Download rules
-                            </b>
-                        </p>
-                    </div>
-                    <div class="col-md-3 btn-position">
-                        <a href="index.php?app=student&action=payment_camp" type="Button" class="Button"
-                        style="padding: 5px; width:150px;  text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Enroll</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
-            <div class="card-body">
-                <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
-                    <div class="col-md-4 center-box">
-                        <p style="padding-left:10%; margin: auto; padding-top: 5%; padding-bottom: 5%;">
-                            WEDO
-                        </p>
-                    </div>
-                    <div class="col-md-5 center-box">
-                        <p style="text-align:center; margin: auto; ">
-                            <b>
-                                Download rules
-                            </b>
-                        </p>
-                    </div>
-                    <div class="col-md-3 btn-position">
-                        <button disabled type="Button" class="Button"
-                        style="padding: 5px; width:150px;  text-align: center; background: #DEDEDE;border: 1px solid #ffffff;">Enroll</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <h2>Open Category</h2>
-        </div>
-        <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
-            <div class="card-body">
-                <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
-                    <div class="col-md-4 center-box">
-                        <p style="padding-left:10%; margin: auto; padding-top: 5%; padding-bottom: 5%;">
-                            Open Categoty ( less than 12,15 and 19 years old)
-                        </p>
-                    </div>
-                    <div class="col-md-5 center-box">
-                        <p style="text-align:center; margin: auto; ">
-                            <b>
-                                Download rules
-                            </b>
-                        </p>
-                    </div>
-                    <div class="col-md-3 btn-position">
-                        <button disabled type="Button" class="Button"
-                        style="padding: 5px; width:150px;  text-align: center; background: #DEDEDE;border: 1px solid #ffffff;">Enroll</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <h2>Football(Football Category)</h2>
-        </div>
-        <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
-            <div class="card-body">
-                <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
-                    <div class="col-md-4 center-box">
-                        <p style="padding-left:10%; margin: auto; padding-top: 5%; padding-bottom: 5%;">
-                            Football(Football Category)( less than 12,15 and 19 years old)
-                        </p>
-                    </div>
-                    <div class="col-md-5 center-box">
-                        <p style="text-align:center; margin: auto; ">
-                            <b>
-                                Download rules
-                            </b>
-                        </p>
-                    </div>
-                    <div class="col-md-3 btn-position">
-                        <button disabled type="Button" class="Button"
-                        style="padding: 5px; width:150px;  text-align: center; background: #DEDEDE;border: 1px solid #ffffff;">Enroll</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <h2>Advance Robotics Challenge Category</h2>
-        </div>
-        <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
-            <div class="card-body">
-                <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
-                    <div class="col-md-4 center-box">
-                        <p style="padding-left:10%; margin: auto; padding-top: 5%; padding-bottom: 5%;">
-                            Advance Robotics Challenge Category( less than 12,15 and 19 years old)
-                        </p>
-                    </div>
-                    <div class="col-md-5 center-box">
-                        <p style="text-align:center; margin: auto; ">
-                            <b>
-                                Download rules
-                            </b>
-                        </p>
-                    </div>
-                    <div class="col-md-3 btn-position">
-                        <button disabled type="Button" class="Button"style="padding: 5px; width:150px;  text-align: center; background: #DEDEDE;border: 1px solid #ffffff;">Enroll</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        </form>
+    <?php } ?>
 </body>
+

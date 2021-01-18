@@ -12,7 +12,7 @@ function instercourse(mysqli $conn,$data){
 	//upload image
 	$ext = pathinfo(basename($_FILES['course_img']['name']),PATHINFO_EXTENSION);
 	$new_image_name = 'img_'.uniqid().".".$ext;
-	$image_path = "../pimg/";
+	$image_path = "../course_img/";
 	$upload_path = $image_path.$new_image_name;
 	//uploading
 	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
@@ -86,21 +86,23 @@ function selectfile(mysqli $conn){
 		return $data;
 	}
 }
-function selectcourse_prices(mysqli $conn){
 
-	$sql = "SELECT `course_price`FROM `course` WHERE course_id = '1235' ";
+function selectcourse_prices(mysqli $conn,$data){
+
+	$sql = "SELECT* FROM `course` WHERE course_id = '".$_POST['course_id']."' ";
 
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
+		$data ;
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
+			$data = $row;
 		}
 		$result->close();
 		return $data;
 	}
 }
+
 function uploadpdf(mysqli $conn,$data,$file_app_pdf,$id_lesson,$number_of_lesson){
 
 	if($file_app_pdf ==''){

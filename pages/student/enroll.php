@@ -101,7 +101,6 @@
       <input type="hidden" name="course_id" value="<?php echo  $_POST['course_id']; ?>">
       <?php echo $id; ?>
       <?php echo  $_POST['course_id']; ?>
-
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="row">
           <div class="col-md-7" style=" padding-top: 5%;"> 
@@ -172,8 +171,8 @@
                   <p>Nickname</p>
                 </div>
                 <div class="col-md-6"> 
-                  <p><?php echo $_POST['student_name_eng'];  ?></p>
-                  <p><?php echo $_POST['student_nickname_eng'];  ?></p>
+                  <p> <?php echo  $student['student_name_eng']; ?></p>
+                  <p><?php echo $student['student_nickname_eng'];  ?></p>
                 </div>
               </div>
 
@@ -185,9 +184,9 @@
                   <p>Phone number</p>
                 </div>
                 <div class="col-md-6"> 
-                  <p><?php echo $_POST['parents_name_eng'];  ?></p> 
-                  <p><?php echo $_POST['parents_related'];  ?></p>
-                  <p><?php echo $_POST['parents_phonnumber'];  ?></p>
+                  <p><?php echo $student['parents_name_eng'];  ?></p> 
+                  <p><?php echo $student['parents_related'];  ?></p>
+                  <p><?php echo $student['parents_phonnumber'];  ?></p>
                 </div>
               </div>
 

@@ -4,53 +4,57 @@ include("../php/config.php");
 include("../php/function.php");
 include("../php/course_function.php");
 include("../php/student_function.php");
+include('../php/camp_function.php');
 
 ?>
 <html lang="en">
 <head>
-	<?php require_once('view/head.inc.php'); ?>
 	<style>
 		<?php 
 		$id = $_SESSION['student_id'];
 		$name = $_SESSION['student_name_eng'];
 		$level = $_SESSION['student_level'];
 		$nlevel = $_SESSION['student_nlevel'];
-		$cus = $id ;
 		?>
 		<?php
+		require_once('footer.php');
 		if ($level=='student') {
+			$id_course = $_POST['course_id'];
+			$student= selectstudentadd($conn,$id); //แสดงข้อมูลนักเรียนและผู้ปกครอง
+
 			if(!isset($_GET['action'])){
 				//แสดงคอสที่ลงทะเบียนไว้
-				$data = selectcourse_students($conn,$id);  
+				$data = selectcourse_students($conn,$id);   //แสดงคอสที่ลงทะเบียนแล้ว
 				$arrlength = count($data); //นับข้อมูล
 				//แสดงคอสที่ยังไม่ได้ลงทะเบียน
-				$cus = selectcourse_student($conn,$id);	
-				$arr = count($cus);
+				$course = selectcourse_student($conn,$id);	 //แสดงคอสที่ยังไม่ลงทะเบียน
+				$arr = count($course);
 				require_once('our_course.php');
 				$pri = selectcourse_prices($conn,$_POST);   //แสดงข้อมูลคอสในหน้าสมัครคอส
 			}
 
-			
 			if($_GET['action']=="enroll"){
-				$course =  $_POST['course_id'];
-				$data= calendars($conn);		//select calendars
+				
+				$data= calendars($conn);		//แสดงเวลาเรียนที่เปิดสอน
 				$arrlength = count($data);
-				$pri = selectcourse_prices($conn,$_POST);
+				$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
 				require_once('enroll.php');
 			}
 
 			if($_GET['action']=="payment"){
-				$course =  $_POST['course_id'];
-				$pri = selectcourse_prices($conn,$_POST);
+				$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
 				require_once('payment.php');
-				$calendar = insertcalender_students($conn,$_POST,$id);
 			}
+
 			if($_GET['action']=="success"){
-				$course =  $_POST['course_id'];
-				$paym = insertpayments($conn,$_POST,$id);  // insert payment	
-				$add = insertcourse_students($conn,$_POST,$id);	
-				// $pri = selectcourse_prices($conn,$_POST,$cus);
+				$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง	 
+				$paym = insertpayments($conn,$_POST,$id);// insert payment
+
 				require_once('success.php');
+				$paymax = maxpayment($conn);
+				$calendar = insertcalender_students($conn,$_POST,$id); 
+				$add = insertcourse_students($conn,$_POST,$id,$paymax);
+				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student'>"; 
 			}
 
 			if($_GET['action']=="ibot_compeitition"){
@@ -58,7 +62,6 @@ include("../php/student_function.php");
 			}
 
 			if($_GET['action']=="ibot_camp"){
-				
 				require_once('ibot_camp.php');
 
 			}
@@ -75,20 +78,23 @@ include("../php/student_function.php");
 
 			}
 			if($_GET['action']=="success_compeitition"){
-				$cus = student_payment_competition($conn,$_POST);
+
 				require_once('success_compeitition.php');
 
 			}
 			if($_GET['action']=="success_camp"){
-				$cus = student_payment_camp($conn,$_POST);
+				$paym = insertpayments($conn,$_POST,$id); // insert payment
 				require_once('success_camp.php');
+				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_camp'>"; 
 
 			}
 			if($_GET['action']=="payment_camp"){
+				$camadd = campadd_select($conn,$cam); //แสดงข้อมูลแคมป์ที่ลงทะเบียน
 				require_once('payment_camp.php');
 
 			}
 			if($_GET['action']=="all_camp"){
+				$cam = camp_select($conn);  //แสดงแคมป์ทั้งหมด
 				require_once('all_camp.php');
 
 			}
@@ -108,11 +114,8 @@ include("../php/student_function.php");
 				$data[] = insterstudent( $conn,$data);
 
 			}
-
-
-
-
-		}?>
+		}
+		?>
 	</style>
 </head>
 </html> 

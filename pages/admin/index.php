@@ -153,15 +153,31 @@ include('../php/camp_function.php');
 			}
 		}
 		//-------------------------------------compitition-----------------------------------------
-		if ($_GET['action'] == 'admin_compitition') {  
+		if ($_GET['action'] == 'admin_compitition') {  //หน้าแสดง
+			$compi = com_select($conn);
+
 			require_once('compitition_list.php');
 		}
-		if ($_GET['action'] == 'admin_compitition_add') {  
+		if ($_GET['action'] == 'admin_compitition_add') {  //หน้าเพิ่ม 
 			require_once('compitition_add.php');
+		}
+		if ($_GET['action'] == 'admin_compitition_add/add') { 
+			$compi = com_insert($conn,$data);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
 		}
 		if ($_GET['action'] == 'addteam_compitition') {
 			require_once('addteam_compitition.php');
 		}
+		if ($_GET['action'] == 'delete_compitition') {
+			$compi = com_insert($conn,$data);
+			$deletecompi= com_delete($conn,$compi);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
+
+		}
+
+
+
+		//-----------------------------camp----------------------------------------------
 		if ($_GET['action'] == 'admin_camp') {
 			$cam=camp_select($conn);  //แสดงแคมป์ทั้งหมด
 			require_once('camp_list.php');
@@ -181,22 +197,21 @@ include('../php/camp_function.php');
 			require_once('list_msg.php');
 		}
 		$si = listmsg($conn);
-		for($i=0; $i<count($si); $i++) { 
-			# code...
-			$cus = listmsg($conn);
-			if($_GET['action'] == 'check_msg'. $cus[$i]['id']){
-				$value = $cus[$i]['id'];
-				$status = updatestatus($conn,$value);
+		// for($i=0; $i<count($si); $i++) { 
+		// 	# code...
+		// 	$cus = listmsg($conn);
+		// 	if($_GET['action'] == 'check_msg'. $cus[$i]['id']){
+		// 		$value = $cus[$i]['id'];
+		// 		$status = updatestatus($conn,$value);
 
-				// print_r($cus);
-			// print_r($cus);
-			// $approve = updatestatus($conn);
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
+		// 		// print_r($cus);
+		// 	// print_r($cus);
+		// 	// $approve = updatestatus($conn);
+		// 		echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
 
-			}
-
-
-		} ?>
+		// 	}
+		// } 
+		?>
 	</style>
 </head>
 

@@ -34,26 +34,31 @@
 				<div class="col-sm-12">
 					<table>
 						<tr>
+							<th>Compitition</th>
 							<th>Program</th>
 							<th>Age for program</th>
 							<th></th>
 							<th></th>
-							<th></th>
+							
 						</tr>
 						<?php for($i = 0; $i< count($compi); $i++){ ?>
-							<td><?php echo $compi[$i]['com_type']; ?></td>
 							<tr>
-								<td><?php echo $compi[$i]['com_program	']; ?><?php echo "array=>".$i; ?></td>
-								<td><?php echo $compi[$i]['com_Age']; ?></td>
+								<td><?php echo $compi[$i]['com_type']; ?></td>
+								<td><?php echo $compi[$i]['com_program']; ?><?php echo "array=>".$i; ?></td>
+								<td><?php echo $compi[$i]['com_age']; ?></td>
 								<td></td>
-								<td></td>
-								<td></td>
+								
 								<td>
 									<div class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
 										<ul class="dropdown-menu">
 											<li><a href="index.php?app=admin&action=choice_edit<?php echo $course_list[$i]['course_id']; ?>"><i class="far fa-edit" style="font-size:15px"></i> Edit</a></li>
+											
 											<li><a href="#"><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
+											
+											></button></li>
+
+
 										</ul>
 									</div>
 								</td>

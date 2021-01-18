@@ -36,22 +36,20 @@
 						<tr>
 							<th>Program</th>
 							<th>Age for program</th>
-							<th></th>
-							<th></th>
-							<th></th>
+							
 						</tr>
 						<?php for($i = 0; $i< count($cam); $i++){ ?>
 							<tr>
 								<td><?php echo $cam[$i]['camp_program']; ?><?php echo "array=>".$i; ?></td>
+								
 								<td><?php echo $cam[$i]['camp_Age']; ?></td>
-								<td></td>
-								<td></td>
-								<td></td>
+								
 								<td>
 									<div class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
 										<ul class="dropdown-menu">
-											<li><a href="index.php?app=admin&action=choice_edit<?php echo $course_list[$i]['course_id']; ?>"><i class="far fa-edit" style="font-size:15px"></i> Edit</a></li>
+											<li><a href="index.php?app=admin&action=choice_edit<?php echo $course_list[$i]['course_id']; ?>"><i class="far fa-edit" style="font-size:15px">
+											</i> Edit</a></li>
 											<li><a href="#"><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
 										</ul>
 									</div>

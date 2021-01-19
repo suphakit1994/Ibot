@@ -35,7 +35,7 @@
         <div class="col-md-6"> 
           <p><?php echo $student['parents_name_eng'];  ?></p> 
           <p><?php echo $student['parents_related'];  ?></p>
-          <p><?php echo $student['parents_phonnumber'];  ?></p>
+          <p><?php echo $student['parents_phonenumber'];  ?></p>
         </div>
       </div>
 

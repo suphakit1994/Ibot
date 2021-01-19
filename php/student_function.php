@@ -39,7 +39,6 @@
 
 
 
-
 //แสดงคอสที่ลงทะเบียนไว้
 function selectcourse_students(mysqli $conn,$id){
 
@@ -110,7 +109,7 @@ function insertstudent(mysqli $conn,$data){
 		`parents_name_th`, 
 		`parents_name_eng`, 
 		`parents_related`, 
-		`parents_phonnumber`, 
+		`parents_phonenumber`, 
 		`parents_email`, 
 		`parents_line`)
 		VALUES (
@@ -127,7 +126,7 @@ function insertstudent(mysqli $conn,$data){
 		'".$data['parents_name_th']."',
 		'".$data['parents_name_eng']."',
 		'".$data['parents_related']."',
-		'".$data['parents_phonnumber']."',
+		'".$data['parents_phonenumber']."',
 		'".$data['parents_email']."',
 		'".$data['parents_line']."'
 	)";
@@ -171,18 +170,16 @@ if ( mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 }
 
-function insertpayment(mysqli $conn,$data,$cus){      
+function insertpayment(mysqli $conn,$data,$cus){    //หน้าสมัครลงทะเบียนเรียน    
 	$ext = pathinfo(basename($_FILES['payment_img']['name']),PATHINFO_EXTENSION);
 	$new_image_name = 'paym_'.uniqid().".".$ext;
-	$image_path = "../pimg/";
+	$image_path = "../img_payment/";
 	$upload_path = $image_path.$new_image_name;
 	//uploading
 	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
 		move_uploaded_file($_FILES['payment_img']['tmp_name'], $upload_path);
 		$payment_img  = $new_image_name;	
-		echo "upload at file.";   
-	}else{
-		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	}else{	
 	}
 
 	$sql = " INSERT INTO `payment`(
@@ -211,6 +208,9 @@ if ( mysqli_query($conn, $sql)) {
 }
 mysqli_close($conn);
 }
+
+//********SELECT MAX(payment_id) as payment_id  FROM `payment`WHERE payment_student_id = 380*******
+// เอาไว้เช็คกรณี เจอบัค
 
 function maxpayment(mysqli $conn){
 	$sql = "SELECT MAX(payment_id) as payment_id  FROM `payment`  ";
@@ -274,22 +274,21 @@ if ( mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 }
 
-function insertpayments(mysqli $conn,$data,$id){  
+function insertpaymentss(mysqli $conn,$data,$id){    //หน้าสมัคร สำหรับ นร. ที่เป็นสมาชิกแล้ว
 	$ext = pathinfo(basename($_FILES['payment_img']['name']),PATHINFO_EXTENSION);
 	$new_image_name = 'paym_'.uniqid().".".$ext;
-	$image_path = "../pimg/";
+	$image_path = "../img_payment/";
 	$upload_path = $image_path.$new_image_name;
 	//uploading
 	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
 		move_uploaded_file($_FILES['payment_img']['tmp_name'], $upload_path);
 		$payment_img  = $new_image_name;	
-		
+
 	}else{
 		
 	}
 
 	$sql = " INSERT INTO `payment`(
-
 	`payment_no`, 
 	`payment_amount`, 
 	`payment_date`, 
@@ -305,6 +304,24 @@ function insertpayments(mysqli $conn,$data,$id){
 	'".$data['payment_bank']."',
 	'$payment_img',
 	'".$data['payment_type']."'
+)";
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false;
+}
+mysqli_close($conn);
+}
+
+function insertcamp_students(mysqli $conn,$data,$id,$paymax){
+
+	$sql = " INSERT INTO `camp_student`(`cs_student_id`, `cs_camp_id`, `cs_payment_id`)
+	VALUES (
+	'$id',
+	'".$_POST['camp_id']."',
+	'".$paymax['payment_id']."'
+
 )";
 if ( mysqli_query($conn, $sql)) {
 	return true;

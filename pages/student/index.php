@@ -48,7 +48,7 @@ include('../php/camp_function.php');
 
 			if($_GET['action']=="success"){
 				$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง	 
-				$paym = insertpayments($conn,$_POST,$id);// insert payment
+				$paym = insertpaymentss($conn,$_POST,$id);// insert payment
 
 				require_once('success.php');
 				$paymax = maxpayment($conn);
@@ -81,30 +81,35 @@ include('../php/camp_function.php');
 
 			}
 			if($_GET['action']=="success_compeitition"){
-
+				$paym = insertpaymentss($conn,$_POST,$id); // insert payment
 				require_once('success_compeitition.php');
+				$paymax = maxpayment($conn);
+				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_compeitition'>";
 			}
 			if($_GET['action']=="compeitions_team"){
 				require_once('compeitions_team.php');
 			}
 
-			if($_GET['action']=="success_camp"){
-				$paym = insertpayments($conn,$_POST,$id); // insert payment
-				require_once('success_camp.php');
-				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_camp'>"; 
-
-			}
-			if($_GET['action']=="payment_camp"){
-				$camadd = campadd_select($conn,$cam); //แสดงข้อมูลแคมป์ที่ลงทะเบียน
-				require_once('payment_camp.php');
-
-			}
 			if($_GET['action']=="all_camp"){
 				$cam = camp_select($conn);  //แสดงแคมป์ทั้งหมด
+				$arr = count($cam);
 				require_once('all_camp.php');
 
 			}
 			
+			if($_GET['action']=="payment_camp"){
+				$camadd = campadd_select($conn,$cam); //แสดงข้อมูลแคมป์ที่ลงทะเบียน
+				require_once('payment_camp.php');
+			}
+
+			if($_GET['action']=="success_camp"){
+				$paym = insertpaymentss($conn,$_POST,$id); // insert payment
+				require_once('success_camp.php');
+				$paymax = maxpayment($conn);
+				$camp_std = insertcamp_students( $conn,$data,$id,$paymax);
+				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_camp'>";
+			}
+
 			if($_GET['action']=="schedule"){
 				$cus = calendars($conn);
 				require_once('schedule.php');

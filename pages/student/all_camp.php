@@ -110,24 +110,23 @@
     }
 </style>
 <body>
+    <div class="container">
+        <div class="col-md-12">
+            <h1 class="h-text" style="text-align: center;">IBOT CAMP</h1>
+        </div>
+        <div>
+            <p class="des-text">Loerm ipsum dolor sit amet.
+                consectetuer adipiscing edit. sed diam<br>
+                noummy nibh euismod tinciduct urt laoreet dolore mayna.
+            </p>
+        </div>
+        <div>
+            <h2>Camp</h2>
+        </div>
+        <div class="row">  
 
-    <form method="post" action="index.php?app=student&action=payment_camp">
-        <div class="container">
-            <div class="col-md-12">
-                <h1 class="h-text" style="text-align: center;">IBOT CAMP</h1>
-            </div>
-            <div>
-                <p class="des-text">Loerm ipsum dolor sit amet.
-                    consectetuer adipiscing edit. sed diam<br>
-                    noummy nibh euismod tinciduct urt laoreet dolore mayna.
-                </p>
-            </div>
-            <div>
-                <h2>Camp</h2>
-            </div>
-            <div class="row">  
-                
-                <?php for($i = 0; $i< count($cam); $i++){ ?>
+            <?php for($i = 0; $i< $arr; $i++){ ?>
+                <form method="post" action="index.php?app=student&action=payment_camp">
                     <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
                         <div class="card-body">
                             <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
@@ -142,19 +141,19 @@
                                             <a href="../camp_pdf/<?php echo $cam[$i]['camp_file']; ?>" download>
                                             Download rules </a>
                                         </b>
+                                        <?php echo $i; ?>
                                     </p>
                                 </div>
                                 <div class="col-md-3 btn-position center-box">
                                     <button type="submit"  name="<?php echo $i ?>" class="Button" style="width:55% ;border-radius:28px;">Enroll</button>
-
-                                    <input type="hidden" name="camp_id" value="<?php echo $cam[$i]['camp_id'];  ?>">
                                 </div>
                             </div>
+                            <input type="hidden" name="camp_id" value="<?php echo $cam[$i]['camp_id']; ?>">
                         </div>
-                        </div><?php } ?>
-                    </div>   
-                </div>
-            </form>
-            
-        </body>
+                    </div>
+                </form>  
+            <?php } ?>
+        </div>   
+    </div>
+</body>
 

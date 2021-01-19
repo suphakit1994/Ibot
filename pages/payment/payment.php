@@ -119,7 +119,7 @@
       <input type="hidden" name="parents_name_th" value="<?php echo $_POST['parents_name_th'];  ?>">
       <input type="hidden" name="parents_name_eng" value="<?php echo $_POST['parents_name_eng'];  ?>">
       <input type="hidden" name="parents_related" value="<?php echo $_POST['parents_related'];  ?>">
-      <input type="hidden" name="parents_phonnumber" value="<?php echo $_POST['parents_phonnumber'];  ?>">
+      <input type="hidden" name="parents_phonnumber" value="<?php echo $_POST['parents_phonenumber'];  ?>">
       <input type="hidden" name="parents_email" value="<?php echo $_POST['parents_email'];  ?>">
       <input type="hidden" name="parents_line" value="<?php echo $_POST['parents_line'];  ?>">
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
@@ -224,7 +224,7 @@
             <div class="col-md-6"> 
               <p><?php echo $_POST['parents_name_eng'];  ?></p> 
               <p><?php echo $_POST['parents_related'];  ?></p>
-              <p><?php echo $_POST['parents_phonnumber'];  ?></p>
+              <p><?php echo $_POST['parents_phonenumber'];  ?></p>
             </div>
           </div>
 

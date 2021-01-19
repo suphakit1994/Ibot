@@ -110,7 +110,7 @@
                 <p> <option value="godmother">godmother</option></p>                                            
               </select> 
               <p >Phone number <a style="color: red";> * </a></p> 
-              <input name="parents_phonnumber" type="tel" class="form-control" pattern="[0-9]{10}" style="width: 224px;"  required >  
+              <input name="parents_phonenumber" type="tel" class="form-control" pattern="[0-9]{10}" style="width: 224px;"  required >  
               <p >E-mail <a style="color: red";> * </a></p> 
               <input name="parents_email" type="email" class="form-control" style="width: 224px;" required>  
               <p >ID Line <a style="color: red";> * </a></p> 

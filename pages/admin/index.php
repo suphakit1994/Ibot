@@ -25,11 +25,40 @@ include('../php/camp_function.php');
 				require_once('calendar_schedule.php');
 			}
 			if ($_GET['action'] == 'teacher_list') {
-				$s = calendars($conn);
-					//$cus = updateidcalendar($conn,$_POST);
-					//$cus = selectmax($conn);
-					//print_r($cus);
-				require_once('teacher_list.php');
+				$list_teacher = selectteacher($conn);
+				require_once('teacher_list.php');		
+			}
+			if ($_GET['action'] == 'teacher_add') {
+				$insert_teacher = insert_teacher($conn,$_POST);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=teacher_list">';
+			}
+			$list_teacher = selectteacher($conn);
+			for ($teacher=0; $teacher < count($list_teacher); $teacher++) { 
+				if ($_GET['action'] == 'edit_data_teacher'.$list_teacher[$teacher]['teacher_id']) {
+					$id_teacher = $list_teacher[$teacher]['teacher_id'];
+					$select_idteacher =select_idteacher($conn,$id_teacher);
+					require_once("teacher_edit.php");
+				}
+				if ($_GET['action'] == 'teacher_update'.$list_teacher[$teacher]['teacher_id']) {
+					$id_teacher = $list_teacher[$teacher]['teacher_id'];
+					$current_salary = $list_teacher[$teacher]['salary'];
+					$hour =  $_POST['hour'];
+					$pays =  $_POST['pays'];
+					
+					$fname =  $_POST['fname'];
+					$lname =  $_POST['lname'];
+					$username =  $_POST['username'];
+					$password =  $_POST['password'];
+					$email =  $_POST['email'];
+					$phone =  $_POST['phone'];
+					$date =  $_POST['date'];
+					$time =  $_POST['time'];
+					$work_time = $date."/".$time;
+					$total_salary = $pays*$hour;//salary
+					$new_salary = $current_salary+$total_salary;
+					$update_teach =update_idteacher($conn,$_POST,$fname,$lname,$username,$password,$email,$phone,$work_time,$new_salary,$id_teacher);
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=teacher_list">';
+				}
 			}
 			if ($_GET['action'] == 'admin_calendar') {
 				$cus = calendars($conn);

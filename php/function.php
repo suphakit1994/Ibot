@@ -312,7 +312,108 @@ function selectteacher(mysqli $conn){
 		return $data;
 	} 
 }
+function select_idteacher(mysqli $conn,$id_teacher){
+
+	$sql = "SELECT * FROM `teacher` WHERE teacher_id = '$id_teacher'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function update_idteacher(mysqli $conn,$data,$fname,$lname,$username,$password,$email,$phone,$work_time,$new_salary,$id_teacher){
+	$ext = pathinfo(basename($_FILES['photo']['name']),PATHINFO_EXTENSION);
+	$new_image_name = 'img_'.uniqid().".".$ext;
+	$image_path = "../course_img/";
+	$upload_path = $image_path.$new_image_name;
+	//uploading
+	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
+		move_uploaded_file($_FILES['photo']['tmp_name'], $upload_path);
+		$photo  = $new_image_name;	
+		echo "upload at file.";   
+	}else{
+		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	}
+
+	$sql = "UPDATE `teacher` 
+	SET `teacher_fname`='$fname',
+	`teacher_lname`='$lname',
+	`teacher_email`='$email',
+	`teacher_phone`='$phone', 
+	`teacher_worktime`='$work_time', 
+	`teacher_password`='$password', 
+	`teacher_img`='$photo',
+	`teacher_username`='$username',
+	`salary`='$new_salary'
+
+	WHERE `teacher_id`='$id_teacher'";
+
+	echo $sql;
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+}
+function insert_teacher(mysqli $conn,$data=[]){
+			//random usernameนักศึกษา
+	$name = $data['teacher_fname'];
+		$cutname = substr($name,0,1); //ตัดตัวอักษร
+		$gen=8; //กำหนดจำนวนหลักในการสุ่ม
+		$char_pass = "1234567890"; //รูปแบบข้อความที่จะให้ทำการสุ่ม อาจจะเปลี่ยนเป็น A-Z, a-z, 0-9
+		$t_user = "T_".$cutname; //กำหนดค่าเริ่มต้นให้กับตัวแปล password ที่ใช้ในการเก็บข้อมูล
+		while(strlen($t_user)<$gen) {
+			$t_user .= $char_pass[rand()%strlen($char_pass)]; //ทำการสุ่มพร้อมกับเก็บค่าลง password ใช้ (.) มาช่วยในการรวมข้อความที่ถูกสุ่ม
+		}
+		$data['teacher_username'] = $t_user; //แสดงผลข้อมูล
+
+		//random password นักเรียน
+		$gen=6; //กำหนดจำนวนหลักในการสุ่ม
+		$char_pass = "1234567890"; //รูปแบบข้อความที่จะให้ทำการสุ่ม อาจจะเปลี่ยนเป็น A-Z, a-z, 0-9
+		$t_pass = ""; //กำหนดค่าเริ่มต้นให้กับตัวแปล password ที่ใช้ในการเก็บข้อมูล
+		while(strlen($t_pass)<$gen) {
+			$t_pass .= $char_pass[rand()%strlen($char_pass)]; //ทำการสุ่มพร้อมกับเก็บค่าลง password ใช้ (.) มาช่วยในการรวมข้อความที่ถูกสุ่ม
+		}
+		$data['teacher_password']=$t_pass;
 
 
+		$sql = "INSERT INTO teacher (
+		teacher_fname,
+		teacher_lname,
+		teacher_email,
+		teacher_phone,
+		teacher_worktime,
+		teacher_password,
+		teacher_level,
+		teacher_nlevel,
+		teacher_username)
+		VALUES (
+		'".$data['teacher_fname']."',
+		'".$data['teacher_lname']."',
+		'".$data['teacher_email']."',
+		'".$data['teacher_phone']."',
+		'".$data['teacher_worktime']."',
+		'".$data['teacher_password']."',
+		'teacher',
+		'Teacher',
+		'".$data['teacher_username']."'
+	)";
+	echo $sql;
 
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+}
 ?>

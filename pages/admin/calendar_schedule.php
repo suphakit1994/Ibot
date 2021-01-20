@@ -116,7 +116,6 @@
 							<a id="close<?php echo $cus[$j]['calender_id']; ?>"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
 							<a id="toggle_edit<?php echo $cus[$j]['calender_id']; ?>" class="icon_inmodals" style="background-color: green;"><i class="fas fa-pencil-alt"></i></a>
 							<a href="index.php?app=admin&action=delete_calendar<?php echo $cus[$j]['calender_id']; ?>" onclick="myFunction()" class="icon_inmodals" style="background-color: black;"><i class="fa fa-trash"></i></a>
-							
 						</div>
 						<div id="class_room">
 							<?php $original_date = $cus[$j]['calender_date'];

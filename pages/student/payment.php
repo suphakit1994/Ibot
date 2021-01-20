@@ -101,9 +101,6 @@
       <input type="hidden" name="course_id" value="<?php echo  $_POST['course_id']; ?>">
       <input type="hidden" name="calender_id" value="<?php echo  $_POST['calender_id']; ?>">
       
-
-      
-
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
 
         <div class="col-md-7" style="padding-top: 5%;">
@@ -206,7 +203,7 @@
             <div class="col-md-6"> 
               <p><?php echo $student['parents_name_eng'];  ?></p> 
               <p><?php echo $student['parents_related'];  ?></p>
-              <p><?php echo $student['parents_phonnumber'];  ?></p>
+              <p><?php echo $student['parents_phonenumber'];  ?></p>
             </div>
           </div>
 

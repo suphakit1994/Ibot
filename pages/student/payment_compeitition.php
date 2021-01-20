@@ -99,6 +99,8 @@
   <body>
     <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
       <h1 style="text-align: center; font-weight: bold; text-align: center; padding-top: 3%;">IBOT COMPEITITION</h1>
+      <input type="hidden" name="com_id" value="<?php echo $compi[$i]['com_id'];  ?>">
+      <?php echo $_POST['com_id'] ?>
       <div class="col-md-7" style="padding-top: 2%;">
 
         <h2 style=" margin-top: 7%; margin-bottom: 20px;"><b>Your account is being verified</b></h2>     
@@ -137,27 +139,28 @@
         <div class="form-card" style=" padding-top: 15%;">    
           <div class="row" >
 
-            <form action="index.php?app=student&action=success_compeitition" method="post" accept-charset="utf-8">
+            <form action="index.php?app=student&action=success_compeitition" method="post" enctype="multipart/form-data">
               <label style="margin-top: 5%; ">Bank</label>
               <br>
               <div class="custom-select" style="width:200px; ">
-                <select name="bank">
+                <select name="payment_bank" class="form-control">
                   <p><option value="กรุงไทย">กรุงไทย</option></p>
                   <p><option value="ไทยพาณิชย์">ไทยพาณิชย์</option></p>
                   <p><option value="กสิกร">กสิกร</option></p>
                 </select>
                 <br><label>Ref. No.</label>
-                <br><input name="ref" style="width: 350%;">
+                <br><input name="payment_no" class="form-control" style="width: 350%;">
                 <br><label>Amount</label>
-                <br><input name="amount" style="width: 350%;">
+                <br><input name="payment_amount" class="form-control" style="width: 350%;">
                 <br><label>Transaction Date</label>
-                <br><input name="date_payment" style="width: 350%;">
-                <br><label>Proof of payment</label>
-                <br>
-                <input type="file" id="image" name="image">
+                <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
+                <br><label>Proof of payment</label><br>
+                <input name="payment_img" type="file" accept="image/*" required>
               </div>
               <div style="padding-top: 20px;">
-                <input type="submit" >
+                <input type="radio" name="payment_type"  value="Add Compitition"  required>
+                <label >ยืนยันข้อมูล</label>
+                <button  type="submit"  name="submit" class="Button" style="border-radius:28px; width: 120px;">Next</button>
               </div>
             </form>
           </div>
@@ -172,7 +175,7 @@
             <p>IBOT Compeitition :</p>
           </div>
           <div class="col-md-6"> 
-            <p><?php echo $_POST['name_eng'];  ?></p>
+            <p><?php echo $compiadd['com_type'];  ?></p>
           </div>
         </div>
         <div class="row" style="text-align: start; padding: 10px 140px 0px 15px;">
@@ -183,7 +186,7 @@
             <p>Compeitition :</p>
           </div>
           <div class="col-md-6"> 
-            <p><?php echo $_POST['name_eng'];  ?></p>
+            <p><?php echo $compiadd['com_type'];  ?></p>
           </div>
         </div>
         <div class="row" style="padding-top: 15px;">
@@ -191,7 +194,7 @@
             <p>Program :</p>
           </div>
           <div class="col-md-6"> 
-            <p><?php echo $_POST['name_eng'];  ?></p>
+            <p><?php echo $compiadd['com_program'];  ?></p>
           </div>
         </div>
         <div class="row" style="padding-top: 15px;">
@@ -199,10 +202,40 @@
             <p>Compeitition Date :</p>
           </div>
           <div class="col-md-6"> 
-            <p><?php echo $_POST['name_eng'];  ?></p>
+            <p> <?php 
+            $time = strtotime($compiadd['com_start_date']);
+            $newformat = date("d/m/Y", $time);
+            $time1 = strtotime($compiadd['com_end_date']);
+            $newformat1 = date("d/m/Y", $time);
+            echo $newformat." - ".$newformat1; 
+            ?></p>
+
           </div>
         </div>
       </div>
     </div>
   </div>  
 </body> 
+<script>
+  $(document).ready(function() {
+    var readURL = function(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('.profile-pic').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    $(".file-upload").on('change', function(){
+      readURL(this);
+    });
+
+    $(".upload-button").on('click', function() {
+      $(".file-upload").click();
+    });
+  });
+</script>

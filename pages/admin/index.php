@@ -87,6 +87,7 @@ include('../php/camp_function.php');
 				require_once("teacher_edit.php");
 			}
 			if ($_GET['action'] == 'students_list') {
+				$select_std = selectstudent($conn);
 				require_once('students_list.php');
 			}
 			if ($_GET['action'] == 'dashboard') {

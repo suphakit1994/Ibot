@@ -97,114 +97,120 @@
   </style>
 
   <body>
-    <form method="post" action="index.php?app=student&action=success_camp">
-      <input type="hidden" name="camp_id" value="<?php echo $cam[$i]['camp_id'];  ?>">
-      <?php echo $_POST['camp_id'];  ?>
-      <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
-        <h1 style="text-align: center; font-weight: bold;padding-top: 3%;">IBOT CAMP</h1>
-        <div class="col-md-7" style="padding-top: 2%;">
+    <form method="post" action="index.php?app=student&action=success_camp" enctype="multipart/form-data">
+     <input type="hidden" name="camp_id" value="<?php echo $_POST['camp_id'];?>">
 
-          <h2 style=" margin-top: 7%; margin-bottom: 20px;"><b>Your account is being verified</b></h2>     
-          <div>
-            <div class="form-card" > 
-             <div class="col-md-12"style="padding-left: 5px;padding-right: 5px;">
-              <div class="row" style="margin-top: 5%;">
-                <div class="col-sm-6" style="margin-top: 0%; text-align: end;">
-                  <img src="../images/bank1.jpg" style="width: 275px; height: 125px;" alt="">
-                </div>
-                <div class="col-sm-6" style="margin-top: 2%;">
-                  <p>XXX-XXXX-XXX</p>
-                  <p>IE Thai Software</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
-                  <img src="../images/bank2.jpeg" style="width: 275px; height: 125px;" alt="">
-                </div>
-                <div class="col-sm-6" style="margin-top: 2%;">
-                  <p>XXX-XXXX-XXX</p>
-                  <p>IE Thai Software</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
-                  <img src="../images/bank3.jpg" style="width: 275px; height: 125px;" alt="">
-                </div>
-                <div class="col-sm-6" style="margin-top: 2%;">
-                  <p>XXX-XXXX-XXX</p>
-                  <p>IE Thai Software</p>
-                </div>
-              </div>
-            </div> 
-          </div>
-          <div class="form-card" style=" padding-top: 15%;">    
-            <div class="row" >
+     <?php echo $_POST['camp_id'];  ?>
 
-              <form action="index.php?app=student&action=success_camp" method="post">
-                <label style="margin-top: 5%; ">Bank</label>
-                <br><div class="custom-select" style="width:200px; ">
-                  <select name="payment_bank" class="form-control">
-                    <p><option value="กรุงไทย">กรุงไทย</option></p>
-                    <p><option value="ไทยพาณิชย์">ไทยพาณิชย์</option></p>
-                    <p><option value="กสิกร">กสิกร</option></p>
-                  </select>
-                  <br><label>Ref. No.</label>
-                  <br><input name="payment_no" class="form-control" style="width: 350%;">
-                  <br><label>Amount</label>
-                  <br><input name="payment_amount" class="form-control" style="width: 350%;">
-                  <br><label>Transaction Date</label>
-                  <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
-                  <br><label>Proof of payment</label>
-                  <br>
-                  <input name="payment_img" type="file" accept="image/*" >
-                </div>
-                <div style="padding-top: 20px;">
-                  <input type="radio" name="payment_type"  value="Add Camp"  required>
-                  <label >ยืนยันข้อมูล</label>
-                  <button type="submit"  name="submit" class="Button" style="border-radius:28px; width: 120px;">Next</button>
-                </div>
-              </form>
+     <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
+      <h1 style="text-align: center; font-weight: bold;padding-top: 3%;">IBOT CAMP</h1>
+      <div class="col-md-7" style="padding-top: 2%;">
+
+        <h2 style=" margin-top: 7%; margin-bottom: 20px;"><b>Your account is being verified</b></h2>     
+        <div>
+          <div class="form-card" > 
+           <div class="col-md-12"style="padding-left: 5px;padding-right: 5px;">
+            <div class="row" style="margin-top: 5%;">
+              <div class="col-sm-6" style="margin-top: 0%; text-align: end;">
+                <img src="../images/bank1.jpg" style="width: 275px; height: 125px;" alt="">
+              </div>
+              <div class="col-sm-6" style="margin-top: 2%;">
+                <p>XXX-XXXX-XXX</p>
+                <p>IE Thai Software</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
+                <img src="../images/bank2.jpeg" style="width: 275px; height: 125px;" alt="">
+              </div>
+              <div class="col-sm-6" style="margin-top: 2%;">
+                <p>XXX-XXXX-XXX</p>
+                <p>IE Thai Software</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
+                <img src="../images/bank3.jpg" style="width: 275px; height: 125px;" alt="">
+              </div>
+              <div class="col-sm-6" style="margin-top: 2%;">
+                <p>XXX-XXXX-XXX</p>
+                <p>IE Thai Software</p>
+              </div>
+            </div>
+          </div> 
+        </div>
+        <div class="form-card" style=" padding-top: 15%;">    
+          <div class="row" >
+            <label style="margin-top: 5%; ">Bank</label>
+            <br><div class="custom-select" style="width:200px; ">
+              <select name="payment_bank" class="form-control">
+                <p><option value="กรุงไทย">กรุงไทย</option></p>
+                <p><option value="ไทยพาณิชย์">ไทยพาณิชย์</option></p>
+                <p><option value="กสิกร">กสิกร</option></p>
+              </select>
+              <br><label>Ref. No.</label>
+              <br><input name="payment_no" class="form-control" style="width: 350%;">
+              <br><label>Amount</label>
+              <br><input name="payment_amount" class="form-control" style="width: 350%;">
+              <br><label>Transaction Date</label>
+              <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
+              <br><label>Proof of payment</label><br>
+              <input name="payment_img" type="file" accept="image/*" required>
+            </div>
+            <div style="padding-top: 20px;">
+              <input type="radio" name="payment_type"  value="Add Camp"  required>
+              <label >ยืนยันข้อมูล</label>
+              <button type="submit"  name="submit" class="Button" style="border-radius:28px; width: 120px;">Next</button>
             </div>
 
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-5" style="padding-top: 12%;padding-bottom: 8%;">
+      <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
+        <h3 style="margin-bottom: 20px; font-weight: bold;"><h2>ORDER SUMMARY</h2></h3>
+        <div class="row" style="padding-top: 50px">
+          <div class="col-md-6"> 
+            <p>IBOT Camp :</p>
+          </div>
+          <div class="col-md-6"> 
+            <p><?php echo $camadd['camp_price'];  ?></p>
+          </div>
+        </div>
+        <div class="row" style="text-align: start; padding: 10px 140px 0px 15px;">
+          Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam nonummy nibh euismod tinciduct urt laoreet dolore mayna.
+        </div>
+        <div class="row" style="padding-top: 15px;">
+          <div class="col-md-6"> 
+            <p>Program Camp :</p>
+          </div>
+          <div class="col-md-6"> 
+            <p><?php echo $camadd['camp_program'];  ?></p>
           </div>
         </div>
 
-      </div>
-
-      <div class="col-md-5" style="padding-top: 12%;padding-bottom: 8%;">
-        <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
-          <h3 style="margin-bottom: 20px; font-weight: bold;"><h2>ORDER SUMMARY</h2></h3>
-          <div class="row" style="padding-top: 50px">
-            <div class="col-md-6"> 
-              <p>IBOT Camp :</p>
-            </div>
-            <div class="col-md-6"> 
-              <p><?php echo $camadd['camp_price'];  ?></p>
-            </div>
+        <div class="row" style="padding-top: 15px;">
+          <div class="col-md-6"> 
+            <p>Camp Date :</p>
           </div>
-          <div class="row" style="text-align: start; padding: 10px 140px 0px 15px;">
-            Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam nonummy nibh euismod tinciduct urt laoreet dolore mayna.
-          </div>
-          <div class="row" style="padding-top: 15px;">
-            <div class="col-md-6"> 
-              <p>Program Camp :</p>
-            </div>
-            <div class="col-md-6"> 
-              <p><?php echo $camadd['camp_program'];  ?></p>
-            </div>
-          </div>
-          
-          <div class="row" style="padding-top: 15px;">
-            <div class="col-md-6"> 
-              <p>Camp Date :</p>
-            </div>
-            <div class="col-md-6"> 
-              <p><?php echo $_POST['name_eng'];  ?></p>
-            </div>
+          <div class="col-md-6"> 
+            <p> <?php 
+            $time = strtotime($camadd['camp_date_start']);
+            $newformat = date("d/m/Y", $time);
+            $time1 = strtotime($camadd['camp_date_end']);
+            $newformat1 = date("d/m/Y", $time);
+            echo $newformat." - ".$newformat1; 
+            ?></p>
           </div>
         </div>
-
       </div>
-    </div>  
-  </form>
+
+    </div>
+  </div>  
+</form>
 </body> 

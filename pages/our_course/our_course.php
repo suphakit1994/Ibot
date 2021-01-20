@@ -33,7 +33,8 @@
       text-align: center; 
       background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);    
       border: 1px solid #ffffff;
-    }    
+    }   
+    
   </style>
   <body>
 

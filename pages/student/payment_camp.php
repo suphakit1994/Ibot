@@ -98,8 +98,8 @@
 
   <body>
     <form method="post" action="index.php?app=student&action=success_camp" enctype="multipart/form-data">
+    
      <input type="hidden" name="camp_id" value="<?php echo $_POST['camp_id'];?>">
-
      <?php echo $_POST['camp_id'];  ?>
 
      <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
@@ -153,7 +153,9 @@
               <br><label>Amount</label>
               <br><input name="payment_amount" class="form-control" style="width: 350%;">
               <br><label>Transaction Date</label>
-              <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
+              <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" valube =""type="date"  required>
+              <input type="time"  name="payment_time" required> 
+
               <br><label>Proof of payment</label><br>
               <input name="payment_img" type="file" accept="image/*" required>
             </div>
@@ -172,7 +174,7 @@
     </div>
 
     <div class="col-md-5" style="padding-top: 12%;padding-bottom: 8%;">
-      <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
+      <div class="card" style="padding-left: 8%;padding-top: 8%;padding-bottom: 8%;">
         <h3 style="margin-bottom: 20px; font-weight: bold;"><h2>ORDER SUMMARY</h2></h3>
         <div class="row" style="padding-top: 50px">
           <div class="col-md-6"> 
@@ -201,9 +203,9 @@
           <div class="col-md-6"> 
             <p> <?php 
             $time = strtotime($camadd['camp_date_start']);
-            $newformat = date("d/m/Y", $time);
+            $newformat = date("d/M/Y", $time);
             $time1 = strtotime($camadd['camp_date_end']);
-            $newformat1 = date("d/m/Y", $time);
+            $newformat1 = date("d/M/Y", $time1);
             echo $newformat." - ".$newformat1; 
             ?></p>
           </div>

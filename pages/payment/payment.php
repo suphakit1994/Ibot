@@ -119,7 +119,7 @@
       <input type="hidden" name="parents_name_th" value="<?php echo $_POST['parents_name_th'];  ?>">
       <input type="hidden" name="parents_name_eng" value="<?php echo $_POST['parents_name_eng'];  ?>">
       <input type="hidden" name="parents_related" value="<?php echo $_POST['parents_related'];  ?>">
-      <input type="hidden" name="parents_phonnumber" value="<?php echo $_POST['parents_phonenumber'];  ?>">
+      <input type="hidden" name="parents_phonenumber" value="<?php echo $_POST['parents_phonenumber'];  ?>">
       <input type="hidden" name="parents_email" value="<?php echo $_POST['parents_email'];  ?>">
       <input type="hidden" name="parents_line" value="<?php echo $_POST['parents_line'];  ?>">
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
@@ -183,6 +183,7 @@
                 <input name="payment_amount" class="form-control" style="width: 350%;">
                 <br><label>Transaction Date</label>
                 <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
+                <input type="time"  name="payment_time" required> 
 
                 <br><label>Proof of payment</label>
                 <br>
@@ -201,7 +202,7 @@
       </div>
 
       <div class="col-md-5" style=" padding-top: 5%;">
-        <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
+        <div class="card" style="padding-left: 8%;padding-top: 8%;padding-bottom: 8%;">
           <h3 style="margin-bottom: 20px;"><b>STUDENT INFORMATION</b></h3>
           <div class="row">
             <div class="col-md-6"> 
@@ -240,9 +241,19 @@
             <div class="col-md-6"> 
               <p><?php echo $pri['course_category'];  ?></p>
               <p><?php echo $pri['course_expension'];  ?></p>
-              <p><?php echo $pri['course_category'];  ?></p>
-              <p><?php echo $pri['course_category'];  ?></p>
-              <p><?php echo $pri['course_category'];  ?></p>
+              <?php
+              $startdate=strtotime("Sunday");
+              $enddate=strtotime("+8 weeks", $startdate);
+              ?>
+              <p> <?php $date = date("d M Y"); echo $date ." - ".date("d M Y", $enddate) ;?></p> 
+
+              <?php 
+              $week=strtotime("Monday");
+              $nextweek=strtotime("+1 weeks", $week); 
+              ?>
+              <p> <?php  echo date("d M Y", $week) ." - ". date("d M Y", $nextweek-1);   ?></p> 
+              <p><?php echo $calandar['calender_date']."  ".$calandar['calender_starttime']." - ".$calandar['calender_endtime'];  ?></p>
+
 
             </div>
           </div>

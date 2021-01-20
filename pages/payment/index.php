@@ -32,9 +32,11 @@ include("../php/course_function.php");
 		if($_GET['action']=='payment'){
 			$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
 			$add = insertstudent($conn,$_POST);
+			$calandar = selectcalander($conn,$_POST);
 			require_once('payment.php');
 		}
 		if($_GET['action']=='success'){
+			$calandar = selectcalander($conn,$_POST);
 			$cus = selectmax($conn);
 			$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
 			$paym = insertpayment($conn,$_POST,$cus);  // insert payment

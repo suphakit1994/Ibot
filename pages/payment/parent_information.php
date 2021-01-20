@@ -69,18 +69,18 @@
 
   <body>  
     <form  method="POST" action="index.php?app=payment&action=enroll">
-        <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
-       <!--  หน้า student -->
-        <input type="hidden" name="student_name_th" value="<?php echo $_POST['student_name_th'];  ?>">
-        <input type="hidden" name="student_name_eng" value="<?php echo $_POST['student_name_eng'];  ?>">
-        <input type="hidden" name="student_nickname_eng" value="<?php echo $_POST['student_nickname_eng'];  ?>">
-        <input type="hidden" name="student_brithday" value="<?php echo $_POST['student_brithday'];  ?>">
-        <input type="hidden" name="student_school" value="<?php echo $_POST['student_school'];  ?>">
-        <input type="hidden" name="student_grade" value="<?php echo $_POST['student_grade'];  ?>">
+      <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
+      <!--  หน้า student -->
+      <input type="hidden" name="student_name_th" value="<?php echo $_POST['student_name_th'];  ?>">
+      <input type="hidden" name="student_name_eng" value="<?php echo $_POST['student_name_eng'];  ?>">
+      <input type="hidden" name="student_nickname_eng" value="<?php echo $_POST['student_nickname_eng'];  ?>">
+      <input type="hidden" name="student_brithday" value="<?php echo $_POST['student_brithday'];  ?>">
+      <input type="hidden" name="student_school" value="<?php echo $_POST['student_school'];  ?>">
+      <input type="hidden" name="student_grade" value="<?php echo $_POST['student_grade'];  ?>">
 
 
 
- <input type="hidden" name="student_school" value="<?php echo $_POST['student_school'];  ?>">      <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
+      <input type="hidden" name="student_school" value="<?php echo $_POST['student_school'];  ?>">      <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="col-md-7" style="padding-top: 5%;">
           <h2 style=" margin-top: 0px; margin-bottom: 20px;"><b>Your account is being verified</b></h2> 
           
@@ -122,7 +122,7 @@
         </div>
       </form>      
       <div href="..faii_ft.php"  class="col-md-5" style="padding-top: 5%;padding-bottom: 8%;">
-        <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
+        <div class="card" style="padding-left: 8%;padding-top: 8%;padding-bottom: 8%;">
 
           <h3 style="margin-bottom: 20px;"><b>STUDENT INFORMATION</b></h3>
           <div class="row">

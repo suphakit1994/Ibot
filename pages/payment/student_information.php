@@ -108,7 +108,7 @@
         </div>
 
         <div class="col-md-5" style="padding-top: 5%;padding-bottom: 8%;">
-          <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
+          <div class="card" style="padding-left: 8%;padding-top: 8%;padding-bottom: 8%;">
             <h3 style="margin-bottom: 20px;"><b>STUDENT INFORMATION</b></h3>
             <div class="row">
               <div class="col-md-6"> 

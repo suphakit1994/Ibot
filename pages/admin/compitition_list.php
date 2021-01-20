@@ -21,7 +21,7 @@
 					<div class="row" style="display: flex; align-items: center;">
 						<div class="col-sm-6">
 							<div style="display: flex;justify-content: flex-start">
-								<h1>Compitition list</h1>
+								<h1>Compitition List</h1>
 							</div>
 						</div>
 						<div class="col-sm-6">

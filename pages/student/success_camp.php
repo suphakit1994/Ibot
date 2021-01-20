@@ -5,6 +5,7 @@
     <form>
       <input type="hidden" name="camp_id" value="<?php echo $_POST['camp_id'];?>">
       <?php echo $_POST['camp_id'];  ?>
+      <?php echo $_POST['payment_date'];  ?>
       
 
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">

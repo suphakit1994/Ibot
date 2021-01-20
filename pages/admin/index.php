@@ -25,11 +25,28 @@ include('../php/camp_function.php');
 				require_once('calendar_schedule.php');
 			}
 			if ($_GET['action'] == 'teacher_list') {
-				$s = calendars($conn);
-					//$cus = updateidcalendar($conn,$_POST);
-					//$cus = selectmax($conn);
-					//print_r($cus);
-				require_once('teacher_list.php');
+				$list_teacher = selectteacher($conn);
+				require_once('teacher_list.php');		
+			}
+			if ($_GET['action'] == 'teacher_add') {
+				$insert_teacher = insert_teacher($conn,$_POST);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=teacher_list">';
+			}
+			$list_teacher = selectteacher($conn);
+			for ($teacher=0; $teacher < count($list_teacher); $teacher++) { 
+				if ($_GET['action'] == 'edit_data_teacher'.$list_teacher[$teacher]['teacher_id']) {
+					$id_teacher = $list_teacher[$teacher]['teacher_id'];
+					echo "=============>".$id_teacher;
+					$select_idteacher =select_idteacher($conn,$id_teacher);
+					require_once("teacher_edit.php");
+					
+				}
+				if ($_GET['action'] == 'teacher_update'.$list_teacher[$teacher]['teacher_id']) {
+					$id_teacher = $list_teacher[$teacher]['teacher_id'];
+					$select_idteacher =select_idteacher($conn,$_POST,$id_teacher);
+					require_once("teacher_edit.php");
+					
+				}
 			}
 			if ($_GET['action'] == 'admin_calendar') {
 				$cus = calendars($conn);

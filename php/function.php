@@ -312,7 +312,85 @@ function selectteacher(mysqli $conn){
 		return $data;
 	} 
 }
+function select_idteacher(mysqli $conn,$id_teacher){
 
+	$sql = "SELECT * FROM `teacher` WHERE teacher_id = '$id_teacher'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function update_idteacher(mysqli $conn,$data=[],$id_teacher){
+
+	$sql = "INSERT INTO teacher (
+	teacher_fname,
+	teacher_lname,
+	teacher_email,
+	teacher_phone,
+	teacher_worktime,
+	teacher_password,
+	teacher_level,
+	teacher_nlevel,
+	teacher_username)
+	VALUES (
+	'".$data['teacher_fname']."',
+	'".$data['teacher_lname']."',
+	'".$data['teacher_email']."',
+	'".$data['teacher_phone']."',
+	'".$data['teacher_worktime']."',
+	'".$data['teacher_password']."',
+	'teacher','Teacher',
+	'".$data['teacher_username']."'
+)";
+
+$result = $conn->query($sql); 
+
+if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+	$data =[];
+	while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+		$data[] = $row;
+	}
+	$result->close();
+	return $data;
+} 
+}
+function insert_teacher(mysqli $conn,$data=[]){
+
+	$sql = "INSERT INTO teacher (
+	teacher_fname,
+	teacher_lname,
+	teacher_email,
+	teacher_phone,
+	teacher_worktime,
+	teacher_password,
+	teacher_level,
+	teacher_nlevel,
+	teacher_username)
+	VALUES (
+	'".$data['teacher_fname']."',
+	'".$data['teacher_lname']."',
+	'".$data['teacher_email']."',
+	'".$data['teacher_phone']."',
+	'".$data['teacher_worktime']."',
+	'".$data['teacher_password']."',
+	'teacher','Teacher','".$data['teacher_username']."'
+)";
+echo $sql;
+
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false; 	
+}
+mysqli_close($conn);
+}
 
 
 ?>

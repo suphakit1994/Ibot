@@ -44,15 +44,11 @@
 	
 </style>
 <body>
-	<div class="page-content p-5" id="content" style="padding: 2%;">
+	<div class="page-content p-5" id="content">
+		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<div class="row">
-						<div class="col-sm-12">
-							<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
-						</div>
-					</div>
 					<div class="row" style="display: flex; align-items: center;">
 						<div class="col-sm-6">
 							<div style="display: flex;justify-content: flex-start">
@@ -61,7 +57,7 @@
 						</div>
 						<div class="col-sm-6">
 							<div style="display: flex;justify-content: flex-end">
-								<button class="btn btn-primary" type="" style="padding: 4px;" data-toggle="modal" data-target="#myModal">+ Add New</button>
+								<button class="btn btn-primary" type="" style="margin:4px; padding: 4px;" data-toggle="modal" data-target="#myModal">+ Add New</button>
 							</div>
 						</div>
 					</div>		
@@ -128,20 +124,14 @@
 				<form action="index.php?app=admin&action=teacher_add" method="post">
 					<div class="modal-body" style="">
 						<div>
-							<label for="teacher_fname">teacher_fname</label>
-							<input class="form-control" style="width: 100%;" type="text" id="teacher_fname" name="teacher_fname"><br>
-							<label for="teacher_lname">teacher_lname</label>
+							<label for="teacher_fname">First name</label>
+							<input onchange="this.value=jsUcfirst(this.value)" pattern="^[a-zA-Z\s]+$" class="form-control" style="width: 100%;" type="text" id="teacher_fname" name="teacher_fname"><br>
+							<label for="teacher_lname">Last name</label>
 							<input class="form-control" style="width: 100%;" type="text" id="teacher_lname" name="teacher_lname"><br>
-							<label for="teacher_email">teacher_email</label>
+							<label for="teacher_email">Email</label>
 							<input class="form-control" style="width: 100%;" type="text" id="teacher_email" name="teacher_email"><br>
-							<label for="teacher_phone">teacher_phone</label>
+							<label for="teacher_phone">Phone number</label>
 							<input class="form-control" style="width: 100%;" type="text" id="teacher_phone" name="teacher_phone"><br>
-							<label for="teacher_worktime">teacher_worktime</label>
-							<input class="form-control" style="width: 100%;" type="text" id="teacher_worktime" name="teacher_worktime"><br>
-							<label for="teacher_password">teacher_password</label>
-							<input class="form-control" style="width: 100%;" type="text" id="teacher_password" name="teacher_password"><br>
-							<label for="teacher_username">teacher_username</label>
-							<input class="form-control" style="width: 100%;" type="text" id="teacher_username" name="teacher_username"><br>
 							<div class="modals_end">
 								<input style="width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%); margin:2% 0%;" type="submit" value="Submit">
 							</div>
@@ -151,6 +141,10 @@
 				</form>
 			</div>
 		</div>
-	</div>	
-	
+	</div>
 </body>
+<script>
+	function jsUcfirst(string)  {  //อักษรตัวแรกเป็นพิมพ์ใหญ่
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+</script>

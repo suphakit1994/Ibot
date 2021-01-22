@@ -329,7 +329,7 @@ function select_idteacher(mysqli $conn,$id_teacher){
 function update_idteacher(mysqli $conn,$data,$fname,$lname,$username,$password,$email,$phone,$work_time,$new_salary,$id_teacher){
 	$ext = pathinfo(basename($_FILES['photo']['name']),PATHINFO_EXTENSION);
 	$new_image_name = 'img_'.uniqid().".".$ext;
-	$image_path = "../course_img/";
+	$image_path = "../teacher_img/";
 	$upload_path = $image_path.$new_image_name;
 	//uploading
 	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
@@ -385,6 +385,11 @@ function insert_teacher(mysqli $conn,$data=[]){
 		$data['teacher_password']=$t_pass;
 
 
+		// ../teacher_img/
+		$image_defualt = "Cognitive.png";
+		$data['teacher_img'] = $image_defualt;
+
+
 		$sql = "INSERT INTO teacher (
 		teacher_fname,
 		teacher_lname,
@@ -392,6 +397,7 @@ function insert_teacher(mysqli $conn,$data=[]){
 		teacher_phone,
 		teacher_worktime,
 		teacher_password,
+		teacher_img,
 		teacher_level,
 		teacher_nlevel,
 		teacher_username)
@@ -402,6 +408,7 @@ function insert_teacher(mysqli $conn,$data=[]){
 		'".$data['teacher_phone']."',
 		'".$data['teacher_worktime']."',
 		'".$data['teacher_password']."',
+		'".$data['teacher_img']."',
 		'teacher',
 		'Teacher',
 		'".$data['teacher_username']."'
@@ -415,5 +422,36 @@ function insert_teacher(mysqli $conn,$data=[]){
 		return false; 	
 	}
 	mysqli_close($conn);
+}
+function deleteteacher(mysqli $conn,$id_teacher){
+	$sql = "DELETE FROM teacher 
+	WHERE teacher_id = '$id_teacher'";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+function checkIn_teacher(mysqli $conn,$data=[],$id_teachers){
+
+	$sql = "INSERT INTO list_teacher (id_teacher,date_name,date_today,checkin_time,status)
+	VALUES (
+	'$id_teachers',
+	'".$data['date_name']."',
+	'".$data['date']."',
+	'".$data['checkin_time']."',
+	'Checked'
+)";
+echo $sql;
+
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false; 	
+}
+mysqli_close($conn);
 }
 ?>

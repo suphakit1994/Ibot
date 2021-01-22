@@ -71,15 +71,22 @@ function campadd_select(mysqli $conn,$cam){		//แสดงรายละเอ
 }
 
 function update_camp(mysqli $conn,$data){
+	$camp_program =$_POST['camp_program'];
+	$camp_Age = $_POST['camp_Age'];
+	$camp_file = $_POST['camp_file'];
+	$camp_date_start = $_POST['camp_date_start'];
+	$camp_date_end = $_POST['camp_date_end'];
+	$camp_price = $_POST['camp_price'];  
+	$calender_id = $_POST['camp_id'];
 
 	$sql = "UPDATE `camp` 
-	SET `camp_program`='".$_POST['camp_program']."',
-	`camp_Age`='".$_POST['camp_Age']."',
-	`camp_file`='".$_POST['camp_file']."',
-	`camp_date_start`='".$_POST['camp_date_start']."',
-	`camp_date_end`='".$_POST['camp_date_end']."',
-	`camp_price`='".$_POST['camp_price']."'  
-	WHERE `calender_id`='".$_POST['camp_id']."'";
+	SET `camp_program`=$camp_program,
+	`camp_Age` = $camp_Age,
+	`camp_file` = $camp_file,
+	`camp_date_start` = $camp_date_start,
+	`camp_date_end` = $camp_date_end,
+	`camp_price` = $camp_price  
+	WHERE `calender_id` = $calender_id";
 	echo $sql;
 
 	if ( mysqli_query($conn, $sql)) {

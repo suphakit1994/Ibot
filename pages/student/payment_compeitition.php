@@ -97,49 +97,51 @@
   </style>
 
   <body>
-    <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
-      <h1 style="text-align: center; font-weight: bold; text-align: center; padding-top: 3%;">IBOT COMPEITITION</h1>
-      <input type="hidden" name="com_id" value="<?php echo $compi[$i]['com_id'];  ?>">
-      <?php echo $_POST['com_id'] ?>
-      <div class="col-md-7" style="padding-top: 2%;">
+    <form action="index.php?app=student&action=success_compeitition" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="com_id" value="<?php echo $_POST['com_id'];?>">
+      <?php echo $_POST['com_id'];  ?>
 
-        <h2 style=" margin-top: 7%; margin-bottom: 20px;"><b>Your account is being verified</b></h2>     
-        <div>
-          <div class="form-card" > 
-           <div class="col-md-12"style="padding-left: 5px;padding-right: 5px;">
-            <div class="row" style="margin-top: 5%;">
-              <div class="col-sm-6" style="margin-top: 0%; text-align: end;">
-                <img src="../images/bank1.jpg" style="width: 275px; height: 125px;" alt="">
-              </div>
-              <div class="col-sm-6" style="margin-top: 2%;">
-                <p>XXX-XXXX-XXX</p>
-                <p>IE Thai Software</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
-                <img src="../images/bank2.jpeg" style="width: 275px; height: 125px;" alt="">
-              </div>
-              <div class="col-sm-6" style="margin-top: 2%;">
-                <p>XXX-XXXX-XXX</p>
-                <p>IE Thai Software</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
-                <img src="../images/bank3.jpg" style="width: 275px; height: 125px;" alt="">
-              </div>
-              <div class="col-sm-6" style="margin-top: 2%;">
-                <p>XXX-XXXX-XXX</p>
-                <p>IE Thai Software</p>
-              </div>
-            </div>
-          </div> 
-        </div>
-        <div class="form-card" style=" padding-top: 15%;">    
-          <div class="row" >
+      <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
+        <h1 style="text-align: center; font-weight: bold; text-align: center; padding-top: 3%;">IBOT COMPEITITION</h1>
 
-            <form action="index.php?app=student&action=success_compeitition" method="post" enctype="multipart/form-data">
+        <div class="col-md-7" style="padding-top: 2%;">
+          <h2 style=" margin-top: 7%; margin-bottom: 20px;"><b>Your account is being verified</b></h2>     
+          <div>
+            <div class="form-card" > 
+             <div class="col-md-12"style="padding-left: 5px;padding-right: 5px;">
+              <div class="row" style="margin-top: 5%;">
+                <div class="col-sm-6" style="margin-top: 0%; text-align: end;">
+                  <img src="../images/bank1.jpg" style="width: 275px; height: 125px;" alt="">
+                </div>
+                <div class="col-sm-6" style="margin-top: 2%;">
+                  <p>XXX-XXXX-XXX</p>
+                  <p>IE Thai Software</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
+                  <img src="../images/bank2.jpeg" style="width: 275px; height: 125px;" alt="">
+                </div>
+                <div class="col-sm-6" style="margin-top: 2%;">
+                  <p>XXX-XXXX-XXX</p>
+                  <p>IE Thai Software</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6" style="margin-top: 2%; text-align: end;">
+                  <img src="../images/bank3.jpg" style="width: 275px; height: 125px;" alt="">
+                </div>
+                <div class="col-sm-6" style="margin-top: 2%;">
+                  <p>XXX-XXXX-XXX</p>
+                  <p>IE Thai Software</p>
+                </div>
+              </div>
+            </div> 
+          </div>
+          <div class="form-card" style=" padding-top: 15%;">    
+            <div class="row" >
+
+
               <label style="margin-top: 5%; ">Bank</label>
               <br>
               <div class="custom-select" style="width:200px; ">
@@ -154,6 +156,7 @@
                 <br><input name="payment_amount" class="form-control" style="width: 350%;">
                 <br><label>Transaction Date</label>
                 <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
+                <input type="time"  name="payment_time" required> 
                 <br><label>Proof of payment</label><br>
                 <input name="payment_img" type="file" accept="image/*" required>
               </div>
@@ -162,59 +165,59 @@
                 <label >ยืนยันข้อมูล</label>
                 <button  type="submit"  name="submit" class="Button" style="border-radius:28px; width: 120px;">Next</button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-5" style="padding-top: 12%;padding-bottom: 8%;">
-      <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
-        <h3 style="margin-bottom: 20px; font-weight: bold;"><h2>ORDER SUMMARY</h2></h3>
-        <div class="row" style="padding-top: 50px">
-          <div class="col-md-6"> 
-            <p>IBOT Compeitition :</p>
+      <div class="col-md-5" style="padding-top: 12%;padding-bottom: 8%;">
+        <div class="card" style="padding-left: 8%;padding-top: 8%;padding-bottom: 8%;">
+          <h3 style="margin-bottom: 20px; font-weight: bold;"><h2>ORDER SUMMARY</h2></h3>
+          <div class="row" style="padding-top: 50px">
+            <div class="col-md-6"> 
+              <p>IBOT Compeitition :</p>
+            </div>
+            <div class="col-md-6"> 
+              <p><?php echo $compiadd['com_type'];  ?></p>
+            </div>
           </div>
-          <div class="col-md-6"> 
-            <p><?php echo $compiadd['com_type'];  ?></p>
+          <div class="row" style="text-align: start; padding: 10px 140px 0px 15px;">
+            Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam nonummy nibh euismod tinciduct urt laoreet dolore mayna.
           </div>
-        </div>
-        <div class="row" style="text-align: start; padding: 10px 140px 0px 15px;">
-          Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam nonummy nibh euismod tinciduct urt laoreet dolore mayna.
-        </div>
-        <div class="row" style="padding-top: 15px;">
-          <div class="col-md-6"> 
-            <p>Compeitition :</p>
+          <div class="row" style="padding-top: 15px;">
+            <div class="col-md-6"> 
+              <p>Compeitition :</p>
+            </div>
+            <div class="col-md-6"> 
+              <p><?php echo $compiadd['com_type'];  ?></p>
+            </div>
           </div>
-          <div class="col-md-6"> 
-            <p><?php echo $compiadd['com_type'];  ?></p>
+          <div class="row" style="padding-top: 15px;">
+            <div class="col-md-6"> 
+              <p>Program :</p>
+            </div>
+            <div class="col-md-6"> 
+              <p><?php echo $compiadd['com_program'];  ?></p>
+            </div>
           </div>
-        </div>
-        <div class="row" style="padding-top: 15px;">
-          <div class="col-md-6"> 
-            <p>Program :</p>
-          </div>
-          <div class="col-md-6"> 
-            <p><?php echo $compiadd['com_program'];  ?></p>
-          </div>
-        </div>
-        <div class="row" style="padding-top: 15px;">
-          <div class="col-md-6"> 
-            <p>Compeitition Date :</p>
-          </div>
-          <div class="col-md-6"> 
-            <p> <?php 
-            $time = strtotime($compiadd['com_start_date']);
-            $newformat = date("d/m/Y", $time);
-            $time1 = strtotime($compiadd['com_end_date']);
-            $newformat1 = date("d/m/Y", $time);
-            echo $newformat." - ".$newformat1; 
-            ?></p>
+          <div class="row" style="padding-top: 15px;">
+            <div class="col-md-6"> 
+              <p>Compeitition Date :</p>
+            </div>
+            <div class="col-md-6"> 
+              <p> <?php 
+              $time = strtotime($compiadd['com_start_date']);
+              $newformat = date("d M Y", $time);
+              $time1 = strtotime($compiadd['com_end_date']);
+              $newformat1 = date("d M Y", $time1);
+              echo $newformat." - ".$newformat1; 
+              ?></p>
 
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>  
+    </div>  
+  </form>
 </body> 
 <script>
   $(document).ready(function() {

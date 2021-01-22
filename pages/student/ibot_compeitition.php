@@ -16,13 +16,6 @@
         </div>
         <div class="row">
             <div class="col" style="margin:auto; width:40%;  text-align:center;">
-                <select class="form-control btn-lg" style="height:fit-content;" >
-                    <option selected>Please should your program</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
             </div>
         </div>
         <div class="row" style="background-color: #F1EAEA; position: absolute; margin-top: 5%; padding-top: 2%; padding-bottom: 3%; margin-right:45%; border-radius: 2%; padding-left:2%;">

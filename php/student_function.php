@@ -190,6 +190,7 @@ function insertpayment(mysqli $conn,$data,$cus){    //หน้าสมัค�
 	`payment_student_id`, 
 	`payment_bank`, 
 	`payment_img`,
+	`payment_time`,
 	`payment_type`) 
 	VALUES (
 	'".$data['payment_no']."',
@@ -198,6 +199,7 @@ function insertpayment(mysqli $conn,$data,$cus){    //หน้าสมัค�
 	'".$cus['student_id']."',
 	'".$data['payment_bank']."',
 	'$payment_img',
+	'".$data['payment_time']."',
 	'".$data['payment_type']."'
 )";
 if ( mysqli_query($conn, $sql)) {
@@ -236,6 +238,21 @@ if ( mysqli_query($conn, $sql)) {
 	return false;
 }
 mysqli_close($conn);
+}
+
+function selectcalander(mysqli $conn,$data){
+
+	$sql = "SELECT * FROM `calendar` WHERE `calender_id` = '".$_POST['calender_id']."'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	} 
 }
 
 
@@ -295,6 +312,7 @@ function insertpaymentss(mysqli $conn,$data,$id){    //หน้าสมัค�
 	`payment_student_id`, 
 	`payment_bank`, 
 	`payment_img`,
+	`payment_time`,
 	`payment_type`) 
 	VALUES (
 	'".$data['payment_no']."',
@@ -303,6 +321,7 @@ function insertpaymentss(mysqli $conn,$data,$id){    //หน้าสมัค�
 	'$id',
 	'".$data['payment_bank']."',
 	'$payment_img',
+	'".$data['payment_time']."',
 	'".$data['payment_type']."'
 )";
 if ( mysqli_query($conn, $sql)) {
@@ -320,6 +339,24 @@ function insertcamp_students(mysqli $conn,$data,$id,$paymax){
 	VALUES (
 	'$id',
 	'".$_POST['camp_id']."',
+	'".$paymax['payment_id']."'
+
+)";
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false;
+}
+mysqli_close($conn);
+}
+
+function insertcom_students(mysqli $conn,$data,$id,$paymax){
+
+	$sql = " INSERT INTO `compititions_student`(`cps_com_id`, `cps_student_id`, `cps_payment_id`)
+	VALUES (
+	'".$_POST['com_id']."',
+	'$id',
 	'".$paymax['payment_id']."'
 
 )";

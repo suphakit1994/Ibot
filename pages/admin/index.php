@@ -219,14 +219,20 @@ include('../php/camp_function.php');
 		}
 		if ($_GET['action'] == 'admin_camp_add') {
 			require_once('camp_add.php');
-
 		}
 		if ($_GET['action'] == 'admin_camp_add/add') {
 			$camp=camp_insert($conn,$data);		//เพิ่มแคมป์
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_camp">';
-
-			
 		}
+		if ($_GET['action'] == 'admin_camp_edit') {
+			$campadd = campadd_select($conn,$cam);
+			require_once('camp_edit.php');
+		}
+		if ($_GET['action'] == 'admin_camp_edit/add') {
+			$updatcamp = update_camp($conn,$_POST);
+			// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_camp">';
+		}
+
 		if($_GET['action'] == 'list_msg'){
 			$cus = listmsg($conn);
 			require_once('list_msg.php');

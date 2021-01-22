@@ -91,7 +91,7 @@
       background: #0050ef  !important;
       color: white!important;
     }
-
+    
     
   </style>
 
@@ -117,7 +117,7 @@
       <input type="hidden" name="parents_name_th" value="<?php echo $_POST['parents_name_th'];  ?>">
       <input type="hidden" name="parents_name_eng" value="<?php echo $_POST['parents_name_eng'];  ?>">
       <input type="hidden" name="parents_related" value="<?php echo $_POST['parents_related'];  ?>">
-      <input type="hidden" name="parents_phonnumber" value="<?php echo $_POST['parents_phonenumber'];  ?>">
+      <input type="hidden" name="parents_phonenumber" value="<?php echo $_POST['parents_phonenumber'];  ?>">
       <input type="hidden" name="parents_email" value="<?php echo $_POST['parents_email'];  ?>">
       <input type="hidden" name="parents_line" value="<?php echo $_POST['parents_line'];  ?>">
 
@@ -203,7 +203,7 @@
         </div>
 
         <div class="col-md-5" style=" padding-top: 5%;">
-          <div class="card" style="padding-left: 13%;padding-top: 8%;padding-bottom: 8%;">
+          <div class="card" style="padding-left: 8%;padding-top: 8%;padding-bottom: 8%;">
             <h3 style="margin-bottom: 20px;"><b>STUDENT INFORMATION</b></h3>
             <div class="row">
               <div class="col-md-6"> 

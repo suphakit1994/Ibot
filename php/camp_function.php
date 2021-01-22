@@ -70,6 +70,26 @@ function campadd_select(mysqli $conn,$cam){		//แสดงรายละเอ
 	} 
 }
 
+function update_camp(mysqli $conn,$data){
+
+	$sql = "UPDATE `camp` 
+	SET `camp_program`='".$_POST['camp_program']."',
+	`camp_Age`='".$_POST['camp_Age']."',
+	`camp_file`='".$_POST['camp_file']."',
+	`camp_date_start`='".$_POST['camp_date_start']."',
+	`camp_date_end`='".$_POST['camp_date_end']."',
+	`camp_price`='".$_POST['camp_price']."'  
+	WHERE `calender_id`='".$_POST['camp_id']."'";
+	echo $sql;
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+}
 
 //--------------------------------compitition--------------------------------------
 
@@ -130,7 +150,7 @@ function com_select(mysqli $conn){		//แสดง compitition ทั้งห�
 	} 
 }
 
-function compiadd_select(mysqli $conn,$compi){		//แสดงรายละเอียดแคมป์ที่จะลง หน้านักเรียน
+function select_comadd(mysqli $conn,$compi){		//แสดงรายละเอียดแคมป์ที่จะลง หน้านักเรียน
 
 	$sql = "SELECT * FROM `compititions` WHERE com_id = '".$_POST['com_id']."'";
 	$result = $conn->query($sql); 

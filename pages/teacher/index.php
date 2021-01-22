@@ -20,31 +20,36 @@ include("../php/course_function.php");
 
 			if(!isset($_GET['action']) ){
 				$cus = calendars($conn);
-				
 				require_once('view.php');
 			}
 
 			if($_GET['action'] == 'our_course'){
 				$cus[] = getselect($conn);
-					$data= getselect($conn);         //เรียกใช้ faction
-					$arrlength = count($data); 	
-					require_once('our_course.php');
-				}
-
-				if($_GET['action'] == 'student_assessment'){
-
-					require_once('student_assessment.php');
-				}
-				if($_GET['action'] == 'compititions'){
-
-					require_once('compititions.php');
-				}
-				if($_GET['action'] == 'report'){
-					
-					require_once('report.php');
-				}
+				$data= getselect($conn);         //เรียกใช้ faction
+				$arrlength = count($data); 	
+				require_once('our_course.php');
 			}
-			?>
-		</style>
-	</head>
-	</html> 
+			if($_GET['action'] == 'checkIn'.$id){
+				$id_teachers = $id;
+				$func_teacher = checkIn_teacher($conn,$_POST,$id_teachers);
+				require_once('view.php');
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=teacher">';
+			}
+
+			if($_GET['action'] == 'student_assessment'){
+
+				require_once('student_assessment.php');
+			}
+			if($_GET['action'] == 'compititions'){
+
+				require_once('compititions.php');
+			}
+			if($_GET['action'] == 'report'){
+
+				require_once('report.php');
+			}
+		}
+		?>
+	</style>
+</head>
+</html> 

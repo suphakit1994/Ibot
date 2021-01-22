@@ -96,12 +96,12 @@
 								<div class="modal-dialog">
 									<!-- Modal content-->
 									<div class="modal-content" >
-										<form action="" method="post">
-											<div class="modal-body" style="">
-												Are you Sure to Delete : <?php echo $list_teacher[$i]['teacher_fname']."   ".$list_teacher[$i]['teacher_lname']; ?> ?
-												<div class="modals_end">
-													<input type="submit" name="" value="OK">
-													<button type="button" onclick="document.getElementById('delete_confirm<?php echo $i;?>').style.display='none'">Cancel</button>
+										<form action="index.php?app=admin&action=teacher_del<?php echo $list_teacher[$i]['teacher_id']; ?>" method="post">
+											<div class="modal-body" style="margin: 68px 0px 0px 0px;">
+												<h3 style="text-align: center;">Are you Sure to Delete : <?php echo $list_teacher[$i]['teacher_fname']."   ".$list_teacher[$i]['teacher_lname']; ?> ?</h3>
+												<div class="modals_end" style="margin: 41px 0px 0px 0px;">
+													<input class="btn btn-success" style="margin: 2%;" type="submit" name="" value="OK">
+													<button class="btn btn-danger" style="margin: 2%;" type="button" onclick="document.getElementById('delete_confirm<?php echo $i;?>').style.display='none'">Cancel</button>
 												</div>
 											</div>
 										</form>
@@ -125,13 +125,13 @@
 					<div class="modal-body" style="">
 						<div>
 							<label for="teacher_fname">First name</label>
-							<input onchange="this.value=jsUcfirst(this.value)" pattern="^[a-zA-Z\s]+$" class="form-control" style="width: 100%;" type="text" id="teacher_fname" name="teacher_fname"><br>
+							<input onchange="this.value=jsUcfirst(this.value)" pattern="^[a-zA-Z\s]+$" class="form-control" style="width: 100%;" type="text" id="teacher_fname" name="teacher_fname" required placeholder="A-z"><br>
 							<label for="teacher_lname">Last name</label>
-							<input class="form-control" style="width: 100%;" type="text" id="teacher_lname" name="teacher_lname"><br>
+							<input class="form-control" style="width: 100%;" type="text" id="teacher_lname" name="teacher_lname" required placeholder="A-z"><br>
 							<label for="teacher_email">Email</label>
-							<input class="form-control" style="width: 100%;" type="text" id="teacher_email" name="teacher_email"><br>
+							<input class="form-control" style="width: 100%;" type="text" id="teacher_email" name="teacher_email" required placeholder="example@mail.com"><br>
 							<label for="teacher_phone">Phone number</label>
-							<input class="form-control" style="width: 100%;" type="text" id="teacher_phone" name="teacher_phone"><br>
+							<input class="form-control" style="width: 100%;" type="text" id="teacher_phone" name="teacher_phone" required placeholder="0-9"><br>
 							<div class="modals_end">
 								<input style="width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%); margin:2% 0%;" type="submit" value="Submit">
 							</div>

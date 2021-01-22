@@ -59,6 +59,11 @@ include('../php/camp_function.php');
 					$update_teach =update_idteacher($conn,$_POST,$fname,$lname,$username,$password,$email,$phone,$work_time,$new_salary,$id_teacher);
 					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=teacher_list">';
 				}
+				if ($_GET['action'] == 'teacher_del'.$list_teacher[$teacher]['teacher_id']) {
+					$id_teacher = $list_teacher[$teacher]['teacher_id'];
+					$delete_teacher = deleteteacher($conn,$id_teacher);
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=teacher_list">';
+				}
 			}
 			if ($_GET['action'] == 'admin_calendar') {
 				$cus = calendars($conn);

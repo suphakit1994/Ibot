@@ -127,7 +127,6 @@
             <div class="card-body">
               <div class="row" style="display: flex; margin-bottom: 0 !important; align-items: center;">
                 <div class="col-md-5" style="width:50%; display: flex; margin-bottom: 0 !important; padding-top: 15px; padding-left: 30px;">
-
                   <img style="border-radius:3%; width:150px; height:215px;object-fit:cover;" src="../teacher_img/<?php echo $select_idteacher[$i]['teacher_img'];?>" >
 
                 </div>

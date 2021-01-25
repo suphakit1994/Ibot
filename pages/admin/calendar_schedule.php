@@ -38,6 +38,10 @@
 			justify-content: flex-start;
 			flex-direction: row-reverse;
 		}
+		mark{
+			background-color: yellow;
+			color: black;
+		}
 
 	</style>
 </head>
@@ -107,28 +111,56 @@
 	</div>
 	<?php for($j = 0; $j<count($cus);$j++){ ?>
 		<div class="modal" id="myModal1<?php echo $cus[$j]['calender_id']; ?>" role="dialog">
-			
 			<div class="modal-dialog">
-				<!-- Modal content-->
 				<div class="modal-content" >
 					<div class="modal-body" style="margin-bottom: 2%;">
 						<div class="icon_func_modal">
 							<a id="close<?php echo $cus[$j]['calender_id']; ?>"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
 							<a id="toggle_edit<?php echo $cus[$j]['calender_id']; ?>" class="icon_inmodals" style="background-color: green;"><i class="fas fa-pencil-alt"></i></a>
+							<a id="toggle_adduser<?php echo $cus[$j]['calender_id']; ?>" class="icon_inmodals" style="background-color: orange;"><i class="fas fa-book"></i></a>
 							<a href="index.php?app=admin&action=delete_calendar<?php echo $cus[$j]['calender_id']; ?>" onclick="myFunction()" class="icon_inmodals" style="background-color: black;"><i class="fa fa-trash"></i></a>
-						</div>
+							
+						</div>	
 						<div id="class_room">
+							
 							<?php $original_date = $cus[$j]['calender_date'];
 							$timestamp = strtotime($original_date);
 							$new_date = date("d-m-Y", $timestamp);?>
-
 							<h1><b>Class Room</b></h1>
-							<h2><b>Teacher : </b>Jonh Smith</h2>
-							<h2><b>Students : </b>0 / 10</h2>
+							<div class="add_user" id="adduser<?php echo $cus[$j]['calender_id']; ?>" style="display: none;">
+								<form action="index.php?app=admin&action=add_teacherclassroom<?php echo $cus[$j]['calender_id']; ?>" method="POST">
+									<label for="name_t"><h2><b>Teacher :</b></h2></label>
+									<select name="name_t" id="name_t">
+										<?php for($k = 0; $k<count($t_list);$k++){ ?>
+											<option value="<?php echo $t_list[$k]['teacher_id']; ?>"><?php echo $t_list[$k]['teacher_id']; ?><?php echo $t_list[$k]['teacher_fname']; ?></option>
+										<?php } ?>
+									</select><br>
+									<label for="name_s"><h2><b>Students :</b></h2></label>
+									<select name="name_s" id="name_s">
+										<?php for($l = 0; $l<count($s_list);$l++){ ?>
+											<option value="<?php echo $s_list[$l]['student_id']; ?>"><?php echo $s_list[$l]['student_id']; ?><?php echo $s_list[$l]['student_name_eng']; ?></option>
+										<?php } ?>
+									</select><br>
+
+									<input style="margin-top: 2%;" class="btn btn-success" type="submit" >
+									<hr style="width:100%;text-align:left;margin-left:0">
+									<?php for($m = 0; $m<count($classroom);$m++){ ?>
+										<?php if($classroom[$m]['id_calendar_fk'] == $cus[$j]['calender_id']) {?>
+											<!-- <p><b>List in Class room: <?php echo $classroom[$m]['id_calendar_fk']; ?></b></p> -->
+											<p><b>id_user: <?php echo $classroom[$m]['id_user']; ?></b></p>
+											<p><b>fname: <?php echo $classroom[$m]['fname']; ?></b></p>
+											<p><b>status: <?php echo $classroom[$m]['status']; ?></b></p>
+											<hr style="width:100%;text-align:left;margin-left:0">
+										<?php }?>
+									<?php } ?>
+								</form>
+							</div>
+
 							<p><b>Today: <?php echo $new_date; ?></b></p>
-							<p><b><?php echo $cus[$j]['calender_starttime']; ?>:00-<?php echo $cus[$j]['calender_endtime']; ?>:00</b></p>
+							<mark><b><?php echo $cus[$j]['calender_starttime']; ?>:00-<?php echo $cus[$j]['calender_endtime']; ?>:00</b></mark><br>
+
 						</div>
-						<div id="edit_date<?php echo $cus[$j]['calender_id']; ?>" style="display: none;">
+						<div id="edit_date<?php echo $cus[$j]['calender_id']; ?>" style="margin-top:2%;display: none;">
 							
 							<form action="index.php?app=admin&action=edit_calendar<?php echo $cus[$j]['calender_id']; ?>" method="POST">
 								<label for="start">Current Day: <?php echo $new_date; ?></label>
@@ -208,6 +240,10 @@
 				$("#toggle_edit"+eventObj.id).click(function() {
 					/* Act on the event */
 					$("#edit_date"+eventObj.id).slideToggle("slow");
+				});
+				$("#toggle_adduser"+eventObj.id).click(function() {
+					/* Act on the event */
+					$("#adduser"+eventObj.id).slideToggle("slow");
 				});
 
 			},

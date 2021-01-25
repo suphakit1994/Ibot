@@ -415,6 +415,20 @@ function selectstudent(mysqli $conn){
 		return $data;
 	} 
 }
+function select_idstudents(mysqli $conn,$id_students){
+
+	$sql = "SELECT * FROM `student` WHERE student_id = '$id_students'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
 function selectteacher(mysqli $conn){
 
 	$sql = "SELECT * FROM `teacher` WHERE 1";
@@ -442,6 +456,44 @@ function select_idteacher(mysqli $conn,$id_teacher){
 		$result->close();
 		return $data;
 	} 
+}
+function selectclassroom(mysqli $conn){
+
+	$sql = "SELECT * FROM `classroom` WHERE 1";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function insert_classroom(mysqli $conn,$id_calendar,$id_user,$fname,$lname,$status){
+
+	$sql = "INSERT INTO classroom (
+	id_calendar_fk,
+	id_user,
+	fname,
+	lname,
+	status)
+	VALUES (
+	'$id_calendar',
+	'$id_user',
+	'$fname',
+	'$lname',
+	'$status')";
+	echo $sql;
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
 }
 function update_idteacher(mysqli $conn,$data,$fname,$lname,$username,$password,$email,$phone,$work_time,$new_salary,$id_teacher){
 	$ext = pathinfo(basename($_FILES['photo']['name']),PATHINFO_EXTENSION);
@@ -559,17 +611,16 @@ function checkIn_teacher(mysqli $conn,$data=[],$id_teachers){
 	'".$data['date_name']."',
 	'".$data['date']."',
 	'".$data['checkin_time']."',
-	'Checked'
-)";
-echo $sql;
+	'Checked')";
+	echo $sql;
 
-if ( mysqli_query($conn, $sql)) {
-	return true;
-} else {
-	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	return false; 	
-}
-mysqli_close($conn);
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
 }
 function insertnoticamp(mysqli $conn,$sel_camp,$data){
 

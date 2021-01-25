@@ -219,40 +219,7 @@ function com_delete(mysqli $conn,$compi){		//ลบ
 		return false;
 	}
 }
-function insertnoti_camp(mysqli $conn,$sel_camp,$data){
 
-	$sql = " INSERT INTO `notification`(
-	`fk_cp_id`,
-	`topic`
-	) 
-	VALUES (
-	'".$sel_camp['cp_id']."',
-	'".$data['payment_type']."'
-
-)";
-if ( mysqli_query($conn, $sql)) {
-	return true;
-} else {
-	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	return false;
-}
-mysqli_close($conn);
-}
-
-function seldatacamp_noti(mysqli $conn){
-
-	$sql = "SELECT * FROM camp_student WHERE 1";
-	$result = $conn->query($sql); 
-
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data ;
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data = $row;
-		}
-		$result->close();
-		return $data;
-	} 
-}
 
 
 ?>

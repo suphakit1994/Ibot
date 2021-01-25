@@ -55,6 +55,7 @@
 
 								$keys_cs = $cus[$i]['fk_cs_id'];
 								$keys_cp = $cus[$i]['fk_cp_id'];
+								$keys_cps = $cus[$i]['fk_cps_id'];
 								$topic =$cus[$i]['topic'];
 								$status = $cus[$i]['status'];
 
@@ -460,6 +461,148 @@
 																<?php $numfk_pay_cs = selcs($conn,$keys_cs);
 																for ($e=0; $e <count($numfk_pay_cs) ; $e++) { 
 																	$selpay_id = $numfk_pay_cs[$e]['course_payment_id'];
+																	$selpay_topic = selpaytopic($conn,$selpay_id);
+																	for ($r=0; $r <count($selpay_topic) ; $r++) { 
+																		$nametopic = $selpay_topic[$r]['payment_type'];
+																		$paymentno = $selpay_topic[$r]['payment_no'];
+																		$payamount = $selpay_topic[$r]['payment_amount'];
+																		$paybank = $selpay_topic[$r]['payment_bank'];
+																		$paydate = $selpay_topic[$r]['payment_date'];
+																		$payimg = $selpay_topic[$r]['payment_img'];
+																		?>
+																		<p style="font-weight: bolder;">Payment_no : <?php echo $paymentno; ?></p>
+																		<p style="font-weight: bolder;">Amount : <?php echo $payamount; ?></p>
+																		<p style="font-weight: bolder;">Bank : <?php echo $paybank; ?></p>
+																		<p style="font-weight: bolder;">Date : <?php echo $paydate; ?></p>
+																		<img class="card-img-top" style="width: 445px; margin-bottom: 30px;"
+																		src="../img_payment/<?php echo $payimg;?>" alt="Card image cap" >
+																		<?php
+																	}
+
+																} ?>
+																<div class="row" style="text-align-last: right; margin-bottom: 10px;" >
+																	<div class="col-lg-6">
+																		<form action="index.php?app=admin&action=check_msg<?php echo $cus[$i]['no_id']; ?>" method="post" accept-charset="utf-8">
+
+																			<input type="submit" value="Approve" name="" class="btn btn-success" style="
+																			width: 270px;
+																			text-align-last: center;
+																			">
+																		</form>
+																	</div>
+																	<div class="col-lg-6">
+																		<form action="index.php?app=admin&action=del_msg<?php echo $cus[$i]['no_id']; ?>" method="post" accept-charset="utf-8">
+
+																			<input  type="submit" value="Delete" class="btn btn-danger" style="
+																			width: 132px;
+																			text-align-last: center;
+																			">
+																		</form>
+																	</div>
+																</div>
+
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</td>
+									</tr>
+
+
+								<?php }elseif($topic == 'Add Compeitition') {
+
+									?>
+									<tr>
+										<td><?php echo $cus[$i]['no_id']; ?></td>
+										<td><?php echo $topic; ?></td>
+										<td><?php $numfk_stu_cps = selcps($conn,$keys_cps);
+										for ($l=0; $l <count($numfk_stu_cps) ; $l++) { 
+											$selstu_id = $numfk_stu_cps[$l]['cps_student_id'];
+											$selstu_name = selstuname($conn,$selstu_id);
+											for ($k=0; $k <count($selstu_name) ; $k++) { 
+												$namestu = $selstu_name[$k]['student_name_th'];
+												echo $namestu;
+											}
+
+										} ?></td>
+										<td><?php $numfk_pay_cps= selcps($conn,$keys_cps);
+										for ($e=0; $e <count($numfk_pay_cps) ; $e++) { 
+											$selpay_id = $numfk_pay_cps[$e]['cps_payment_id'];
+											$selpay_date = selpaydate($conn,$selpay_id);
+											for ($r=0; $r <count($selpay_date) ; $r++) { 
+												$datetopic = $selpay_date[$r]['payment_date'];
+												echo $datetopic;
+											}
+
+										} ?></td>
+
+										<td>
+
+											<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal<?php echo $i;?>">Information</button>
+											<!-- Modal -->
+											<div class="modal fade" id="myModal<?php echo $i;?>" role="dialog">
+												<div class="modal-dialog">
+													<!-- Modal content-->
+													<div class="modal-content">
+														<div class="icon_func_modal">
+															<a id="close <?php echo $cus[$i]['no_id']; ?>"class="icon_inmodals" data-dismiss="modal"style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
+
+														</div>
+
+														<div class="modal-body">
+															<h4 style="font-weight: bold;">Notification ID : <?php echo $cus[$i]['no_id']; ?></h4>
+															<?php $numfk_pay_cs = selcps($conn,$keys_cps);
+															for ($e=0; $e <count($numfk_pay_cps) ; $e++) { 
+																$selpay_id = $numfk_pay_cps[$e]['cps_payment_id'];
+																$selpay_topic = selpaytopic($conn,$selpay_id);
+																for ($r=0; $r <count($selpay_topic) ; $r++) { 
+																	$nametopic = $selpay_topic[$r]['payment_type'];
+																	?>
+																	<p style="font-weight: bolder;">Topic :<?php echo $nametopic; ?></p>
+																	<?php
+																}
+
+															} ?>
+															<?php $numfk_stu_cps = selcps($conn,$keys_cps);
+															for ($l=0; $l <count($numfk_stu_cps) ; $l++) { 
+																$selstu_id = $numfk_stu_cps[$l]['cps_student_id'];
+																$selstu_name = selstuname($conn,$selstu_id);
+																for ($k=0; $k <count($selstu_name) ; $k++) { 
+																	$idstu = $selstu_name[$k]['student_id'];
+																	$namestu = $selstu_name[$k]['student_name_th'];
+																	?>
+																	<p style="font-weight: bolder;">ID Student :<?php echo $idstu; ?></p>
+																	<p style="font-weight: bolder;">Name :<?php echo $namestu; ?></p>
+																	<?php 
+																}
+
+															} ?>
+															<?php $numfk_stu_cps = selcps($conn,$keys_cps);
+															for ($a=0; $a <count($numfk_stu_cps) ; $a++) { 
+																$selcou_id = $numfk_stu_cps[$a]['cps_com_id'];
+																$selcompetition_name = selcompeititionname($conn,$selcou_id);
+																for ($x=0; $x <count($selcompetition_name) ; $x++) { 
+																	$type = $selcompetition_name[$x]['com_type'];
+																	$program = $selcompetition_name[$x]['com_program'];
+																	$datestart = $selcompetition_name[$x]['com_start_date'];
+																	$dateend = $selcompetition_name[$x]['com_end_date'];
+																	?>
+																	<p style="font-weight: bolder;">Type of Compeitition  :<?php echo $type; ?></p>
+																	<p style="font-weight: bolder;">Program  :<?php echo $program; ?></p>
+																	<p style="font-weight: bolder;">Date Start  :<?php echo $datestart; ?></p>
+																	<p style="font-weight: bolder;">Date end  :<?php echo $dateend; ?></p>
+																	<?php
+																}
+															} ?>
+															<button id="btn_more<?php echo $cus[$i]['no_id']; ?>" type="button" class="btn btn-info" style="width: 100%; height: 35px; margin-bottom: 10px;">More</button>
+
+															<div id="hidecontent<?php echo $cus[$i]['no_id']; ?>" style="display: none;">
+
+
+																<?php $numfk_pay_cps = selcps($conn,$keys_cps);
+																for ($e=0; $e <count($numfk_pay_cps) ; $e++) { 
+																	$selpay_id = $numfk_pay_cps[$e]['cps_payment_id'];
 																	$selpay_topic = selpaytopic($conn,$selpay_id);
 																	for ($r=0; $r <count($selpay_topic) ; $r++) { 
 																		$nametopic = $selpay_topic[$r]['payment_type'];

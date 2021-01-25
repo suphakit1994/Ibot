@@ -5,7 +5,7 @@
   <form>
     <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
     <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
-
+      
      <div class="col-md-7" style="padding-top: 5%;"> 
       <h1 style="margin-bottom: 20px;"><b>The information has been saved.</b></h1>
       <img class="card-img-top" src="../images/112.png" alt="Card image cap" style="width: 600px;">  

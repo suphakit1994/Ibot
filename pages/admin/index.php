@@ -190,26 +190,33 @@ include('../php/camp_function.php');
 		//-------------------------------------compitition-----------------------------------------
 		if ($_GET['action'] == 'admin_compitition') {  //หน้าแสดง
 			$compi = com_select($conn);
-
 			require_once('compitition_list.php');
 		}
 		if ($_GET['action'] == 'admin_compitition_add') {  //หน้าเพิ่ม 
 			require_once('compitition_add.php');
 		}
 		if ($_GET['action'] == 'admin_compitition_add/add') { 
-			$compi = com_insert($conn,$data);
+			$comp = com_insert($conn,$data);
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
 		}
-		if ($_GET['action'] == 'addteam_compitition') {
-			require_once('addteam_compitition.php');
+		if ($_GET['action'] == 'admin_compitition_edit') {  //หน้าแก้ไข 
+			$comadd = select_comadd($conn,$compi);
+			require_once('compitition_edit.php');
 		}
-		if ($_GET['action'] == 'delete_compitition') {
-			$compi = com_insert($conn,$data);
+		if ($_GET['action'] == 'admin_compitition_edit/add') { 
+			$comadd = select_comadd($conn,$compi);
+			$updatecom=update_com($conn,$data);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
+		}
+
+		if ($_GET['action'] == 'admin_compitition_delete') {
 			$deletecompi= com_delete($conn,$compi);
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
 
 		}
-
+		if ($_GET['action'] == 'addteam_compitition') {
+			require_once('addteam_compitition.php');
+		}
 
 
 		//-----------------------------camp----------------------------------------------
@@ -228,8 +235,14 @@ include('../php/camp_function.php');
 			$campadd = campadd_select($conn,$cam);
 			require_once('camp_edit.php');
 		}
+
 		if ($_GET['action'] == 'admin_camp_edit/add') {
-			$updatcamp = update_camp($conn,$_POST);
+			$campadd = campadd_select($conn,$cam);
+			$updatcamp = update_camp($conn,$data);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_camp">';
+		}
+		if ($_GET['action'] == 'admin_camp_delete') {
+			$campdelete = delete_camp($conn,$data);
 			// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_camp">';
 		}
 

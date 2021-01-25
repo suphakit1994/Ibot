@@ -77,17 +77,16 @@ function update_camp(mysqli $conn,$data){
 	$camp_date_start = $_POST['camp_date_start'];
 	$camp_date_end = $_POST['camp_date_end'];
 	$camp_price = $_POST['camp_price'];  
-	$calender_id = $_POST['camp_id'];
-
+	$camp_id = $_POST['camp_id'];
+	
 	$sql = "UPDATE `camp` 
-	SET `camp_program`=$camp_program,
-	`camp_Age` = $camp_Age,
-	`camp_file` = $camp_file,
-	`camp_date_start` = $camp_date_start,
-	`camp_date_end` = $camp_date_end,
-	`camp_price` = $camp_price  
-	WHERE `calender_id` = $calender_id";
-	echo $sql;
+	SET `camp_program`='$camp_program',
+	`camp_Age` = '$camp_Age',
+	
+	`camp_date_start` = '$camp_date_start',
+	`camp_date_end` = '$camp_date_end',
+	`camp_price` = '$camp_price'  
+	WHERE `camp_id` = $camp_id";
 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -96,6 +95,21 @@ function update_camp(mysqli $conn,$data){
 		return false; 	
 	}
 	mysqli_close($conn);
+	// echo $sql;
+}
+
+function delete_camp(mysqli $conn, $data){
+	$camp_id = $_POST['camp_id'];
+
+	$sql = "DELETE FROM camp 
+	WHERE `camp_id` = $camp_id";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
 }
 
 //--------------------------------compitition--------------------------------------
@@ -157,8 +171,7 @@ function com_select(mysqli $conn){		//แสดง compitition ทั้งห�
 	} 
 }
 
-function select_comadd(mysqli $conn,$compi){		//แสดงรายละเอียดแคมป์ที่จะลง หน้านักเรียน
-
+function select_comadd(mysqli $conn,$compi){		//แสดงรายละเอียดหน้าแข่ง
 	$sql = "SELECT * FROM `compititions` WHERE com_id = '".$_POST['com_id']."'";
 	$result = $conn->query($sql); 
 
@@ -170,21 +183,41 @@ function select_comadd(mysqli $conn,$compi){		//แสดงรายละเ�
 		$result->close();
 		return $data;
 	} 
+	echo $sql;
 }
+function update_com(mysqli $conn,$data){
+	
+	$sql = "UPDATE `compititions` 
+	SET 
+	`com_type`='".$_POST['com_type']."',
+	`com_program`='".$_POST['com_program']."',
+	
+	`com_price`='".$_POST['com_price']."',
+	`com_start_date`='".$_POST['com_start_date']."',
+	`com_end_date`='".$_POST['com_end_date']."',
+	`com_age`='".$_POST['com_age']."' 
+	WHERE `com_id`='".$_POST['com_id']."' ";
 
-
-function com_delete(mysqli $conn,$compi){		//แสดงแคมป์ทั้งหมด
-	$sql = "DELETE  FROM `compititions` WHERE `com_id` = '".$compi['com_id']."' ";
-	$result = $conn->query($sql); 
-
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
-	} 
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+	echo $sql;
+}
+function com_delete(mysqli $conn,$compi){		//ลบ
+	$com_id = $_POST['com_id'];
+	$sql = "DELETE  FROM `compititions` WHERE `com_id` = $com_id ";
+	
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
 }
 
 ?>

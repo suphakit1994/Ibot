@@ -102,7 +102,7 @@
 					<p class="list_detail" style="margin-top:  20px;"><b>Price</b></p>
 					<input type="text" name="com_price" class="form-control" OnChange="JavaScript:chkNum(this)" style="width: 100%;width: 224px; " required>
 					<p class="list_detail" style="margin-top:  20px;"><b>End Date</b></p>
-					<input name="com_end_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
+					<input name="com_end_date"  class="form-control" style="width: 100%;width: 224px;" type="date"  required>
 					
 				</div>
 			</div>

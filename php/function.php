@@ -296,6 +296,17 @@ function selcp(mysqli $conn,$keys_cp){
 		return $data;
 	}
 }
+function selcps(mysqli $conn,$keys_cps){
+	$sql = "SELECT* FROM `compititions_student` WHERE cps_id=$keys_cps";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
 
 // function selpay(mysqli $conn,$keys){
 // 	$sql = "SELECT* FROM `course_student` WHERE cs_id=$keys ";
@@ -309,8 +320,8 @@ function selcp(mysqli $conn,$keys_cp){
 // 	}
 // }
 
-function selcouname(mysqli $conn,$keys_cs){
-	$sql = "SELECT* FROM `course` WHERE course_id=$keys_cs ";
+function selcouname(mysqli $conn,$selcou_id){
+	$sql = "SELECT* FROM `course` WHERE course_id=$selcou_id ";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$data =[];
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
@@ -320,8 +331,18 @@ function selcouname(mysqli $conn,$keys_cs){
 		return $data;
 	}
 }
-function selcampname(mysqli $conn,$keys_cp){
-	$sql = "SELECT* FROM `camp` WHERE camp_id=$keys_cp ";
+function selcampname(mysqli $conn,$selcou_id){
+	$sql = "SELECT* FROM `camp` WHERE camp_id=$selcou_id ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}function selcompeititionname(mysqli $conn,$selcou_id){
+	$sql = "SELECT* FROM `compititions` WHERE com_id=$selcou_id ";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$data =[];
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
@@ -394,6 +415,20 @@ function selectstudent(mysqli $conn){
 		return $data;
 	} 
 }
+function select_idstudents(mysqli $conn,$id_students){
+
+	$sql = "SELECT * FROM `student` WHERE student_id = '$id_students'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
 function selectteacher(mysqli $conn){
 
 	$sql = "SELECT * FROM `teacher` WHERE 1";
@@ -421,6 +456,44 @@ function select_idteacher(mysqli $conn,$id_teacher){
 		$result->close();
 		return $data;
 	} 
+}
+function selectclassroom(mysqli $conn){
+
+	$sql = "SELECT * FROM `classroom` WHERE 1";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function insert_classroom(mysqli $conn,$id_calendar,$id_user,$fname,$lname,$status){
+
+	$sql = "INSERT INTO classroom (
+	id_calendar_fk,
+	id_user,
+	fname,
+	lname,
+	status)
+	VALUES (
+	'$id_calendar',
+	'$id_user',
+	'$fname',
+	'$lname',
+	'$status')";
+	echo $sql;
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
 }
 function update_idteacher(mysqli $conn,$data,$fname,$lname,$username,$password,$email,$phone,$work_time,$new_salary,$id_teacher){
 	$ext = pathinfo(basename($_FILES['photo']['name']),PATHINFO_EXTENSION);
@@ -538,17 +611,119 @@ function checkIn_teacher(mysqli $conn,$data=[],$id_teachers){
 	'".$data['date_name']."',
 	'".$data['date']."',
 	'".$data['checkin_time']."',
-	'Checked'
-)";
-echo $sql;
+	'Checked')";
+	echo $sql;
 
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+}
+function insertnoticamp(mysqli $conn,$sel_camp,$data){
+
+	$sql = " INSERT INTO `notification`(
+	`fk_cp_id`,
+	`topic`
+	) 
+	VALUES (
+	'".$sel_camp['cp_id']."',
+	'".$data['payment_type']."'
+
+)";
 if ( mysqli_query($conn, $sql)) {
 	return true;
 } else {
 	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	return false; 	
+	return false;
 }
 mysqli_close($conn);
+}
+
+function seldatacamp_noti(mysqli $conn){
+
+	$sql = "SELECT * FROM camp_student WHERE 1";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function insertnoticourse_student(mysqli $conn,$selnoti,$data){
+
+	$sql = " INSERT INTO `notification`(
+	`fk_cs_id`,
+	`topic`
+	) 
+	VALUES (
+	
+	'".$selnoti['cs_id']."',
+	'".$data['payment_type']."'
+
+)";
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false;
+}
+mysqli_close($conn);
+}
+
+function seldata_noti(mysqli $conn){
+
+	$sql = "SELECT * FROM course_student WHERE 1";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function insertnoticompetition(mysqli $conn,$sel_compeitition,$data){
+
+	$sql = " INSERT INTO `notification`(
+	`fk_cps_id`,
+	`topic`
+	) 
+	VALUES (
+	'".$sel_compeitition['cps_id']."',
+	'".$data['payment_type']."'
+
+)";
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false;
+}
+mysqli_close($conn);
+}
+
+function seldatacompeition_noti(mysqli $conn){
+
+	$sql = "SELECT * FROM compititions_student WHERE 1";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	} 
 }
 
 

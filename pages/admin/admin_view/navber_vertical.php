@@ -44,7 +44,7 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-2" class="collapse">
-						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
+						<li><a href="index.php?app=admin&action=admin_calendar"><i class=""></i>Calendar</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.2</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
@@ -58,8 +58,8 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-3" class="collapse">
-						<li><a href="index.php?app=admin&action=admin_calendar"><i class=""></i> Calendar</a></li>
-						<li><a href="index.php?app=admin&action=teacher_list"><i class=""></i> Teacher List</a></li>
+						<li><a href="index.php?app=admin&action=teacher_list"><i class=""></i>Teacher List</a></li>
+						<li><a href=""><i class=""></i>SUBMENU</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>

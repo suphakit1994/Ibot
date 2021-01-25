@@ -161,7 +161,7 @@
                 <input name="payment_img" type="file" accept="image/*" required>
               </div>
               <div style="padding-top: 20px;">
-                <input type="radio" name="payment_type"  value="Add Compitition"  required>
+                <input type="radio" name="payment_type"  value="Add Compeitition"  required>
                 <label >ยืนยันข้อมูล</label>
                 <button  type="submit"  name="submit" class="Button" style="border-radius:28px; width: 120px;">Next</button>
               </div>

@@ -21,8 +21,8 @@ include('../php/camp_function.php');
 		if ($level == 'admin') {
 				// ---------------------------View--------------------------------
 			if (!isset($_GET['action'])) {
-				$cus = calendars($conn);
-				require_once('calendar_schedule.php');
+
+				require_once('');
 			}
 			if ($_GET['action'] == 'teacher_list') {
 				$list_teacher = selectteacher($conn);
@@ -67,6 +67,9 @@ include('../php/camp_function.php');
 			}
 			if ($_GET['action'] == 'admin_calendar') {
 				$cus = calendars($conn);
+				$t_list = selectteacher($conn);
+				$s_list = selectstudent($conn);
+				$classroom = selectclassroom($conn);
 				require_once('calendar_schedule.php');
 			}
 			$select_calendar = calendars($conn);
@@ -90,14 +93,40 @@ include('../php/camp_function.php');
 					echo "===================================>".$value_date.'=>'.$value_start.'=>'.$value_end.'=>'.$value_color;
 
 					$update_func = update_date($conn,$_POST,$value_date,$value_start,$value_end,$value_color,$id_of_calendar);
-					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
-
-					
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';		
 				}
 				if ($_GET['action'] == 'delete_calendar'.$select_calendar[$c]['calender_id']) {
 					$id_of_calendar = $select_calendar[$c]['calender_id'];
 					$delete_func =deleterowcalendar($conn,$_POST,$id_of_calendar);
 					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
+				}
+				if ($_GET['action'] == 'add_teacherclassroom'.$select_calendar[$c]['calender_id']) {
+					$id_teacher  =$_POST['name_t'];
+					$id_student  =$_POST['name_s'];
+					$id_calendar = $select_calendar[$c]['calender_id'];
+					echo "========================================calendar>".$id_calendar.'<br>';
+					echo "========================================>".$id_teacher.'<br>';
+					$func_id_t = select_idteacher($conn,$id_teacher);
+					for ($t_data=0; $t_data < count($func_id_t); $t_data++) { 
+						$fname = $func_id_t[$t_data]['teacher_fname'];
+						$lname =$func_id_t[$t_data]['teacher_lname'];
+						$status =$func_id_t[$t_data]['teacher_level'];
+						// echo "========================================first name>".$fname.'<br>';
+						// echo "========================================first name>".$lname.'<br>';
+						// echo "========================================first name>".$status.'<br>';
+						$tfunc_classroom = insert_classroom($conn,$id_calendar,$id_teacher,$fname,$lname,$status);
+					}
+					$func_id_s = select_idstudents($conn,$id_student);
+					for ($t_data=0; $t_data < count($func_id_s); $t_data++) { 
+						$fname_s = $func_id_s[$t_data]['student_name_eng'];
+						$lname_s =$func_id_s[$t_data]['student_nickname_eng'];
+						$status_s =$func_id_s[$t_data]['student_level'];
+						// echo "========================================first name>".$fname_s.'<br>';
+						// echo "========================================lname>".$lname_s.'<br>';
+						// echo "========================================status>".$status_s.'<br>';
+						$sfunc_classroom = insert_classroom($conn,$id_calendar,$id_student,$fname_s,$lname_s,$status_s);
+					}
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';	
 				}
 			}
 			if ($_GET['action'] == 'edit_data') {

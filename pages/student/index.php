@@ -54,6 +54,8 @@ include('../php/camp_function.php');
 				$paymax = maxpayment($conn);
 				$calendar = insertcalender_students($conn,$_POST,$id); 
 				$add = insertcourse_students($conn,$_POST,$id,$paymax);
+				$selnoti = seldata_noti($conn);
+				$addnoti = insertnoticourse_student($conn,$selnoti,$_POST);
 				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student'>"; 
 			}
 
@@ -101,6 +103,7 @@ include('../php/camp_function.php');
 			}
 			
 			if($_GET['action']=="payment_camp"){
+				echo $data['payment_type'];
 				$camadd = campadd_select($conn,$cam); //แสดงข้อมูลแคมป์ที่ลงทะเบียน
 				require_once('payment_camp.php');
 			}
@@ -110,6 +113,8 @@ include('../php/camp_function.php');
 				require_once('success_camp.php');
 				$paymax = maxpayment($conn);
 				$camp_std = insertcamp_students( $conn,$data,$id,$paymax);
+				$sel_camp = seldatacamp_noti($conn);
+				$noti_camp = insertnoti_camp($conn,$sel_camp,$_POST);
 				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_camp'>";
 			}
 

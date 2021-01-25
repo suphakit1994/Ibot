@@ -129,7 +129,7 @@
 							<p><b><?php echo $cus[$j]['calender_starttime']; ?>:00-<?php echo $cus[$j]['calender_endtime']; ?>:00</b></p>
 						</div>
 						<div id="edit_date<?php echo $cus[$j]['calender_id']; ?>" style="display: none;">
-							<hr style="width:100%;text-align:left;margin-left:0">
+							
 							<form action="index.php?app=admin&action=edit_calendar<?php echo $cus[$j]['calender_id']; ?>" method="POST">
 								<label for="start">Current Day: <?php echo $new_date; ?></label>
 								<input style="width: 100%;" type="date" id="start" name="start_time<?php echo $cus[$j]['calender_id']; ?>"><br>
@@ -192,11 +192,7 @@
 					backgroundColor:'<?php echo $cus[$i]['calender_color']; ?>',
 					title: '<?php echo $cus[$i]['calender_starttime']; ?>:00-<?php echo $cus[$i]['calender_endtime']; ?>:00',
 					start: '<?php echo $cus[$i]['calender_date']; ?>',
-					end: '<?php echo $cus[$i]['calender_date']; ?>',
-
-					extendedProps: {
-						status: ''
-					} 
+					end: '<?php echo $cus[$i]['calender_date']; ?>'
 				},
 			<?php }?>
 			],

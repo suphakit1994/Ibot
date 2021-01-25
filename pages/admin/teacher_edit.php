@@ -46,7 +46,7 @@
 				<form action="index.php?app=admin&action=teacher_update<?php echo $select_idteacher[$i]['teacher_id'];?>" method="post" enctype="multipart/form-data">
 					<div class="row">
 						<div class="col-md-3">
-							<img style="border-radius: 50%;" src="../teacher_img/<?php echo $select_idteacher[$i]['teacher_img'];?>" width="100%" height="autos" id="previewImg" alt="<?php echo $select_idteacher[$i]['teacher_img'];?>">
+							<img style="border-radius: 50%;object-fit:cover;" src="../teacher_img/<?php echo $select_idteacher[$i]['teacher_img'];?>" width="100%" height="240px" id="previewImg" alt="<?php echo $select_idteacher[$i]['teacher_img'];?>">
 							<div class="file-input icon_upload_pic">
 								<input
 								id="file-input"

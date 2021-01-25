@@ -43,8 +43,9 @@ include("../php/course_function.php");
 			$paymax = maxpayment($conn);	
 			require_once('success.php');
 			$calendar = insertcalender_student($conn,$_POST,$cus); 
-			$addnoti = insertnoticourse_student($conn,$_POST,$cus);
 			$add = insertcourse_student($conn,$_POST,$cus,$paymax);
+			$selnoti = seldata_noti($conn);
+			$addnoti = insertnoticourse_student($conn,$selnoti,$_POST);
 			echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=home'>";
 		}		
 

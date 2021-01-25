@@ -246,25 +246,40 @@ include('../php/camp_function.php');
 			// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_camp">';
 		}
 
+		
 		if($_GET['action'] == 'list_msg'){
 			$cus = listmsg($conn);
 			require_once('list_msg.php');
 		}
-		$si = listmsg($conn);
-		// for($i=0; $i<count($si); $i++) { 
-		// 	# code...
-		// 	$cus = listmsg($conn);
-		// 	if($_GET['action'] == 'check_msg'. $cus[$i]['id']){
-		// 		$value = $cus[$i]['id'];
-		// 		$status = updatestatus($conn,$value);
+		$cus = listmsg($conn);
+		for ($h=0; $h < count($cus); $h++) { 
+			$test = 'check_msg'.$cus[$h]['no_id'];
+			if($_GET['action']=='check_msg'.$cus[$h]['no_id']){
+				$value = $cus[$h]['no_id'];
+				$status = updatestatus($conn,$value);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
+			}
+			$cus = listmsg($conn);
+			for ($z=0; $z < count($cus); $z++) { 
+				$keysdel = $cus[$z]['no_id'];
 
-		// 		// print_r($cus);
-		// 	// print_r($cus);
-		// 	// $approve = updatestatus($conn);
-		// 		echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
+				if($_GET['action']=='del_msg'.$cus[$z]['no_id']){
+					$keys = $cus[$z]['fk_cs_id'];
+					$numfk_stu = selcs($conn,$keys);
+					for ($a=0; $a <count($numfk_stu) ; $a++) { 
+						$selstu_id = $numfk_stu[$a]['cs_student_id'];
+						echo $selstu_id;
+						echo "===".$keysdel;
+						$del_msg = delstuout($conn,$selstu_id,$keysdel);
+						// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
+						
 
-		// 	}
-		// } 
+					}
+				}
+
+			}
+		}
+
 		?>
 	</style>
 </head>

@@ -122,94 +122,97 @@
   <div class="container" style="width:95% ; margin-top:2%; margin-bottom:2%;">
     <div class="row">
       <div class="col-md-4" style="display: flex; ">
-        <div class="card">
-          <div class="card-body">
-            <div class="row" style="display: flex; margin-bottom: 0 !important; align-items: center;">
-              <div class="col-md-5" style="width:50%; display: flex; margin-bottom: 0 !important; padding-top: 15px; padding-left: 30px;">
-                <img style="border-radius:3%; width:150px; height:215px;" src="../images/Logo.jpg" >
-              </div>
-              <div class="col-md-5 " style="width: 50%">
-                <p style="width: 100%; font-size:16px;">Svetiana Anyukova</p>
-                <p style="margin-bottom: 0 !important">Teacher Assistance</p>
-              </div>
-            </div>
-            <br>
-            <div class="row" style="display: flex; margin-bottom: 0 !important;">
-              <div class="col-md-5" style="padding-left: 25px; width: 50%;">
-                <a onclick="changetext()" id="myButton" class="Button"style="padding: 3px;  margin-left: 1px; width: 150px; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Check In</a>
-              </div>
-              <div class="col-md-5" style="width: 50%;">
-                <a onclick="TakeAlive()" class="Button" style="padding: 3px;  margin-left: 1px; width: 150px; text-align: center; background: #ffffff; border: 1px solid #000000; color:black;">Take a leave</a>
-              </div>
-            </div>
-            <div class="row" style="display: flex:margin-bottom: 0 !important ">
-              <div class="col-md-12" style="display: flex: width: 100%">
-                <?php
-                $date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );?>
-                <p style="font-size: 25px; padding-left: 14px; padding-top: 20px"><b><?php echo $date->format('l d-m-Y');?></b></p>
-              </div>
-            </div>
-            <div class="row" style="display: flex; margin-bottom: 0 !important;">
-              <div class="col-md-5" style="width: 50%;">
-                <p style="font-size: 15px; padding-left: 14px; padding-top: 25px;"><b>Attend</b></p>
-              </div>
-              <div class="col-md-5" style="width: 50%;" >
-                <p style="font-size: 15px; padding-top: 25px;"><b>Out</b></p>
-              </div>
-            </div>
-            <div class=" row" style="display: flex; margin-bottom: 0 !important;">
-              <div class="col-md-5" style="width: 50%;">
+        <?php for($i = 0;$i<count($select_idteacher);$i++){ ?>
+          <div class="card">
+            <div class="card-body">
+              <div class="row" style="display: flex; margin-bottom: 0 !important; align-items: center;">
+                <div class="col-md-5" style="width:50%; display: flex; margin-bottom: 0 !important; padding-top: 15px; padding-left: 30px;">
 
-                <p style="font-size: 30px; padding-left: 14px; padding-top: 25px;"><b><?php echo $date->format('H:i:s');?></b></p>
+                  <img style="border-radius:3%; width:150px; height:215px;object-fit:cover;" src="../teacher_img/<?php echo $select_idteacher[$i]['teacher_img'];?>" >
+
+                </div>
+                <div class="col-md-5 " style="width: 50%">
+                  <p style="width: 100%; font-size:16px;"><?php echo $select_idteacher[$i]['teacher_fname'];?>  <?php echo $select_idteacher[$i]['teacher_lname'];?></p>
+                  <p style="margin-bottom: 0 !important">Teacher Assistance</p>
+                </div>
               </div>
-              <div class="col-md-5" style="width: 50%;">
-                <p style="font-size: 30px; padding-top: 25px;"><b>-</b></p>
+              <br>
+              <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                <div class="col-md-5" style="padding-left: 25px; width: 50%;">
+                  <a onclick="changetext()" id="myButton" class="Button"style="padding: 3px;  margin-left: 1px; width: 150px; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Check In</a>
+                </div>
+                <div class="col-md-5" style="width: 50%;">
+                  <a onclick="TakeAlive()" class="Button" style="padding: 3px;  margin-left: 1px; width: 150px; text-align: center; background: #ffffff; border: 1px solid #000000; color:black;">Take a leave</a>
+                </div>
               </div>
-            </div>
-            <div class="row" style="display: flex; margin-bottom: 0 !important;">
-              <div class="col-md-5" style="width: 100%;">
-                <p style="font-size: 15px; padding-top: 25px; padding-left: 14px;"><b>Detail</b></p>
+              <div class="row" style="display: flex:margin-bottom: 0 !important ">
+                <div class="col-md-12" style="display: flex: width: 100%">
+                  <?php
+                  $date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );?>
+                  <p style="font-size: 25px; padding-left: 14px; padding-top: 20px"><b><?php echo $date->format('l d-m-Y');?></b></p>
+                </div>
               </div>
-            </div>
-            <div class="row" style="display: flex; margin-bottom: 0 !important;">
-              <div class="col-md-5" style="width: 50%;">
-                <p style="margin-left:14px;">Availability:</p>
-                <p style="margin-left:14px;">Age:</p>
-                <p style="margin-left:14px;">Work Time:</p>
+              <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                <div class="col-md-5" style="width: 50%;">
+                  <p style="font-size: 15px; padding-left: 14px; padding-top: 25px;"><b>Attend</b></p>
+                </div>
+                <div class="col-md-5" style="width: 50%;" >
+                  <p style="font-size: 15px; padding-top: 25px;"><b>Out</b></p>
+                </div>
               </div>
-              <div class="col-md-5" style="width: 50%;">
-                <p style="">Part time</p>
-                <p style="">25 years old</p>
-                <p style="">Sat 10:30-12:00 ฿ 75/Day</p>
-                <p style="">Sun 10:30-12:00 ฿ 75/Day</p>
+              <div class=" row" style="display: flex; margin-bottom: 0 !important;">
+                <div class="col-md-5" style="width: 50%;">
+                  <p style="font-size: 30px; padding-left: 14px; padding-top: 25px;"><b><?php echo $date->format('H:i:s');?></b></p>
+                </div>
+                <div class="col-md-5" style="width: 50%;">
+                  <p style="font-size: 30px; padding-top: 25px;"><b>-</b></p>
+                </div>
               </div>
-            </div>
-            <div class="row" style="display: flex; margin-bottom: 0 !important;">
-              <div class="col-md-12" style="margin-top:10%;">
-                <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                  <div class="col-md-3" style="margin-left:10%;">
-                    <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                      <div class="retangled-blue" style="border-radius:25%;"></div>
-                      <div class="col-sm-8" style="margin-left:4%;"><p>Attended</p></div>
+              <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                <div class="col-md-5" style="width: 100%;">
+                  <p style="font-size: 15px; padding-top: 25px; padding-left: 14px;"><b>Detail</b></p>
+                </div>
+              </div>
+              <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                <div class="col-md-5" style="width: 50%;">
+                  <p style="margin-left:14px;">Availability:</p>
+                  <p style="margin-left:14px;">Age:</p>
+                  <p style="margin-left:14px;">Work Time:</p>
+                </div>
+                <div class="col-md-5" style="width: 50%;">
+                  <p style="">Part time</p>
+                  <p style="">25 years old</p>
+                  <p style="">Sat 10:30-12:00 ฿ 75/Day</p>
+                  <p style="">Sun 10:30-12:00 ฿ 75/Day</p>
+                </div>
+              </div>
+              <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                <div class="col-md-12" style="margin-top:10%;">
+                  <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                    <div class="col-md-3" style="margin-left:10%;">
+                      <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                        <div class="retangled-blue" style="border-radius:25%;"></div>
+                        <div class="col-sm-8" style="margin-left:4%;"><p>Attended</p></div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                      <div class="retangled-pink" style="border-radius:25%;"></div>
-                      <div class="col-sm-8" style="margin-left:4%;"><p>Take a leave</p></div>
+                    <div class="col-md-4">
+                      <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                        <div class="retangled-pink" style="border-radius:25%;"></div>
+                        <div class="col-sm-8" style="margin-left:4%;"><p>Take a leave</p></div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                      <div class="retangled-black" style="border-radius:25%;"></div>
-                      <div class="col-sm-8" style="margin-left:4%;"><p>Schedule</p></div>
+                    <div class="col-md-3">
+                      <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                        <div class="retangled-black" style="border-radius:25%;"></div>
+                        <div class="col-sm-8" style="margin-left:4%;"><p>Schedule</p></div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        <?php } ?>
       </div>
       <!-- Calendar  -->
       <div class="col-md-7" style="margin-left:1%">

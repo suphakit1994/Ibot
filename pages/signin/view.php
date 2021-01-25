@@ -37,9 +37,6 @@
           <input type="text" class="w3-input fas" placeholder="&#xf406; username" aria-label="username" aria-describedby="basic-addon2" name="username" style="width: 50%; margin-left: 26%; margin-top: 3%" >  
           <input type="password" class="w3-input material-icons" placeholder="&#xe0da; password" aria-label="password" aria-describedby="basic-addon2" name="password" style=" width: 50%; margin-left: 26%; margin-top: 3%" >
         </div>
-        <div class="row">
-          <label style="margin-left: 33%; margin-top: 3%"><input type="checkbox" />    Stay signed in</label>
-        </div>
         <div>
           <input class="Button" style="padding: 0.5% 3%; margin-top: 3%; margin-left:45%;" name="btnlogin" type="submit">
         </div>

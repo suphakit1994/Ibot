@@ -44,7 +44,7 @@
 						<?php for($i = 0; $i< count($compi); $i++){ ?>
 							<tr>
 								<td><?php echo $compi[$i]['com_type']; ?></td>
-								<td><?php echo $compi[$i]['com_program']; ?><?php echo "array=>".$i; ?></td>
+								<td><?php echo $compi[$i]['com_program']; ?></td>
 								<td><?php echo $compi[$i]['com_age']; ?></td>
 								<td></td>
 								
@@ -52,21 +52,30 @@
 									<div class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
 										<ul class="dropdown-menu">
-											<li><a href="index.php?app=admin&action=choice_edit<?php echo $course_list[$i]['course_id']; ?>"><i class="far fa-edit" style="font-size:15px"></i> Edit</a></li>
-											
-											<li><a href="#"><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
-											
-											></button></li>
 
-
-										</ul>
-									</div>
-								</td>
-							</tr>
-						<?php }?>
-					</table>
+											<li>
+												<form method="post" action="index.php?app=admin&action=admin_compitition_edit">
+													<a><button type="submit" name= "<?php echo $i ?>" class=" btn btn:hover">
+														<i class="far fa-edit" style="font-size:15px"></i>	
+													Edit </button></a>
+													<input type="hidden" name="com_id" value="<?php echo $compi[$i]['com_id'];  ?>" > 
+												</form>
+											</li>
+											<li>
+												<form method="post" action="index.php?app=admin&action=admin_compitition_delete">
+													<a><button type="submit" name= "<?php echo $i ?>" class=" btn btn:hover">
+														<i class="fas fa-trash" style="font-size:15px"></i> Delete</button></a>
+														<input type="hidden" name="com_id" value="<?php echo $compi[$i]['com_id'];  ?>" > 
+													</form>
+												</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							<?php }?>
+						</table>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>	
-</body>
+		</div>	
+	</body>

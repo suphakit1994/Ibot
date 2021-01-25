@@ -43,10 +43,12 @@ include('../php/camp_function.php');
 
 			if($_GET['action']=="payment"){
 				$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
+				$calandar = selectcalander($conn,$_POST);
 				require_once('payment.php');
 			}
 
 			if($_GET['action']=="success"){
+				$calandar = selectcalander($conn,$_POST);
 				$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง	 
 				$paym = insertpaymentss($conn,$_POST,$id);// insert payment
 
@@ -54,6 +56,8 @@ include('../php/camp_function.php');
 				$paymax = maxpayment($conn);
 				$calendar = insertcalender_students($conn,$_POST,$id); 
 				$add = insertcourse_students($conn,$_POST,$id,$paymax);
+				$selnoti = seldata_noti($conn);
+				$addnoti = insertnoticourse_student($conn,$selnoti,$_POST);
 				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student'>"; 
 			}
 
@@ -83,9 +87,10 @@ include('../php/camp_function.php');
 				$paymax = maxpayment($conn);
 				echo $paymax['payment_id'];
 				$comp_std = insertcom_students($conn,$data,$id,$paymax);
-				// echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_compeitition'>";
+				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_compeitition'>";
 			}
-			if($_GET['action']=="compeitions_team"){
+			if($_GET['action']=="compeitions_team"){  //เช็ครายชื่อทีม
+				
 				require_once('compeitions_team.php');
 			}
 
@@ -101,6 +106,7 @@ include('../php/camp_function.php');
 			}
 			
 			if($_GET['action']=="payment_camp"){
+				echo $data['payment_type'];
 				$camadd = campadd_select($conn,$cam); //แสดงข้อมูลแคมป์ที่ลงทะเบียน
 				require_once('payment_camp.php');
 			}
@@ -110,6 +116,8 @@ include('../php/camp_function.php');
 				require_once('success_camp.php');
 				$paymax = maxpayment($conn);
 				$camp_std = insertcamp_students( $conn,$data,$id,$paymax);
+				$sel_camp = seldatacamp_noti($conn);
+				$noti_camp = insertnoti_camp($conn,$sel_camp,$_POST);
 				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_camp'>";
 			}
 

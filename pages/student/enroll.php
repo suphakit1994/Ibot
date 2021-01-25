@@ -128,14 +128,24 @@
                 </div> 
                 <div class="col-md-6">
                   <span> 
-                    <p> xxxxxxxxx</p> 
-                    <p> xxxxxxxxx</p> 
-                    <p> 1:30 hrs / 8 times / once a week.</p> 
-                    <p>฿ <?php echo $pri['course_price']; ?></p>                       
-                  </span> 
-                </div> 
-              </div>
-              <div>
+                    <span> 
+                     <?php
+                     $startdate=strtotime("Sunday");
+                     $enddate=strtotime("+8 weeks", $startdate);
+                     ?>
+                     <p> <?php $date = date("d M Y"); echo $date ." - ".date("d M Y", $enddate) ;?></p> 
+
+                     <?php 
+                     $week=strtotime("Monday");
+                     $nextweek=strtotime("+1 weeks", $week); 
+                     ?>
+                     <p> <?php  echo date("d M Y", $week) ." - ". date("d M Y", $nextweek-1);   ?></p> 
+                     <p> 1:30 hrs / 8 times / once a week.</p> 
+                     <p>฿ <?php echo $pri['course_price']; ?></p>                       
+                   </span> 
+                 </div> 
+               </div>
+               <div>
                 <input type="radio" name="my-input" id="no" required>
                 <label for="yes">I agree the <label style="color:blue";>Terms and Conditions</label></label>   
               </div>

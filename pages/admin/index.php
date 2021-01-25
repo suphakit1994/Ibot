@@ -219,26 +219,33 @@ include('../php/camp_function.php');
 		//-------------------------------------compitition-----------------------------------------
 		if ($_GET['action'] == 'admin_compitition') {  //หน้าแสดง
 			$compi = com_select($conn);
-
 			require_once('compitition_list.php');
 		}
 		if ($_GET['action'] == 'admin_compitition_add') {  //หน้าเพิ่ม 
 			require_once('compitition_add.php');
 		}
 		if ($_GET['action'] == 'admin_compitition_add/add') { 
-			$compi = com_insert($conn,$data);
+			$comp = com_insert($conn,$data);
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
 		}
-		if ($_GET['action'] == 'addteam_compitition') {
-			require_once('addteam_compitition.php');
+		if ($_GET['action'] == 'admin_compitition_edit') {  //หน้าแก้ไข 
+			$comadd = select_comadd($conn,$compi);
+			require_once('compitition_edit.php');
 		}
-		if ($_GET['action'] == 'delete_compitition') {
-			$compi = com_insert($conn,$data);
+		if ($_GET['action'] == 'admin_compitition_edit/add') { 
+			$comadd = select_comadd($conn,$compi);
+			$updatecom=update_com($conn,$data);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
+		}
+
+		if ($_GET['action'] == 'admin_compitition_delete') {
 			$deletecompi= com_delete($conn,$compi);
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
 
 		}
-
+		if ($_GET['action'] == 'addteam_compitition') {
+			require_once('addteam_compitition.php');
+		}
 
 
 		//-----------------------------camp----------------------------------------------
@@ -257,30 +264,51 @@ include('../php/camp_function.php');
 			$campadd = campadd_select($conn,$cam);
 			require_once('camp_edit.php');
 		}
+
 		if ($_GET['action'] == 'admin_camp_edit/add') {
-			$updatcamp = update_camp($conn,$_POST);
+			$campadd = campadd_select($conn,$cam);
+			$updatcamp = update_camp($conn,$data);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_camp">';
+		}
+		if ($_GET['action'] == 'admin_camp_delete') {
+			$campdelete = delete_camp($conn,$data);
 			// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_camp">';
 		}
 
+		
 		if($_GET['action'] == 'list_msg'){
 			$cus = listmsg($conn);
 			require_once('list_msg.php');
 		}
-		$si = listmsg($conn);
-		// for($i=0; $i<count($si); $i++) { 
-		// 	# code...
-		// 	$cus = listmsg($conn);
-		// 	if($_GET['action'] == 'check_msg'. $cus[$i]['id']){
-		// 		$value = $cus[$i]['id'];
-		// 		$status = updatestatus($conn,$value);
+		$cus = listmsg($conn);
+		for ($h=0; $h < count($cus); $h++) { 
+			$test = 'check_msg'.$cus[$h]['no_id'];
+			if($_GET['action']=='check_msg'.$cus[$h]['no_id']){
+				$value = $cus[$h]['no_id'];
+				$status = updatestatus($conn,$value);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
+			}
+			$cus = listmsg($conn);
+			for ($z=0; $z < count($cus); $z++) { 
+				$keysdel = $cus[$z]['no_id'];
 
-		// 		// print_r($cus);
-		// 	// print_r($cus);
-		// 	// $approve = updatestatus($conn);
-		// 		echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
+				if($_GET['action']=='del_msg'.$cus[$z]['no_id']){
+					$keys = $cus[$z]['fk_cs_id'];
+					$numfk_stu = selcs($conn,$keys);
+					for ($a=0; $a <count($numfk_stu) ; $a++) { 
+						$selstu_id = $numfk_stu[$a]['cs_student_id'];
+						echo $selstu_id;
+						echo "===".$keysdel;
+						$del_msg = delstuout($conn,$selstu_id,$keysdel);
+						// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
+						
 
-		// 	}
-		// } 
+					}
+				}
+
+			}
+		}
+
 		?>
 	</style>
 </head>

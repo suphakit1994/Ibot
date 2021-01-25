@@ -98,7 +98,7 @@
 
   <body>
     <form method="post" action="index.php?app=student&action=success_camp" enctype="multipart/form-data">
-    
+      
      <input type="hidden" name="camp_id" value="<?php echo $_POST['camp_id'];?>">
      <?php echo $_POST['camp_id'];  ?>
 

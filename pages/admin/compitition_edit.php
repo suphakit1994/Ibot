@@ -75,33 +75,35 @@
 </style>
 </head>
 <body>
+
 	<div class="page-content p-5" id="content">
 		<!-- Toggle button -->
 		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 		<div style="display: flex; padding: 25px;">
-			<h1>Edit Camp</h1>
+			<h1>ADD Compititions</h1>
 		</div>
-		
-		
-
-		<form method="post"  action="index.php?app=admin&action=admin_camp_edit/add" enctype="multipart/form-data">
-			<input type="hidden" name="camp_id" value="<?php echo $_POST['camp_id'];  ?>">
-			<?php  echo $_POST['camp_id']; ?>
+		<form method="post"  action="index.php?app=admin&action=admin_compitition_edit/add" enctype="multipart/form-data">
+			<input type="hidden" name="com_id" value="<?php echo $_POST['com_id'];  ?>">
+			<?php  echo $_POST['com_id']; ?>
 			<div class="flex-container">
 				<div class="flex-col1">
-					<p class="list_detail"><b>Program</b> </p>
-					<input type="text" name="camp_program" value="<?php  echo $campadd['camp_program']; ?>" class="form-control" required>
+					<p class="list_detail"><b>Compititions</b> </p>
+					<input type="text" name="com_type" class="form-control" value="<?php echo $comadd['com_type']; ?>">
+					<p class="list_detail" style="margin-top:  20px;"><b>Age for program</b> </p>
+					<input type="text" name="com_age" class="form-control" value="<?php echo $comadd['com_age']; ?>">
 					<p class="list_detail" style="margin-top:  20px;"><b>Start Date</b></p>
-					<input name="camp_date_start" value="<?php  echo $campadd['camp_date_start']; ?>" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
-					<p class="list_detail" style="margin-top:  20px;"><b>Price</b></p>
-					<input type="text" name="camp_price" value="<?php  echo $campadd['camp_price']; ?>"class="form-control" OnChange="JavaScript:chkNum(this)" style="width: 100%;width: 224px; " required>
+					<input name="com_start_date" class="form-control" style="width: 100%;width: 224px;" type="date"  value="<?php echo $comadd['com_start_date']; ?>">
+					
+					
 					
 				</div>
 				<div class="flex-col1">
-					<p class="list_detail" ><b>Age for program</b></p>
-					<input type="text" name="camp_Age" value="<?php  echo $campadd['camp_Age']; ?>" class="form-control" required>
+					<p class="list_detail" ><b>Program </b></p>
+					<input type="text" name="com_program" class="form-control" value="<?php echo $comadd['com_program']; ?>">
+					<p class="list_detail" style="margin-top:  20px;"><b>Price</b></p>
+					<input type="text" name="com_price" class="form-control" OnChange="JavaScript:chkNum(this)" style="width: 100%;width: 224px; " value="<?php echo $comadd['com_price']; ?>">
 					<p class="list_detail" style="margin-top:  20px;"><b>End Date</b></p>
-					<input name="camp_date_end" value="<?php  echo $campadd['camp_date_end']; ?>" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
+					<input name="com_end_date" class="form-control" style="width: 100%;width: 224px;" type="date"  value="<?php echo $comadd['com_end_date']; ?>">
 					
 				</div>
 			</div>

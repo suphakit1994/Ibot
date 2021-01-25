@@ -41,7 +41,7 @@
 						<?php for($i = 0; $i< count($cam); $i++){ ?>
 							
 							<tr>
-								<td><?php echo $cam[$i]['camp_program']; ?><?php echo "array=>".$i; ?></td>
+								<td><?php echo $cam[$i]['camp_program']; ?></td>
 								<td><?php echo $cam[$i]['camp_Age']; ?></td>	
 								<td>
 									<div class="dropdown" >
@@ -56,7 +56,12 @@
 												</form>
 											</li>
 											<li>
-												<a href="#"><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
+												<form method="post" action="index.php?app=admin&action=admin_camp_delete">
+													<a><button type="submit" name= "<?php echo $i ?>" class=" btn btn:hover">
+														<i class="fas fa-trash" style="font-size:15px"></i> Delete</button></a>
+														<input type="hidden" name="camp_id" value="<?php echo $cam[$i]['camp_id'];  ?>" > 
+													</form>
+												</li>
 											</ul>
 
 										</div>

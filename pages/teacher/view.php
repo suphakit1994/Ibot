@@ -131,7 +131,7 @@
 
                 </div>
                 <div class="col-md-5 " style="width: 50%">
-                  <p style="width: 100%; font-size:16px;"><?php echo $select_idteacher[$i]['teacher_fname'];?>  <?php echo $select_idteacher[$i]['teacher_lname'];?></p>
+                  <p style="width: 100%; font-size:16px;"><b><?php echo $select_idteacher[$i]['teacher_fname'];?>  <?php echo $select_idteacher[$i]['teacher_lname'];?></b></p>
                   <p style="margin-bottom: 0 !important">Teacher Assistance</p>
                 </div>
               </div>

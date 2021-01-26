@@ -7,7 +7,6 @@
 	<style type="text/css">
 
 		<?php 	
-
 		$sql_getnoti= mysqli_query($conn,"SELECT* FROM notification WHERE status=0");
 		$count = mysqli_num_rows($sql_getnoti);
 
@@ -19,6 +18,7 @@
 		$t_level = $_SESSION['teacher_level'];
 		$t_name = $_SESSION['teacher_fname'];
 		$t_nlevel = $_SESSION['teacher_nlevel'];
+		$t_image = $_SESSION['teacher_img'];
 
 		$a_level = $_SESSION['admin_level'];
 		$a_name = $_SESSION['admin_name'];
@@ -210,7 +210,6 @@
 									</a>
 									<ul class="dropdown-menu" style="overflow: hidden; height: 100px; padding-left: 20px; padding-top: 15px;">
 										<a href="../pages/signin/logout.php">logout</a>
-
 									</ul>
 								</div>
 							</div>
@@ -266,14 +265,13 @@ elseif ($t_level=='teacher') { ?>
 										<p style="padding-top:5px; font-weight: bold; margin-bottom: 0px;"><?php echo $t_name; ?></p>
 										<p ><?php echo $t_nlevel; ?></p>
 									</div>								
-
 								</div>
 
-								<div class="col-sm-4" style="align-items: center; padding-top: 5px;" >
-									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../images/images.png" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
+								<div class="col-sm-4" style="align-items: center; padding-top: 5px;object-fit:cover;" >
+									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../teacher_img/<?php echo $t_image; ?>" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
 									</a>
 									<ul class="dropdown-menu" style="overflow: hidden; height: 100px; padding-left: 20px; padding-top: 15px;">
-										<a href="../pages/signin/logout.php">logout</a>
+										<a type="button" href="../pages/signin/logout.php">logout</a>
 
 									</ul>
 								</div>

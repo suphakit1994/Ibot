@@ -122,6 +122,8 @@ include('../php/camp_function.php');
 			}
 
 			if($_GET['action']=="schedule"){
+				$id_students = $id;
+				$func_select_std = select_idstudents($conn,$id_students);
 				$cus = calendars($conn);
 				require_once('schedule.php');
 

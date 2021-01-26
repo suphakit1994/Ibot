@@ -21,8 +21,11 @@ include('../php/camp_function.php');
 		if ($level == 'admin') {
 				// ---------------------------View--------------------------------
 			if (!isset($_GET['action'])) {
-
-				require_once('');
+				$cus = calendars($conn);
+				$t_list = selectteacher($conn);
+				$s_list = selectstudent($conn);
+				$classroom = selectclassroom($conn);
+				require_once('calendar_schedule.php');
 			}
 			if ($_GET['action'] == 'teacher_list') {
 				$list_teacher = selectteacher($conn);

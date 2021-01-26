@@ -14,6 +14,7 @@ include("../php/course_function.php");
 		$name = $_SESSION['teacher_fname'];
 		$level = $_SESSION['teacher_level'];
 		$nlevel = $_SESSION['teacher_nlevel'];
+		$image = $_SESSION["teacher_img"];
 		?>
 		<?php
 		if ($level=='teacher') {

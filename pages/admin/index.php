@@ -218,7 +218,7 @@ include('../php/camp_function.php');
 				$instercourse =instercourse($conn,$data);
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="2;index.php?app=admin&action=course_list">';
 			}
-		}
+			
 		//-------------------------------------compitition-----------------------------------------
 		if ($_GET['action'] == 'admin_compitition') {  //หน้าแสดง
 			$compi = com_select($conn);
@@ -311,9 +311,9 @@ include('../php/camp_function.php');
 
 			}
 		}
-
-		?>
-	</style>
+	}
+	?>
+</style>
 </head>
 
 <body>

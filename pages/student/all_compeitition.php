@@ -149,7 +149,7 @@
                                 <div class="col-md-5" style="margin: auto !important;">
                                     <p style="text-align:center; margin: auto; ">
                                         <b>
-                                            <a href="../camp_pdf/<?php echo $compi[$i]['com_file']; ?>" download>
+                                            <a href="../compitition_pdf/<?php echo $compi[$i]['com_file']; ?>" download>
                                             Download rules </a>
                                         </b>
                                     </p>

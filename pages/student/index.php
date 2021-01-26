@@ -87,6 +87,8 @@ include('../php/camp_function.php');
 				$paymax = maxpayment($conn);
 				echo $paymax['payment_id'];
 				$comp_std = insertcom_students($conn,$data,$id,$paymax);
+				$sel_compeitition = seldatacompeition_noti($conn);
+				$noti_compeitition = insertnoticompetition($conn,$sel_compeitition,$_POST);  ///cps คือ Compeitition
 				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_compeitition'>";
 			}
 			if($_GET['action']=="compeitions_team"){  //เช็ครายชื่อทีม
@@ -117,7 +119,7 @@ include('../php/camp_function.php');
 				$paymax = maxpayment($conn);
 				$camp_std = insertcamp_students( $conn,$data,$id,$paymax);
 				$sel_camp = seldatacamp_noti($conn);
-				$noti_camp = insertnoti_camp($conn,$sel_camp,$_POST);
+				$noti_camp = insertnoticamp($conn,$sel_camp,$_POST);
 				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_camp'>";
 			}
 

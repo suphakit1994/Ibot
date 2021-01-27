@@ -400,12 +400,6 @@ elseif ($a_level=='admin') { ?>
 
 					<ul class="nav navbar-nav navbar-right" style="padding-right:2%;">
 						<li><a href="?app=home">Home</a></li>
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >About us<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="index.php?app=admin&action=employees">Franchise</a></li>
-								<li><a href="index.php?app=admin&action=user">ขอสิทธ์การเข้าถึง</a></li>
-							</ul>
-						</li>
 
 						<!-- 						<li><a href="index.php?app=test">test</a></li> -->
 						<li><a href="index.php?app=our_course">Our course</a></li>
@@ -413,7 +407,7 @@ elseif ($a_level=='admin') { ?>
 						<li><a href="index.php?app=about">About Us</a></li>
 <!-- 						<li><a href="index.php?app=pdf">pdf</a></li>
 	<li><a href="index.php?app=art">art</a></li> -->
-	<li><a href="index.php?app=branch">Franchise</a></li>
+
 	<li><a href="index.php?app=contact_us">Contact us</a></li>
 	<li><a href="index.php?app=signin"  class="Button" style="padding: 2px; margin: 10px; width: 100%; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);    border: 1px solid #ffffff;" >Sign in</a></li>
 

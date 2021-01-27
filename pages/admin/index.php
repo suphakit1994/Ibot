@@ -218,7 +218,7 @@ include('../php/camp_function.php');
 				$instercourse =instercourse($conn,$data);
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="2;index.php?app=admin&action=course_list">';
 			}
-			
+
 		//-------------------------------------compitition-----------------------------------------
 		if ($_GET['action'] == 'admin_compitition') {  //หน้าแสดง
 			$compi = com_select($conn);
@@ -291,27 +291,46 @@ include('../php/camp_function.php');
 				$status = updatestatus($conn,$value);
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
 			}
-			$cus = listmsg($conn);
-			for ($z=0; $z < count($cus); $z++) { 
-				$keysdel = $cus[$z]['no_id'];
+		}
+		$cus = listmsg($conn);
+		for ($z=0; $z < count($cus); $z++) { 
+			$keysdel = $cus[$z]['no_id'];
 
-				if($_GET['action']=='del_msg'.$cus[$z]['no_id']){
-					$keys = $cus[$z]['fk_cs_id'];
-					$numfk_stu = selcs($conn,$keys);
-					for ($a=0; $a <count($numfk_stu) ; $a++) { 
-						$selstu_id = $numfk_stu[$a]['cs_student_id'];
-						echo $selstu_id;
-						echo "===".$keysdel;
-						$del_msg = delstuout($conn,$selstu_id,$keysdel);
-						// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
-						
-
+			if($_GET['action']=='del_msg'.$cus[$z]['no_id']){
+				$check = $cus[$z]['topic'];
+				$keys_cs = $cus[$z]['fk_cs_id'];
+				$keys_cp = $cus[$z]['fk_cp_id'];
+				$keys_cps = $cus[$z]['fk_cps_id'];
+				echo $check;
+				if ($check == 'Enroll') {
+					$numfk_stu = selcs($conn,$keys_cs);
+					for ($l=0; $l <count($numfk_stu) ; $l++) { 
+						$keystu = $numfk_stu[$l]['cs_student_id'];
+						echo $keystu;
+						$del_msg = delstuout($conn,$keysdel);
+						$del_data = delete_datastu($conn,$keystu);
 					}
+				}elseif($check == 'Add Camp') {
+					$del_msg = delstuout($conn,$keysdel);
+					$del_camp_stu = delcamp_stu($conn,$keys_cp);
+				}elseif($check == 'Add Course') {
+					$del_msg = delstuout($conn,$keysdel);
+					$del_course_stu = delcourse_stu($conn,$keys_cs); 
+				}elseif($check == 'Add Compeitition') {
+					$del_msg = delstuout($conn,$keysdel);
+					$del_com_stu = delcompeit_stu($conn,$keys_cps);
 				}
+
+
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
 
 			}
 		}
+
 	}
+
+
+
 	?>
 </style>
 </head>

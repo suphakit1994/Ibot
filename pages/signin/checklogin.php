@@ -29,6 +29,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
           $_SESSION["admin_name"] = $row["admin_name"];
           $_SESSION["admin_level"] = $row["admin_level"];
           $_SESSION["admin_nlevel"] = $row["admin_nlevel"];
+          $_SESSION['LAST_ACTIVITY'] = time(); 
 
           if($_SESSION["admin_level"]=="admin"){ 
             Header("Location: ../index.php?app=admin");
@@ -56,6 +57,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
           $_SESSION["teacher_level"] = $row["teacher_level"];
           $_SESSION["teacher_nlevel"] = $row["teacher_nlevel"];
           $_SESSION["teacher_img"] = $row["teacher_img"];
+          $_SESSION['LAST_ACTIVITY'] = time(); 
           
 
           if($_SESSION["teacher_level"]=="teacher"){ 
@@ -88,6 +90,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
           $_SESSION["student_name_eng"] = $row["student_name_eng"];
           $_SESSION["student_level"] = $row["student_level"];
           $_SESSION["student_nlevel"] = $row["student_nlevel"];
+          $_SESSION['LAST_ACTIVITY'] = time(); 
 
           if($_SESSION["student_level"]=="student"){ 
             Header("Location: ../index.php?app=student");

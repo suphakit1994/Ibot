@@ -386,19 +386,14 @@ function selpaydate(mysqli $conn,$keys_cs){
 		return $data;
 	}
 }
-function delstuout(mysqli $conn,$selstu_id,$keysdel){
-	$sql = "DELETE FROM notification 
-	WHERE no_id = $keysdel";
+function delstuout(mysqli $conn,$keysdel){
+	$sql = "DELETE  FROM notification WHERE notification.no_id='$keysdel';";
 	echo $sql;
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		return false;
-	}
-	if ($sql) {
-		$sql = "DELETE FROM student 
-		WHERE student_id = $selstu_id";
 	}
 }
 function selectstudent(mysqli $conn){
@@ -726,6 +721,58 @@ function seldatacompeition_noti(mysqli $conn){
 		return $data;
 	} 
 }
+
+function delete_datastu(mysqli $conn,$keystu){
+	$sql = "DELETE student,course_student FROM student INNER JOIN course_student ON student.student_id = course_student.cs_student_id WHERE  student.student_id = '$keystu';";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+function delcompeit_stu(mysqli $conn,$keys_cps){
+	$sql = "DELETE  FROM compititions_student WHERE compititions_student.cps_id='$keys_cps';";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+function delcamp_stu(mysqli $conn,$keys_cp){
+	$sql = "DELETE  FROM camp_student WHERE camp_student.cp_id='$keys_cp';";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+function delcourse_stu(mysqli $conn,$keys_cs){
+	$sql = "DELETE  FROM course_student WHERE course_student.cs_id='$keys_cs';";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+// function deletestd(mysqli $conn,$id_not){
+// 	$sql = "DELETE FROM student 
+// 	WHERE teacher_id = '$id_not'";
+// 	echo $sql;
+// 	if ( mysqli_query($conn, $sql)) {
+// 		return true;
+// 	} else {
+// 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+// 		return false;
+// 	}
+// }
 
 
 ?>

@@ -71,6 +71,21 @@ function selectcourse(mysqli $conn){
 		return $data;
 	}
 }
+function selectcourse_id(mysqli $conn,$id_course){
+
+	$sql = "SELECT * FROM `course` WHERE course_id = '$id_course'";
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
 function selectfile(mysqli $conn){
 
 	$sql = "SELECT * FROM `file` WHERE 1";

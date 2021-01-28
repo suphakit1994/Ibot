@@ -105,8 +105,8 @@ if ( mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 }
 
-function getPdf(mysqli $conn){
-	$sql = "SELECT * FROM `pdf_insert` WHERE 1 ";
+function getPdf(mysqli $conn,$id_course){
+	$sql = "SELECT * FROM `file` WHERE file_lesson_id = '$id_course' ";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$data =[];
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
@@ -471,6 +471,7 @@ function selectclassroom(mysqli $conn){
 		return $data;
 	} 
 }
+
 function insert_classroom(mysqli $conn,$id_calendar,$id_user,$fname,$lname,$status){
 
 	$sql = "INSERT INTO classroom (

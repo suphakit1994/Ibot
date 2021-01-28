@@ -27,9 +27,9 @@ include("../php/course_function.php");
 			}
 
 			if($_GET['action'] == 'our_course'){
-				$cus[] = getselect($conn);
-				$data= getselect($conn);         //เรียกใช้ faction
-				$arrlength = count($data); 	
+				$cus[] = selectcourse($conn);
+				$data= selectcourse($conn);         //เรียกใช้ faction
+				$arrlength = count($data); 		
 				require_once('our_course.php');
 			}
 			if($_GET['action'] == 'checkIn'.$id){
@@ -50,6 +50,17 @@ include("../php/course_function.php");
 			if($_GET['action'] == 'report'){
 
 				require_once('report.php');
+			}
+			$func_select_course= selectcourse($conn);
+			for ($i=0; $i < count($func_select_course); $i++) { 
+				if($_GET['action'] == 'mycourse'.$func_select_course[$i]['course_id']){
+					$id_course = $func_select_course[$i]['course_id'];
+
+					$func_id_course = selectcourse_id($conn,$id_course);
+					$get_pdf = getPdf($conn,$id_course);
+					$qq = quiz($conn);
+					require_once('mycourse.php');
+				}
 			}
 		}
 		?>

@@ -135,7 +135,7 @@
 					<div class="row"style="margin:2%;">
 
 						<div class="vertical-menu">
-							<?php for($i=1;$i<9;$i++){?>
+							<?php for($i=1;$i<count($get_pdf);$i++){?>
 								<div class="card">
 									<div class="dropdown" style="">
 
@@ -145,21 +145,21 @@
 
 										<div id="submenu-<?php echo $i;?>" class="collapse">
 											<div>
-												<a>
+												<a onclick="getPdf('<?php echo $get_pdf[$i]['file_address']; ?>')">
 													<label class="container">
 														<input type="checkbox">
 														<span class="checkmark"></span>
-														Book
+														Book<?php echo $get_pdf[$i]['number']; ?>
 													</label>
 													<p><i class="fas fa-book"></i> PDF File</p>
 												</a>
-												<a>
+												<a onclick="getExe()">
 													<label class="container">
 														<input type="checkbox">
 														<span class="checkmark"></span>
 														Exercise
 													</label>
-													<p><i class="fas fa-pencil-alt"></i> Example</p>
+													<p><i class="fas fa-pencil-alt"></i> Exercise</p>
 												</a>
 											</div>
 										</div>
@@ -211,8 +211,11 @@
 	</div>
 </body>
 <script>
-	function myFunction(pdf) {
+	function getPdf(pdf) {
 		document.getElementById("demo").innerHTML = '<iframe src="' + pdf + '" width="100%" height="400px"></iframe>';
+	}
+	function getExe(exercise) {
+		document.getElementById("demo").innerHTML = '<iframe src="" width="100%" height="400px"></iframe>';
 	}
 </script>
 <!-- <?php for($i=0;$i<count($get_pdf);$i++){ ?>

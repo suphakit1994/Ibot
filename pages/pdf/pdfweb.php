@@ -85,14 +85,9 @@
 						<b>Certificate Request</b>
 					</p>
 					<div>
-						<img src="../images/Logo.jpg" width="280px" height="180px" alt="Image">
+						<img style="object-fit:cover ;" src="../images/Logo.jpg" width="100%" height="180px" alt="Image">
 					</div>
 					<a class="Button" href="" style="width: 40%; padding: 1%;">Request Certificate</a> 
-					<form action="index.php?app=jed&action=choosefile" method="POST">
-						<label for="myfile">Select a file:</label>
-						<input type="file" id="myfile" name="myfile"><br><br>
-						<input type="submit">
-					</form>
 				</div>
 			</div>
 		</div>

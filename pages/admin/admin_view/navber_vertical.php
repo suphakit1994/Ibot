@@ -133,35 +133,7 @@
 						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>
-			</li>
-			<li class="nav-item space_of_items">
-				<div class="dropdown">
-					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-9" aria-haspopup="true" aria-expanded="false">
-						<i class="fa fa-gear mr-3  fa-fw"></i>
-						Setting
-						<span class="caret"></span>
-					</a>
-					<ul id="submenu-9" class="collapse">
-						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.2</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
-					</ul>
-				</div>
-			</li>
-			<li class="nav-item space_of_items">
-				<div class="dropdown">
-					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-10" aria-haspopup="true" aria-expanded="false">
-						<i class="fas fa-store mr-3  fa-fw"></i>
-						Franchise
-						<span class="caret"></span>
-					</a>
-					<ul id="submenu-10" class="collapse">
-						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.2</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
-					</ul>
-				</div>
-			</li>
+			</li>	
 		</ul>
 	</div>
 

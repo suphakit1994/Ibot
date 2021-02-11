@@ -7,7 +7,6 @@
 	<style type="text/css">
 
 		<?php 	
-
 		$sql_getnoti= mysqli_query($conn,"SELECT* FROM notification WHERE status=0");
 		$count = mysqli_num_rows($sql_getnoti);
 
@@ -19,6 +18,7 @@
 		$t_level = $_SESSION['teacher_level'];
 		$t_name = $_SESSION['teacher_fname'];
 		$t_nlevel = $_SESSION['teacher_nlevel'];
+		$t_image = $_SESSION['teacher_img'];
 
 		$a_level = $_SESSION['admin_level'];
 		$a_name = $_SESSION['admin_name'];
@@ -210,7 +210,6 @@
 									</a>
 									<ul class="dropdown-menu" style="overflow: hidden; height: 100px; padding-left: 20px; padding-top: 15px;">
 										<a href="../pages/signin/logout.php">logout</a>
-
 									</ul>
 								</div>
 							</div>
@@ -266,14 +265,14 @@ elseif ($t_level=='teacher') { ?>
 										<p style="padding-top:5px; font-weight: bold; margin-bottom: 0px;"><?php echo $t_name; ?></p>
 										<p ><?php echo $t_nlevel; ?></p>
 									</div>								
-
 								</div>
 
 								<div class="col-sm-4" style="align-items: center; padding-top: 5px;" >
-									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../images/images.png" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
+									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../teacher_img/<?php echo $t_image; ?>" alt="" style="object-fit:cover ;border-radius: 50%; width:45px; height:45px;"></i>
 									</a>
-									<ul class="dropdown-menu" style="overflow: hidden; height: 100px; padding-left: 20px; padding-top: 15px;">
-										<a href="../pages/signin/logout.php">logout</a>
+									<ul class="dropdown-menu" style="overflow: hidden; height: 100px;text-align: left;">
+										<a type="button" style="font-size: 19px; padding:4%;width: 100%;"href="../pages/signin/logout.php">Signout <i class="fas fa-sign-out-alt"></i></a>
+										<hr style="width:100%;text-align:left;margin-top:0">
 
 									</ul>
 								</div>
@@ -318,7 +317,7 @@ elseif ($a_level=='admin') { ?>
 
 							<span class="badge" id="count"><?php echo $count; ?></a>
 								<ul class="dropdown-menu" style="padding-left: 10px; padding-right: 10px;">
-									
+
 <!-- 									$sql_getdata= mysqli_query($conn,"SELECT* FROM notification WHERE status=0");
 
 									if(mysqli_num_rows($sql_getdata)>0)
@@ -402,12 +401,6 @@ elseif ($a_level=='admin') { ?>
 
 					<ul class="nav navbar-nav navbar-right" style="padding-right:2%;">
 						<li><a href="?app=home">Home</a></li>
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" >About us<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="index.php?app=admin&action=employees">Franchise</a></li>
-								<li><a href="index.php?app=admin&action=user">ขอสิทธ์การเข้าถึง</a></li>
-							</ul>
-						</li>
 
 						<!-- 						<li><a href="index.php?app=test">test</a></li> -->
 						<li><a href="index.php?app=our_course">Our course</a></li>
@@ -415,7 +408,7 @@ elseif ($a_level=='admin') { ?>
 						<li><a href="index.php?app=about">About Us</a></li>
 <!-- 						<li><a href="index.php?app=pdf">pdf</a></li>
 	<li><a href="index.php?app=art">art</a></li> -->
-	<li><a href="index.php?app=branch">Franchise</a></li>
+
 	<li><a href="index.php?app=contact_us">Contact us</a></li>
 	<li><a href="index.php?app=signin"  class="Button" style="padding: 2px; margin: 10px; width: 100%; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);    border: 1px solid #ffffff;" >Sign in</a></li>
 

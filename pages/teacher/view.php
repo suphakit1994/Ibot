@@ -161,10 +161,10 @@
               </div>
               <div class=" row" style="display: flex; margin-bottom: 0 !important;">
                 <div class="col-md-5" style="width: 50%;">
-                  <p style="font-size: 30px; padding-left: 14px; padding-top: 25px;"><b><?php echo $date->format('H:i:s');?></b></p>
+                  <p style="font-size: 30px; padding-left: 14px; padding-top: 25px;"><b><?php echo $select_idteacher[$i]['attended_dat'];?></b></p>
                 </div>
                 <div class="col-md-5" style="width: 50%;">
-                  <p style="font-size: 30px; padding-top: 25px;"><b>-</b></p>
+                  <p style="font-size: 30px; padding-top: 25px;"><b><?php echo $select_idteacher[$i]['out_day'];?></b></p>
                 </div>
               </div>
               <div class="row" style="display: flex; margin-bottom: 0 !important;">
@@ -252,20 +252,44 @@
               <a id="close_checkin"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
             </div>
             <div class="modal-body">
-              <form action="index.php?app=teacher&action=checkIn<?php echo $id;?>" method="post">
-                <div id="class_room">
-                  <h2>Check-In is ==> <?php echo $id;?></h2>
+              <div id="class_room">
+                <form action="index.php?app=teacher&action=checkIn<?php echo $id;?>" method="post">
                   <h3>Date: <?php echo $date->format('l');?>  <?php echo $date->format('d-m-Y');?>  </h3>
                   <h3>Time: <?php echo $date->format('H:i:s');?></h3>
                   <input type="hidden" id="date_name" name="date_name" value="<?php echo $date->format('l');?>">
                   <input type="hidden" id="date" name="date" value="<?php echo $date->format('d-m-Y');?>">
                   <input type="hidden" id="checkin_time" name="checkin_time" value="<?php echo $date->format('H:i:s');?>">
+                  <input type="hidden" id="status" name="status" value="CheckIn">
                   <div style="margin-bottom: 2%;">
                     <input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
-                  </div>  
-                </div>
+                  </div> 
+                </form> 
               </div>
-            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="CheckOut" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="icon_func_modal" style="margin-top: 1%;margin-right: 1%;">
+              <a id="close_checkout"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
+            </div>
+            <div class="modal-body">
+              <div id="class_room">
+                <form action="index.php?app=teacher&action=takealeave<?php echo $id;?>" method="post">
+                  <h3>Date: <?php echo $date->format('l');?>  <?php echo $date->format('d-m-Y');?>  </h3>
+                  <h3>Time: <?php echo $date->format('H:i:s');?></h3>
+                  <input type="hidden" id="date_name" name="date_name" value="<?php echo $date->format('l');?>">
+                  <input type="hidden" id="date" name="date" value="<?php echo $date->format('d-m-Y');?>">
+                  <input type="hidden" id="checkin_time" name="checkin_time" value="<?php echo $date->format('H:i:s');?>">
+                  <input type="hidden" id="status" name="status" value="Take a leave">
+                  <div style="margin-bottom: 2%;">
+                    <input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="Submit">
+                  </div> 
+                </form> 
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -275,18 +299,16 @@
 <script>
 
   function changetext(){
-    // $("#myButton").html("Check Out");
-    // var date_name = '<?php echo $date->format('l');?>';
-    // var date = '<?php echo $date->format('d-m-Y');?>'
-    // var checkin_time = '<?php echo $date->format('H:i:s');?>';
-    // document.getElementById("demo").innerHTML = date_name+' '+date+' '+checkin_time;
     $("#CheckIn").show();
     $("#close_checkin").click(function() {
      $("#CheckIn").hide();
    });
   }
   function TakeAlive(){
-    confirm("Do you want to Take a live?");
+    $("#CheckOut").show();
+    $("#close_checkout").click(function() {
+     $("#CheckOut").hide();
+   });
   }
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');

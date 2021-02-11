@@ -142,7 +142,7 @@ include('../php/camp_function.php');
 			if ($_GET['action'] == 'dashboard') {
 				require_once('dashboard.php');
 			}
-			if ($_GET['action'] == 'course_list') {
+			if ($_GET['action'] == 'course_list') { 
 				$course_list = selectcourse($conn);
 				require_once('course_list.php');
 			}

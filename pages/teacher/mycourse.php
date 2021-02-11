@@ -123,24 +123,27 @@
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-7" style="height: 400px ;overflow-y: scroll;">
-				<div id="demo">
-					<div class="flex">
-						<h1>Wellcome</h1>
+			<div>
+				<div class="col-sm-7" style="height: 80vh ;overflow-y: scroll;">
+					<div id="demo">
+						<div class="flex">
+							<h1>Wellcome</h1>
+						</div>
 					</div>
 				</div>
 			</div>
+			
 			<div class="col-sm-5">
-				<div style="height: 400px ;width: 100%;overflow-y: scroll;">
+				<div style="height: 80vh ;width: 100%;overflow-y: scroll;">
 					<div class="row"style="margin:2%;">
 
 						<div class="vertical-menu">
-							<?php for($i=1;$i<count($get_pdf);$i++){?>
+							<?php for($i=0;$i<count($get_pdf);$i++){?>
 								<div class="card">
 									<div class="dropdown" style="">
 
 										<a style="font-size: 20px;" href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-<?php echo $i;?>" aria-haspopup="true" aria-expanded="false">
-											<b style="">Chapter<?php echo $i;?></b> <i style="" class="fa fa-angle-down"></i>
+											<b style="">Chapter<?php echo $get_pdf[$i]['number'];?></b> <i style="" class="fa fa-angle-down"></i>
 										</a>
 
 										<div id="submenu-<?php echo $i;?>" class="collapse">
@@ -151,7 +154,7 @@
 														<span class="checkmark"></span>
 														Book<?php echo $get_pdf[$i]['number']; ?>
 													</label>
-													<p><i class="fas fa-book"></i> PDF File</p>
+													<p><i class="fas fa-book"></i> PDF File <?php echo $get_pdf[$i]['file_address']; ?></p>
 												</a>
 												<a onclick="getExe()">
 													<label class="container">
@@ -206,17 +209,23 @@
 					</div>
 					<a class="Button" href="" style="width: 40%; padding: 1%;">Request Certificate</a> 
 				</div>
+				<!-- <iframe src="../pless/pdf_6012382315743file1.pdf" width="100%" height="600px"></iframe> -->
+				<!-- <iframe src="teacher/iframe.php" width="100%" height="auto"></iframe> -->
 			</div>
 		</div>
-	</div>
+	</div>\
+	
 </body>
 <script>
 	function getPdf(pdf) {
-		document.getElementById("demo").innerHTML = '<iframe src="' + pdf + '" width="100%" height="400px"></iframe>';
+		document.getElementById("demo").innerHTML = '<iframe src="' + '../pless/' + pdf + '" width="100%" height="600px"></iframe>';
 	}
-	function getExe(exercise) {
-		document.getElementById("demo").innerHTML = '<iframe src="" width="100%" height="400px"></iframe>';
+	function getExe() {
+		document.getElementById("demo").innerHTML = '<iframe src="teacher/iframe.php" width="100%" height="600px"></iframe>';
 	}
+
+	// $( "div:contains('Wellcome')" ).html("<b>world!</b>");
+	// $("p").html("Hello <b>world!</b>");
 </script>
 <!-- <?php for($i=0;$i<count($get_pdf);$i++){ ?>
 						<div class="row">

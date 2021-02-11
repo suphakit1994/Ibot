@@ -118,14 +118,14 @@ function getPdf(mysqli $conn,$id_course){
 }
 
 function quiz(mysqli $conn){
-	$sql = "SELECT * FROM `mycourse_quiz` WHERE 1 ";
+	$sql = "SELECT * FROM `quize` WHERE 1 ";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$data =[];
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
 			$data[] = $row;
 		}
 		$result->close();
-		return json_encode($data);
+		return $data;
 	}
 }
 function getLogin(mysqli $conn,$user_name,$password){
@@ -607,7 +607,7 @@ function checkIn_teacher(mysqli $conn,$data=[],$id_teachers){
 	'".$data['date_name']."',
 	'".$data['date']."',
 	'".$data['checkin_time']."',
-	'Checked')";
+	'".$data['status']."')";
 	echo $sql;
 
 	if ( mysqli_query($conn, $sql)) {
@@ -762,6 +762,41 @@ function delcourse_stu(mysqli $conn,$keys_cs){
 		return false;
 	}
 }
+
+function update_attended(mysqli $conn,$data=[],$id_teachers,$attentded){
+
+	$sql = "UPDATE teacher
+	SET `attended_dat`='$attentded'
+	WHERE `teacher_id`='$id_teachers'
+	";
+
+	echo $sql;
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+	mysqli_close($conn);
+}
+
+function select_question(mysqli $conn,$course){
+
+	$sql = "SELECT * FROM quize WHERE quiz_lesson_id = '$course'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+
+
 // function deletestd(mysqli $conn,$id_not){
 // 	$sql = "DELETE FROM student 
 // 	WHERE teacher_id = '$id_not'";

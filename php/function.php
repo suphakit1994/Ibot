@@ -67,6 +67,7 @@ if ( mysqli_query($conn, $sql)) {
 }
 mysqli_close($conn);
 }
+
 function update_date(mysqli $conn,$data=[],$value_date,$value_start,$value_end,$value_color,$id_of_calendar){
 
 	$sql = "UPDATE `calendar` 
@@ -725,6 +726,5 @@ function seldatacompeition_noti(mysqli $conn){
 		return $data;
 	} 
 }
-
 
 ?>

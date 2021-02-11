@@ -22,7 +22,7 @@ include('../php/camp_function.php');
 				// ---------------------------View--------------------------------
 			if (!isset($_GET['action'])) {
 
-				require_once('');
+				require_once('calendar_schedule.php');
 			}
 			if ($_GET['action'] == 'teacher_list') {
 				$list_teacher = selectteacher($conn);
@@ -217,15 +217,22 @@ include('../php/camp_function.php');
 			}
 		}
 		//-------------------------------------compitition-----------------------------------------
-		if ($_GET['action'] == 'admin_compitition') {  //หน้าแสดง
+		if ($_GET['action'] == 'admin_compitition') {  //หน้าแสดงโปรแกรมแข่งทั้งหมด
 			$compi = com_select($conn);
 			require_once('compitition_list.php');
 		}
-		if ($_GET['action'] == 'admin_compitition_add') {  //หน้าเพิ่ม 
+		if ($_GET['action'] == 'admin_compitition_add') {  //แสดงรายละเอียดหน้าแข่ง
+			$compitype = select_compitype($conn);
 			require_once('compitition_add.php');
 		}
-		if ($_GET['action'] == 'admin_compitition_add/add') { 
+		if ($_GET['action'] == 'compitition_add') {  //หน้าเพิ่มประเภทการแข่งขัน 
+			$comtype = insert_compitype($conn,$data);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition_add">';
+		}
+		if ($_GET['action'] == 'admin_compitition_add/add') { //เพิ่มโปรแกรมแข่ง
+			$compitype = select_compitype($conn);
 			$comp = com_insert($conn,$data);
+			print_r($comp);
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
 		}
 		if ($_GET['action'] == 'admin_compitition_edit') {  //หน้าแก้ไข 
@@ -238,15 +245,24 @@ include('../php/camp_function.php');
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
 		}
 
-		if ($_GET['action'] == 'admin_compitition_delete') {
+		if ($_GET['action'] == 'admin_compitition_delete') { 
 			$deletecompi= com_delete($conn,$compi);
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
 
 		}
 		if ($_GET['action'] == 'addteam_compitition') {
-			require_once('addteam_compitition.php');
-		}
+			$compitype = select_compitype($conn);
+			echo $_POST['compitype'];
+			// $liststudent=select_compistudentlist($conn);
+			$type = select_type($conn,$compitype);
+			$compitype = select_compitype($conn);				
+			$compi = com_select($conn);	
+			// print_r($type['com_type']) ;
 
+			require_once('testfaii.php');
+			// require_once('addteam_compitition.php');
+
+		}
 
 		//-----------------------------camp----------------------------------------------
 		if ($_GET['action'] == 'admin_camp') {

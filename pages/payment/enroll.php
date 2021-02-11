@@ -128,7 +128,7 @@
       <input type="hidden" name="course_expension" value="<?php echo $pri['course_expension'];  ?>">
       <input type="hidden" name="course_category" value="<?php echo $pri['course_category'];  ?>">
       <input type="hidden" name="course_category" value="<?php echo $pri['course_category'];  ?>">
-
+      <input type="hidden" name="course_price" value="<?php echo $pri['course_price']; ?>">
       
 
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">

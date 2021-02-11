@@ -70,8 +70,9 @@ include('../php/camp_function.php');
 				require_once('sorry.php');
 
 			}
-			if($_GET['action']=="all_compeitition"){
-				$compi = com_select($conn);
+			if($_GET['action']=="all_compeitition"){	
+				$compitype = select_compitype($conn);				
+				$compi = com_select($conn);	
 				require_once('all_compeitition.php');
 
 			}

@@ -79,37 +79,80 @@
 		<!-- Toggle button -->
 		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 		<div style="display: flex; padding: 25px;">
-			<h1>ADD Compititions</h1>
+			<h1 >ADD Compititions</h1>
 		</div>
 		<form method="POST"  action="index.php?app=admin&action=admin_compitition_add/add" enctype="multipart/form-data">
 
 			<div class="flex-container">
 				<div class="flex-col1">
 					<p class="list_detail"><b>Compititions</b> </p>
-					<input type="text" name="com_type" class="form-control" required>
-					<p class="list_detail" style="margin-top:  20px;"><b>Age for program</b> </p>
-					<input type="text" name="com_age" class="form-control" required>
-					<p class="list_detail" style="margin-top:  20px;"><b>Start Date</b></p>
-					<input name="com_start_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
-					<p class="list_detail" style="margin-top:  20px;"><b>Program detail</b></p>
-					<input class="file-upload" type="file" name="com_file" accept="application/pdf" required>
-					
-					
+					<div class="row">
+						<!-- <input type="text" name="com_type" class="form-control" required> -->
+						<div class="col-md-10" style="padding-left: 0px;	">
+							<select  class="form-control" name = "com_type" > 
+								<?php for($i=0 ; $i< count($compitype) ; $i++){?>
+									<p><option value="<?php echo $compitype[$i]['compi_name']; ?>"><?php echo $compitype[$i]['compi_name']; ?>
+								</option> </p>
+							<?php } ?>
+						</select> 
+					</div>
+					<div>
+						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+							ADD++
+						</button>
+					</div>
 				</div>
-				<div class="flex-col1">
-					<p class="list_detail" ><b>Program </b></p>
-					<input type="text" name="com_program" class="form-control" required>
-					<p class="list_detail" style="margin-top:  20px;"><b>Price</b></p>
-					<input type="text" name="com_price" class="form-control" OnChange="JavaScript:chkNum(this)" style="width: 100%;width: 224px; " required>
-					<p class="list_detail" style="margin-top:  20px;"><b>End Date</b></p>
-					<input name="com_end_date"  class="form-control" style="width: 100%;width: 224px;" type="date"  required>
-					
-				</div>
+				<p class="list_detail" style="margin-top:  20px;"><b>Age for program</b> </p>
+				<input type="text" name="com_age" class="form-control" required>
+				<p class="list_detail" style="margin-top:  20px;"><b>Start Date</b></p>
+				<input name="com_start_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
+				<p class="list_detail" style="margin-top:  20px;"><b>Program detail</b></p>
+				<input class="file-upload" type="file" name="com_file" accept="application/pdf" required>
+
+
 			</div>
-			<button type="submit" name="submit" value="Save" class="Button" style=" width: 10%; text-align: center;"> Save </button> 
-		</form>
+			<div class="flex-col1">
+				<p class="list_detail" ><b>Program </b></p>
+				<input type="text" name="com_program" class="form-control" required>
+				<p class="list_detail" style="margin-top:  20px;"><b>Price</b></p>
+				<input type="text" name="com_price" class="form-control" OnChange="JavaScript:chkNum(this)" style="width: 100%;width: 224px; " required>
+				<p class="list_detail" style="margin-top:  20px;"><b>End Date</b></p>
+				<input name="com_end_date"  class="form-control" style="width: 100%;width: 224px;" type="date"  required>
+
+			</div>
+		</div>
+		<button type="submit" name="submit" value="Save" class="Button" style=" width: 10%; text-align: center;"> Save </button> 
+	</form>
+</div>
+<div class="modal" id="myModal" role="dialog">
+
+	<div class="modal-dialog" >
+		<!-- Modal content-->
+		<div class="modal-content" >
+			<div class="modal-header" style="background-color: white; color: black;">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">ADD Compitition</h4>
+			</div>
+			<form action="index.php?app=admin&action=compitition_add" method="POST">
+				<div class="modal-body">
+					<div class="modals_content">
+						<div class="modlas_body">
+							<label for="appt">Compitition Name:</label>
+							<input class="form-control" type="text"  name="compi_name">
+
+						</div>	
+					</div>
+				</div>
+				<div class="modal-footer" style="background-color: white;">
+					<input class ="Button" style=" width: 20%; text-align: center;" type="submit" value="Submit">
+					<button class ="Button" style=" width: 20%; text-align: center;" type="button" data-dismiss="modal">Close</button>
+				</div>
+			</form>
+		</div>
 	</div>
+</div>
 </body>
+
 <script>
 	$(document).ready(function() {
 		var readURL = function(input) {

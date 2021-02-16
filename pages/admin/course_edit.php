@@ -144,7 +144,6 @@
 		});
 	});
 </script>
-
 <script language="JavaScript">
 
 function addCommas(nStr)

@@ -67,7 +67,6 @@ if ( mysqli_query($conn, $sql)) {
 }
 mysqli_close($conn);
 }
-
 function update_date(mysqli $conn,$data=[],$value_date,$value_start,$value_end,$value_color,$id_of_calendar){
 
 	$sql = "UPDATE `calendar` 
@@ -264,8 +263,24 @@ function listmsg(mysqli $conn){
 		return $data;
 	}
 }
-function updatestatus(mysqli $conn, $value){
-	$sql = "UPDATE notification SET status = 1  WHERE no_id='$value'";
+
+function historymsg(mysqli $conn){
+	$sql = "SELECT * FROM `notification` WHERE status = 1 ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+
+function updatestatus(mysqli $conn,$value,$name,$timestamp){
+	$sql = "UPDATE notification 
+	SET `status` = 1,
+	`approver` = '$name',
+	`timestamp` = '$timestamp' WHERE no_id='$value'";
 	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -286,6 +301,21 @@ function selcs(mysqli $conn,$keys_cs){
 		return $data;
 	}
 }
+
+
+
+function selcs_2(mysqli $conn){
+	$sql = "SELECT* FROM `course_student` WHERE 1 ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+
 function selcp(mysqli $conn,$keys_cp){
 	$sql = "SELECT* FROM `camp_student` WHERE cp_id=$keys_cp";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -309,17 +339,17 @@ function selcps(mysqli $conn,$keys_cps){
 	}
 }
 
-// function selpay(mysqli $conn,$keys){
-// 	$sql = "SELECT* FROM `course_student` WHERE cs_id=$keys ";
-// 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-// 		$data =[];
-// 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-// 			$data[] = $row;
-// 		}
-// 		$result->close();
-// 		return $data;
-// 	}
-// }
+function selpay(mysqli $conn,$keys){
+	$sql = "SELECT* FROM `course_student` WHERE cs_id=$keys ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
 
 function selcouname(mysqli $conn,$selcou_id){
 	$sql = "SELECT* FROM `course` WHERE course_id=$selcou_id ";
@@ -387,19 +417,14 @@ function selpaydate(mysqli $conn,$keys_cs){
 		return $data;
 	}
 }
-function delstuout(mysqli $conn,$selstu_id,$keysdel){
-	$sql = "DELETE FROM notification 
-	WHERE no_id = $keysdel";
+function delstuout(mysqli $conn,$keysdel){
+	$sql = "DELETE  FROM notification WHERE notification.no_id='$keysdel';";
 	echo $sql;
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		return false;
-	}
-	if ($sql) {
-		$sql = "DELETE FROM student 
-		WHERE student_id = $selstu_id";
 	}
 }
 function selectstudent(mysqli $conn){
@@ -726,5 +751,203 @@ function seldatacompeition_noti(mysqli $conn){
 		return $data;
 	} 
 }
+
+function delete_datastu(mysqli $conn,$keystu){
+	$sql = "DELETE student,course_student FROM student INNER JOIN course_student ON student.student_id = course_student.cs_student_id WHERE  student.student_id = '$keystu';";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+function delcompeit_stu(mysqli $conn,$keys_cps){
+	$sql = "DELETE  FROM compititions_student WHERE compititions_student.cps_id='$keys_cps';";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+function delcamp_stu(mysqli $conn,$keys_cp){
+	$sql = "DELETE  FROM camp_student WHERE camp_student.cp_id='$keys_cp';";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+function delcourse_stu(mysqli $conn,$keys_cs){
+	$sql = "DELETE  FROM course_student WHERE course_student.cs_id='$keys_cs';";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+function findmsg(mysqli $conn,$show){
+
+	$sql = "SELECT* FROM `student` WHERE student_name_th='$show'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function joindata(mysqli $conn,$show){
+	$sql = "
+	SELECT *
+	FROM student AS stu 
+	INNER JOIN course_student AS cs ON cs.cs_student_id = stu.student_id
+	WHERE stu.student_name_th = '$show'" ;
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function joindata_camp(mysqli $conn,$show){
+	$sql = "
+	SELECT *
+	FROM student AS stu 
+	INNER JOIN camp_student AS cp ON cp.cs_student_id = stu.student_id
+	WHERE stu.student_name_th = '$show'" ;
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function joindata_compeitition(mysqli $conn,$show){
+	$sql = "
+	SELECT *
+	FROM student AS stu 
+	INNER JOIN compititions_student AS cps ON cps.cps_student_id = stu.student_id
+	WHERE stu.student_name_th = '$show'" ;
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function test_sel(mysqli $conn,$show){
+	$sql = "
+	SELECT * 
+	FROM student AS stu 
+	INNER JOIN course_student AS cs ON cs.cs_student_id = stu.student_id 
+	INNER JOIN camp_student AS cp ON cp.cs_student_id = stu.student_id 
+	INNER JOIN compititions_student AS cps ON cps.cps_student_id = stu.student_id 
+	WHERE stu.student_name_th = '$show'";
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function test_sel2(mysqli $conn){
+	$sql = "
+	SELECT * 
+	FROM notification AS noti 
+	INNER JOIN course_student AS cs ON cs.cs_id = noti.fk_cs_id
+	INNER JOIN camp_student AS cp ON cp.cp_id = noti.fk_cp_id
+	INNER JOIN compititions_student AS cps ON cps.cps_id = noti.fk_cps_id
+	WHERE noti.status = '1'";
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function joindata_cp(mysqli $conn,$show){
+	$sql = "
+	SELECT *
+	FROM student AS stu 
+	INNER JOIN camp_student AS cs ON cp.cs_student_id = stu.student_id
+	WHERE stu.student_name_th = '$show'" ;
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function joindata_cps(mysqli $conn,$show){
+	$sql = "
+	SELECT *
+	FROM student AS stu 
+	INNER JOIN compititions_student AS cs ON cps.cps_student_id = stu.student_id
+	INNER JOIN notification AS noti ON noti.fk_cs_id = cps.cps_id
+	WHERE stu.student_name_th = '$show' AND noti.status = 1" ;
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+// function deletestd(mysqli $conn,$id_not){
+// 	$sql = "DELETE FROM student 
+// 	WHERE teacher_id = '$id_not'";
+// 	echo $sql;
+// 	if ( mysqli_query($conn, $sql)) {
+// 		return true;
+// 	} else {
+// 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+// 		return false;
+// 	}
+// }
+
 
 ?>

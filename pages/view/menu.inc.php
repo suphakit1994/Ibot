@@ -267,12 +267,11 @@ elseif ($t_level=='teacher') { ?>
 									</div>								
 								</div>
 
-								<div class="col-sm-4" style="align-items: center; padding-top: 5px;" >
-									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../teacher_img/<?php echo $t_image; ?>" alt="" style="object-fit:cover ;border-radius: 50%; width:45px; height:45px;"></i>
+								<div class="col-sm-4" style="align-items: center; padding-top: 5px;object-fit:cover;" >
+									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../teacher_img/<?php echo $t_image; ?>" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
 									</a>
-									<ul class="dropdown-menu" style="overflow: hidden; height: 100px;text-align: left;">
-										<a type="button" style="font-size: 19px; padding:4%;width: 100%;"href="../pages/signin/logout.php">Signout <i class="fas fa-sign-out-alt"></i></a>
-										<hr style="width:100%;text-align:left;margin-top:0">
+									<ul class="dropdown-menu" style="overflow: hidden; height: 100px; padding-left: 20px; padding-top: 15px;">
+										<a type="button" href="../pages/signin/logout.php">logout</a>
 
 									</ul>
 								</div>
@@ -317,7 +316,7 @@ elseif ($a_level=='admin') { ?>
 
 							<span class="badge" id="count"><?php echo $count; ?></a>
 								<ul class="dropdown-menu" style="padding-left: 10px; padding-right: 10px;">
-
+									
 <!-- 									$sql_getdata= mysqli_query($conn,"SELECT* FROM notification WHERE status=0");
 
 									if(mysqli_num_rows($sql_getdata)>0)
@@ -327,7 +326,7 @@ elseif ($a_level=='admin') { ?>
 											$keys = $result['course_id'];
 											$name_course = mysqli_query($conn,"SELECT course_expension FROM course WHERE course_id=$keys ");
 											echo  -->
-											<a class="dropdown-item text-primary font-weight-bold" href="index.php?app=admin&action=list_msg">มีการแจ้งเตือน</a>
+											<a class="dropdown-item text-primary font-weight-bold" href="index.php?app=admin&action=list_msg">การแจ้งเตือน</a>
 											
 
 											<!-- ?> -->

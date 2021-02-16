@@ -71,21 +71,6 @@ function selectcourse(mysqli $conn){
 		return $data;
 	}
 }
-function selectcourse_id(mysqli $conn,$id_course){
-
-	$sql = "SELECT * FROM `course` WHERE course_id = '$id_course'";
-
-	$result = $conn->query($sql); 
-
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
-	}
-}
 function selectfile(mysqli $conn){
 
 	$sql = "SELECT * FROM `file` WHERE 1";
@@ -133,7 +118,7 @@ function uploadpdf(mysqli $conn,$data,$file_app_pdf,$id_lesson,$number_of_lesson
 			$name_file_pdf  = $new_pdf_name;
 			// echo "upload at file.";
 			
-			$sql = " INSERT INTO `file`(`file_address`,`file_lesson_id`,`numper`) VALUES ( '$name_file_pdf','$id_lesson','$number_of_lesson')";
+			$sql = " INSERT INTO `file`(`file_address`,`file_lesson_id`,`number`) VALUES ( '$name_file_pdf','$id_lesson','$number_of_lesson')";
 			echo $sql;
 
 			$resuit =  mysqli_query($conn, $sql);
@@ -171,7 +156,7 @@ function console_log($output, $with_script_tags = true) {
 function upload_quiz(mysqli $conn,$data,$string_array_quest,$string_array_ans,$id_lesson,$n_number){
 	// echo $id_lesson;
 	// echo $n_number;
-	$sql = " INSERT INTO `quize`(`question`,`check_ans`,`quiz_lesson_id`,`numper`) 
+	$sql = " INSERT INTO `quize`(`question`,`check_ans`,`quiz_lesson_id`,`number`) 
 	VALUES ( 
 	'$string_array_quest',
 	'$string_array_ans',

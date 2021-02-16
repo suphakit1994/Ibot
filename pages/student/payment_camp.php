@@ -98,7 +98,7 @@
 
   <body>
     <form method="post" action="index.php?app=student&action=success_camp" enctype="multipart/form-data">
-
+      
      <input type="hidden" name="camp_id" value="<?php echo $_POST['camp_id'];?>">
      <?php echo $_POST['camp_id'];  ?>
 
@@ -151,7 +151,7 @@
               <br><label>Ref. No.</label>
               <br><input name="payment_no" class="form-control" style="width: 350%;">
               <br><label>Amount</label>
-              <br><input name="payment_amount" class="form-control" value="<?php echo $camadd['camp_price']; ?>" style="width: 350%; " OnChange="JavaScript:chkNum(this)" >
+              <br><input name="payment_amount" class="form-control" style="width: 350%;">
               <br><label>Transaction Date</label>
               <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" valube =""type="date"  required>
               <input type="time"  name="payment_time" required> 
@@ -216,24 +216,3 @@
   </div>  
 </form>
 </body> 
-<script language="JavaScript">
-
-  function addCommas(nStr)
-  {
-    nStr += '';
-    x = nStr.split('.');
-    x1 = x[0];
-        //x2 = x.length > 1 ? '.' + x[1] : '';
-        var rgx = /(\d+)(\d{3})/;
-        while (rgx.test(x1)) {
-          x1 = x1.replace(rgx, '$1' + ',' + '$2');
-        }
-        return x1 ;
-      }
-
-      function chkNum(ele)
-      {
-        var num = parseFloat(ele.value);
-        ele.value = addCommas(num.toFixed(2));
-      }
-    </script>

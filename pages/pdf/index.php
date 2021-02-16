@@ -10,4 +10,8 @@ if(!isset($_GET['action']) ){
 	require_once('pdfweb.php');
 }
 
+if($_GET['action']=='choosefile'){
+	$cus = insertPdf($conn,$_POST);
+	print_r($_POST);
+}
 ?>

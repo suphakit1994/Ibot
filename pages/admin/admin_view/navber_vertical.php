@@ -133,6 +133,20 @@
 						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>
+			</li>
+			<li class="nav-item space_of_items">
+				<div class="dropdown">
+					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-9" aria-haspopup="true" aria-expanded="false">
+						<i class="far fa-edit mr-3  fa-fw"></i>
+						Content/Home
+						<span class="caret"></span>
+					</a>
+					<ul id="submenu-9" class="collapse">
+						<li><a href="index.php?app=admin&action=image_slide"><i class=""></i> Image Slide</a></li>
+						<li><a href="index.php?app=admin&action=ibot_news"><i class=""></i> Ibot News</a></li>
+						<li><a href="index.php?app=admin&action=text_slide"><i class=""></i> Text Slide</a></li>
+					</ul>
+				</div>
 			</li>	
 		</ul>
 	</div>

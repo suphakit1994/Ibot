@@ -159,7 +159,7 @@
                 <br><label>Ref. No.</label>
                 <input name="payment_no"class="form-control" style="width: 350%;" required>
                 <br><label>Amount</label>
-                <input name="payment_amount" value="<?php  echo $pri['course_price']; ?>" class="form-control" style="width: 350%;" OnChange="JavaScript:chkNum(this)"  required>
+                <input name="payment_amount" class="form-control" style="width: 350%;" required>
                 <br><label>Transaction Date</label>
                 <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
                 <input type="time"  name="payment_time" required> 
@@ -241,24 +241,4 @@
   </form>
 
 </body>
-<script language="JavaScript">
 
-  function addCommas(nStr)
-  {
-    nStr += '';
-    x = nStr.split('.');
-    x1 = x[0];
-        //x2 = x.length > 1 ? '.' + x[1] : '';
-        var rgx = /(\d+)(\d{3})/;
-        while (rgx.test(x1)) {
-          x1 = x1.replace(rgx, '$1' + ',' + '$2');
-        }
-        return x1 ;
-      }
-
-      function chkNum(ele)
-      {
-        var num = parseFloat(ele.value);
-        ele.value = addCommas(num.toFixed(2));
-      }
-    </script>

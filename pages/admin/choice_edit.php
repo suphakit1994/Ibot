@@ -47,33 +47,6 @@
 			padding: 2% 2%;
 			margin: 2% 2%;
 		}
-		.file-input__input {
-			width: 0.1px;
-			height: 0.1px;
-			opacity: 0;
-			overflow: hidden;
-			position: absolute;
-			z-index: -1;
-		}
-
-		.file-input__label {
-			cursor: pointer;
-			display: inline-flex;
-			align-items: center;
-			border-radius: 4px;
-			font-size: 14px;
-			font-weight: 600;
-			color: #fff;
-			font-size: 14px;
-			padding: 5px 6px;
-			background-color: #4245a8;
-			box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
-		}
-
-		.file-input__label svg {
-			height: 16px;
-			margin-right: 4px;
-		}
 	</style>
 	
 </head>
@@ -101,20 +74,20 @@
 								<td>
 									<label>Number <?php echo $x;?></label>
 									<input style="width: 10%; margin: 2% 2%;" class="custom-file-input" type="file" 
-									name="file<?php echo $x; ?>" accept="application/pdf"><?php echo $x; ?>
+									name="file<?php echo $x; ?>" accept="application/pdf">
 								</td>												
 								<td>
-
-									<a style="width: 50%; margin: 2% 2%;" class="custom-file-input btn btn-primary" type="button" id="myBtn" value="modals" data-toggle="modal" data-target="#myModal<?php echo $x;?>">Example</a>
+									
+									<a style="width: 100%; margin: 2% 2%;" class="custom-file-input btn btn-primary" type="button" id="myBtn" value="modals" data-toggle="modal" data-target="#myModal<?php echo $x;?>">modals</a>
 								</td>						
 							</tr>
 						<?php } ?>
-
+						
 
 					</table>
 				</div>
 				<div style="flex: 100%; padding: 40px;text-align: center;">
-					<input class="btn btn-success" type="submit" name="" form="insertdata" value="Save">
+					<input type="submit" name="" form="insertdata">
 				</div>
 			</div>
 

@@ -1,6 +1,6 @@
 <style>
 	.table{
-		margin-top: 10% !important;
+		margin-top: 50px !important;
 		height:250px;
 		overflow-y: scroll;
 
@@ -39,16 +39,26 @@
 		<div class="row">
 			<div class="page-content p-5" id="content" style="padding: 2%;">
 				<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
-				<form action="index.php?app=admin&action=history_msg" method="post" accept-charset="utf-8">
-					<input type="submit" value="History" style="float: right;" class="btn btn-primary" name="">
-				</form>	
+				<div class="row">
+					<div class="col-md-6">
+						<h1 style="margin-top: 30px; font-weight: bolder;">History</h1>
+					</div>
+					<div class="col-md-6" style="margin-top: 30px; text-align: right;">
+						<form class="example" action="index.php?app=admin&action=search_msg" method="POST">
+							<input type="text"  name="search" placeholder="กรอกชื่อภาษาไทย">
+							<button type="submit"><i class="fa fa-search"></i></button>
+						</form>
+					</div>
+				</div>
 				<table class="table">
 					<thead class="thead-dark" id=table>
 						<tr>
-							<th scope="col">No.</th>
+							<th scope="col">ID</th>
 							<th scope="col">Topic</th>
 							<th scope="col">Name</th>
 							<th scope="col">Date</th>
+							<th scope="col">Date approved</th>
+							<th scope="col">Approver</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -92,6 +102,10 @@
 											}
 
 										} ?></td>
+
+										<td><?php echo $cus[$i]['timestamp']; ?></td>
+										<td><?php echo $cus[$i]['approver']; ?></td>
+
 
 										<td>
 
@@ -169,7 +183,7 @@
 																		$parents_line = $selstu_name[$k]['parents_line'];
 																		?>
 																		<p style="font-weight: bolder;">ParentName :<?php echo $parentsname; ?></p>
-																		<p style="font-weight: bolder;">ParentPhone :<?php echo $parentphone; ?></p>
+																		<p style="font-weight: bolder;">ParentPhone :<?php echo $parentsphone; ?></p>
 																		<p style="font-weight: bolder;">ParentEmail :<?php echo $parentemail; ?></p>
 																		<p style="font-weight: bolder;"> ParentLine :<?php echo $parents_line; ?></p>
 																		<?php 
@@ -192,35 +206,13 @@
 																		<p style="font-weight: bolder;">Amount : <?php echo $payamount; ?></p>
 																		<p style="font-weight: bolder;">Bank : <?php echo $paybank; ?></p>
 																		<p style="font-weight: bolder;">Date : <?php echo $paydate; ?></p>
-
 																		<img class="card-img-top" style="width: 445px; margin-bottom: 30px;"
 																		src="../img_payment/<?php echo $payimg;?>" alt="Card image cap" >
 																		<?php
 																	}
 
 																} ?>
-																<div class="row" style="text-align-last: right; margin-bottom: 10px;" >
-																	<div class="col-lg-6">
-																		<form action="index.php?app=admin&action=check_msg<?php echo $cus[$i]['no_id']; ?>" method="post" accept-charset="utf-8">
-																			<?php 				$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );
-																			$date_days = $date->format('d-m-Y H:i:s'); ?>
-																			<input type="hidden" placeholder="Approve" value="<?php echo $date_days; ?>" name="timestamp" >
-																			<input type="submit" value="Approve" name=""class="btn btn-success" style="
-																			width: 270px;
-																			text-align-last: center;
-																			">
-																		</form>
-																	</div>
-																	<div class="col-lg-6">
-																		<form action="index.php?app=admin&action=del_msg<?php echo $cus[$i]['no_id']; ?>" method="post" accept-charset="utf-8">
 
-																			<input  type="submit" value="Delete" class="btn btn-danger" style="
-																			width: 132px;
-																			text-align-last: center;
-																			">
-																		</form>
-																	</div>
-																</div>
 
 															</div>
 														</div>
@@ -233,6 +225,7 @@
 
 
 									<!-- กรณีลงแคมป์ --> <!-- ยังไม่ได้เขียนการดึงข้อมูล -->
+
 
 
 
@@ -262,6 +255,8 @@
 											}
 
 										} ?></td>
+										<td><?php echo $cus[$i]['timestamp']; ?></td>
+										<td><?php echo $cus[$i]['approver']; ?></td>
 
 										<td>
 
@@ -346,28 +341,6 @@
 																	}
 
 																} ?>
-																<div class="row" style="text-align-last: right; margin-bottom: 10px;" >
-																	<div class="col-lg-6">
-																		<form action="index.php?app=admin&action=check_msg<?php echo $cus[$i]['no_id']; ?>" method="post" accept-charset="utf-8">
-																			<?php 				$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );
-																			$date_days = $date->format('d-m-Y H:i:s'); ?>
-																			<input type="hidden" placeholder="Approve" value="<?php echo $date_days; ?>" name="timestamp" >
-																			<input type="submit" value="Approve" name=""class="btn btn-success" style="
-																			width: 270px;
-																			text-align-last: center;
-																			">
-																		</form>
-																	</div>
-																	<div class="col-lg-6">
-																		<form action="index.php?app=admin&action=del_msg<?php echo $cus[$i]['no_id']; ?>" method="post" accept-charset="utf-8">
-
-																			<input  type="submit" value="Delete" class="btn btn-danger" style="
-																			width: 132px;
-																			text-align-last: center;
-																			">
-																		</form>
-																	</div>
-																</div>
 
 															</div>
 														</div>
@@ -376,7 +349,6 @@
 											</div>
 										</td>
 									</tr>
-
 
 								<?php }elseif($topic == 'Add Course') {
 
@@ -404,6 +376,8 @@
 											}
 
 										} ?></td>
+										<td><?php echo $cus[$i]['timestamp']; ?></td>
+										<td><?php echo $cus[$i]['approver']; ?></td>
 
 										<td>
 
@@ -488,28 +462,6 @@
 																	}
 
 																} ?>
-																<div class="row" style="text-align-last: right; margin-bottom: 10px;" >
-																	<div class="col-lg-6">
-																		<form action="index.php?app=admin&action=check_msg<?php echo $cus[$i]['no_id']; ?>" method="post" accept-charset="utf-8">
-																			<?php 				$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );
-																			$date_days = $date->format('d-m-Y H:i:s'); ?>
-																			<input type="hidden" placeholder="Approve" value="<?php echo $date_days; ?>" name="timestamp" >
-																			<input type="submit" value="Approve" name=""class="btn btn-success" style="
-																			width: 270px;
-																			text-align-last: center;
-																			">
-																		</form>
-																	</div>
-																	<div class="col-lg-6">
-																		<form action="index.php?app=admin&action=del_msg<?php echo $cus[$i]['no_id']; ?>" method="post" accept-charset="utf-8">
-
-																			<input  type="submit" value="Delete" class="btn btn-danger" style="
-																			width: 132px;
-																			text-align-last: center;
-																			">
-																		</form>
-																	</div>
-																</div>
 
 															</div>
 														</div>
@@ -546,6 +498,8 @@
 											}
 
 										} ?></td>
+										<td><?php echo $cus[$i]['timestamp']; ?></td>
+										<td><?php echo $cus[$i]['approver']; ?></td>
 
 										<td>
 
@@ -607,6 +561,7 @@
 															} ?>
 															<button id="btn_more<?php echo $cus[$i]['no_id']; ?>" type="button" class="btn btn-info" style="width: 100%; height: 35px; margin-bottom: 10px;">More</button>
 
+
 															<div id="hidecontent<?php echo $cus[$i]['no_id']; ?>" style="display: none;">
 
 
@@ -632,28 +587,6 @@
 																	}
 
 																} ?>
-																<div class="row" style="text-align-last: right; margin-bottom: 10px;" >
-																	<div class="col-lg-6">
-																		<form action="index.php?app=admin&action=check_msg<?php echo $cus[$i]['no_id']; ?>" method="post" accept-charset="utf-8">
-																			<?php 				$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );
-																			$date_days = $date->format('d-m-Y H:i:s'); ?>
-																			<input type="hidden" placeholder="Approve" value="<?php echo $date_days; ?>" name="timestamp" >
-																			<input type="submit" value="Approve" name=""class="btn btn-success" style="
-																			width: 270px;
-																			text-align-last: center;
-																			">
-																		</form>
-																	</div>
-																	<div class="col-lg-6">
-																		<form action="index.php?app=admin&action=del_msg<?php echo $cus[$i]['no_id']; ?>" method="post" accept-charset="utf-8">
-
-																			<input  type="submit" value="Delete" class="btn btn-danger" style="
-																			width: 132px;
-																			text-align-last: center;
-																			">
-																		</form>
-																	</div>
-																</div>
 
 															</div>
 														</div>

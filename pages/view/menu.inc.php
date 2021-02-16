@@ -326,7 +326,7 @@ elseif ($a_level=='admin') { ?>
 											$keys = $result['course_id'];
 											$name_course = mysqli_query($conn,"SELECT course_expension FROM course WHERE course_id=$keys ");
 											echo  -->
-											<a class="dropdown-item text-primary font-weight-bold" href="index.php?app=admin&action=list_msg">มีการแจ้งเตือน</a>
+											<a class="dropdown-item text-primary font-weight-bold" href="index.php?app=admin&action=list_msg">การแจ้งเตือน</a>
 											
 
 											<!-- ?> -->

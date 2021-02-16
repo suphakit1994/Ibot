@@ -258,9 +258,22 @@ include('../php/camp_function.php');
 			$compitype = select_compitype($conn);				
 			$compi = com_select($conn);	
 			// print_r($type['com_type']) ;
+			// require_once('testfaii.php');
+			require_once('addteam_compitition.php');
 
-			require_once('testfaii.php');
-			// require_once('addteam_compitition.php');
+		}
+		if ($_GET['action'] == 'list_student_compitition') { //แสดงรายชื่อนักเรียนที่ลงแต่ล่ะโปรแกรม
+			$com_id=$_POST['com_id'];
+			$list_student=list_student($conn,$com_id);
+			// print_r($list_student) ;	
+			require_once('list_student_compititions.php');	
+		}
+		if ($_GET['action'] == 'delete_student_compitition') { //แสดงรายชื่อนักเรียนที่ลงแต่ล่ะโปรแกรม
+			$com_id=$_POST['com_id'];
+			$student_id=$_POST['student_id'];
+			echo $com_id." ".$student_id;
+			$delete=delete_student_compitition($conn,$com_id,$student_id);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=addteam_compitition">';
 
 		}
 

@@ -118,12 +118,12 @@
         <?php  
       }  ?>
     </div>
-    <div class="text-center "> 
+   <!--  <div class="text-center "> 
       <a href="index.php?app=student"   class="Button" style="border-radius:28px;"> Student Assessment</a>
     </div>
     <div class="text-center "> 
       <a href="index.php?app=student_information"   class="Button" style="border-radius:28px;"> Student information</a>
-    </div>
+    </div> -->
   </div>
   <br>
   <br>

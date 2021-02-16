@@ -307,7 +307,29 @@ function innervar(mysqli $conn){		//แสดงรายละเอียด�
 		return $data;
 	}
 }
+function list_student(mysqli $conn,$com_id){	//หน้า list student addteam	
+	$sql = "SELECT * FROM `compititions_student` AS com JOIN `compititions` AS compi ON com.cps_com_id = compi.com_id JOIN student ON com.cps_student_id = student.student_id WHERE com.cps_com_id = $com_id";
+	$result = $conn->query($sql); 
 
-
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+	
+}
+function delete_student_compitition(mysqli $conn,$com_id,$student_id){		//ลบ
+	$sql = "DELETE  FROM `compititions_student` WHERE `cps_com_id` = $com_id  AND cps_student_id = $student_id";
+	if ( mysqli_query($conn, $sql)) {
+		echo "OK";
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
 
 ?>

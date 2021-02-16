@@ -136,41 +136,43 @@
             <div>
                 <?php for ($i=0;$i<count($compitype);$i++ ){?>
                     <h2><?php echo $compitype[$i]['compi_name'] ?></h2>
-                    <form method="post" action="index.php?app=student&action=payment_compeitition">
-                        <?php for($j=0;$j<count($compi);$j++ ){?>
-                            <?php if($compi[$j]['com_type']==$compitype[$i]['compi_name']){?>
-                                <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
-                                    <div class="card-body">
-                                        <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
-                                            <div class="col-md-4">
+                    
+                    <?php for($j=0;$j<count($compi);$j++ ){?>
+                       <form method="post" action="index.php?app=student&action=payment_compeitition">
+                        <?php if($compi[$j]['com_type']==$compitype[$i]['compi_name']){?>
+                            <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
+                                <div class="card-body">
+                                    <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
+                                        <div class="col-md-4">
 
-                                                <p style="padding-left:10%; margin: auto; padding-top: 5%; padding-bottom: 5%;">
-                                                    <?php echo $compi[$j]['com_program']; ?>
-                                                    (<?php echo $compi[$j]['com_age']; ?>)
-                                                </p>
-                                                
-                                            </div>
-                                            <div class="col-md-5" style="margin: auto !important;">
-                                                <p style="text-align:center; margin: auto; ">
-                                                    <b>
-                                                        <a href="../compitition_pdf/<?php echo $compi[$i]['com_file']; ?>" download>
-                                                        Download rules </a>
-                                                    </b>
-                                                </p>
-                                            </div>
-
-                                            <div class="col-md-3 btn-position center-box">
-                                                <button type="submit"  name="<?php echo $i ?>" class="Button" style="width:55% ;border-radius:28px;">Enroll</button>
-                                            </div>
+                                            <p style="padding-left:10%; margin: auto; padding-top: 5%; padding-bottom: 5%;">
+                                                <?php echo $compi[$j]['com_program']; ?>
+                                                (<?php echo $compi[$j]['com_age']; ?>)
+                                            </p>
+                                            
                                         </div>
-                                        <input type="hidden" name="com_id" value="<?php echo $compi[$i]['com_id'];  ?>">
-                                    </div>
-                                </div>
-                            <?php }?>
-                        <?php }?>
-                    </form>
-                <?php } ?>
-            </div>
-        </div>
+                                        <div class="col-md-5" style="margin: auto !important;">
+                                            <p style="text-align:center; margin: auto; ">
+                                                <b>
+                                                    <a href="../compitition_pdf/<?php echo $compi[$j]['com_file']; ?>" download>
+                                                    Download rules </a>
+                                                </b>
+                                            </p>
+                                        </div>
 
-    </body>
+                                        <div class="col-md-3 btn-position center-box">
+                                            <button type="submit"  name="<?php echo $j ?>" class="Button" style="width:55% ;border-radius:28px;">Enroll</button>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="com_id" value="<?php echo $compi[$j]['com_id'];  ?>">
+                                </div>
+                            </div>
+                        <?php }?> 
+                    </form>
+                <?php }?>
+                
+            <?php } ?>
+        </div>
+    </div>
+
+</body>

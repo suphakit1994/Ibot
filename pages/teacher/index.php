@@ -73,7 +73,7 @@ include("../php/course_function.php");
 					$number_of_lesson = getPdf($conn,$id_course);
 					$func_id_course = selectcourse_id($conn,$id_course);
 					$get_pdf = getPdf($conn,$id_course);
-					$qq = quiz($conn);
+					// $qq = quiz($conn);
 					require_once('mycourse.php');
 				}
 				

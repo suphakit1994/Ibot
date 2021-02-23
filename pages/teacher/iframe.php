@@ -10,26 +10,8 @@ session_start();
 	$level = $_SESSION['teacher_level'];
 	$nlevel = $_SESSION['teacher_nlevel'];
 	$image = $_SESSION["teacher_img"];
-	$course = $_SESSION["course_id"];	
-	$value_course = $course;
-	// print_r($_SESSION);
+
 	?>
-	<style type="text/css">
-		<?php
-		include("../view/footer.inc.php");
-		include("../../php/config.php");
-		include('../../php/function.php');
-		include("../../php/course_function.php");
-		?>
-		<?php
-		// $quiz = quiz($conn);
-		$func_getquize = select_question($conn,$course);
-		// print_r($func_getquize);
-		// for ($const=0; $const < count($func_getquize); $const++) { 
-		// 	$number_of_quize = $func_getquize[$const]['numper'];
-		// }
-		?>
-	</style>
 	<style type="text/css" media="screen">
 		.flex-box-con{
 			display: flex;
@@ -124,32 +106,41 @@ session_start();
 	</style>
 </head>
 <body>
-	<div class="flex-box-con">
-		<h1>Page IFRAME</h1><br>
-		<h2><?php echo $course; ?></h2>
-		<?php for($j=0; $j<count($func_getquize);$j++){?>
-<!-- 			<?php if($j =0){$j=1;}?>
-<?php if($func_getquize[$j]['numper']=$j){?> -->
-<div class="flex-question">
-	<?php echo $func_getquize[$j]['question'];?>
-	<?php echo $func_getquize[$j]['numper'];?>
-</div>
-<!-- 			<?php }?> -->
-<div class="flex-answer" style="">
-	<?php for($i=1; $i<5;$i++){?>
-		<div class="flex-choice">
-			<a onclick="">
-				<label class="container">
-					<input type="radio" name="ggg" id="<?php echo $i;?>" value="<?php echo $i;?>">
-					<span class="checkmark"></span>
-					Book<?php echo $i;?>
-				</label>
-			</a>
+	<div class="container">
+		<div class="flex-box-con">
+			<h1>Examination <?php echo $get_pdf[$j]['numper']; ?></h1>
+			<form method="POST" action="index.php?app=teacher&action=postfile/exam<?php echo $id_course;?>lesson<?php echo $get_pdf[$j]['numper']; ?>">
+				<?php for($j=0; $j<count($get_quest);$j++){?>
+					<div class="flex-question questions">
+						<h2><?php echo $get_quest[$j]['question']; ?></h2>
+					</div>
+					<div class="flex-answer">
+						<?php for($i=0; $i<count($select_choice_func);$i++){ 
+							$quest = $get_quest[$j]['quiz_id'];?>
+
+							<?php if($select_choice_func[$i]['key_all'] == $quest){?>
+								<a>
+									<label class="container">
+										<input type="hidden" name="question<?php echo $j;?>" id="<?php echo $i;?>" value="<?php echo $get_quest[$j]['question'];?>">
+										<input type="radio" name="answer<?php echo $j;?>" id="<?php echo $i;?>" value="<?php echo $select_choice_func[$i]['selected'];?>">
+										<input type="hidden" name="correct<?php echo $j;?>" id="<?php echo $i;?>" value="<?php echo $get_quest[$j]['check_ans'];?>">
+										<span class="checkmark"></span>
+										<p style="padding-left: 20px;"><b><?php echo $select_choice_func[$i]['selected'];?></b></p> 
+										<p><?php echo $j;?></p>
+									</label>
+								</a>
+							<?php }?>
+						<?php }?>
+					</div>
+				<?php }?>
+				<button type="submit" class="Button">ส่งข้อสอบ</button>
+			</form>
 		</div>
-	<?php }?>
-</div>
-<?php }?>
-<button type="" class="Button">asdasdas</button>
-</div>
+	</div>
 </body>
 </html>
+<script>
+	$(document).ready(function(){
+		$("nav").remove(".navbar");
+	});
+</script>

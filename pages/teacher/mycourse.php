@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <style type="text/css" media="screen">
 	
 	.row{
@@ -118,17 +121,14 @@
 	.icon_posit{
 
 	}
-
 </style>
 <body>
 	<div class="container-fluid">
 		<div class="row">
 			<div>
-				<div class="col-sm-7" style="height: 80vh ;overflow-y: scroll;">
-					<div id="demo">
-						<div class="flex">
-							<h1>Wellcome</h1>
-						</div>
+				<div class="col-sm-7">
+					<div id="demo">	
+						<!-- <iframe src="index.php?app=teacher&action=mycourse" width="100%" height="600px"></iframe> -->
 					</div>
 				</div>
 			</div>
@@ -143,7 +143,7 @@
 									<div class="dropdown" style="">
 
 										<a style="font-size: 20px;" href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-<?php echo $i;?>" aria-haspopup="true" aria-expanded="false">
-											<b style="">Chapter<?php echo $get_pdf[$i]['number'];?></b> <i style="" class="fa fa-angle-down"></i>
+											<b style="">Chapter<?php echo $get_pdf[$i]['numper'];?></b> <i style="" class="fa fa-angle-down"></i>
 										</a>
 
 										<div id="submenu-<?php echo $i;?>" class="collapse">
@@ -152,15 +152,16 @@
 													<label class="container">
 														<input type="checkbox">
 														<span class="checkmark"></span>
-														Book<?php echo $get_pdf[$i]['number']; ?>
+														Book <?php echo $get_pdf[$i]['numper']; ?>
 													</label>
 													<p><i class="fas fa-book"></i> PDF File <?php echo $get_pdf[$i]['file_address']; ?></p>
 												</a>
-												<a onclick="getExe()">
+
+												<a onclick="getExe('<?php echo $id_course;?>lesson<?php echo $get_pdf[$i]['numper'];?>')">
 													<label class="container">
 														<input type="checkbox">
 														<span class="checkmark"></span>
-														Exercise
+														Exercise <?php echo $get_pdf[$i]['numper'];?>
 													</label>
 													<p><i class="fas fa-pencil-alt"></i> Exercise</p>
 												</a>
@@ -170,7 +171,6 @@
 								</div>
 							<?php }?>
 						</div>
-
 					</div>
 				</div>
 			</div>
@@ -197,6 +197,8 @@
 							<p>Pongsakorn Sorankorn</p>
 							<p>8</p>
 							<p>12 hours</p>
+							<p id="response"></p>
+							<p id="myVar"></p>
 						</div>
 					</div>
 				</div>
@@ -209,29 +211,16 @@
 					</div>
 					<a class="Button" href="" style="width: 40%; padding: 1%;">Request Certificate</a> 
 				</div>
-				<!-- <iframe src="../pless/pdf_6012382315743file1.pdf" width="100%" height="600px"></iframe> -->
-				<!-- <iframe src="teacher/iframe.php" width="100%" height="auto"></iframe> -->
 			</div>
 		</div>
-	</div>\
+	</div>
 	
 </body>
 <script>
 	function getPdf(pdf) {
 		document.getElementById("demo").innerHTML = '<iframe src="' + '../pless/' + pdf + '" width="100%" height="600px"></iframe>';
 	}
-	function getExe() {
-		document.getElementById("demo").innerHTML = '<iframe src="teacher/iframe.php" width="100%" height="600px"></iframe>';
+	function getExe(examinition) {
+		document.getElementById("demo").innerHTML = '<iframe src="'+'index.php?app=teacher&action=mycourse'+examinition+'" width="100%" height="600px"></iframe>';
 	}
-
-	// $( "div:contains('Wellcome')" ).html("<b>world!</b>");
-	// $("p").html("Hello <b>world!</b>");
 </script>
-<!-- <?php for($i=0;$i<count($get_pdf);$i++){ ?>
-						<div class="row">
-							<div class="col-md-12" style="font-size: 15px ;border: 1px solid #D3D3D3; padding-left: 5%; padding-top: 2%;padding-bottom: 2%;">
-								<input type="radio" name="<?php echo $i; ?>">
-								<a href="#"onclick="myFunction('<?php echo $get_pdf[$i]['file_address']; ?>')" ><?php echo $get_pdf[$i]['file_address']; ?></a>
-							</div>
-						</div>
-					<?php }?> -->

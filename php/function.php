@@ -695,16 +695,15 @@ function insertnoticompetition(mysqli $conn,$sel_compeitition,$data){
 	) 
 	VALUES (
 	'".$sel_compeitition['cps_id']."',
-	'".$data['payment_type']."'
+	'".$data['payment_type']."')";
 
-)";
-if ( mysqli_query($conn, $sql)) {
-	return true;
-} else {
-	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	return false;
-}
-mysqli_close($conn);
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+	mysqli_close($conn);
 }
 
 function seldatacompeition_noti(mysqli $conn){
@@ -781,9 +780,9 @@ function update_attended(mysqli $conn,$data=[],$id_teachers,$attentded){
 	mysqli_close($conn);
 }
 
-function select_question(mysqli $conn,$course){
+function select_question(mysqli $conn,$course,$lesson){
 
-	$sql = "SELECT * FROM quize WHERE quiz_lesson_id = '$course'";
+	$sql = "SELECT * FROM quize WHERE quiz_lesson_id = '$course' AND numper = '$lesson'";
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -795,7 +794,61 @@ function select_question(mysqli $conn,$course){
 		return $data;
 	} 
 }
+function select_choice(mysqli $conn){
 
+	$sql = "SELECT * FROM choice WHERE 1";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function insert_answer(mysqli $conn,$data,$id,$name,$level,$course_id,$lesson_id){
+	$total_score = 0;
+
+	if ($data['answer0'] == $data['correct0']) {
+		$total_score = $total_score+1;
+	}
+	if ($data['answer1'] == $data['correct1']) {
+		$total_score = $total_score+1;
+	}
+	if ($data['answer2'] == $data['correct2']) {
+		$total_score = $total_score+1;
+	}
+	if ($data['answer3'] == $data['correct3']) {
+		$total_score = $total_score+1;
+	}
+	if ($data['answer4'] == $data['correct4']) {
+		$total_score = $total_score+1;
+	}else{
+		$total_score = $total_score+0;
+	}
+	echo "====>".$total_score;
+
+	$sql = "INSERT INTO list_of_score (id_user,name_user,level_user,course,lesson,score)
+	VALUES (
+	'$id',
+	'$name',
+	'$level',
+	'$course_id',
+	'$lesson_id',
+	'$total_score')";
+
+	echo $sql;
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+	mysqli_close($conn);
+}
 
 // function deletestd(mysqli $conn,$id_not){
 // 	$sql = "DELETE FROM student 

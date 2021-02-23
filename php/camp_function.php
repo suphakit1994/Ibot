@@ -114,7 +114,7 @@ function delete_camp(mysqli $conn, $data){
 
 //--------------------------------compitition--------------------------------------
 
-function com_insert(mysqli $conn){
+function com_insert(mysqli $conn,$data){
 	//upload pdf
 	$ext = pathinfo(basename($_FILES['com_file']['name']),PATHINFO_EXTENSION);
 	$new_image_name = 'com_'.uniqid().".".$ext;
@@ -128,6 +128,7 @@ function com_insert(mysqli $conn){
 	}else{
 		echo "Sorry, only PDF.";
 	}
+	echo $_POST['com_type'];
 	$sql="INSERT INTO `compititions`
 	(`com_type`,
 	`com_program`, 
@@ -154,10 +155,10 @@ if ( mysqli_query($conn, $sql)) {
 	return false;
 }
 mysqli_close($conn);
+
 }
 
 function com_select(mysqli $conn){		//แสดง compitition ทั้งหมด
-
 	$sql = "SELECT * FROM `compititions` WHERE 1";
 	$result = $conn->query($sql); 
 
@@ -170,6 +171,20 @@ function com_select(mysqli $conn){		//แสดง compitition ทั้งห�
 		return $data;
 	} 
 }
+function select_compi_name(mysqli $conn,$comname){		
+	$sql = "SELECT * FROM `compititions` WHERE com_type = '$comname'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+
 
 function select_comadd(mysqli $conn,$compi){		//แสดงรายละเอียดหน้าแข่ง
 	$sql = "SELECT * FROM `compititions` WHERE com_id = '".$_POST['com_id']."'";
@@ -220,6 +235,101 @@ function com_delete(mysqli $conn,$compi){		//ลบ
 	}
 }
 
+function select_compitype(mysqli $conn){		//แสดงรายละเอียดหน้าแข่ง
+	$sql = "SELECT * FROM `compititions_type`";
+	$result = $conn->query($sql); 
 
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+
+function insert_compitype(mysqli $conn,$data){
+	$compi_name = $_POST['compi_name'];
+	// echo $compi_name;
+	$sql = "INSERT INTO `compititions_type` (`compi_name`) VALUES ('$compi_name')";
+	// echo $sql;
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+}
+
+function select_compistudentlist(mysqli $conn){		//แสดงรายละเอียดหน้าแข่ง
+	$sql = "SELECT s.student_name_th , com.com_type  
+	FROM `compititions_student`AS cs  
+	INNER JOIN  `student` AS s  ON cs.cps_student_id = s.student_id 
+	INNER JOIN compititions AS com ON cs.cps_com_id = com.com_id ";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+
+function select_type(mysqli $conn,$compitype){		//แสดงรายละเอียดหน้าแข่ง
+	$sql = "SELECT * FROM `compititions` WHERE 1";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function innervar(mysqli $conn){		//แสดงรายละเอียดหน้าแข่ง
+	$sql = "SELECT * FROM `compititions` AS com INNER JOIN `compititions_type` AS compi WHERE com.com_type = compi.compi_name";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function list_student(mysqli $conn,$com_id){	//หน้า list student addteam	
+	$sql = "SELECT * FROM `compititions_student` AS com JOIN `compititions` AS compi ON com.cps_com_id = compi.com_id JOIN student ON com.cps_student_id = student.student_id WHERE com.cps_com_id = $com_id";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+	
+}
+function delete_student_compitition(mysqli $conn,$com_id,$student_id){		//ลบ
+	$sql = "DELETE  FROM `compititions_student` WHERE `cps_com_id` = $com_id  AND cps_student_id = $student_id";
+	if ( mysqli_query($conn, $sql)) {
+		echo "OK";
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
 
 ?>

@@ -1,78 +1,65 @@
- <meta charset="utf-8">
- <style>
- 	.long {
- 		text-overflow: ellipsis;
- 		white-space: nowrap;
- 		overflow: hidden;
- 	}
 
- </style>
- <body>
- 	<div class="page-content p-5" id="content">
- 		<div class="container">
- 			<div class="row">
- 				<h1 style="margin-top: 5%;">Team Compeititions</h1>
- 				<div class="col-lg-5" style="border-right: solid #eeeeee 1px;">
- 					<div class="row" style="margin-top: 5%;"	>
- 						<div class="col-sm-12">
- 							<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
- 						</div>
- 					</div>
+<meta charset="utf-8">
+<style>
+	.long {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	body{background-color: grey;}
+	p{color: #000000;}
+	#additionalOptions{display:none;}
+</style>
+<body>
+	
+	<div class="page-content p-5" id="content">
+		<div class="container">
+			<div class="row">
+				<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small>
+				</button>
+				<div>
 
+					<h1>Add Team Compitition </h1>
+				</div>
+				
+				<?php for ($i=0;$i<count($compitype);$i++ ){?>
+					<div class="row">
+						<ul>
+							<label  style="border-bottom: 1px solid #ddd;"><?php echo $compitype[$i]['compi_name'] ?></label>
+							
+							<?php for($j=0;$j<count($compi);$j++ ){?>
+								<div class="row">
+									<form method="post" action="index.php?app=admin&action=list_student_compitition">
+										<?php if($compi[$j]['com_type']==$compitype[$i]['compi_name']){?>
+											<div class="col-md-4" style="padding: 15px;">
+												<p>
+													<?php echo $compi[$j]['com_program'] ; ?>
+													(<?php echo $compi[$j]['com_age']; ?>)
+												</p>
+											</div>
+											<div class="col-md-5" >		
+											</div>
+											<div class="col-md-3 btn-position center-box">
+												<button type="submit"  name="<?php echo $j ?>" class="Button" style="width:40% ;border-radius:28px;">List Name</button>
+											</div>
+											<input type="hidden" name="com_id" value="<?php echo $compi[$j]['com_id'];  ?>">
+											
+										</form>
+									<?php }?>
+								</div>	
+							<?php }?>
 
- 					<div class="row" style="margin-top: 5%; border-bottom: solid #eeeeee 1px;">
- 						<div class="col-md-6">
- 							<p>Full Name</p>
- 						</div>
- 						<div class="col-md-6">
- 							<p>Parent Name</p>
- 						</div>
- 					</div>
- 					<div class="row"  style="margin-top: 5%;">
- 						<div class="col-md-6">
- 							<p>XXXXXXXXXX Name</p>
- 						</div>
- 						<div class="col-md-6">
- 							<p>XXXXXXXXXX Name</p>
- 						</div>
- 					</div>
-
- 					<div class="Button" style="padding: 1%; width: 20%; ">Test</div>
- 				</div>
-
- 				<div class="col-lg-7">
- 					<div class="row">
- 						<h2>Contact</h2>
- 					</div>
- 					<div class="col-md-8 ">
- 						<p>XXXXXXXXXXXXXX</p>
-
- 					</div>
- 					<div class="col-md-4">
- 						<h2>Team</h2>
-
- 						<p>1</p>
- 						<div class="Button">Test</div>
- 					</div>
- 					<div class="card" style="width:100%; margin-top: 65%;">
- 						<div class="row">
- 							<div class="col-md-4 card">XXXXXXXXXXXXXXXXX</div>
- 							<div class="col-md-4 card">XXXXXXXXXXXXXXXXX</div>
- 							<div class="col-md-4 card">XXXXXXXXXXXXXXXXX</div>
- 						</div>
- 					</div>
- 					<br>
-
-
-
- 				</div>
-
- 			</div>
-
- 		</div>
-
- 	</div>
- </div>
-
+							
+						</div></ul>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script> -->
+	
+	
 </body>
+
 

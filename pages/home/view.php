@@ -124,19 +124,19 @@
       <div class="material-tabs">
         <div class="tabbed-section__selector" style="margin-left: 41%; margin-bottom:2%;">
           <a class="tabbed-section__selector-tab-1 active" href="#">Home</a>
-          <a class="tabbed-section__selector-tab-2" href="#">Compititons</a>  
+          <a class="tabbed-section__selector-tab-2" href="#">Compeitition</a>  
           <a class="tabbed-section__selector-tab-3" href="#">Camp</a>
           <span class="tabbed-section__highlighter"></span>
         </div>
 
         <div class="tabbed-section-1 visible">
-          <img src="http://thecatapi.com/api/images/get?format=src&type=gif" alt="http://thecatapi.com/api/images/get?format=src&type=gif" style="width: 500px; height:500px;">
+          <img src="http://thecatapi.com/api/images/get?format=src&type=gif" alt="http://thecatapi.com/api/images/get?format=src&type=gif" style="width: 800px; height:500px;">
         </div>
         <div class="tabbed-section-2 hidden">
-          <img src="http://thecatapi.com/api/images/get?format=src&type=gif" alt="http://thecatapi.com/api/images/get?format=src&type=gif" style="width: 500px; height:500px;">
+          <img src="http://thecatapi.com/api/images/get?format=src&type=gif" alt="http://thecatapi.com/api/images/get?format=src&type=gif" style="width: 800px; height:500px;">
         </div>
         <div class="tabbed-section-3 hidden">
-          <img src="http://thecatapi.com/api/images/get?format=src&type=gif" alt="http://thecatapi.com/api/images/get?format=src&type=gif" style="width: 500px; height:500px;">
+          <img src="http://thecatapi.com/api/images/get?format=src&type=gif" alt="http://thecatapi.com/api/images/get?format=src&type=gif" style="width: 800px; height:500px;">
         </div>
       </div>
     </div>

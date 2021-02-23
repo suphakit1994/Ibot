@@ -47,7 +47,7 @@
 						</tr>
 						<?php for($i = 0; $i< count($course_list); $i++){ ?>
 							<tr>
-								<td><?php echo $course_list[$i]['course_code']; ?><?php echo "array=>".$i; ?></td>
+								<td><?php echo $course_list[$i]['course_code']; ?></td>
 								<td><?php echo $course_list[$i]['course_expension']; ?></td>
 								<td><?php echo $course_list[$i]['course_Age']; ?></td>
 								<td><?php echo $course_list[$i]['course_lesson']; ?></td>

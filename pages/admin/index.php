@@ -21,10 +21,7 @@ include('../php/camp_function.php');
 		if ($level == 'admin') {
 				// ---------------------------View--------------------------------
 			if (!isset($_GET['action'])) {
-				$cus = calendars($conn);
-				$t_list = selectteacher($conn);
-				$s_list = selectstudent($conn);
-				$classroom = selectclassroom($conn);
+
 				require_once('calendar_schedule.php');
 			}
 			if ($_GET['action'] == 'teacher_list') {
@@ -142,7 +139,7 @@ include('../php/camp_function.php');
 			if ($_GET['action'] == 'dashboard') {
 				require_once('dashboard.php');
 			}
-			if ($_GET['action'] == 'course_list') { 
+			if ($_GET['action'] == 'course_list') {
 				$course_list = selectcourse($conn);
 				require_once('course_list.php');
 			}
@@ -218,17 +215,24 @@ include('../php/camp_function.php');
 				$instercourse =instercourse($conn,$data);
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="2;index.php?app=admin&action=course_list">';
 			}
-
+		}
 		//-------------------------------------compitition-----------------------------------------
-		if ($_GET['action'] == 'admin_compitition') {  //หน้าแสดง
+		if ($_GET['action'] == 'admin_compitition') {  //หน้าแสดงโปรแกรมแข่งทั้งหมด
 			$compi = com_select($conn);
 			require_once('compitition_list.php');
 		}
-		if ($_GET['action'] == 'admin_compitition_add') {  //หน้าเพิ่ม 
+		if ($_GET['action'] == 'admin_compitition_add') {  //แสดงรายละเอียดหน้าแข่ง
+			$compitype = select_compitype($conn);
 			require_once('compitition_add.php');
 		}
-		if ($_GET['action'] == 'admin_compitition_add/add') { 
+		if ($_GET['action'] == 'compitition_add') {  //หน้าเพิ่มประเภทการแข่งขัน 
+			$comtype = insert_compitype($conn,$data);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition_add">';
+		}
+		if ($_GET['action'] == 'admin_compitition_add/add') { //เพิ่มโปรแกรมแข่ง
+			$compitype = select_compitype($conn);
 			$comp = com_insert($conn,$data);
+			print_r($comp);
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
 		}
 		if ($_GET['action'] == 'admin_compitition_edit') {  //หน้าแก้ไข 
@@ -241,15 +245,37 @@ include('../php/camp_function.php');
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
 		}
 
-		if ($_GET['action'] == 'admin_compitition_delete') {
+		if ($_GET['action'] == 'admin_compitition_delete') { 
 			$deletecompi= com_delete($conn,$compi);
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_compitition">';
 
 		}
 		if ($_GET['action'] == 'addteam_compitition') {
+			$compitype = select_compitype($conn);
+			echo $_POST['compitype'];
+			// $liststudent=select_compistudentlist($conn);
+			$type = select_type($conn,$compitype);
+			$compitype = select_compitype($conn);				
+			$compi = com_select($conn);	
+			// print_r($type['com_type']) ;
+			// require_once('testfaii.php');
 			require_once('addteam_compitition.php');
-		}
 
+		}
+		if ($_GET['action'] == 'list_student_compitition') { //แสดงรายชื่อนักเรียนที่ลงแต่ล่ะโปรแกรม
+			$com_id=$_POST['com_id'];
+			$list_student=list_student($conn,$com_id);
+			// print_r($list_student) ;	
+			require_once('list_student_compititions.php');	
+		}
+		if ($_GET['action'] == 'delete_student_compitition') { //แสดงรายชื่อนักเรียนที่ลงแต่ล่ะโปรแกรม
+			$com_id=$_POST['com_id'];
+			$student_id=$_POST['student_id'];
+			echo $com_id." ".$student_id;
+			$delete=delete_student_compitition($conn,$com_id,$student_id);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=addteam_compitition">';
+
+		}
 
 		//-----------------------------camp----------------------------------------------
 		if ($_GET['action'] == 'admin_camp') {
@@ -291,48 +317,29 @@ include('../php/camp_function.php');
 				$status = updatestatus($conn,$value);
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
 			}
-		}
-		$cus = listmsg($conn);
-		for ($z=0; $z < count($cus); $z++) { 
-			$keysdel = $cus[$z]['no_id'];
+			$cus = listmsg($conn);
+			for ($z=0; $z < count($cus); $z++) { 
+				$keysdel = $cus[$z]['no_id'];
 
-			if($_GET['action']=='del_msg'.$cus[$z]['no_id']){
-				$check = $cus[$z]['topic'];
-				$keys_cs = $cus[$z]['fk_cs_id'];
-				$keys_cp = $cus[$z]['fk_cp_id'];
-				$keys_cps = $cus[$z]['fk_cps_id'];
-				echo $check;
-				if ($check == 'Enroll') {
-					$numfk_stu = selcs($conn,$keys_cs);
-					for ($l=0; $l <count($numfk_stu) ; $l++) { 
-						$keystu = $numfk_stu[$l]['cs_student_id'];
-						echo $keystu;
-						$del_msg = delstuout($conn,$keysdel);
-						$del_data = delete_datastu($conn,$keystu);
+				if($_GET['action']=='del_msg'.$cus[$z]['no_id']){
+					$keys = $cus[$z]['fk_cs_id'];
+					$numfk_stu = selcs($conn,$keys);
+					for ($a=0; $a <count($numfk_stu) ; $a++) { 
+						$selstu_id = $numfk_stu[$a]['cs_student_id'];
+						echo $selstu_id;
+						echo "===".$keysdel;
+						$del_msg = delstuout($conn,$selstu_id,$keysdel);
+						// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
+						
+
 					}
-				}elseif($check == 'Add Camp') {
-					$del_msg = delstuout($conn,$keysdel);
-					$del_camp_stu = delcamp_stu($conn,$keys_cp);
-				}elseif($check == 'Add Course') {
-					$del_msg = delstuout($conn,$keysdel);
-					$del_course_stu = delcourse_stu($conn,$keys_cs); 
-				}elseif($check == 'Add Compeitition') {
-					$del_msg = delstuout($conn,$keysdel);
-					$del_com_stu = delcompeit_stu($conn,$keys_cps);
 				}
-
-
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';
 
 			}
 		}
 
-	}
-
-
-
-	?>
-</style>
+		?>
+	</style>
 </head>
 
 <body>

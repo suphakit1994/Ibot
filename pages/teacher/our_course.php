@@ -45,12 +45,12 @@
        <?php 
       for($i=0;$i<$arrlength; $i++){  //loop card 
         ?>
-        <form method="post" action="index.php?app=teacher&action=mycourse<?php echo $data[$i]['course_id'];?>" >
+        <form method="post" action="index.php?app=student_information" >
           <div>
             <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
               <div class="card" >
                 <div class="card-image" >
-                  <img class="card-img-top" src="../course_img/<?php echo $data[$i]['course_img'];  ?>" alt="Card image cap" >
+                  <img class="card-img-top" src="../pimg/<?php echo $data[$i]['course_img'];  ?>" alt="Card image cap" >
                   <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;">
                     <B><?php echo $data[$i]['course_category']; ?></B>
                   </span>

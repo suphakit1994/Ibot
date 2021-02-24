@@ -54,6 +54,19 @@ function camp_select(mysqli $conn){		//แสดงแคมป์ทั้ง�
 	} 
 }
 
+function camp_student(mysqli $conn,$id,$camp){		//แสดงแคมป์ทั้งหมด
+	$sql = "SELECT * FROM `camp_student` WHERE cs_student_id = $id AND cs_camp_id = $camp";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
 
 function campadd_select(mysqli $conn,$cam){		//แสดงรายละเอียดแคมป์ที่จะลง หน้านักเรียน
 
@@ -249,6 +262,19 @@ function select_compitype(mysqli $conn){		//แสดงรายละเอี
 	}
 }
 
+function compi_student(mysqli $conn,$id,$compi_id){		//แสดงโปรแกรมแข่งที่สมัครไว้
+	$sql = "SELECT * FROM `compititions_student` WHERE cps_student_id = $id AND cps_com_id = $compi_id" ;
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
 function insert_compitype(mysqli $conn,$data){
 	$compi_name = $_POST['compi_name'];
 	// echo $compi_name;
@@ -330,6 +356,44 @@ function delete_student_compitition(mysqli $conn,$com_id,$student_id){		//ลบ
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		return false;
 	}
+}
+
+function addteam_compi(mysqli $conn,$team_name,$new_no,$com_id){	
+	$sql = "INSERT INTO `add team`( `team_name`, `No.1`, `No.2`, `No.3`, `No.4`,`com_id`) VALUES ('".$team_name."','".$new_no[0]."','".$new_no[1]."','".$new_no[2]."','".$new_no[3]."','".$com_id."')";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+}
+function update_compi_student(mysqli $conn,$new_no,$com_id){
+	print_r($new_no);
+	$sql = "UPDATE `compititions_student` SET `status`= 1 WHERE  `cps_student_id`= "$new_no[0] or $new_no[1] or $new_no[2] or  $new_no[3] " AND `cps_com_id`='".$com_id."' ";
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+	echo $sql;
+}
+function select_team(mysqli $conn){	//หน้า list student addteam	
+	$sql = "SELECT * FROM `add team`as a JOIN student AS st ON a.`No.1`OR a.`No.2`OR a.`No.3` OR a.`No.4` = st.student_id";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+	
 }
 
 ?>

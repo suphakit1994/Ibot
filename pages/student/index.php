@@ -71,15 +71,23 @@ include('../php/camp_function.php');
 
 			}
 			if($_GET['action']=="all_compeitition"){
+				$compitype = select_compitype($conn);
 				$compi = com_select($conn);
 				require_once('all_compeitition.php');
 
 			}
 
 			if($_GET['action']=="payment_compeitition"){
-				$compiadd = select_comadd($conn,$compi);
-				require_once('payment_compeitition.php');
-
+				$compi_id=$_POST['com_id'];
+				$compi_student=compi_student($conn,$id,$compi_id);
+				// print_r($compi_student);
+				$arr_com=count($compi_student);
+				if($arr_com != 0){
+					require_once('sorry.php');
+				}else{
+					$compiadd = select_comadd($conn,$compi);
+					require_once('payment_compeitition.php');
+				}
 			}
 			if($_GET['action']=="success_compeitition"){
 				$paym = insertpaymentss($conn,$_POST,$id); // insert payment
@@ -99,18 +107,27 @@ include('../php/camp_function.php');
 			//------------------------camp----------------------------------------//
 			if($_GET['action']=="ibot_camp"){
 				require_once('ibot_camp.php');
-
 			}
 			if($_GET['action']=="all_camp"){
 				$cam = camp_select($conn);  //แสดงแคมป์ทั้งหมด
 				$arr = count($cam);
+				
 				require_once('all_camp.php');
+				
 			}
-			
 			if($_GET['action']=="payment_camp"){
-				echo $data['payment_type'];
-				$camadd = campadd_select($conn,$cam); //แสดงข้อมูลแคมป์ที่ลงทะเบียน
-				require_once('payment_camp.php');
+				$camp=$_POST['camp_id'];
+				$camp_student_id=camp_student($conn,$id,$camp);
+				$arr_camp=count($camp_student_id);
+				// print_r($camp_student_id);
+				// echo $arr_camp;
+				if($arr_camp!=0){					
+					require_once('sorry.php');
+				}else{
+					$camadd = campadd_select($conn,$cam); //แสดงข้อมูลแคมป์
+					require_once('payment_camp.php');
+				}
+
 			}
 
 			if($_GET['action']=="success_camp"){

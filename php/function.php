@@ -792,7 +792,7 @@ function select_question(mysqli $conn,$course,$lesson){
 		}
 		$result->close();
 		return $data;
-	} 
+	}
 }
 function select_choice(mysqli $conn){
 
@@ -808,7 +808,7 @@ function select_choice(mysqli $conn){
 		return $data;
 	} 
 }
-function insert_answer(mysqli $conn,$data,$id,$name,$level,$course_id,$lesson_id){
+function insert_answer(mysqli $conn,$data,$id,$username,$level,$course_id,$lesson_id){
 	$total_score = 0;
 
 	if ($data['answer0'] == $data['correct0']) {
@@ -849,6 +849,7 @@ function insert_answer(mysqli $conn,$data,$id,$name,$level,$course_id,$lesson_id
 	}
 	mysqli_close($conn);
 }
+
 
 // function deletestd(mysqli $conn,$id_not){
 // 	$sql = "DELETE FROM student 

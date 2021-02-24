@@ -54,6 +54,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
         while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
           $_SESSION["teacher_id"] = $row["teacher_id"];
           $_SESSION["teacher_fname"] = $row["teacher_fname"];
+          $_SESSION["teacher_lname"] = $row["teacher_lname"];
           $_SESSION["teacher_level"] = $row["teacher_level"];
           $_SESSION["teacher_nlevel"] = $row["teacher_nlevel"];
           $_SESSION["teacher_img"] = $row["teacher_img"];

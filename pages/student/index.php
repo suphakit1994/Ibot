@@ -138,6 +138,51 @@ include('../php/camp_function.php');
 				$data[] = insterstudent( $conn,$data);
 
 			}
+			$func_select_course= selectcourse($conn);
+			for ($i=0; $i < count($func_select_course); $i++) { 
+				if($_GET['action'] == 'mycourse'.$func_select_course[$i]['course_id']){
+					$id_course = $func_select_course[$i]['course_id'];
+					$number_of_lesson = getPdf($conn,$id_course);
+					$func_id_course = selectcourse_id($conn,$id_course);
+					$get_pdf = getPdf($conn,$id_course);
+					// $qq = quiz($conn);
+					require_once('mycourse.php');
+				}
+				
+				$id_course = $func_select_course[$i]['course_id'];
+				$get_pdf = getPdf($conn,$id_course);
+				for ($j=0; $j < count($get_pdf); $j++) {
+					if($_GET['action'] == 'mycourse'.$func_select_course[$i]['course_id'].'lesson'.$get_pdf[$j]['numper']){
+						$num_quest = $get_pdf[$j]['numper'];
+						$course = $func_select_course[$i]['course_id'];
+						$get_quest = select_question($conn,$course,$num_quest);
+						$select_choice_func = select_choice($conn);
+						require_once('iframe.php');	
+					}
+					if($_GET['action'] == 'postfile/exam'.$func_select_course[$i]['course_id'].'lesson'.$get_pdf[$j]['numper']){
+						$username = $name.$lname;
+						$course_id = $func_select_course[$i]['course_id'];
+						$lesson_id = $get_pdf[$j]['numper'];
+						$question0 = $_POST['question0'];
+						$question1 = $_POST['question1'];
+						$question2 = $_POST['question2'];
+						$question3 = $_POST['question3'];
+						$question4 = $_POST['question4'];
+						$ans0 = $_POST['answer0'];
+						$ans1 = $_POST['answer1'];
+						$ans2 = $_POST['answer2'];
+						$ans3 = $_POST['answer3'];
+						$ans4 = $_POST['answer4'];
+						$corract0 = $_POST['correct0'];
+						$corract1 = $_POST['correct1'];
+						$corract2 = $_POST['correct2'];
+						$corract3 = $_POST['correct3'];
+						$corract4 = $_POST['correct4'];
+						$func_check_ans = insert_answer($conn,$_POST,$id,$username,$level,$course_id,$lesson_id);
+						require_once('check_answer.php');
+					}
+				}	
+			}
 		}
 		?>
 	</style>

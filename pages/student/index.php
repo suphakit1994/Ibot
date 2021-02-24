@@ -96,7 +96,7 @@ include('../php/camp_function.php');
 				require_once('compeitions_team.php');
 			}
 
-//------------------------camp----------------------------------------//
+			//------------------------camp----------------------------------------//
 			if($_GET['action']=="ibot_camp"){
 				require_once('ibot_camp.php');
 
@@ -160,7 +160,7 @@ include('../php/camp_function.php');
 						require_once('iframe.php');	
 					}
 					if($_GET['action'] == 'postfile/exam'.$func_select_course[$i]['course_id'].'lesson'.$get_pdf[$j]['numper']){
-						$username = $name.$lname;
+						$username = $name;
 						$course_id = $func_select_course[$i]['course_id'];
 						$lesson_id = $get_pdf[$j]['numper'];
 						$question0 = $_POST['question0'];
@@ -183,6 +183,7 @@ include('../php/camp_function.php');
 					}
 				}	
 			}
+			$_SESSION["course_id"] = $id_course;
 		}
 		?>
 	</style>

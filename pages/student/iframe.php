@@ -108,7 +108,7 @@ session_start();
 	<div class="container">
 		<div class="flex-box-con">
 			<h1>Examination <?php echo $get_pdf[$j]['numper']; ?></h1>
-			<form method="POST" action="index.php?app=teacher&action=postfile/exam<?php echo $id_course;?>lesson<?php echo $get_pdf[$j]['numper']; ?>">
+			<form method="POST" action="index.php?app=student&action=postfile/exam<?php echo $id_course;?>lesson<?php echo $get_pdf[$j]['numper']; ?>">
 				<?php for($j=0; $j<count($get_quest);$j++){?>
 					<div class="flex-question questions">
 						<h1><?php echo $get_quest[$j]['question']; ?></h1>

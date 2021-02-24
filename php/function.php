@@ -833,7 +833,7 @@ function insert_answer(mysqli $conn,$data,$id,$username,$level,$course_id,$lesso
 	$sql = "INSERT INTO list_of_score (id_user,name_user,level_user,course,lesson,score)
 	VALUES (
 	'$id',
-	'$name',
+	'$username',
 	'$level',
 	'$course_id',
 	'$lesson_id',

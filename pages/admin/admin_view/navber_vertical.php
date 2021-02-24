@@ -72,8 +72,8 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-4" class="collapse">
-						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
 						<li><a href="index.php?app=admin&action=students_list"><i class=""></i>Students List</a></li>
+						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>

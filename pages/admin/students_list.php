@@ -30,7 +30,7 @@
 						</div>
 						<div class="col-sm-6">
 							<div style="display: flex;justify-content: flex-end">
-								<button class="btn btn-primary" type="" style="padding: 4px;">+ Add New</button>
+								<!-- <button class="btn btn-primary" type="" style="padding: 4px;">+ Add New</button> -->
 							</div>
 						</div>
 					</div>		
@@ -52,7 +52,7 @@
 								<td><?php echo $select_std[$i]['student_name_eng']; ?></td>
 								<td>Griffin</td>
 								<td><?php echo $select_std[$i]['parents_email']; ?></td>
-								<td><?php echo $select_std[$i]['parents_phonnumber']; ?></td>
+								<td><?php echo $select_std[$i]['parents_phonenumber']; ?></td>
 								<td><?php echo $select_std[$i]['student_password']; ?></td>
 								<td>
 									<div class="dropdown">

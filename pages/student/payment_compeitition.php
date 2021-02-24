@@ -153,7 +153,7 @@
                 <br><label>Ref. No.</label>
                 <br><input name="payment_no" class="form-control" style="width: 350%;">
                 <br><label>Amount</label>
-                <br><input name="payment_amount" class="form-control" style="width: 350%;">
+                <br><input name="payment_amount" value="<?php echo $compiadd['com_price'];  ?>" class="form-control" style="width: 350%;">
                 <br><label>Transaction Date</label>
                 <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
                 <input type="time"  name="payment_time" required> 
@@ -177,7 +177,7 @@
               <p>IBOT Compeitition :</p>
             </div>
             <div class="col-md-6"> 
-              <p><?php echo $compiadd['com_type'];  ?></p>
+              <p><?php echo $compiadd['com_price'];  ?></p>
             </div>
           </div>
           <div class="row" style="text-align: start; padding: 10px 140px 0px 15px;">

@@ -47,6 +47,28 @@
 			padding: 2% 2%;
 			margin: 2% 2%;
 		}
+		.icon_func_modal{
+			display: flex;
+			justify-content: flex-start;
+			flex-direction: row-reverse;
+			padding: 2%;
+		}
+		.modal-footers{
+			display: flex;
+			justify-content: space-between;
+			flex-direction: row;
+			padding: 2%;
+		}
+		.icon_inmodals {
+			border: none;
+			border-radius: 50%;
+			color: white;
+			padding: 0px 7px;
+			font-size: 10px;
+			cursor: pointer;
+			margin-left: 5px;
+			margin-top: 10px;
+		}
 	</style>
 	
 </head>
@@ -73,21 +95,21 @@
 							<tr>						
 								<td>
 									<label>Number <?php echo $x;?></label>
-									<input style="width: 10%; margin: 2% 2%;" class="custom-file-input" type="file" 
+									<input style="width: 20%; margin: 2% 2%;" class="custom-file-input" type="file" 
 									name="file<?php echo $x; ?>" accept="application/pdf">
 								</td>												
 								<td>
-									
-									<a style="width: 100%; margin: 2% 2%;" class="custom-file-input btn btn-primary" type="button" id="myBtn" value="modals" data-toggle="modal" data-target="#myModal<?php echo $x;?>">modals</a>
+
+									<a style="width: 50%; margin: 2% 2%;" class="custom-file-input btn btn-primary" type="button" id="myBtn" value="modals" data-toggle="modal" data-target="#myModal<?php echo $x;?>">Example</a>
 								</td>						
 							</tr>
 						<?php } ?>
-						
+
 
 					</table>
 				</div>
 				<div style="flex: 100%; padding: 40px;text-align: center;">
-					<input type="submit" name="" form="insertdata">
+					<input style="width: 20%;" class="btn btn-success" type="submit" name="" form="insertdata" value="Save">
 				</div>
 			</div>
 
@@ -105,30 +127,33 @@
 						<?php for ($i=1; $i < 6 ; $i++) {  ?>
 							<div class="item <?php if($i==1){ echo("active");}?> ">
 								<div class="modal-dialog">
-									<!-- Modal content-->
 									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-											<h4 class="modal-title">Number <?php echo $i; ?></h4>
+										<div class="">
+											<div class="icon_func_modal">
+												<a data-dismiss="modal" class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
+											</div>	
+										</div>
+										<div style="display: flex; justify-content: center;text-align: center;">
+											<h2 class="modal-title"><b>Number <?php echo $i; ?></b></h2>
 										</div>
 										<div class="modal-body modals-flex">
-
+											
 											<div class="modals-content">
 												<label>Question <?php echo $i;?></label>
-												<input class="modlas-input" type="text" placeholder="quest<?php echo $i.$y;?>[]" name="quest<?php echo $i.$y;?>[]">
+												<input class="modlas-input" type="text" placeholder="quest" name="quest<?php echo $i.$y;?>[]">
 												<?php for ($j=1; $j < 6 ; $j++) {  ?>
-													<label><?php if($j == 5){echo "Answer";}else{ echo "choice".$j.$y;} ?></label>
+													<label><?php if($j == 5){echo "Answer";}else{ echo "choice"." ".$j;} ?></label>
 													<input class="modlas-input" type="text" 
-													placeholder="<?php if($j == 5){echo "ans".$i.$y;}else{ echo "choice".$i.$j.$y;} ?>[]" 
+													placeholder="<?php if($j == 5){echo "answer";}else{ echo "choice"." ".$j;} ?>" 
 													name="<?php if($j == 5){echo "ans".$i.$y;}else{ echo "choice".$i.$j.$y;} ?>[]">
 												<?php }?>
 											</div>
 
 										</div>
-										<div class="modal-footer">
+										<div class="modal-footers">
 											<a type="button" class="btn btn-default" data-slide="prev"  href="#myCarousel<?php echo $y;?>">Previous</a>
-											<a type="submit" class="btn btn-default" data-slide="next"  href="#myCarousel<?php echo $y;?>">Next</a>
 											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+											<a type="submit" class="btn btn-default" data-slide="next"  href="#myCarousel<?php echo $y;?>">Next</a>
 										</div>
 									</div>
 								</div>

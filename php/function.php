@@ -104,8 +104,8 @@ if ( mysqli_query($conn, $sql)) {
 mysqli_close($conn);
 }
 
-function getPdf(mysqli $conn){
-	$sql = "SELECT * FROM `pdf_insert` WHERE 1 ";
+function getPdf(mysqli $conn,$id_course){
+	$sql = "SELECT * FROM `file` WHERE file_lesson_id = '$id_course' ";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$data =[];
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
@@ -117,14 +117,14 @@ function getPdf(mysqli $conn){
 }
 
 function quiz(mysqli $conn){
-	$sql = "SELECT * FROM `mycourse_quiz` WHERE 1 ";
+	$sql = "SELECT * FROM `quize` WHERE 1 ";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$data =[];
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
 			$data[] = $row;
 		}
 		$result->close();
-		return json_encode($data);
+		return $data;
 	}
 }
 function getLogin(mysqli $conn,$user_name,$password){
@@ -262,24 +262,8 @@ function listmsg(mysqli $conn){
 		return $data;
 	}
 }
-
-function historymsg(mysqli $conn){
-	$sql = "SELECT * FROM `notification` WHERE status = 1 ";
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
-	}
-}
-
-function updatestatus(mysqli $conn,$value,$name,$timestamp){
-	$sql = "UPDATE notification 
-	SET `status` = 1,
-	`approver` = '$name',
-	`timestamp` = '$timestamp' WHERE no_id='$value'";
+function updatestatus(mysqli $conn, $value){
+	$sql = "UPDATE notification SET status = 1  WHERE no_id='$value'";
 	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -300,21 +284,6 @@ function selcs(mysqli $conn,$keys_cs){
 		return $data;
 	}
 }
-
-
-
-function selcs_2(mysqli $conn){
-	$sql = "SELECT* FROM `course_student` WHERE 1 ";
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
-	}
-}
-
 function selcp(mysqli $conn,$keys_cp){
 	$sql = "SELECT* FROM `camp_student` WHERE cp_id=$keys_cp";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -338,17 +307,17 @@ function selcps(mysqli $conn,$keys_cps){
 	}
 }
 
-function selpay(mysqli $conn,$keys){
-	$sql = "SELECT* FROM `course_student` WHERE cs_id=$keys ";
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data =[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
-	}
-}
+// function selpay(mysqli $conn,$keys){
+// 	$sql = "SELECT* FROM `course_student` WHERE cs_id=$keys ";
+// 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+// 		$data =[];
+// 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+// 			$data[] = $row;
+// 		}
+// 		$result->close();
+// 		return $data;
+// 	}
+// }
 
 function selcouname(mysqli $conn,$selcou_id){
 	$sql = "SELECT* FROM `course` WHERE course_id=$selcou_id ";
@@ -496,6 +465,7 @@ function selectclassroom(mysqli $conn){
 		return $data;
 	} 
 }
+
 function insert_classroom(mysqli $conn,$id_calendar,$id_user,$fname,$lname,$status){
 
 	$sql = "INSERT INTO classroom (
@@ -636,7 +606,7 @@ function checkIn_teacher(mysqli $conn,$data=[],$id_teachers){
 	'".$data['date_name']."',
 	'".$data['date']."',
 	'".$data['checkin_time']."',
-	'Checked')";
+	'".$data['status']."')";
 	echo $sql;
 
 	if ( mysqli_query($conn, $sql)) {
@@ -724,16 +694,15 @@ function insertnoticompetition(mysqli $conn,$sel_compeitition,$data){
 	) 
 	VALUES (
 	'".$sel_compeitition['cps_id']."',
-	'".$data['payment_type']."'
+	'".$data['payment_type']."')";
 
-)";
-if ( mysqli_query($conn, $sql)) {
-	return true;
-} else {
-	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	return false;
-}
-mysqli_close($conn);
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+	mysqli_close($conn);
 }
 
 function seldatacompeition_noti(mysqli $conn){
@@ -791,151 +760,95 @@ function delcourse_stu(mysqli $conn,$keys_cs){
 		return false;
 	}
 }
-function findmsg(mysqli $conn,$show){
 
-	$sql = "SELECT* FROM `student` WHERE student_name_th='$show'";
+function update_attended(mysqli $conn,$data=[],$id_teachers,$attentded){
+
+	$sql = "UPDATE teacher
+	SET `attended_dat`='$attentded'
+	WHERE `teacher_id`='$id_teachers'
+	";
+
+	echo $sql;
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+	mysqli_close($conn);
+}
+
+function select_question(mysqli $conn,$course,$lesson){
+
+	$sql = "SELECT * FROM quize WHERE quiz_lesson_id = '$course' AND numper = '$lesson'";
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data ;
+		$data =[];
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data = $row;
+			$data[] = $row;
 		}
 		$result->close();
 		return $data;
 	} 
 }
-function joindata(mysqli $conn,$show){
-	$sql = "
-	SELECT *
-	FROM student AS stu 
-	INNER JOIN course_student AS cs ON cs.cs_student_id = stu.student_id
-	WHERE stu.student_name_th = '$show'" ;
+function select_choice(mysqli $conn){
 
+	$sql = "SELECT * FROM choice WHERE 1";
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data=[];
+		$data =[];
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
 			$data[] = $row;
 		}
 		$result->close();
 		return $data;
-	}
+	} 
 }
-function joindata_camp(mysqli $conn,$show){
-	$sql = "
-	SELECT *
-	FROM student AS stu 
-	INNER JOIN camp_student AS cp ON cp.cs_student_id = stu.student_id
-	WHERE stu.student_name_th = '$show'" ;
+function insert_answer(mysqli $conn,$data,$id,$name,$level,$course_id,$lesson_id){
+	$total_score = 0;
 
-	$result = $conn->query($sql); 
-
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data=[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
+	if ($data['answer0'] == $data['correct0']) {
+		$total_score = $total_score+1;
 	}
-}
-function joindata_compeitition(mysqli $conn,$show){
-	$sql = "
-	SELECT *
-	FROM student AS stu 
-	INNER JOIN compititions_student AS cps ON cps.cps_student_id = stu.student_id
-	WHERE stu.student_name_th = '$show'" ;
-
-	$result = $conn->query($sql); 
-
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data=[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
+	if ($data['answer1'] == $data['correct1']) {
+		$total_score = $total_score+1;
 	}
-}
-function test_sel(mysqli $conn,$show){
-	$sql = "
-	SELECT * 
-	FROM student AS stu 
-	INNER JOIN course_student AS cs ON cs.cs_student_id = stu.student_id 
-	INNER JOIN camp_student AS cp ON cp.cs_student_id = stu.student_id 
-	INNER JOIN compititions_student AS cps ON cps.cps_student_id = stu.student_id 
-	WHERE stu.student_name_th = '$show'";
-
-	$result = $conn->query($sql); 
-
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data=[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
+	if ($data['answer2'] == $data['correct2']) {
+		$total_score = $total_score+1;
 	}
-}
-function test_sel2(mysqli $conn){
-	$sql = "
-	SELECT * 
-	FROM notification AS noti 
-	INNER JOIN course_student AS cs ON cs.cs_id = noti.fk_cs_id
-	INNER JOIN camp_student AS cp ON cp.cp_id = noti.fk_cp_id
-	INNER JOIN compititions_student AS cps ON cps.cps_id = noti.fk_cps_id
-	WHERE noti.status = '1'";
-
-	$result = $conn->query($sql); 
-
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data=[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
+	if ($data['answer3'] == $data['correct3']) {
+		$total_score = $total_score+1;
 	}
-}
-function joindata_cp(mysqli $conn,$show){
-	$sql = "
-	SELECT *
-	FROM student AS stu 
-	INNER JOIN camp_student AS cs ON cp.cs_student_id = stu.student_id
-	WHERE stu.student_name_th = '$show'" ;
-
-	$result = $conn->query($sql); 
-
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data=[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
+	if ($data['answer4'] == $data['correct4']) {
+		$total_score = $total_score+1;
+	}else{
+		$total_score = $total_score+0;
 	}
-}
-function joindata_cps(mysqli $conn,$show){
-	$sql = "
-	SELECT *
-	FROM student AS stu 
-	INNER JOIN compititions_student AS cs ON cps.cps_student_id = stu.student_id
-	INNER JOIN notification AS noti ON noti.fk_cs_id = cps.cps_id
-	WHERE stu.student_name_th = '$show' AND noti.status = 1" ;
+	echo "====>".$total_score;
 
-	$result = $conn->query($sql); 
+	$sql = "INSERT INTO list_of_score (id_user,name_user,level_user,course,lesson,score)
+	VALUES (
+	'$id',
+	'$name',
+	'$level',
+	'$course_id',
+	'$lesson_id',
+	'$total_score')";
 
-	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
-		$data=[];
-		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
-			$data[] = $row;
-		}
-		$result->close();
-		return $data;
+	echo $sql;
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
 	}
+	mysqli_close($conn);
 }
+
 // function deletestd(mysqli $conn,$id_not){
 // 	$sql = "DELETE FROM student 
 // 	WHERE teacher_id = '$id_not'";

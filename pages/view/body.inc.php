@@ -15,7 +15,7 @@ if($_GET['app'] == 'pdf'){
 	require_once("pdf/index.php");
 }
 if($_GET['app'] == 'iframe'){
-	require_once("iframe/index.php");
+	require_once("teacher/iframe.php");
 }
 if($_GET['app'] == 'our_course'){
 	require_once("our_course/index.php");

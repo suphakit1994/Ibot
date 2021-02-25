@@ -91,7 +91,7 @@ include('../php/camp_function.php');
 				}
 				if ($_GET['action'] == 'student_del'.$list_of_student[$student]['student_id']) {
 					$id_students = $list_of_student[$student]['student_id'];
-					$delete_student = delete_datastu($conn,$id_students);
+					$delete_student = deletestd($conn,$id_students);
 					// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=students_list">';
 				}
 			}

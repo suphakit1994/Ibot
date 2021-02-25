@@ -191,7 +191,7 @@
 						<div class="container-fluid">
 							<div class="row" style="display: flex; align-items: center;">
 								<div class="col-sm-5">
-									<img style="border-radius:3%; width:150px; height:215px;object-fit:cover;" src="../images/111.png" >
+									<img style="border-radius:3%; width:150px; height:215px;object-fit:cover;" src="../teacher_img/<?php echo $student_image;?>" >
 								</div>
 								<div class="col-sm-6">
 									<p><b><?php echo $func_select_std[$i]['student_nickname_eng']; ?> <?php echo $func_select_std[$i]['student_name_eng']; ?></b></p>

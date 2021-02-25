@@ -22,21 +22,19 @@
     }
 </style>
 <body>
-    <form method="post" action="index.php?app=student">    
-        <div class ="container-fluid"  style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-top: 5%;" >
-            <div class="row" style="text-align: center;">
-                <div class="col-md-3">
-                </div>
-                <div class="col-md-6">
-                    <h1 style="font-weight: bold;">  SORRY, PLEASE COME BACK AGAIN</h1> 
-                    <P>Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam 
-                    nonummy nibh euismod tinciduct urt laoreet dolore mayna.</P>
-                    <button class=" btn btn:hover" style="width:30% ;border-radius:28px;" type="submit" class="Button" style= "width: 30%" >Enroll</button>  
-                </div>
-                <div class="col-md-3">
-                </div> 
-                <img class="card-img-top" src="../images/115.png" alt="Card image cap" style=" width: 80%; padding-top: 1px;">   
+    <div class ="container-fluid"  style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-top: 5%;" >
+        <div class="row" style="text-align: center;">
+            <div class="col-md-3">
             </div>
+            <div class="col-md-6">
+                <h1 style="font-weight: bold;">  SORRY, PLEASE COME BACK AGAIN</h1> 
+                <P>Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam 
+                nonummy nibh euismod tinciduct urt laoreet dolore mayna.</P>
+                <button class=" btn btn:hover" style="width:30% ;border-radius:28px;" type="submit" class="Button" style= "width: 30%" >Enroll</button>  
+            </div>
+            <div class="col-md-3">
+            </div> 
+            <img class="card-img-top" src="../images/img_5terre.jpg" alt="Card image cap" style="">   
         </div>
-    </form>
+    </div>
 </body>

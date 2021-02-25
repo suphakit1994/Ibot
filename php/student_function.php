@@ -93,6 +93,7 @@ function insertstudent(mysqli $conn,$data){
 			$s_pass .= $char_pass[rand()%strlen($char_pass)]; //ทำการสุ่มพร้อมกับเก็บค่าลง password ใช้ (.) มาช่วยในการรวมข้อความที่ถูกสุ่ม
 		}
 		$data['student_password']=$s_pass;
+		$image_defualt = "Cognitive.png";
 
 
 		$sql = "INSERT INTO `student`(
@@ -111,7 +112,8 @@ function insertstudent(mysqli $conn,$data){
 		`parents_related`, 
 		`parents_phonenumber`, 
 		`parents_email`, 
-		`parents_line`)
+		`parents_line`,
+		`image`)
 		VALUES (
 		'".$data['student_name_th']."',
 		'".$data['student_name_eng']."',
@@ -128,7 +130,8 @@ function insertstudent(mysqli $conn,$data){
 		'".$data['parents_related']."',
 		'".$data['parents_phonenumber']."',
 		'".$data['parents_email']."',
-		'".$data['parents_line']."'
+		'".$data['parents_line']."',
+		'$image_defualt'
 	)";
 	if ( mysqli_query($conn, $sql)) {
 

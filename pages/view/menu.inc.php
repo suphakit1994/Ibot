@@ -14,6 +14,7 @@
 		$s_level = $_SESSION['student_level'];
 		$s_name = $_SESSION['student_name_eng'];
 		$s_nlevel = $_SESSION['student_nlevel'];
+		$student_image = $_SESSION["student_image"];
 
 		$t_level = $_SESSION['teacher_level'];
 		$t_name = $_SESSION['teacher_fname'];
@@ -206,10 +207,10 @@
 
 								</div>
 								<div class="col-sm-4" style="align-items: center; padding-top: 5px;" >
-									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../images/images.png" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
+									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../teacher_img/<?php echo $student_image;?>" alt="" style="border-radius: 50%; width:45px; height:45px;object-fit:cover;"></i>
 									</a>
-									<ul class="dropdown-menu" style="overflow: hidden; height: 100px; padding-left: 20px; padding-top: 15px;">
-										<a href="../pages/signin/logout.php">logout</a>
+									<ul class="dropdown-menu" style="overflow: hidden; height: 100px;">
+										<a style="width: 100%;font-size: 24px;padding: 8px;" type="button" href="../pages/signin/logout.php">logout<i style="padding-left: 4px;" class="fas fa-sign-out-alt"></i></a>
 									</ul>
 								</div>
 							</div>
@@ -268,11 +269,10 @@ elseif ($t_level=='teacher') { ?>
 								</div>
 
 								<div class="col-sm-4" style="align-items: center; padding-top: 5px;object-fit:cover;" >
-									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../teacher_img/<?php echo $t_image; ?>" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
+									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../teacher_img/<?php echo $t_image; ?>" alt="" style="border-radius: 50%; width:45px; height:45px;object-fit:cover;"></i>
 									</a>
-									<ul class="dropdown-menu" style="overflow: hidden; height: 100px; padding-left: 20px; padding-top: 15px;">
-										<a type="button" href="../pages/signin/logout.php">logout</a>
-
+									<ul class="dropdown-menu" style="overflow: hidden; height: 100px;">
+										<a style="width: 100%;font-size: 24px;padding: 8px;" type="button" href="../pages/signin/logout.php">logout<i style="padding-left: 4px;" class="fas fa-sign-out-alt"></i></a>
 									</ul>
 								</div>
 							</div>
@@ -353,11 +353,8 @@ elseif ($a_level=='admin') { ?>
 								<div class="col-sm-4" style="align-items: center; padding-top: 5px;" >
 									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../images/images.png" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
 									</a>
-									<ul class="dropdown-menu" style="overflow: hidden; height: 100px; padding-left: 15px; padding-top: 10px;">
-
-										<a href="../pages/signin/logout.php">logout</a>
-
-
+									<ul class="dropdown-menu" style="overflow: hidden; height: 100px;">
+										<a style="width: 100%;font-size: 24px;padding: 8px;" type="button" href="../pages/signin/logout.php">logout<i style="padding-left: 4px;" class="fas fa-sign-out-alt"></i></a>
 									</ul>
 								</div>
 							</div>

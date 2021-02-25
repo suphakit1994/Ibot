@@ -370,8 +370,8 @@ function addteam_compi(mysqli $conn,$team_name,$new_no,$com_id){
 	mysqli_close($conn);
 }
 function update_compi_student(mysqli $conn,$new_no,$com_id){
-	print_r($new_no);
-	$sql = "UPDATE `compititions_student` SET `status`= 1 WHERE  `cps_student_id`= "$new_no[0] or $new_no[1] or $new_no[2] or  $new_no[3] " AND `cps_com_id`='".$com_id."' ";
+	
+	$sql = "UPDATE `compititions_student` SET `status`= 1 WHERE  `cps_student_id` IN ('".$new_no[0]."' ,'".$new_no[1]."' ,'".$new_no[2]."', '".$new_no[3]."') AND `cps_com_id`='".$com_id."' ";
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -381,8 +381,8 @@ function update_compi_student(mysqli $conn,$new_no,$com_id){
 	mysqli_close($conn);
 	echo $sql;
 }
-function select_team(mysqli $conn){	//หน้า list student addteam	
-	$sql = "SELECT * FROM `add team`as a JOIN student AS st ON a.`No.1`OR a.`No.2`OR a.`No.3` OR a.`No.4` = st.student_id";
+function select_team(mysqli $conn,$com_id,$allteam){	//หน้า list student addteam	
+	$sql = "SELECT * FROM `add team`as a JOIN student AS st ON st.student_id IN (a.`No.1`, a.`No.2`, a.`No.3` , a.`No.4` ) WHERE a.`com_id`= $com_id AND a.`id`= '26'";
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -395,5 +395,18 @@ function select_team(mysqli $conn){	//หน้า list student addteam
 	}
 	
 }
+function select_allteam(mysqli $conn,$com_id){	//หน้า list student addteam	
+	$sql = "SELECT * FROM `add team` WHERE com_id = '".$com_id."' ";
+	$result = $conn->query($sql); 
 
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+	
+}
 ?>

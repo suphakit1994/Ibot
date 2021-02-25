@@ -20,22 +20,8 @@
 		text-align: left;
 		border-bottom: 1px solid #ddd;
 	}
-	.btn {
-		color: #ffffff;
-		background-color: #dedede ;
-	}         
-	.btn:hover {
-		border-radius:28px;
-		border:1px solid #18ab29;
-		display:inline-block;
-		cursor:pointer;
-		color:#ffffff !important;
-		font-size:14;
-		text-decoration:none;
-		text-align: center; 
-		background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);    
-		border: 1px solid #ffffff;
-	}
+
+	
 	
 	
 	.modal-header {
@@ -110,12 +96,24 @@
 									<th>Name Team</th>
 									<th>Student Name</th>
 								</tr>
-								
-								<tr>
-									<td></td>
-								</tr>
+								<?php for ($k=0; $k<count($allteam);$k++) { ?>
+									<tr>
+										<td><?php echo $k+1 ?></td>
+										<td><?php echo $allteam[$k]['team_name']; ?></td>
+
+
+										<?php for($t=1;$t<=count($allteam);$t++){?>
+											
+
+											<?php if ($allteam[$k]['id']=$select_team[$t]['id']) { ?>
+												<td><?php print_r($allteam['id']); ?>."--------".<?php print_r($select_team[$t]['student_name_eng']) ?></td>
+
+											<?php } ?>
+										<?php } ?>
+									</tr>
+								<?php } ?>
 							</table>
-							
+
 						</div>
 					</div>
 				</div>
@@ -136,19 +134,19 @@
 							</div>
 							<div class="modal-body">
 								<p> Team Name : </p>
-								<input type="text" name="team_name">
+								<input type="text" name="team_name" class="form-control">
 								<?php for($i=0;$i<count($list_student);$i++ ){ ?>
 									<?php if($list_student[$i]['status']==0){  ?>
 										<div class="form-check form-check-inline">
-											<input class="form-check-input" type="checkbox"  value="<?php echo $list_student[$i]['student_id']?>" name="my_checkbox[<?php echo($i) ?>]" id="my_checkbox[]" >
+											<input class="form-check-input"  type="checkbox"  value="<?php echo $list_student[$i]['student_id']?>" name="my_checkbox[<?php echo($i) ?>]" id="my_checkbox[]" >
 											<label class="form-check-label" ><?php echo $list_student[$i]['student_name_eng']?></label>
 										</div>
 									<?php } ?>
 								<?php } ?>
 							</div>
 							<div class="modal-footer">
-								<button type="button" style="border-radius:28px;" class="btn btn-secondary" data-dismiss="modal">Close</button>
-								<button type="submit"  style="border-radius:28px;" class="btn btn-secondary">Save changes</button>
+								<button type="button" style="width: 15%; border-radius:28px;" class="Button" data-dismiss="modal">Close</button>
+								<button type="submit"  style="width: 30%; border-radius:28px;" class="Button">Save changes</button>
 							</div>
 						</div>
 					</div>

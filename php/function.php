@@ -284,6 +284,17 @@ function selcs(mysqli $conn,$keys_cs){
 		return $data;
 	}
 }
+function selcs_student(mysqli $conn,$id_std){
+	$sql = "SELECT* FROM `course_student` WHERE cs_student_id=$id_std ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
 function selcp(mysqli $conn,$keys_cp){
 	$sql = "SELECT* FROM `camp_student` WHERE cp_id=$keys_cp";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {

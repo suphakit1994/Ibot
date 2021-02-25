@@ -10,6 +10,8 @@
 		$sql_getnoti= mysqli_query($conn,"SELECT* FROM notification WHERE status=0");
 		$count = mysqli_num_rows($sql_getnoti);
 
+		$id_course = $_SESSION['coursestd_id'];
+
 
 		$s_level = $_SESSION['student_level'];
 		$s_name = $_SESSION['student_name_eng'];
@@ -196,7 +198,7 @@
 							<li><a href="index.php?app=student&action=ibot_camp">Camp</a></li>
 							<li><a href="index.php?app=student&action=ibot_compeitition">Compeitition</a></li>
 							<li><a href="index.php?app=student&action=schedule">Schedule</a></li>
-							<li><a href="index.php?app=student&action=mycourse">Mycourse</a></li>
+							<li><a href="index.php?app=student&action=mycourse<?php echo $id_course;?>">My Course</a></li>
 
 							<li>
 								<div class="col-sm-8" style="text-align: end;">

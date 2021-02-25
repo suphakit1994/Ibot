@@ -118,7 +118,7 @@ function uploadpdf(mysqli $conn,$data,$file_app_pdf,$id_lesson,$number_of_lesson
 			$name_file_pdf  = $new_pdf_name;
 			// echo "upload at file.";
 			
-			$sql = " INSERT INTO `file`(`file_address`,`file_lesson_id`,`number`) VALUES ( '$name_file_pdf','$id_lesson','$number_of_lesson')";
+			$sql = " INSERT INTO `file`(`file_address`,`file_lesson_id`,`numper`) VALUES ( '$name_file_pdf','$id_lesson','$number_of_lesson')";
 			echo $sql;
 
 			$resuit =  mysqli_query($conn, $sql);
@@ -156,7 +156,7 @@ function console_log($output, $with_script_tags = true) {
 function upload_quiz(mysqli $conn,$data,$string_array_quest,$string_array_ans,$id_lesson,$n_number){
 	// echo $id_lesson;
 	// echo $n_number;
-	$sql = " INSERT INTO `quize`(`question`,`check_ans`,`quiz_lesson_id`,`number`) 
+	$sql = " INSERT INTO `quize`(`question`,`check_ans`,`quiz_lesson_id`,`numper`) 
 	VALUES ( 
 	'$string_array_quest',
 	'$string_array_ans',

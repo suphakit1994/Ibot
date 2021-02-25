@@ -41,7 +41,7 @@
       <?php 
       for($i=0;$i<$arrlength; $i++){  //loop card 
         ?>
-        <form method="post" action="index.php?app=student&action=enroll" >
+        <form method="post" action="index.php?app=student&action=mycourse<?php echo $data[$i]['course_id'];?>" >
           <div>
             <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
               <div class="card" >
@@ -137,7 +137,7 @@
                     <div class="row" style="margin-left:0px ;" >
                       <div class="col-md-5">
                         <ul class="nav" style="width:150%;">
-                          <li > <span><B><p class = "card-text">Course Expension</p></B></span> </li>
+                          <li > <span><B><p class ="card-text">Course Expension</p></B></span> </li>
                         </ul>
                       </div>
                       <div class="col-md-5" >

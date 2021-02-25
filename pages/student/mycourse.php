@@ -2,12 +2,10 @@
 session_start();
 ?>
 <?php 
-$id = $_SESSION['teacher_id'];
-$name = $_SESSION['teacher_fname'];
-$lname = $_SESSION["teacher_lname"];
-$level = $_SESSION['teacher_level'];
-$nlevel = $_SESSION['teacher_nlevel'];
-$image = $_SESSION["teacher_img"];
+$id = $_SESSION['student_id'];
+$name = $_SESSION['student_name_eng'];
+$level = $_SESSION['student_level'];
+$nlevel = $_SESSION['student_nlevel'];
 ?>
 
 <style type="text/css" media="screen">
@@ -230,6 +228,6 @@ $image = $_SESSION["teacher_img"];
 		document.getElementById("demo").innerHTML = '<iframe src="' + '../pless/' + pdf + '" width="100%" height="600px"></iframe>';
 	}
 	function getExe(examinition) {
-		document.getElementById("demo").innerHTML = '<iframe src="'+'index.php?app=teacher&action=mycourse'+examinition+'" width="100%" height="600px"></iframe>';
+		document.getElementById("demo").innerHTML = '<iframe src="'+'index.php?app=student&action=mycourse'+examinition+'" width="100%" height="600px"></iframe>';
 	}
 </script>

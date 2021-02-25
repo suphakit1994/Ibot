@@ -15,6 +15,7 @@ include("../php/course_function.php");
 		<?php 
 		$id = $_SESSION['teacher_id'];
 		$name = $_SESSION['teacher_fname'];
+		$lname = $_SESSION["teacher_lname"];
 		$level = $_SESSION['teacher_level'];
 		$nlevel = $_SESSION['teacher_nlevel'];
 		$image = $_SESSION["teacher_img"];
@@ -88,6 +89,7 @@ include("../php/course_function.php");
 						require_once('iframe.php');	
 					}
 					if($_GET['action'] == 'postfile/exam'.$func_select_course[$i]['course_id'].'lesson'.$get_pdf[$j]['numper']){
+						$username = $name.$lname;
 						$course_id = $func_select_course[$i]['course_id'];
 						$lesson_id = $get_pdf[$j]['numper'];
 						$question0 = $_POST['question0'];
@@ -105,7 +107,7 @@ include("../php/course_function.php");
 						$corract2 = $_POST['correct2'];
 						$corract3 = $_POST['correct3'];
 						$corract4 = $_POST['correct4'];
-						$func_check_ans = insert_answer($conn,$_POST,$id,$name,$level,$course_id,$lesson_id);
+						$func_check_ans = insert_answer($conn,$_POST,$id,$username,$level,$course_id,$lesson_id);
 						require_once('check_answer.php');
 					}
 				}	

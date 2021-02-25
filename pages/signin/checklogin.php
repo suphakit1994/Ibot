@@ -91,6 +91,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
           $_SESSION["student_name_eng"] = $row["student_name_eng"];
           $_SESSION["student_level"] = $row["student_level"];
           $_SESSION["student_nlevel"] = $row["student_nlevel"];
+          $_SESSION["student_image"] = $row["image"];
           $_SESSION['LAST_ACTIVITY'] = time(); 
 
           if($_SESSION["student_level"]=="student"){ 

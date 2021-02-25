@@ -18,6 +18,7 @@ include('../php/camp_function.php');
 		$name = $_SESSION['student_name_eng'];
 		$level = $_SESSION['student_level'];
 		$nlevel = $_SESSION['student_nlevel'];
+		$student_image = $_SESSION["student_image"];
 		?>
 
 		<?php
@@ -138,7 +139,7 @@ include('../php/camp_function.php');
 				$stem1=["Science","Technology","Engineering","Mathematics"];
 				$stem2=["Synthesis","Teamwork","EQ","Meditation"];
 				require_once("student_assessment.php");	
-				$data[] = insterstudent( $conn,$data);
+				$data[] = insterstudent($conn,$data);
 
 			}
 			$func_select_course= selectcourse($conn);

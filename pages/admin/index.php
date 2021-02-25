@@ -59,12 +59,43 @@ include('../php/camp_function.php');
 					$update_teach =update_idteacher($conn,$_POST,$fname,$lname,$username,$password,$email,$phone,$work_time,$new_salary,$id_teacher);
 					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=teacher_list">';
 				}
+				
 				if ($_GET['action'] == 'teacher_del'.$list_teacher[$teacher]['teacher_id']) {
 					$id_teacher = $list_teacher[$teacher]['teacher_id'];
 					$delete_teacher = deleteteacher($conn,$id_teacher);
 					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=teacher_list">';
 				}
 			}
+			$list_of_student = selectstudent($conn);
+			for ($student=0; $student < count($list_of_student); $student++) { 
+				if ($_GET['action'] == 'edit_data_student'.$list_of_student[$student]['student_id']) {
+					$id_students = $list_of_student[$student]['student_id'];
+					$select_idstudent =select_idstudents($conn,$id_students);
+					require_once("student_edit.php");
+				}
+				if ($_GET['action'] == 'teacher_update'.$list_of_student[$student]['student_id']) {
+					$id_students = $list_of_student[$student]['student_id'];
+					$name_en =  $_POST['name_en'];
+					$name_th =  $_POST['name_th'];
+					$nickname =  $_POST['nickname'];
+					$username =  $_POST['username'];
+					$password =  $_POST['password'];
+					$pname_en =  $_POST['pname_en'];
+					$pname_th =  $_POST['pname_th'];
+					$related =  $_POST['related'];
+					$email =  $_POST['email'];
+					$phone =  $_POST['phone'];
+
+					$update_student =update_idstudent($conn,$_POST,$name_en,$name_th,$nickname,$username,$password,$email,$phone,$pname_en,$pname_th,$related,$id_students);
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=students_list">';
+				}
+				if ($_GET['action'] == 'student_del'.$list_of_student[$student]['student_id']) {
+					$id_students = $list_of_student[$student]['student_id'];
+					$delete_student = delete_datastu($conn,$id_students);
+					// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=students_list">';
+				}
+			}
+
 			if ($_GET['action'] == 'admin_calendar') {
 				$cus = calendars($conn);
 				$t_list = selectteacher($conn);

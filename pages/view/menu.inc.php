@@ -207,7 +207,7 @@
 
 								</div>
 								<div class="col-sm-4" style="align-items: center; padding-top: 5px;" >
-									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../teacher_img/<?php echo $student_image;?>" alt="" style="border-radius: 50%; width:45px; height:45px;object-fit:cover;"></i>
+									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../student_img/<?php echo $student_image;?>" alt="" style="border-radius: 50%; width:45px; height:45px;object-fit:cover;"></i>
 									</a>
 									<ul class="dropdown-menu" style="overflow: hidden; height: 100px;">
 										<a style="width: 100%;font-size: 24px;padding: 8px;" type="button" href="../pages/signin/logout.php">logout<i style="padding-left: 4px;" class="fas fa-sign-out-alt"></i></a>

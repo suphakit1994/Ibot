@@ -268,12 +268,10 @@ include('../php/camp_function.php');
 			$list_student=list_student($conn,$com_id);
 			// print_r($list_student) ;	
 			$allteam = select_allteam($conn,$com_id);
-			$num_allteam = count($allteam);
-			echo "---------------------------------------------------------".$num_allteam;
-			$select_team = select_team($conn,$com_id,$allteam['id']);
-			// print_r($select_team);
+			
 			require_once('list_student_compititions.php');
 
+			
 		}
 		if ($_GET['action'] == 'list_student_compitition/add') { //จัดทีม
 			$com_id=$_POST['com_id'];
@@ -284,7 +282,7 @@ include('../php/camp_function.php');
 			$updat_compi_student = update_compi_student($conn,$new_no,$com_id);
 			echo $updat_compi_student;
 			// print_r($new_no) ;
-			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_student_compitition">';
+			// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_student_compitition">';
 			
 			
 		}

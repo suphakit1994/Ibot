@@ -7,7 +7,7 @@ $dbname = "ibot";
 // $servername = "localhost";
 // $username = "iethaiso_gold";
 // $password = "1HtIbF)5j24c-J";
-// $dbname = "iethaiso_gold";
+// $dbname = "iethaiso_ibot";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection

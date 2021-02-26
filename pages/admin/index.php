@@ -232,7 +232,6 @@ include('../php/camp_function.php');
 							}
 						}	
 					}
-
 				}
 			}
 

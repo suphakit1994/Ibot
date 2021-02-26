@@ -10,13 +10,10 @@
 		$sql_getnoti= mysqli_query($conn,"SELECT* FROM notification WHERE status=0");
 		$count = mysqli_num_rows($sql_getnoti);
 
-		$id_course = $_SESSION['coursestd_id'];
-
 
 		$s_level = $_SESSION['student_level'];
 		$s_name = $_SESSION['student_name_eng'];
 		$s_nlevel = $_SESSION['student_nlevel'];
-		$student_image = $_SESSION["student_image"];
 
 		$t_level = $_SESSION['teacher_level'];
 		$t_name = $_SESSION['teacher_fname'];
@@ -193,132 +190,145 @@
 					</div>
 					<div class="col-md-9">
 
-						<ul class="nav navbar-nav navbar-right" style="padding-right:2%;">
+						<ul class="nav navbar-nav navbar-right" style="padding-right:1%;">
 							<li><a href="?app=student">Home</a></li>
 							<li><a href="index.php?app=student&action=ibot_camp">Camp</a></li>
 							<li><a href="index.php?app=student&action=ibot_compeitition">Compeitition</a></li>
 							<li><a href="index.php?app=student&action=schedule">Schedule</a></li>
-							<li><a href="index.php?app=student&action=mycourse<?php echo $id_course;?>">My Course</a></li>
+							<li style="padding-right: 20px;"><a href="index.php?app=student&action=mycourse">Mycourse</a></li>
 
 							<li>
-								<div class="col-sm-8" style="text-align: end;">
+								<div class="col-sm-5" style="text-align: end;">
 									<div class="row">
-										<p style="padding-top:5px; font-weight: bold; margin-bottom: 0px;"><?php echo $s_name; ?></p>
-										<p><?php echo $s_nlevel; ?></p>
-									</div>								
+										
+										<?php if (strlen($s_name) >= 8) { ?>
+											<p style="padding-top:5px; margin-bottom: 0px; font-weight: bold;">  <?php echo mb_substr($s_name,0,8)."..."; ?></p>
+										<?php }else{?>
+											<p style="padding-top:5px; margin-bottom: 0px; font-weight: bold;"><?php 
+											echo $s_name; } ?></p>
 
-								</div>
-								<div class="col-sm-4" style="align-items: center; padding-top: 5px;" >
-									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../student_img/<?php echo $student_image;?>" alt="" style="border-radius: 50%; width:45px; height:45px;object-fit:cover;"></i>
-									</a>
-									<ul class="dropdown-menu" style="overflow: hidden; height: 100px;">
-										<a style="width: 100%;font-size: 24px;padding: 8px;" type="button" href="../pages/signin/logout.php">logout<i style="padding-left: 4px;" class="fas fa-sign-out-alt"></i></a>
-									</ul>
-								</div>
-							</div>
-						</li>
 
-					</ul>
-				</div>
-			</div>
-		</div>
-	</nav>
-<?php } 
-elseif ($t_level=='teacher') { ?>
-	<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="navbar-header">
-						<div class="row">
-							<div class="col-md-2" style="padding: 0px;">
-								<img src="../images/Logo.jpg" style="width: 100%; padding: 0px;">
-							</div>
-							<div class="col-md-6" style="padding-top: 6px; padding-left: 3px;">
-								<div class="row">
-									<div class="col-md-12" style="height: 17px">
-										<p style="font-size:14px; font-weight: 1000; ">IBE</p>
+											<p><?php echo $s_nlevel; ?></p>
+										</div>								
+
+									</div>
+									<div class="col-sm-7" style="align-items: center; padding-top: 5px;" >
+										<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../images/images.png" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
+
+										</a>
+										<ul class="dropdown-menu" style="overflow: hidden; height: 50px;text-align: left;">
+											<a type="button" style="font-size: 19px; padding:4%;width: 100%;"href="../pages/signin/logout.php">Signout <i class="fas fa-sign-out-alt"></i></a>
+											<hr style="width:100%;text-align:left;margin-top:0">
+
+										</ul>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<p style="font-size:14px; ">Ibot Education</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-9">
-
-					<ul class="nav navbar-nav navbar-right" style="padding-right:2%;">
-						<li><a href="?app=teacher">Home</a></li>
-						<li><a href="index.php?app=teacher&action=our_course">Course</a></li>
-						<li><a href="index.php?app=teacher&action=report">Report</a></li>
-						<li class="dropdown"><a class="dropdown-toggle notification" data-toggle="dropdown" href="#" ><i class="far fa-bell" style="font-size:30px;"></i></span>
-							<span class="badge">5</a>
-								<ul class="dropdown-menu">
-									<li><a href="index.php?app=admin&action=employees">Franchise</a></li>
-									<li><a href="index.php?app=admin&action=user">ขอสิทธ์การเข้าถึง</a></li>
-								</ul>
 							</li>
-							<li>
-								<div class="col-sm-8" style="text-align: end;">
-									<div class="row">
-										<p style="padding-top:5px; font-weight: bold; margin-bottom: 0px;"><?php echo $t_name; ?></p>
-										<p ><?php echo $t_nlevel; ?></p>
-									</div>								
-								</div>
 
-								<div class="col-sm-4" style="align-items: center; padding-top: 5px;object-fit:cover;" >
-									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../teacher_img/<?php echo $t_image; ?>" alt="" style="border-radius: 50%; width:45px; height:45px;object-fit:cover;"></i>
-									</a>
-									<ul class="dropdown-menu" style="overflow: hidden; height: 100px;">
-										<a style="width: 100%;font-size: 24px;padding: 8px;" type="button" href="../pages/signin/logout.php">logout<i style="padding-left: 4px;" class="fas fa-sign-out-alt"></i></a>
-									</ul>
-								</div>
-							</div>
-						</li>
-
-					</ul>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</div>
-	</nav>
-<?php } 
-elseif ($a_level=='admin') { ?>
-	<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="navbar-header">
-						<div class="row">
-							<div class="col-md-2" style="padding: 0px;">
-								<img src="../images/Logo.jpg" style="width: 100%; padding: 0px;">
-							</div>
-							<div class="col-md-6" style="padding-top: 6px; padding-left: 3px;">
-								<div class="row">
-									<div class="col-md-12" style="height: 17px">
-										<p style="font-size:14px; font-weight: 1000; ">IBE</p>
-									</div>
+		</nav>
+	<?php } 
+	elseif ($t_level=='teacher') { ?>
+		<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="navbar-header">
+							<div class="row">
+								<div class="col-md-2" style="padding: 0px;">
+									<img src="../images/Logo.jpg" style="width: 100%; padding: 0px;">
 								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<p style="font-size:14px; ">Ibot Education</p>
+								<div class="col-md-6" style="padding-top: 6px; padding-left: 3px;">
+									<div class="row">
+										<div class="col-md-12" style="height: 17px">
+											<p style="font-size:14px; font-weight: 1000; ">IBE</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<p style="font-size:14px; ">Ibot Education</p>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					<div class="col-md-9">
+
+						<ul class="nav navbar-nav navbar-right" style="padding-right:1%;">
+							<li><a href="?app=teacher">Home</a></li>
+							<li style="padding-right: 20px;"><a href="index.php?app=teacher&action=our_course">Course</a></li>
+
+							<li>
+								<div class="col-sm-5" style="text-align: end;">
+									<div class="row">
+										<?php if (strlen($t_name) > 8) {
+											echo mb_substr($t_name,0,8)."...";
+										}else{?>
+											<p style="padding-top:5px; margin-bottom: 0px; font-weight: bold;"><?php 
+											echo $t_name; } ?></p>
+
+
+
+
+											<p ><?php echo $t_nlevel; ?></p>
+										</div>								
+									</div>
+
+									<div class="col-sm-7" style="align-items: center; padding-top: 5px;" >
+										<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../teacher_img/<?php echo $t_image; ?>" alt="" style="object-fit:cover ;border-radius: 50%; width:45px; height:45px;"></i>
+										</a>
+										<ul class="dropdown-menu" style="overflow: hidden; height: 50px;text-align: left;">
+											<a type="button" style="font-size: 19px; padding:4%;width: 100%;"href="../pages/signin/logout.php">Signout <i class="fas fa-sign-out-alt"></i></a>
+											<hr style="width:100%;text-align:left;margin-top:0">
+
+										</ul>
+									</div>
+								</div>
+							</li>
+
+						</ul>
+					</div>
 				</div>
-				<div class="col-md-9">
+			</div>
+		</nav>
+	<?php } 
+	elseif ($a_level=='admin') { ?>
+		<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="navbar-header">
+							<div class="row">
+								<div class="col-md-2" style="padding: 0px;">
+									<img src="../images/Logo.jpg" style="width: 100%; padding: 0px;">
+								</div>
+								<div class="col-md-6" style="padding-top: 6px; padding-left: 3px;">
+									<div class="row">
+										<div class="col-md-12" style="height: 17px">
+											<p style="font-size:14px; font-weight: 1000; ">IBE</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<p style="font-size:14px; ">Ibot Education</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-9">
 
-					<ul class="nav navbar-nav navbar-right" style="padding-right:3%; ">
-						<li class="dropdown"><a class="dropdown-toggle notification" data-toggle="dropdown" href="#" ><i class="far fa-bell" style="border-radius: 50%; font-size:30px;"></i></span>
+						<ul class="nav navbar-nav navbar-right" style="padding-right:1%; ">
+							<li class="dropdown" style="padding-right: 20px;"><a class="dropdown-toggle notification" data-toggle="dropdown" href="#" ><i class="far fa-bell" style="border-radius: 50%; font-size:30px;"></i></span>
 
-							<span class="badge" id="count"><?php echo $count; ?></a>
-								<ul class="dropdown-menu" style="padding-left: 10px; padding-right: 10px;">
-									
+								<span class="badge" id="count"><?php echo $count; ?></a>
+									<ul class="dropdown-menu" style="padding-left: 10px; height: 100%; padding-top: 9px; padding-right: 10px;">
+
 <!-- 									$sql_getdata= mysqli_query($conn,"SELECT* FROM notification WHERE status=0");
 
 									if(mysqli_num_rows($sql_getdata)>0)
@@ -328,11 +338,12 @@ elseif ($a_level=='admin') { ?>
 											$keys = $result['course_id'];
 											$name_course = mysqli_query($conn,"SELECT course_expension FROM course WHERE course_id=$keys ");
 											echo  -->
-											<a class="dropdown-item text-primary font-weight-bold" href="index.php?app=admin&action=list_msg">การแจ้งเตือน</a>
+
+											<a class="dropdown-item text-primary font-weight-bold" href="index.php?app=admin&action=list_msg" style="font-size: 18px; width: 100%;">การแจ้งเตือน<i class="far fa-bell"></i></a>
 											
 
 											<!-- ?> -->
-											<div style="border-bottom: 1px solid grey; padding-bottom: 5px;"></div>
+											<hr style="width:100%;text-align:left;margin-top:0">
 
 											
 											<!-- } -->
@@ -342,68 +353,84 @@ elseif ($a_level=='admin') { ?>
 								</ul>
 							</li>
 							<li>
-								<div class="col-sm-8" style="text-align: end;">
+								<div class="col-sm-5" style="text-align: end;">
 									<div class="row">
-										<?php 
-										$cutname_a = substr($a_name, 0 , 10)
-										?>
-										<p style="padding-top:5px; margin-bottom: 0px; font-weight: bold;"><?php echo $cutname_a; ?></p>
-										<p ><?php echo $a_nlevel; ?></p>
-									</div>								
+										
 
-								</div>
-								<div class="col-sm-4" style="align-items: center; padding-top: 5px;" >
-									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../images/images.png" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
-									</a>
-									<ul class="dropdown-menu" style="overflow: hidden; height: 100px;">
-										<a style="width: 100%;font-size: 24px;padding: 8px;" type="button" href="../pages/signin/logout.php">logout<i style="padding-left: 4px;" class="fas fa-sign-out-alt"></i></a>
-									</ul>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</nav>
 
-<?php }else{ ?>
-	<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="navbar-header">
-						<div class="row">
-							<div class="col-md-2" style="padding: 0px;">
-								<img src="../images/Logo.jpg" style="width: 100%; padding: 0px;">
-							</div>
-							<div class="col-md-6" style="padding-top: 6px; padding-left: 3px;">
-								<div class="row">
-									<div class="col-md-12" style="height: 17px">
-										<p style="font-size:14px; font-weight: 1000; ">IBE</p>
+										<?php if (strlen($a_name) > 8) {
+											echo mb_substr($a_name,0,8)."...";
+										}else{?>
+											<p style="padding-top:5px; margin-bottom: 0px; font-weight: bold;"><?php 
+											echo $a_name; } ?></p>
+
+
+
+											<p ><?php echo $a_nlevel; ?></p>
+
+
+
+
+										</div>								
+
 									</div>
-								</div>
+									<div class="col-sm-7" style=" padding-top: 5px;" >
+										<div class="dropdown">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+												<img src="../images/images.png" alt="" style="border-radius: 50%; width:45px; height:45px;">
+												<span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu" style="overflow: hidden; height: 50px;text-align: left;">
+												<a type="button" style="font-size: 19px; padding:4%;width: 100%;"href="../pages/signin/logout.php">Signout <i class="fas fa-sign-out-alt"></i></a>
+												<hr style="width:100%;text-align:left;margin-top:0">
+
+											</ul>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+		<?php }else{ ?>
+			<nav class="navbar" style="margin-bottom: 0px;box-shadow: 0 5px 5px -2px rgb(0 0 0 / 12%);" >
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="navbar-header">
 								<div class="row">
-									<div class="col-md-12">
-										<p style="font-size:14px; ">Ibot Education</p>
+									<div class="col-md-2" style="padding: 0px;">
+										<img src="../images/Logo.jpg" style="width: 100%; padding: 0px;">
+									</div>
+									<div class="col-md-6" style="padding-top: 6px; padding-left: 3px;">
+										<div class="row">
+											<div class="col-md-12" style="height: 17px">
+												<p style="font-size:14px; font-weight: 1000; ">IBE</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<p style="font-size:14px; ">Ibot Education</p>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</div>
-				<div class="col-md-9">
-					<ul class="nav navbar-nav navbar-right">
+						<div class="col-md-9">
+							<ul class="nav navbar-nav navbar-right">
 
-					</ul>
+							</ul>
 
-					<ul class="nav navbar-nav navbar-right" style="padding-right:2%;">
-						<li><a href="?app=home">Home</a></li>
+							<ul class="nav navbar-nav navbar-right" style="padding-right:2%;">
+								<li><a href="?app=home">Home</a></li>
 
-						<!-- 						<li><a href="index.php?app=test">test</a></li> -->
-						<li><a href="index.php?app=our_course">Our course</a></li>
-						<!-- 						<li><a href="index.php?app=jed">jed</a></li> -->
-						<li><a href="index.php?app=about">About Us</a></li>
+								<!-- 						<li><a href="index.php?app=test">test</a></li> -->
+								<li><a href="index.php?app=our_course">Our course</a></li>
+								<!-- 						<li><a href="index.php?app=jed">jed</a></li> -->
+								<li><a href="index.php?app=about">About Us</a></li>
 <!-- 						<li><a href="index.php?app=pdf">pdf</a></li>
 	<li><a href="index.php?app=art">art</a></li> -->
 

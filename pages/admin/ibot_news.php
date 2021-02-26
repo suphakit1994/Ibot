@@ -29,7 +29,11 @@
 						</div>
 						<div class="col-sm-6">
 							<div style="display: flex;justify-content: flex-end">
-								<a class="btn btn-primary" style="padding: 4px;" href="index.php?app=admin&action=admin_camp_add">+ Add New</a>
+								<a class="btn btn-primary" style="padding: 4px;" href="index.php?app=admin&action=ibot_news_add">+ Add New</a>
+							</div>
+							<div style="display: flex;justify-content: flex-end">
+								<h3 style="color : grey;">/ 5 object</h3>
+
 							</div>
 						</div>
 					</div>		
@@ -41,28 +45,28 @@
 							<th>Content</th>
 							
 						</tr>
-						<?php for($i = 0; $i< count($cam); $i++){ ?>
+						<?php for($i = 0; $i< count($cus); $i++){ ?>
 							
 							<tr>
-								<td><?php echo $cam[$i]['camp_program']; ?></td>
-								<td><?php echo $cam[$i]['camp_Age']; ?></td>	
+								<td><?php echo $cus[$i]['topic']; ?></td>
+								<td><?php echo $cus[$i]['content']; ?></td>	
 								<td>
 									<div class="dropdown" >
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
 										<ul class="dropdown-menu">
 											<li>
-												<form method="post" action="index.php?app=admin&action=admin_camp_edit">
+												<form method="post" action="index.php?app=admin&action=ibot_news_edit">
 													<a><button type="submit" name= "<?php echo $i ?>" class=" btn btn:hover">
 														<i class="far fa-edit" style="font-size:15px"></i>	
 													Edit </button></a>
-													<input type="hidden" name="camp_id" value="<?php echo $cam[$i]['camp_id'];  ?>" > 
+													<input type="hidden" name="id" value="<?php echo $cus[$i]['id'];  ?>" > 
 												</form>
 											</li>
 											<li>
-												<form method="post" action="index.php?app=admin&action=admin_camp_delete">
+												<form method="post" action="index.php?app=admin&action=ibot_news_delete">
 													<a><button type="submit" name= "<?php echo $i ?>" class=" btn btn:hover">
 														<i class="fas fa-trash" style="font-size:15px"></i> Delete</button></a>
-														<input type="hidden" name="camp_id" value="<?php echo $cam[$i]['camp_id'];  ?>" > 
+														<input type="hidden" name="id" value="<?php echo $cus[$i]['id'];  ?>" > 
 													</form>
 												</li>
 											</ul>

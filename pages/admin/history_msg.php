@@ -45,7 +45,7 @@
 					</div>
 					<div class="col-md-6" style="margin-top: 30px; text-align: right;">
 						<form class="example" action="index.php?app=admin&action=search_msg" method="POST">
-							<input type="text"  name="search" placeholder="กรอกชื่อภาษาไทย">
+							<input type="text"  name="search" placeholder="กรอกชื่อภาษาไทย" required>
 							<button type="submit"><i class="fa fa-search"></i></button>
 						</form>
 					</div>

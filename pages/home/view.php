@@ -147,10 +147,10 @@
           <img src="../img_slide/<?php echo $img_home['image_name'];?>" style="width: 800px; height:500px;">
         </div>
         <div class="tabbed-section-2 hidden">
-          <img src="../img_slide/<?php echo $img_camp['image_name'];?>" style="width: 800px; height:500px;">
+          <img src="../img_slide/<?php echo $img_compeitition['image_name'];?>" style="width: 800px; height:500px;">
         </div>
         <div class="tabbed-section-3 hidden">
-          <img src="../img_slide/<?php echo $img_compeitition['image_name'];?>" style="width: 800px; height:500px;">
+          <img src="../img_slide/<?php echo $img_camp['image_name'];?>" style="width: 800px; height:500px;">
         </div>
       </div>
     </div>

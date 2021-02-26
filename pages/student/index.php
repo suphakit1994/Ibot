@@ -19,6 +19,11 @@ include('../php/camp_function.php');
 		$level = $_SESSION['student_level'];
 		$nlevel = $_SESSION['student_nlevel'];
 		$student_image = $_SESSION["student_image"];
+
+		$id_c = selcs_student($conn,$id);
+		for ($i=0; $i < count($id_c); $i++) { 
+			$_SESSION['coursestd_id'] = $id_c[$i]['cs_course_id'];
+		}
 		?>
 
 		<?php
@@ -166,6 +171,7 @@ include('../php/camp_function.php');
 					if($_GET['action'] == 'postfile/exam'.$func_select_course[$i]['course_id'].'lesson'.$get_pdf[$j]['numper']){
 						$username = $name;
 						$course_id = $func_select_course[$i]['course_id'];
+						$_SESSION["course_id"] = $course_id;
 						$lesson_id = $get_pdf[$j]['numper'];
 						$question0 = $_POST['question0'];
 						$question1 = $_POST['question1'];
@@ -187,7 +193,7 @@ include('../php/camp_function.php');
 					}
 				}	
 			}
-			$_SESSION["course_id"] = $id_course;
+			
 		}
 		?>
 	</style>

@@ -10,6 +10,8 @@
 		$sql_getnoti= mysqli_query($conn,"SELECT* FROM notification WHERE status=0");
 		$count = mysqli_num_rows($sql_getnoti);
 
+		$id_course = $_SESSION['coursestd_id'];
+
 
 		$s_level = $_SESSION['student_level'];
 		$s_name = $_SESSION['student_name_eng'];
@@ -196,7 +198,7 @@
 							<li><a href="index.php?app=student&action=ibot_camp">Camp</a></li>
 							<li><a href="index.php?app=student&action=ibot_compeitition">Compeitition</a></li>
 							<li><a href="index.php?app=student&action=schedule">Schedule</a></li>
-							<li><a href="index.php?app=student&action=mycourse">Mycourse</a></li>
+							<li><a href="index.php?app=student&action=mycourse<?php echo $id_course;?>">My Course</a></li>
 
 							<li>
 								<div class="col-sm-8" style="text-align: end;">
@@ -207,7 +209,7 @@
 
 								</div>
 								<div class="col-sm-4" style="align-items: center; padding-top: 5px;" >
-									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../teacher_img/<?php echo $student_image;?>" alt="" style="border-radius: 50%; width:45px; height:45px;object-fit:cover;"></i>
+									<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../student_img/<?php echo $student_image;?>" alt="" style="border-radius: 50%; width:45px; height:45px;object-fit:cover;"></i>
 									</a>
 									<ul class="dropdown-menu" style="overflow: hidden; height: 100px;">
 										<a style="width: 100%;font-size: 24px;padding: 8px;" type="button" href="../pages/signin/logout.php">logout<i style="padding-left: 4px;" class="fas fa-sign-out-alt"></i></a>

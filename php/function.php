@@ -284,6 +284,17 @@ function selcs(mysqli $conn,$keys_cs){
 		return $data;
 	}
 }
+function selcs_student(mysqli $conn,$id_std){
+	$sql = "SELECT* FROM `course_student` WHERE cs_student_id=$id_std ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
 function selcp(mysqli $conn,$keys_cp){
 	$sql = "SELECT* FROM `camp_student` WHERE cp_id=$keys_cp";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -516,6 +527,47 @@ function update_idteacher(mysqli $conn,$data,$fname,$lname,$username,$password,$
 	`salary`='$new_salary'
 
 	WHERE `teacher_id`='$id_teacher'";
+
+	echo $sql;
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+}
+function update_idstudent(mysqli $conn,$data,$name_en,$name_th,$nickname,$username,$password,$email,$phone,$pname_en,$pname_th,$related,$id_students){
+	$ext = pathinfo(basename($_FILES['photo']['name']),PATHINFO_EXTENSION);
+	$new_image_name = 'img_'.uniqid().".".$ext;
+	$image_path = "../student_img/";
+	$upload_path = $image_path.$new_image_name;
+	//uploading
+	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
+		move_uploaded_file($_FILES['photo']['tmp_name'], $upload_path);
+		$photo  = $new_image_name;	
+		echo "upload at file.";   
+	}else{
+		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	}
+
+	$sql = "UPDATE `student` 
+
+	SET `student_username`='$username',
+	`student_password`='$password',
+	`parents_email`='$email',
+	`parents_phonenumber`='$phone', 
+	`student_name_th`='$name_th', 
+	`student_name_eng`='$name_en', 
+	`image`='$photo',
+	`parents_name_th`='$parents_name_th',
+	`student_nickname_eng`='$nickname',
+	`parents_name_eng`='$pname_en',
+	`parents_name_th`='$pname_th',
+	`parents_related`='$related'
+
+	WHERE `student_id`='$id_students'";
 
 	echo $sql;
 
@@ -850,17 +902,17 @@ function insert_answer(mysqli $conn,$data,$id,$username,$level,$course_id,$lesso
 }
 
 
-// function deletestd(mysqli $conn,$id_not){
-// 	$sql = "DELETE FROM student 
-// 	WHERE teacher_id = '$id_not'";
-// 	echo $sql;
-// 	if ( mysqli_query($conn, $sql)) {
-// 		return true;
-// 	} else {
-// 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-// 		return false;
-// 	}
-// }
+function deletestd(mysqli $conn,$id_students){
+	$sql = "DELETE FROM student 
+	WHERE student_id = '$id_students'";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
 
 
 ?>

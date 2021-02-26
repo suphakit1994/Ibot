@@ -40,27 +40,27 @@
 						<tr>
 							<th><input type="checkbox" name="" value=""></th>
 							<th>Full Name</th>
-							<th>Position / Rates</th>
 							<th>Email Address</th>
-							<th>Phone</th>
+							<th>Username</th>
 							<th>Password</th>
+							<th>Phone</th>
 							<th></th>
 						</tr>
 						<?php for($i=0; $i < count($select_std); $i++){?>
 							<tr>
 								<td><input type="checkbox" name="" value=""></td>
 								<td><?php echo $select_std[$i]['student_name_eng']; ?></td>
-								<td>Griffin</td>
 								<td><?php echo $select_std[$i]['parents_email']; ?></td>
-								<td><?php echo $select_std[$i]['parents_phonenumber']; ?></td>
+								<td><?php echo $select_std[$i]['student_username']; ?></td>
 								<td><?php echo $select_std[$i]['student_password']; ?></td>
+								<td><?php echo $select_std[$i]['parents_phonenumber']; ?></td>
 								<td>
 									<div class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
 										<ul class="dropdown-menu">
 											<li><a href="#"><i class="fa fa-refresh" style="font-size:15px"></i> Reset</a></li>
-											<li><a href="index.php?app=admin&action=edit_data"><i class="far fa-edit" style="font-size:15px"></i> Edit</a></li>
-											<li><a href="#"><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
+											<li><a href="index.php?app=admin&action=edit_data_student<?php echo $select_std[$i]['student_id'];?>"><i class="far fa-edit" style="font-size:15px"></i> Edit</a></li>
+											<li><a href="index.php?app=admin&action=student_del<?php echo $select_std[$i]['student_id'];?>"><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
 										</ul>
 									</div>
 								</td>

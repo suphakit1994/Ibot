@@ -100,8 +100,7 @@
     <form method="post" action="index.php?app=student&action=success_camp" enctype="multipart/form-data">
       
      <input type="hidden" name="camp_id" value="<?php echo $_POST['camp_id'];?>">
-     <?php echo $_POST['camp_id'];  ?>
-
+     
      <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
       <h1 style="text-align: center; font-weight: bold;padding-top: 3%;">IBOT CAMP</h1>
       <div class="col-md-7" style="padding-top: 2%;">
@@ -151,7 +150,7 @@
               <br><label>Ref. No.</label>
               <br><input name="payment_no" class="form-control" style="width: 350%;">
               <br><label>Amount</label>
-              <br><input name="payment_amount" class="form-control" style="width: 350%;">
+              <br><input name="payment_amount" class="form-control" style="width: 350%;" value="<?php echo $camadd['camp_price'];  ?>">
               <br><label>Transaction Date</label>
               <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" valube =""type="date"  required>
               <input type="time"  name="payment_time" required> 

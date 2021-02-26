@@ -1,15 +1,16 @@
 <style type="text/css">
 
-  .card{
-    box-shadow: 0 4px 10px 0 rgb(0 0 0), 0 4px 20px 0 rgba(0,0,0,1);
+  .card1{
+    box-shadow: 0 4px 10px 0 rgb(0 0 0), 0 4px 20px 0 rgba(0,0,0,0.19);
     width: 100%;
-    /*padding-bottom: 10px ;*/
-    border-radius: 10px 10px 10px 10px;
+    height: 200%;
+    padding-bottom: 10px;
+    border-radius:30px; 
   }
   .card-img-top{
     width:100%;
     height: 200px;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 10px 0px 0px ;
   }
   .btn {
     color: #ffffff;
@@ -33,7 +34,7 @@
 
   <div class="container-fluid" style="padding-right:100px ;padding-left:100px ;">
     <!-- course ที่ลงทะเบียนเรียน -->
-    <div class="row" style="padding-bottom: 0px;" >
+    <div class="row" style="padding-bottom: 0px;height: 680px;" >
 
       <h1 style="padding-bottom: 20px;padding-top: 50px;">
         <b>Your unfinish courses</b>
@@ -43,8 +44,8 @@
         ?>
         <form method="post" action="index.php?app=student&action=mycourse<?php echo $data[$i]['course_id'];?>" >
           <div>
-            <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
-              <div class="card" >
+            <div name="card" class="col-md-3" style="padding-bottom: 15px;" >
+              <div class="card" style="height: 510px;border-radius:10px;">
                 <div class="card-image" >
                   <img class="card-img-top" src="../course_img/<?php echo $data[$i]['course_img'];?>" alt="Card image cap" >
                   <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;">
@@ -52,7 +53,7 @@
                   </span>
                 </div>
                 <div class="card-body" >
-                  <div class="row" style="margin-left:0px ;" >
+                  <div class="row" style="margin-left:0px ;    height: 82px;" >
                     <div class="col-md-5">
                       <ul class="nav" style="width:150%;">
                         <li > <span><B><p class = "card-text">Course Expension</p></B></span> </li>
@@ -115,7 +116,7 @@
       </div>
       
       <!-- course ที่ยังไม่ลงทะเบียน -->
-      <div class="row" style="padding-bottom: 0px;" >
+      <div class="row" style="padding-bottom: 0px;height: 680px;" >
        <h1 style="padding-bottom: 20px;padding-top: 50px;">
         <b>OUR COURSE</b>
       </h1 > 
@@ -125,8 +126,8 @@
         <?php if($data[$i]['course_id'] != $course[$i]['course_id'] ){ ?>
           <form method="post" action="index.php?app=student&action=enroll" >
             <div >
-              <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
-                <div class="card" >
+              <div name="card" class="col-md-3" style="padding-bottom: 15px;" >
+                <div class="card" style="height: 510px;border-radius:10px;">
                   <div class="card-image" >
                     <img class="card-img-top" src="../course_img/<?php echo $course[$i]['course_img'];?>" alt="Card image cap" >
                     <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;">
@@ -134,7 +135,7 @@
                     </span>
                   </div>
                   <div class="card-body" >
-                    <div class="row" style="margin-left:0px ;" >
+                    <div class="row" style="margin-left:0px ; height: 82px;" >
                       <div class="col-md-5">
                         <ul class="nav" style="width:150%;">
                           <li > <span><B><p class ="card-text">Course Expension</p></B></span> </li>

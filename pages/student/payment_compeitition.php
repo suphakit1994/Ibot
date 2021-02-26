@@ -99,7 +99,7 @@
   <body>
     <form action="index.php?app=student&action=success_compeitition" method="post" enctype="multipart/form-data">
       <input type="hidden" name="com_id" value="<?php echo $_POST['com_id'];?>">
-      <?php echo $_POST['com_id'];  ?>
+      
 
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
         <h1 style="text-align: center; font-weight: bold; text-align: center; padding-top: 3%;">IBOT COMPEITITION</h1>
@@ -153,7 +153,7 @@
                 <br><label>Ref. No.</label>
                 <br><input name="payment_no" class="form-control" style="width: 350%;">
                 <br><label>Amount</label>
-                <br><input name="payment_amount" class="form-control" style="width: 350%;">
+                <br><input name="payment_amount" class="form-control" style="width: 350%;" value="<?php echo $compiadd['com_price'];  ?>">
                 <br><label>Transaction Date</label>
                 <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
                 <input type="time"  name="payment_time" required> 

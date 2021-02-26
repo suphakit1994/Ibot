@@ -81,6 +81,7 @@ include('../php/camp_function.php');
 			}
 			if($_GET['action']=="all_compeitition"){
 				$compi = com_select($conn);
+				$compitype = select_compitype($conn);
 				require_once('all_compeitition.php');
 
 			}
@@ -117,7 +118,7 @@ include('../php/camp_function.php');
 			}
 			
 			if($_GET['action']=="payment_camp"){
-				echo $data['payment_type'];
+				// echo $data['payment_type'];
 				$camadd = campadd_select($conn,$cam); //แสดงข้อมูลแคมป์ที่ลงทะเบียน
 				require_once('payment_camp.php');
 			}

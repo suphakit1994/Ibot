@@ -99,8 +99,7 @@
     <form  method="post" action="index.php?app=student&action=student&action=payment" >
 
       <input type="hidden" name="course_id" value="<?php echo  $_POST['course_id']; ?>">
-      <?php echo $id; ?>
-      <?php echo  $_POST['course_id']; ?>
+      
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ;">
         <div class="row">
           <div class="col-md-7" style=" padding-top: 5%;"> 

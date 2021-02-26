@@ -72,8 +72,8 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-4" class="collapse">
-						<li><a href="index.php?app=admin&action=students_list"><i class=""></i>Students List</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
+						<li><a href="index.php?app=admin&action=students_list"><i class=""></i>Students List</a></li>
 						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>
@@ -142,9 +142,12 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-9" class="collapse">
-						<li><a href="index.php?app=admin&action=image_slide"><i class=""></i> Image Slide</a></li>
 						<li><a href="index.php?app=admin&action=ibot_news"><i class=""></i> Ibot News</a></li>
 						<li><a href="index.php?app=admin&action=text_slide"><i class=""></i> Text Slide</a></li>
+						<li><a href="index.php?app=admin&action=video_background"><i class=""></i> Video Background</a></li>
+						<li><a href="index.php?app=admin&action=image_home"><i class=""></i> Image Slide/Home</a></li>
+						<li><a href="index.php?app=admin&action=image_camp"><i class=""></i> Image Slide/Camp</a></li>
+						<li><a href="index.php?app=admin&action=image_compeitition"><i class=""></i> Image Slide/Compeitition</a></li>
 					</ul>
 				</div>
 			</li>	

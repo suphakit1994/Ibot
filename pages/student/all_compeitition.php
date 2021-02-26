@@ -122,17 +122,7 @@
                 </p>
             </div>
 
-            <div class="row">
-                <div class="col" style="margin:auto; width:40%;  text-align:center;">
-                    <select class="form-control btn-lg" style="height:fit-content;" >
-                        <option selected>Please should your program</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-            </div>
+            
             <div>
                 <?php for ($i=0;$i<count($compitype);$i++ ){?>
                     <h2><?php echo $compitype[$i]['compi_name'] ?></h2>

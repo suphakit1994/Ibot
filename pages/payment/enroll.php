@@ -101,10 +101,7 @@
       <input type="hidden" name="student_id" value="<?php echo $cus['student_id']; ?>">
       <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
       <input type="hidden" name="student_id" value="<?php echo $cus['student_id']; ?>">
-      <?php echo $cus['student_id']; ?>
-      <?php echo $cus['student_id']; ?>
-      <?php echo $_POST['course_id']; ?>
-
+      
       <!--  หน้า student -->
       <input type="hidden" name="student_name_th" value="<?php echo $_POST['student_name_th'];  ?>">
       <input type="hidden" name="student_name_eng" value="<?php echo $_POST['student_name_eng'];  ?>">

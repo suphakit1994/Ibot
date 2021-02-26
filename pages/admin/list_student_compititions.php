@@ -35,7 +35,9 @@
 		background: -webkit-linear-gradient(180deg, #0050ef 0%, #00FF99 100%) !important;
 		color: white;
 	}
-
+	#list_data{
+		display: none;
+	}
 </style>
 <body>
 
@@ -100,28 +102,28 @@
 								<?php for ($k=0; $k<count($allteam);$k++) { ?>
 									<tr style=" width: 10px;">
 
-										<td><b><?php echo $allteam[$k]['team_name']; ?></b></td>
-										<td><form method="post" action="index.php?app=admin&action=">
-											<a><button type="submit" name= "<?php echo $j ?>" class="Button"style="width:50% ;">
-												<i class="fas fa-trash" style="font-size:15px"></i> Delete</button></a>
-												<input type="hidden" name="student_id" value="<?php echo $list_student[$j]['student_id'];  ?>">
-												<input type="hidden" name="com_id" value="<?php echo $com_id;  ?>">
-											</form></td>
+										<td><b><?php echo $allteam[$k]['team_name'].$allteam[$k]['id']; ?></b></td>
 
-											<?php for($t=0;$t<=count($allteam);$t++){?>
-												<?php $numteam=[$allteam[$k]['No.1'],$allteam[$k]['No.2'],$allteam[$k]['No.3'],$allteam[$k]['No.4']]; ?>
-												<?php if(($numteam[$t]!=0 )&& ($numteam[$t]!=1) ){ ?>
-													<?php $id =  $numteam[$t] ;
-													$select_team = select_team($conn,$com_id,$id);?>
-													<td >
-														<?php for($y=0;$y<$id;$y++){ ?>
-															<p style="width: 25%"><?php echo $select_team[$y]['student_name_eng'];?></p>	
+										<td>
+											<form method="post" action="index.php?app=admin&action=">
+												<a><button type="submit" name= "<?php echo $j ?>" class="Button"style="width:50% ;">
+													<i class="fas fa-trash" style="font-size:15px"></i> Delete</button></a>
+													<input type="hidden" name="student_id" value="<?php echo $list_student[$j]['student_id'];  ?>">
+													<input type="hidden" name="com_id" value="<?php echo $com_id;  ?>">
+												</form>
+											</td>
+											<td>
 
+												<?php $id = $list_studentteam[$k]['id'] ?>
 
-														<?php } ?>
-													</td>
+												<?php if($allteam[$k]['id']=$id){ ?>
+													<?php echo $allteam[$k]['team_name'].$allteam[$k]['id']; ?>
+													<p><?php echo $list_studentteam[$k]['student_name_eng']; ?></p>
+
 												<?php } ?>
-											<?php } ?>
+
+											</td>
+
 
 										</tr>
 									<?php } ?>

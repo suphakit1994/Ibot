@@ -268,7 +268,11 @@ include('../php/camp_function.php');
 			$list_student=list_student($conn,$com_id);
 			// print_r($list_student) ;	
 			$allteam = select_allteam($conn,$com_id);
-			
+			$list_studentteam=list_studentteam($conn,$com_id);
+			// print_r($allteam);
+			// echo "=============================================================";
+			// $list_studentteam=list_studentteam($conn,$com_id);
+			// print_r($list_studentteam);
 			require_once('list_student_compititions.php');
 
 			

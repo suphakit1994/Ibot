@@ -141,7 +141,7 @@
                                             <a href="../camp_pdf/<?php echo $cam[$i]['camp_file']; ?>" download>
                                             Download rules </a>
                                         </b>
-                                        <?php echo $i; ?>
+                                        
                                     </p>
                                 </div>
                                 <div class="col-md-3 btn-position center-box">

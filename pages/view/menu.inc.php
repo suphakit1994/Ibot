@@ -204,10 +204,7 @@
 										<?php if (strlen($s_name) >= 8) { ?>
 											<p style="padding-top:5px; margin-bottom: 0px; font-weight: bold;">  <?php echo mb_substr($s_name,0,8)."..."; ?></p>
 										<?php }else{?>
-											<p style="padding-top:5px; margin-bottom: 0px; font-weight: bold;"><?php 
-											echo $s_name; } ?></p>
-
-
+											<p style="padding-top:5px; margin-bottom: 0px; font-weight: bold;"><?php echo $s_name; } ?></p>
 											<p><?php echo $s_nlevel; ?></p>
 										</div>								
 

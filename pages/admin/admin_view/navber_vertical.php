@@ -31,8 +31,6 @@
 					</a>
 					<ul id="submenu-1" class="collapse">
 						<li><a href="index.php?app=admin&action=dashboard"><i class=""></i>Dashboard</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.2</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>
 			</li>
@@ -45,8 +43,6 @@
 					</a>
 					<ul id="submenu-2" class="collapse">
 						<li><a href="index.php?app=admin&action=admin_calendar"><i class=""></i>Calendar</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.2</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>
 			</li>
@@ -59,8 +55,6 @@
 					</a>
 					<ul id="submenu-3" class="collapse">
 						<li><a href="index.php?app=admin&action=teacher_list"><i class=""></i>Teacher List</a></li>
-						<li><a href=""><i class=""></i>SUBMENU</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>
 			</li>
@@ -72,9 +66,7 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-4" class="collapse">
-						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
 						<li><a href="index.php?app=admin&action=students_list"><i class=""></i>Students List</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>
 			</li>
@@ -88,7 +80,6 @@
 					<ul id="submenu-5" class="collapse">
 						
 						<li><a href="index.php?app=admin&action=course_list"><i class=""></i> Course list</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>
 			</li>
@@ -102,7 +93,6 @@
 					<ul id="submenu-6" class="collapse">
 						<li><a href="index.php?app=admin&action=admin_compitition"><i class=""></i>Competitions list</a></li>
 						<li><a href="index.php?app=admin&action=addteam_compitition"><i class=""></i> Add team 1.2</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>
 			</li>
@@ -115,8 +105,6 @@
 					</a>
 					<ul id="submenu-7" class="collapse">
 						<li><a href="index.php?app=admin&action=admin_camp"><i class=""></i> Camp list</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.2</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>
 			</li>
@@ -129,8 +117,6 @@
 					</a>
 					<ul id="submenu-8" class="collapse">
 						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.2</a></li>
-						<li><a href="#"><i class=""></i> SUBMENU 1.3</a></li>
 					</ul>
 				</div>
 			</li>

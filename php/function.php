@@ -263,10 +263,10 @@ function listmsg(mysqli $conn){
 	}
 }
 function updatestatus(mysqli $conn, $value,$name,$timestamp){
-	$sql = "UPDATE notification SET status = 1  
+	$sql = "UPDATE notification 
+	SET `status` = 1,
 	`approver` = '$name',
-	`timestamp` = '$timestamp' 
-	WHERE no_id='$value'";
+	`timestamp` = '$timestamp' WHERE no_id='$value'";
 	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -275,7 +275,6 @@ function updatestatus(mysqli $conn, $value,$name,$timestamp){
 		return false;
 	}
 }
-
 function selcs(mysqli $conn,$keys_cs){
 	$sql = "SELECT* FROM `course_student` WHERE cs_id=$keys_cs ";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {

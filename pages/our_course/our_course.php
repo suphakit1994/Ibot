@@ -49,7 +49,7 @@
        <form method="post" action="index.php?app=payment" >
         <div>
           <div name="card" class="col-md-3" style="padding-bottom: 5%;" >
-            <div class="card">
+            <div class="card" style="height: 510px;">
               <div class="card-image" >
                 <img class="card-img-top" src="../course_img/<?php echo $data[$i]['course_img'];  ?>" alt="Card image cap" >
                 <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;">
@@ -57,7 +57,7 @@
                 </span>
               </div>
               <div class="card-body" >
-                <div class="row" style="margin-left:0px ;" >
+                <div class="row" style="margin-left:0px ; height: 82px;" >
                   <div class="col-md-5" style="padding-right: 0px;">
                     <ul class="nav" style="width:150%;">
                       <li > <span><B><p class = "card-text">Course Expension</p></B></span> </li>
@@ -118,9 +118,9 @@
         <?php  
       }  ?>
     </div>
-    <div class="text-center "> 
+    <!-- <div class="text-center "> 
       <a href="index.php?app=teacher&action=student_assessment"   class="Button" style="border-radius:28px;"> Student Assessment</a>
-    </div>
+    </div> -->
    <!--  <div class="text-center "> 
       <a href="index.php?app=student_information"   class="Button" style="border-radius:28px;"> Student information</a>
     </div> -->

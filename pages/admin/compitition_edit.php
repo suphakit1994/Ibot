@@ -84,11 +84,11 @@
 		</div>
 		<form method="post"  action="index.php?app=admin&action=admin_compitition_edit/add" enctype="multipart/form-data">
 			<input type="hidden" name="com_id" value="<?php echo $_POST['com_id'];  ?>">
-			<?php  echo $_POST['com_id']; ?>
+			
 			<div class="flex-container">
 				<div class="flex-col1">
 					<p class="list_detail"><b>Compititions</b> </p>
-					<input type="text" name="com_type" class="form-control" value="<?php echo $comadd['com_type']; ?>">
+					<input type="text" class="form-control" value="<?php echo $comadd['com_type']; ?>" readonly>
 					<p class="list_detail" style="margin-top:  20px;"><b>Age for program</b> </p>
 					<input type="text" name="com_age" class="form-control" value="<?php echo $comadd['com_age']; ?>">
 					<p class="list_detail" style="margin-top:  20px;"><b>Start Date</b></p>

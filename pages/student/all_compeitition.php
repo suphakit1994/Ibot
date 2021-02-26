@@ -108,6 +108,22 @@
         background-color: #DEDEDE !important;
         color: #FFFFFF !important;
     }
+    .btn {
+        color: #ffffff;
+        background-color: #dedede ;
+    }         
+    .btn:hover {
+        border-radius:28px;
+        border:1px solid #18ab29;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff !important;
+        font-size:14;
+        text-decoration:none;
+        text-align: center; 
+        background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);    
+        border: 1px solid #ffffff;
+    }  
 </style>
 <body>
     <form method="post" action="index.php?app=student&action=payment_compeitition">
@@ -128,7 +144,7 @@
                     <h2><?php echo $compitype[$i]['compi_name'] ?></h2>
                     
                     <?php for($j=0;$j<count($compi);$j++ ){?>
-                       <form method="post" action="index.php?app=student&action=payment_compeitition">
+                     <form method="post" action="index.php?app=student&action=payment_compeitition">
                         <?php if($compi[$j]['com_type']==$compitype[$i]['compi_name']){?>
                             <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
                                 <div class="card-body">
@@ -151,7 +167,7 @@
                                         </div>
 
                                         <div class="col-md-3 btn-position center-box">
-                                            <button type="submit"  name="<?php echo $j ?>" class="Button" style="width:55% ;border-radius:28px;">Enroll</button>
+                                            <button type="submit"  name="<?php echo $j ?>" class="btn btn:hover" style="width:55% ;border-radius:28px;">Enroll</button>
                                         </div>
                                     </div>
                                     <input type="hidden" name="com_id" value="<?php echo $compi[$j]['com_id'];  ?>">

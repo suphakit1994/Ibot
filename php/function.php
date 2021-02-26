@@ -1051,5 +1051,218 @@ function sel_id_cps(mysqli $conn,$name){
 		return $data;
 	}
 }
+function sec_ibot_textslide(mysqli $conn){
+	$sql = "SELECT* FROM home_textslide WHERE 1";
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function ibot_textslide_add(mysqli $conn,$data,$name){
+
+	$sql = "INSERT INTO home_textslide (content,approver)
+	VALUES (
+	'".$data['content']."',
+	'$name'
+)";
+echo $sql;
+
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false; 	
+}
+mysqli_close($conn);
+}
+function ibot_textslide_update(mysqli $conn,$data){
+	$id =$_POST['id'];
+	$content = $_POST['content'];
+	
+	$sql = "UPDATE `home_textslide` 
+	SET `id`='$id',
+	`content` = '$content'
+	WHERE `id` = $id";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+	// echo $sql;
+}
+function ibot_textslide_delete(mysqli $conn,$data){
+	$id =$_POST['id'];
+
+	$sql = "DELETE FROM home_textslide 
+	WHERE `id` = '$id'";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+function ibot_news_insert(mysqli $conn,$data){    //หน้าข้อมูลข่าว    
+	$ext = pathinfo(basename($_FILES['img_news']['name']),PATHINFO_EXTENSION);
+	$new_image_name = 'img_'.uniqid().".".$ext;
+	$image_path = "../img_news/";
+	$upload_path = $image_path.$new_image_name;
+	//uploading
+	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
+		move_uploaded_file($_FILES['img_news']['tmp_name'], $upload_path);
+		$img_news  = $new_image_name;	
+		echo "upload at file.";   
+	}else{
+		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	}
+
+	$sql = " INSERT INTO `home_ibotnews`(
+
+	`topic`, 
+	`content`, 
+	`image_news`) 
+	VALUES (
+	'".$data['topic']."',
+	'".$data['content']."',
+	'$img_news'
+)";
+$resuit =  mysqli_query($conn, $sql);
+if ($resuit) {
+
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false;
+}	
+mysqli_close($conn);	
+error_reporting(0);
+}
+function ibot_news_update(mysqli $conn,$data){
+	$id =$_POST['id'];
+	$topic = $_POST['topic'];
+	$content = $_POST['content'];
+	
+	$sql = "UPDATE `home_ibotnews` 
+	SET `id`='$id',
+	`topic` = '$topic',
+	`content` = '$content'
+	WHERE `id` = $id";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+	// echo $sql;
+}
+function ibot_news_delete(mysqli $conn,$data){
+	$id =$_POST['id'];
+
+	$sql = "DELETE FROM home_ibotnews 
+	WHERE `id` = '$id'";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+function ibot_image_home_update(mysqli $conn,$data){
+	$ext = pathinfo(basename($_FILES['image_name_home']['name']),PATHINFO_EXTENSION);
+	$new_image_name = 'img_'.uniqid().".".$ext;
+	$image_path = "../img_slide/";
+	$upload_path = $image_path.$new_image_name;
+	//uploading
+	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
+		move_uploaded_file($_FILES['image_name_home']['tmp_name'], $upload_path);
+		$image_name_home  = $new_image_name;	
+		echo "upload at file.";   
+	}else{
+		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	}
+
+	
+	$sql = "UPDATE `home_imageslide` 
+	SET 
+	`image_name` = '$image_name_home'
+	WHERE `id` = 1";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+	// echo $sql;
+}
+function ibot_image_camp_update(mysqli $conn,$data){
+	$ext = pathinfo(basename($_FILES['image_name_camp']['name']),PATHINFO_EXTENSION);
+	$new_image_name = 'img_'.uniqid().".".$ext;
+	$image_path = "../img_slide/";
+	$upload_path = $image_path.$new_image_name;
+	//uploading
+	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
+		move_uploaded_file($_FILES['image_name_camp']['tmp_name'], $upload_path);
+		$image_name_camp  = $new_image_name;	
+		echo "upload at file.";   
+	}else{
+		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	}
+	
+	$sql = "UPDATE `home_imageslide` 
+	SET 
+	`image_name` = '$image_name_camp'
+	WHERE `id` = 2";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+	// echo $sql;
+}	
+function ibot_image_com_update(mysqli $conn,$data){
+	$ext = pathinfo(basename($_FILES['image_name_compeitition']['name']),PATHINFO_EXTENSION);
+	$new_image_name = 'img_'.uniqid().".".$ext;
+	$image_path = "../img_slide/";
+	$upload_path = $image_path.$new_image_name;
+	//uploading
+	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
+		move_uploaded_file($_FILES['image_name_compeitition']['tmp_name'], $upload_path);
+		$image_name_compeitition  = $new_image_name;	
+		echo "upload at file.";   
+	}else{
+		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	}
+	
+	$sql = "UPDATE `home_imageslide` 
+	SET 
+	`image_name` = '$image_name_compeitition'
+	WHERE `id` = 3";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+	// echo $sql;
+}	
 
 ?>

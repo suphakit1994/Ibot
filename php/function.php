@@ -913,6 +913,143 @@ function deletestd(mysqli $conn,$id_students){
 		return false;
 	}
 }
+function sec_ibot_news(mysqli $conn){
+	$sql = "SELECT* FROM home_ibotnews WHERE 1";
 
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function ibot_textslide_select(mysqli $conn){		
+
+	$sql = "SELECT * FROM `home_textslide` WHERE 1";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function sec_img_home(mysqli $conn){
+	$sql = "SELECT* FROM home_imageslide WHERE id = 1";
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function sec_img_camp(mysqli $conn){
+	$sql = "SELECT* FROM home_imageslide WHERE id = 2";
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function sec_img_compeitition(mysqli $conn){
+	$sql = "SELECT* FROM home_imageslide WHERE id = 3";
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+
+	}
+}
+function historymsg(mysqli $conn){
+	$sql = "SELECT * FROM `notification` WHERE status = 1 ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function sel_id_cs(mysqli $conn,$name){
+	$sql = "
+	SELECT * 
+	FROM notification AS noti 
+	INNER JOIN course_student AS cs ON cs.cs_id = noti.fk_cs_id
+	INNER JOIN student AS sd ON sd.student_id = cs.cs_student_id 
+	INNER JOIN payment AS pm ON pm.payment_id = cs.course_payment_id
+	INNER JOIN course AS c ON c.course_id = cs.cs_course_id
+	WHERE noti.status = '1' AND sd.student_name_th = '$name'";
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function sel_id_cp(mysqli $conn,$name){
+	$sql = "
+	SELECT * 
+	FROM notification AS noti 
+	INNER JOIN camp_student AS cp ON cp.cp_id = noti.fk_cp_id
+	INNER JOIN student AS sd ON sd.student_id = cp.cs_student_id 
+	INNER JOIN payment AS pm ON pm.payment_id = cp.cs_payment_id
+	INNER JOIN camp AS ca ON ca.camp_id = cp.cs_camp_id
+	WHERE noti.status = '1' AND sd.student_name_th = '$name'";
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function sel_id_cps(mysqli $conn,$name){
+	$sql = "
+	SELECT * 
+	FROM notification AS noti 
+	INNER JOIN compititions_student AS cps ON cps.cps_id = noti.fk_cps_id
+	INNER JOIN student AS sd ON sd.student_id = cps.cps_student_id 
+	INNER JOIN payment AS pm ON pm.payment_id = cps.cps_payment_id
+	INNER JOIN compititions AS com ON com.com_id = cps.cps_com_id
+
+	WHERE noti.status = '1' AND sd.student_name_th = '$name'";
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
 
 ?>

@@ -49,6 +49,9 @@
 							<th scope="col">Topic</th>
 							<th scope="col">Name</th>
 							<th scope="col">Date</th>
+							<th scope="col">Date approved</th>
+							<th scope="col">Approver</th>
+
 						</tr>
 					</thead>
 					<tbody>

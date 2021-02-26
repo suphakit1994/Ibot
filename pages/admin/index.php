@@ -365,6 +365,7 @@ include('../php/camp_function.php');
 		$cus = listmsg($conn);
 		for ($h=0; $h < count($cus); $h++) { 
 			$test = 'check_msg'.$cus[$h]['no_id'];
+			
 			if($_GET['action']=='check_msg'.$cus[$h]['no_id']){
 				$timestamp = $_POST['timestamp'];
 				$value = $cus[$h]['no_id'];
@@ -507,8 +508,8 @@ include('../php/camp_function.php');
 			
 		}
 
-	}
 
+	}
 
 
 	?>

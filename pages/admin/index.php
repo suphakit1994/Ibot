@@ -369,7 +369,6 @@ include('../php/camp_function.php');
 			if($_GET['action']=='check_msg'.$cus[$h]['no_id']){
 				$timestamp = $_POST['timestamp'];
 				$value = $cus[$h]['no_id'];
-				$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );
 				$status = updatestatus($conn,$value,$name,$timestamp);
 				// echo $timestamp;
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_msg">';

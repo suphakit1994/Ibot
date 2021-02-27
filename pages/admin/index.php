@@ -485,7 +485,7 @@ include('../php/camp_function.php');
 		}
 		if($_GET['action'] == 'image_home/update'){
 			$update_image_home = ibot_image_home_update($conn,$_POST);
-			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin>';
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
 
 		}
 		if($_GET['action'] == 'image_camp'){
@@ -494,7 +494,7 @@ include('../php/camp_function.php');
 		}
 		if($_GET['action'] == 'image_camp/update'){
 			$update_image_camp = ibot_image_camp_update($conn,$_POST);
-			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin>';
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
 
 		}
 		if($_GET['action'] == 'image_compeitition'){
@@ -503,8 +503,16 @@ include('../php/camp_function.php');
 		}
 		if($_GET['action'] == 'image_compeitition/update'){
 			$update_image_com = ibot_image_com_update($conn,$_POST);
-			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin>';
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
 			
+		}
+		if($_GET['action'] == 'video_background'){
+			require_once('video_background.php');
+		}
+		if($_GET['action'] == 'video_background/update'){
+			$update_video_background = video_background($conn,$_POST);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
+
 		}
 
 

@@ -24,9 +24,20 @@ include('../php/camp_function.php');
 
 				require_once('calendar_schedule.php');
 			}
+			if ($_GET['action'] == 'dashboardadmin') {
+				require_once('dashboard.php');		
+			}
 			if ($_GET['action'] == 'teacher_list') {
 				$list_teacher = selectteacher($conn);
 				require_once('teacher_list.php');		
+			}
+			if ($_GET['action'] == 'studentslist') {
+				$select_std = selectstudent($conn);
+				require_once('students_list.php');		
+			}
+			if ($_GET['action'] == 'courselist') {
+				$course_list = selectcourse($conn);
+				require_once('course_list.php');		
 			}
 			if ($_GET['action'] == 'teacher_add') {
 				$insert_teacher = insert_teacher($conn,$_POST);
@@ -105,7 +116,6 @@ include('../php/camp_function.php');
 			}
 			$select_calendar = calendars($conn);
 			for ($c=0; $c < count($select_calendar); $c++) { 
-				# code...
 				if ($_GET['action'] == 'edit_calendar'.$select_calendar[$c]['calender_id']) {
 					echo "===================================>".$select_calendar[$c]['calender_id'].'<br>';
 					$id_of_calendar = $select_calendar[$c]['calender_id'];
@@ -164,6 +174,7 @@ include('../php/camp_function.php');
 					require_once("teacher_edit.php");
 				}
 				if ($_GET['action'] == 'students_list') {
+					echo "string";
 					$select_std = selectstudent($conn);
 					require_once('students_list.php');
 				}
@@ -171,6 +182,7 @@ include('../php/camp_function.php');
 					require_once('dashboard.php');
 				}
 				if ($_GET['action'] == 'course_list') {
+					echo "string";
 					$course_list = selectcourse($conn);
 					require_once('course_list.php');
 				}

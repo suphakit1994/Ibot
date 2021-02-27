@@ -126,7 +126,7 @@
 																	<div id="hidecontent<?php echo $no_id; ?>" style="display: none;">
 
 																		<p style="font-weight: bolder;">ParentName :<?php echo $parentsname; ?></p>
-																		<p style="font-weight: bolder;">ParentPhone :<?php echo $parentsphone; ?></p>
+																		<p style="font-weight: bolder;">ParentPhone :<?php echo $parentphone; ?></p>
 																		<p style="font-weight: bolder;">ParentEmail :<?php echo $parentemail; ?></p>
 																		<p style="font-weight: bolder;"> ParentLine :<?php echo $parents_line; ?></p>
 

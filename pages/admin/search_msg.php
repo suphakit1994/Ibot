@@ -64,7 +64,7 @@
 									for ($c=0; $c <count($cus_1) ; $c++) { 
 										$content = $cus_1[$c]['topic'];
 										$no_id = $cus_1[$c]['no_id'];
-										if ($content == 'Enroll') {
+										if ($content == 'Enroll'AND $no_id == $no) {
 											$keys_cs = $cus_1[$c]['fk_cs_id'];
 											$set = $cus_1[$c]['student_id'];
 											$se = $cus_1[$c]['course_payment_id'];

@@ -13,7 +13,7 @@ include('../php/camp_function.php');
 	<style>
 		<?php
 		$id = $_SESSION['admin_id'];
-		$name = $_SESSION['admin_fname'];
+		$name = $_SESSION['admin_name'];
 		$level = $_SESSION['admin_level'];
 		$nlevel = $_SESSION['admin_nlevel'];
 		?><?php
@@ -179,7 +179,6 @@ include('../php/camp_function.php');
 				}
 				$edit_choice = selectcourse($conn);
 				for ($a=0; $a < count($edit_choice); $a++) { 
-				# code...
 					if ($_GET['action'] == 'choice_edit'.$edit_choice[$a]['course_id']) {
 						$call_func = $edit_choice;
 						$selet_path_html = $edit_choice[$a]['course_id'];

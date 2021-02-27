@@ -127,7 +127,7 @@
 						Content/Home
 						<span class="caret"></span>
 					</a>
-					<ul id="submenu-9" class="collapse">
+					<ul id="submenu-9" class="collapse" style="padding-bottom: 50px;">
 						<li><a href="index.php?app=admin&action=ibot_news"><i class=""></i> Ibot News</a></li>
 						<li><a href="index.php?app=admin&action=text_slide"><i class=""></i> Text Slide</a></li>
 						<li><a href="index.php?app=admin&action=video_background"><i class=""></i> Video Background</a></li>

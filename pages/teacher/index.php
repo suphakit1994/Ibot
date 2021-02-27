@@ -42,16 +42,16 @@ include("../php/course_function.php");
 				$teacher_attended = update_attended($conn,$_POST,$id_teachers,$attentded);
 				$func_teacher = checkIn_teacher($conn,$_POST,$id_teachers);
 
-				require_once('view.php');
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=teacher">';
+				// require_once('our_course.php');
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=teacher&action=report">';
 			}
 			if($_GET['action'] == 'takealeave'.$id){
 				$id_teachers = $id;
 				$attentded = $_POST['checkout_time'];
 				$func_teacher = checkIn_teacher($conn,$_POST,$id_teachers);
 
-				require_once('view.php');
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=teacher">';
+				// require_once('our_course.php');
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=teacher&action=report">';
 			}
 
 			if($_GET['action'] == 'student_assessment'){

@@ -217,8 +217,6 @@
   </div>
   <!-- WHAT WILL YOU GET -->
   <div class="row" style="text-align: center; margin-top:2%;">
-    <?php echo $background['name'];?>
-    <?php echo $img_camp['image_name'];?>
     <h2 style="font-weight: bold;">WHAT WILL YOU GET ?</h2>
 
     <!-- Left -->
@@ -299,7 +297,7 @@
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner" style="width:800px; height:260px; background:white;">
+        <div class="carousel-inner" style="width:100%; height:260px; background:white;">
           <!-- Silde1 -->
           <?php for ($i=0; $i < count($text) ; $i++) {  ?>
             <div class="item <?php if($i==0){ echo("active");}?>"  >

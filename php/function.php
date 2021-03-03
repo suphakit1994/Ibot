@@ -1308,5 +1308,81 @@ function sec_background(mysqli $conn){
 
 	}
 }
+function uploadtype_certificate(mysqli $conn,$data){
+
+	$sql = "INSERT INTO `certificate`(`name`) VALUES ('".$data['typecert']."') ";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+}
+function selecttype_certificate(mysqli $conn){
+
+	$sql = "SELECT * FROM `certificate` WHERE 1";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function select_certificate(mysqli $conn){
+
+	$sql = "SELECT * FROM `certificate_img` WHERE 1";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function select_certificate_useidcert(mysqli $conn,$id_img_certi){
+
+	$sql = "SELECT * FROM `certificate_img` WHERE id = '$id_img_certi'";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function upload_certificate(mysqli $conn,$data,$img_cert){
+	$typefile = explode("/", $img_cert['type']);
+	$ext =$typefile[1];
+
+	$new_image_name = 'img_'.uniqid().".".$ext;
+	$image_path = "../certificate_image/";
+	$upload_path = $image_path.$new_image_name;
+
+	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
+		move_uploaded_file($img_cert['tmp_name'], $upload_path);
+		$imgcert  = $new_image_name;	
+	}else{
+		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	}
+
+	$typecert = $_POST['typeofcert'];
+	$idcert = $_POST['idcert'];
+
+	$sql = "INSERT INTO `certificate_img`(`id_cert`,`name_img`) VALUES ('$idcert','$imgcert') ";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+}
 
 ?>

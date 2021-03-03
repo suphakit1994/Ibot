@@ -116,7 +116,7 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-8" class="collapse">
-						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
+						<li><a href="index.php?app=admin&action=selectcertificate"><i class=""></i>Create Certificate</a></li>
 					</ul>
 				</div>
 			</li>

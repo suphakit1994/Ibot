@@ -115,8 +115,7 @@
             </div>
           </div>  
         </form>
-        <?php  
-      }  ?>
+      <?php  }  ?>
     </div>
     <!-- <div class="text-center "> 
       <a href="index.php?app=teacher&action=student_assessment"   class="Button" style="border-radius:28px;"> Student Assessment</a>

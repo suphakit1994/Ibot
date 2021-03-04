@@ -1,3 +1,4 @@
+
 <style>
 	table {
 		border-collapse: collapse;
@@ -48,6 +49,14 @@
 								<td><?php echo $course_list[$i]['course_Age']; ?></td>
 								<td><?php echo $course_list[$i]['course_lesson']; ?></td>
 								<td><?php echo $course_list[$i]['course_price']; ?></td>
+								<td> 
+									<form method="post" action="index.php?app=admin&action=list_student_course">
+										<button type="submit" name= "<?php echo $i ?>" class=" Button" style="width:80% ;border-radius:28px;">List Name</button>
+										<input type="hidden" name="course_id" value="<?php echo $course_list[$i]['course_id'];  ?>" > 
+										<input type="hidden" name="course_code" value="<?php echo $course_list[$i]['course_code'];  ?>" >
+										<input type="hidden" name="course_expension" value="<?php echo $course_list[$i]['course_expension'];  ?>" >
+									</form>
+								</td>	
 								<td>
 									<div class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
@@ -59,7 +68,7 @@
 													<a><button type="submit" name= "<?php echo $i ?>" class=" btn btn:hover">
 														<i class="fas fa-trash" style="font-size:15px"></i> Delete</button></a>
 														<input type="hidden" name="course_id" value="<?php echo $course_list[$i]['course_id'];  ?>" > 
-												</form>
+													</form>
 												</li>
 											</ul>
 										</div>

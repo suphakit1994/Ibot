@@ -89,6 +89,14 @@ include('../php/camp_function.php');
 				require_once('all_compeitition.php');
 
 			}
+			if($_GET['action']=="compeitions_team"){
+				$com_id = $_POST['com_id'];
+				$compi = select_compi($conn,$com_id);
+				$allteam = select_allteam($conn,$com_id);
+				print_r($comadd);
+				echo count($comadd);
+				require_once('compeitions_team.php');
+			}
 
 			if($_GET['action']=="payment_compeitition"){
 				$compiadd = select_comadd($conn,$compi);
@@ -105,11 +113,7 @@ include('../php/camp_function.php');
 				$noti_compeitition = insertnoticompetition($conn,$sel_compeitition,$_POST);  ///cps คือ Compeitition
 				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_compeitition'>";
 			}
-			if($_GET['action']=="compeitions_team"){  //เช็ครายชื่อทีม
-				
-				require_once('compeitions_team.php');
-			}
-
+			
 			//------------------------camp----------------------------------------//
 			if($_GET['action']=="ibot_camp"){
 				require_once('ibot_camp.php');

@@ -79,7 +79,7 @@
 					</a>
 					<ul id="submenu-5" class="collapse">
 						
-						<li><a href="index.php?app=admin&action=courselist"><i class=""></i> Course list</a></li>
+						<li><a href="index.php?app=admin&action=course_list"><i class=""></i> Course list</a></li>
 					</ul>
 				</div>
 			</li>

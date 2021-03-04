@@ -47,7 +47,7 @@
 				<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small>
 				</button>
 				<div>
-					<h1>List Student </h1> 
+					<h1>Student List</h1> 
 					
 				</div>
 				<div  class="col-sm-12">
@@ -88,7 +88,7 @@
 				<div class="row" style="margin-top:50px ">
 
 					<div  class="col-sm-12">	
-						<a id="list_team" class="Button" style="width:10% ;border-radius:28px;"> List Team</a>
+						<a id="list_team" class="Button" style="width:10% ;border-radius:28px;"> Team List</a>
 						<div id="list_data">
 							<table style=" width: 70%;border: 1px solid black; border-collapse: collapse;">
 								<tr style="border: 1px solid black; border-collapse: collapse;">
@@ -100,7 +100,7 @@
 								<?php for ($k=0; $k<count($allteam);$k++) { ?>
 									<tr style="border: 1px solid black; border-bottom: 1px solid #ddd;;">
 
-										<td style="padding-left: 20px;"><b><?php echo $allteam[$k]['team_name'].$allteam[$k]['id']; ?></b></td>
+										<td style="padding-left: 20px;"><b><?php echo $allteam[$k]['team_name']; ?></b></td>
 
 										<td>
 											<form method="post" action="index.php?app=admin&action=">

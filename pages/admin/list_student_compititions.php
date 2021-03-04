@@ -18,7 +18,7 @@
 	th {
 		padding: 10px !important;
 		text-align: left;
-		border-bottom: 1px solid #ddd;
+		/*border-bottom: 1px solid #ddd;*/
 	}
 
 	
@@ -47,19 +47,17 @@
 				<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small>
 				</button>
 				<div>
-					<h1>List Student </h1>
+					<h1>List Student </h1> 
+					
 				</div>
 				<div  class="col-sm-12">
 					<label>Program : <?php echo $list_student[0]['com_program'] ?></label>
-
-
 					<table>
 						<tr>
 							<th style=" width: 10px;"></th>
 							<th>Name</th>
 							<th>UserName</th>
 						</tr>
-
 						<?php for($j=0;$j<count($list_student);$j++ ){?>
 							<tr>
 								<td style=" width: 10px;"> <?php  echo $j+"1"."."."  " ?> </td>
@@ -70,7 +68,7 @@
 										<a><button type="submit" name= "<?php echo $j ?>" class="Button"style="width:30% ;">
 											<i class="fas fa-trash" style="font-size:15px"></i> Delete</button></a>
 											<input type="hidden" name="student_id" value="<?php echo $list_student[$j]['student_id'];  ?>">
-											<input type="hidden" name="com_id" value="<?php echo $com_id;  ?>">
+											<input type="hidden" name="com_id" value="<?php echo $com_id; ?>">
 										</form>
 									</td>
 								</tr>
@@ -92,17 +90,17 @@
 					<div  class="col-sm-12">	
 						<a id="list_team" class="Button" style="width:10% ;border-radius:28px;"> List Team</a>
 						<div id="list_data">
-							<table style=" width: 70%;">
-								<tr>
+							<table style=" width: 70%;border: 1px solid black; border-collapse: collapse;">
+								<tr style="border: 1px solid black; border-collapse: collapse;">
 									
 									<th>Name Team</th>
 									<th></th>
 									<th>Student Name</th>
 								</tr>
 								<?php for ($k=0; $k<count($allteam);$k++) { ?>
-									<tr style=" width: 10px;">
+									<tr style="border: 1px solid black; border-bottom: 1px solid #ddd;;">
 
-										<td><b><?php echo $allteam[$k]['team_name'].$allteam[$k]['id']; ?></b></td>
+										<td style="padding-left: 20px;"><b><?php echo $allteam[$k]['team_name'].$allteam[$k]['id']; ?></b></td>
 
 										<td>
 											<form method="post" action="index.php?app=admin&action=">
@@ -114,19 +112,17 @@
 											</td>
 											<td>
 
-												<?php $id = $list_studentteam[$k]['id'] ?>
-
-												<?php if($allteam[$k]['id']=$id){ ?>
-													<?php echo $allteam[$k]['team_name'].$allteam[$k]['id']; ?>
-													<p><?php echo $list_studentteam[$k]['student_name_eng']; ?></p>
-
+												<?php $id = $allteam[$k]['id']?>
+												
+												<?php $list_studentteam =list_studentteam($conn,$com_id,$id); ?>
+												<?php for($y=0;$y<count($list_studentteam);$y++){ ?>
+													<p><?php echo $list_studentteam[$y]['student_name_eng']?></p>
 												<?php } ?>
-
+												
 											</td>
-
-
 										</tr>
 									<?php } ?>
+
 								</table>
 
 							</div>
@@ -135,7 +131,7 @@
 				</div>
 
 				<!-- Modal -->
-				<form method="post" action="index.php?app=admin&action=list_student_compitition/add">
+				<form method="post" action="index.php?app=admin&action=list_student_compitition/<?php echo $_POST['com_id']; ?>">
 					<input type="hidden" name="com_id" value="<?php echo $_POST['com_id'] ?>">
 					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
@@ -162,6 +158,7 @@
 								<div class="modal-footer">
 									<button type="button" style="width: 15%; border-radius:28px;" class="Button" data-dismiss="modal">Close</button>
 									<button type="submit"  style="width: 30%; border-radius:28px;" class="Button">Save changes</button>
+									
 								</div>
 							</div>
 						</div>

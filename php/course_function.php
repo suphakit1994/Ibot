@@ -71,6 +71,30 @@ function selectcourse(mysqli $conn){
 		return $data;
 	}
 }
+function course_delete(mysqli $conn,$course_id){
+	
+	$sql = "DELETE FROM `course` WHERE course_id = $course_id";
+	// echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+function delete_camp(mysqli $conn, $data){
+	$camp_id = $_POST['camp_id'];
+
+	$sql = "DELETE FROM camp 
+	WHERE `camp_id` = $camp_id";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
 function selectfile(mysqli $conn){
 
 	$sql = "SELECT * FROM `file` WHERE 1";

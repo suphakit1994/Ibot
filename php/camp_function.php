@@ -111,19 +111,7 @@ function update_camp(mysqli $conn,$data){
 	// echo $sql;
 }
 
-function delete_camp(mysqli $conn, $data){
-	$camp_id = $_POST['camp_id'];
 
-	$sql = "DELETE FROM camp 
-	WHERE `camp_id` = $camp_id";
-	echo $sql;
-	if ( mysqli_query($conn, $sql)) {
-		return true;
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		return false;
-	}
-}
 
 //--------------------------------compitition--------------------------------------
 
@@ -360,7 +348,7 @@ function delete_student_compitition(mysqli $conn,$com_id,$student_id){		//ลบ
 
 function addteam_compi(mysqli $conn,$team_name,$new_no,$com_id){	
 	$sql = "INSERT INTO `add team`( `team_name`, `No.1`, `No.2`, `No.3`, `No.4`,`com_id`) VALUES ('".$team_name."','".$new_no[0]."','".$new_no[1]."','".$new_no[2]."','".$new_no[3]."','".$com_id."')";
-	echo $sql;
+	// echo $sql;
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -395,9 +383,9 @@ function update_compi_student(mysqli $conn,$new_no,$com_id){
 		}
 
 	}
-	function list_studentteam(mysqli $conn,$com_id){	//หน้า list student addteam	
+	function list_studentteam(mysqli $conn,$com_id,$id){	//หน้า list student addteam	
 		
-		$sql = "SELECT * FROM `add team`as a JOIN student AS st ON st.student_id IN (a.`No.1`, a.`No.2`, a.`No.3` , a.`No.4` ) WHERE a.`com_id`= '$com_id' ";
+		$sql = "SELECT * FROM `add team`as a JOIN student AS st ON st.student_id IN (a.`No.1`, a.`No.2`, a.`No.3` , a.`No.4` ) WHERE a.`com_id`= '$com_id' AND  a.`id` = '$id' ";
 		$result = $conn->query($sql); 
 		// echo $sql;
 		if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {

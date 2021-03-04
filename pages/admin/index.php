@@ -13,7 +13,7 @@ include('../php/camp_function.php');
 	<style>
 		<?php
 		$id = $_SESSION['admin_id'];
-		$name = $_SESSION['admin_fname'];
+		$name = $_SESSION['admin_name'];
 		$level = $_SESSION['admin_level'];
 		$nlevel = $_SESSION['admin_nlevel'];
 		?><?php
@@ -174,6 +174,11 @@ include('../php/camp_function.php');
 					$course_list = selectcourse($conn);
 					require_once('course_list.php');
 				}
+				if ($_GET['action'] == 'admin_course_delete') {
+					$course_id = $_POST['course_id'];
+					$course_delete = course_delete($conn,$course_id );
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=course_list">';
+				}
 				if ($_GET['action'] == 'course_edit') {
 					require_once('course_edit.php');
 				}
@@ -289,45 +294,38 @@ include('../php/camp_function.php');
 			$compitype = select_compitype($conn);				
 			$compi = com_select($conn);	
 			// print_r($type['com_type']) ;
-			// require_once('testfaii.php');
 			require_once('addteam_compitition.php');
-
-		}
-		if ($_GET['action'] == 'list_student_compitition') { //แสดงรายชื่อนักเรียนที่ลงแต่ล่ะโปรแกรม
-			$com_id=$_POST['com_id'];
-			$list_student=list_student($conn,$com_id);
-			// print_r($list_student) ;	
+		}	
+		$com_id=$_POST['com_id'];
+		if ($_GET['action'] == 'list_student_compitition') { //แสดงรายชื่อนักเรียนที่ลงแต่ล่ะโปรแกรม	
+			$list_student=list_student($conn,$com_id);	
 			$allteam = select_allteam($conn,$com_id);
-			$list_studentteam=list_studentteam($conn,$com_id);
-			// print_r($allteam);
-			// echo "=============================================================";
-			// $list_studentteam=list_studentteam($conn,$com_id);
-			// print_r($list_studentteam);
 			require_once('list_student_compititions.php');
-
-			
 		}
-		if ($_GET['action'] == 'list_student_compitition/add') { //จัดทีม
-			$com_id=$_POST['com_id'];
+		if ($_GET['action'] == 'list_student_compitition/'.$com_id) { //จัดทีม
 			$new_no = $_POST['my_checkbox'];
-			// echo "----------------------------------".$new_no;
+			// echo "----------------------------------".$com_id;
 			$team_name=$_POST['team_name'];
 			$addteam=addteam_compi($conn,$team_name,$new_no,$com_id);
 			$updat_compi_student = update_compi_student($conn,$new_no,$com_id);
-			echo $updat_compi_student;
-			// print_r($new_no) ;
-			// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_student_compitition">';
-			
-			
+			require_once('thak_team.php');
+			// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=addteam_compitition">';	
 		}
-		if ($_GET['action'] == 'delete_student_compitition') { 
+
+		if ($_GET['action'] == 'delete_team') { //จัดทีม
+
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_student_compitition">';	
+		}
+		if ($_GET['action'] == 'delete_student_compitition') { //ลบรายชื่อนักเรียนในกิจกรรมนั้นๆ รายบุคคล
 			$com_id=$_POST['com_id'];
 			$student_id=$_POST['student_id'];
 			echo $com_id." ".$student_id;
 			$delete=delete_student_compitition($conn,$com_id,$student_id);
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=addteam_compitition">';
 
-		}
+		} 	
+
+
 
 		//-----------------------------camp----------------------------------------------
 		if ($_GET['action'] == 'admin_camp') {

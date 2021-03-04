@@ -18,10 +18,6 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-
-
-
-
 					<div class="row" style="display: flex; align-items: center;">
 						<div class="col-sm-6">
 							<div style="display: flex;justify-content: flex-start">
@@ -56,16 +52,23 @@
 									<div class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
 										<ul class="dropdown-menu">
-											<li><a href="index.php?app=admin&action=choice_edit<?php echo $course_list[$i]['course_id']; ?>"><i class="far fa-edit" style="font-size:15px"></i> Edit</a></li>
-											<li><a href="#"><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
-										</ul>
-									</div>
-								</td>
-							</tr>
-						<?php }?>
-					</table>
+											<li><a href="index.php?app=admin&action=choice_edit<?php echo $course_list[$i]['course_id']; ?>"><i class="far fa-edit" style="font-size:15px"></i> Edit</a>
+											</li>
+											<li>
+												<form method="post" action="index.php?app=admin&action=admin_course_delete">
+													<a><button type="submit" name= "<?php echo $i ?>" class=" btn btn:hover">
+														<i class="fas fa-trash" style="font-size:15px"></i> Delete</button></a>
+														<input type="hidden" name="course_id" value="<?php echo $course_list[$i]['course_id'];  ?>" > 
+												</form>
+												</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							<?php }?>
+						</table>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>	
-</body>
+		</div>	
+	</body>

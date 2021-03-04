@@ -1,9 +1,13 @@
+
 <head>
   <meta charset="UTF-8">
 <!--   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
-
+  <script src="../cp/jquery-3.3.1.js"></script>
+  <script src="../cp/canvas2image.js"></script>
+  <script src="../cp/html2canvas.min.js"></script>
   <style>
+
     .container {
       position: relative;
       text-align: center;
@@ -17,71 +21,59 @@
       transform: translate(-50%, -50%);
       font-size: 30px;
     }
-    @media print {
-/*       body * {
-        visibility: hidden;
-      }
-      #section-to-print, #section-to-print * {
-        visibility: visible;
-      }
-      #section-to-print {
-        position: absolute;
-        left: 0;
-        top: 0;
-        } */
-      }
 
-    </style>
-  </head>
-  <body>
+  </style>
+</head>
+<body>
 
-    <script>
-     function myFunction() {
-      window.print('#contens');
-    }
+  <script>
     $(document).ready(function(){
       $("#editname").click(function(){
         var str = $("#nameteacher").val();
-        $("#test1").text(str);
+        $("#nameedited").text(str);
       });
       $("#up").click(function(){
         var current_pos = parseInt($('.centered').css('top'));
-        console.log(current_pos);
+        
         var new_pos = current_pos-5;
         console.log(new_pos);
         $(".centered").css({"top":new_pos});
       });
       $("#down").click(function(){
         var current_pos = parseInt($('.centered').css('top'));
-        console.log(current_pos);
+        
         var new_pos = current_pos+5;
         console.log(new_pos);
         $(".centered").css({"top":new_pos});
       });
       $("#left").click(function(){
         var current_pos = parseInt($('.centered').css('left'));
-        console.log(current_pos);
+        
         var new_pos = current_pos-10;
         console.log(new_pos);
         $(".centered").css({"left":new_pos});
       });
       $("#right").click(function(){
         var current_pos = parseInt($('.centered').css('left'));
-        console.log(current_pos);
+        
         var new_pos = current_pos+10;
         console.log(new_pos);
         $(".centered").css({"left":new_pos});
       });
     });
+    function myFunction(){
+      window.print();
+    }
+
   </script>
   <div class="page-content p-5" id="content">
     <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 
     <div class="container" id="contens">
       <?php for($img_cert = 0; $img_cert<count($get_img_cert); $img_cert++){?>
-        <img src="../certificate_image/<?php echo $get_img_cert[$img_cert]['name_img'];?>" style="width: 100%;height: 100%;">
+        <img class="container" src="../certificate_image/<?php echo $get_img_cert[$img_cert]['name_img'];?>" style="width: 100%;height: 100%;">
       <?php }?>         
-      <span id="test1" class="centered">Jedsada Thipsang</span>
+      <span id="nameedited" class="centered">Jedsada Thipsang</span>
 
       <!-- <span class="centered">Jeasda Thipsang</span> -->
 
@@ -96,44 +88,27 @@
       <button id="down">Down</button>
       <button id="left">Left</button>
       <button id="right">Right</button>
-      <button onclick="myFunction()">Print this page</button>
+      <button id="save">Print this page</button>
+      <p id="preview"></p>
     </div>
   </div>
+  <script>
+    $('#save').click(function() {
+     var name_std = $("#nameteacher").val();
+     var user_std = $("#userteacher").val();
+     var elm = $('#contens').get(0);
+     var lebar = "1754";
+     var tinggi = "1240";
+     var type = "jpeg";
+     var filename = name_std+user_std;
+     html2canvas(elm).then(function(canvas){
+      var canWidth = canvas.width;
+      var canHeight = canvas.height;
+      var img = Canvas2Image.convertToImage(canvas,canWidth,canHeight);
+        // $('#contens').after(img);
+        var bashh = Canvas2Image.saveAsImage(canvas,lebar,tinggi,type,filename);
+      })
+   });
+ </script>
 
 </body>
-
-
-<!--   <h2>Clickable Dropdown</h2>
-  <p>Click on the button to open the dropdown menu.</p>
-
-  <div class="dropdown">
-    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-    <div id="myDropdown" class="dropdown-content">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-
-  <script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
--->

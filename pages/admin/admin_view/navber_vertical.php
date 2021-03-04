@@ -30,7 +30,7 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-1" class="collapse">
-						<li><a href="index.php?app=admin&action=dashboard"><i class=""></i>Dashboard</a></li>
+						<li><a href="index.php?app=admin&action=dashboardadmin"><i class=""></i>Dashboard</a></li>
 					</ul>
 				</div>
 			</li>
@@ -66,7 +66,7 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-4" class="collapse">
-						<li><a href="index.php?app=admin&action=students_list"><i class=""></i>Students List</a></li>
+						<li><a href="index.php?app=admin&action=studentslist"><i class=""></i>Students List</a></li>
 					</ul>
 				</div>
 			</li>
@@ -79,7 +79,7 @@
 					</a>
 					<ul id="submenu-5" class="collapse">
 						
-						<li><a href="index.php?app=admin&action=course_list"><i class=""></i> Course list</a></li>
+						<li><a href="index.php?app=admin&action=courselist"><i class=""></i> Course list</a></li>
 					</ul>
 				</div>
 			</li>
@@ -116,7 +116,7 @@
 						<span class="caret"></span>
 					</a>
 					<ul id="submenu-8" class="collapse">
-						<li><a href="#"><i class=""></i> SUBMENU 1.1</a></li>
+						<li><a href="index.php?app=admin&action=selectcertificate"><i class=""></i>Create Certificate</a></li>
 					</ul>
 				</div>
 			</li>
@@ -127,7 +127,7 @@
 						Content/Home
 						<span class="caret"></span>
 					</a>
-					<ul id="submenu-9" class="collapse">
+					<ul id="submenu-9" class="collapse" style="padding-bottom: 50px;">
 						<li><a href="index.php?app=admin&action=ibot_news"><i class=""></i> Ibot News</a></li>
 						<li><a href="index.php?app=admin&action=text_slide"><i class=""></i> Text Slide</a></li>
 						<li><a href="index.php?app=admin&action=video_background"><i class=""></i> Video Background</a></li>

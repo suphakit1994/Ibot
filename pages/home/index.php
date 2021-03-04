@@ -11,6 +11,8 @@ if(!isset($_GET['action'])){
 	$img_home = sec_img_home($conn);
 	$img_camp = sec_img_camp($conn);
 	$img_compeitition = sec_img_compeitition($conn);
+	$background = sec_background($conn);
+
 
 
 	require_once('view.php');

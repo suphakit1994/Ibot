@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 error_reporting(~E_NOTICE);
 date_default_timezone_set("Asia/Bangkok");
 include("../php/config.php");
@@ -40,6 +40,10 @@ include('../php/camp_function.php');
 				$arr = count($course);
 				require_once('our_course.php');
 				$pri = selectcourse_prices($conn,$_POST);   //แสดงข้อมูลคอสในหน้าสมัครคอส
+			}
+			if($_GET['action']=="certificate"){
+				$namestudent = $name;
+				require_once('certificate.php');
 			}
 
 			if($_GET['action']=="enroll"){

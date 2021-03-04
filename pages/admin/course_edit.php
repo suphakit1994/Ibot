@@ -86,7 +86,7 @@
 		<div style="display: flex; text-align: center;justify-content: center;padding: 25px;">
 			<h1>ADD Course</h1>
 		</div>
-		<form method="POST"  action="index.php?app=admin&action=admin_course/addcourse" enctype="multipart/form-data">
+		<form method="POST"  action="index.php?app=admin&action=courseadd" enctype="multipart/form-data">
 			<div class="flex-upload-pic">
 				<div class="avatar-wrapper">
 					<img class="profile-pic" style=" height: 100%;  width: 100%;" >
@@ -146,9 +146,9 @@
 </script>
 <script language="JavaScript">
 
-function addCommas(nStr)
+	function addCommas(nStr)
 	{
-	nStr += '';
+		nStr += '';
 		x = nStr.split('.');
 		x1 = x[0];
 				//x2 = x.length > 1 ? '.' + x[1] : '';
@@ -159,10 +159,10 @@ function addCommas(nStr)
 				return x1 ;
 			}
 
-function chkNum(ele)
-	{
-		var num = parseFloat(ele.value);
-		ele.value = addCommas(num.toFixed(2));
-	}
-</script>
+			function chkNum(ele)
+			{
+				var num = parseFloat(ele.value);
+				ele.value = addCommas(num.toFixed(2));
+			}
+		</script>
 

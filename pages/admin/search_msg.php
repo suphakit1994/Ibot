@@ -64,7 +64,7 @@
 									for ($c=0; $c <count($cus_1) ; $c++) { 
 										$content = $cus_1[$c]['topic'];
 										$no_id = $cus_1[$c]['no_id'];
-										if ($content == 'Enroll') {
+										if ($content == 'Enroll'AND $no_id == $no) {
 											$keys_cs = $cus_1[$c]['fk_cs_id'];
 											$set = $cus_1[$c]['student_id'];
 											$se = $cus_1[$c]['course_payment_id'];
@@ -126,7 +126,7 @@
 																	<div id="hidecontent<?php echo $no_id; ?>" style="display: none;">
 
 																		<p style="font-weight: bolder;">ParentName :<?php echo $parentsname; ?></p>
-																		<p style="font-weight: bolder;">ParentPhone :<?php echo $parentsphone; ?></p>
+																		<p style="font-weight: bolder;">ParentPhone :<?php echo $parentphone; ?></p>
 																		<p style="font-weight: bolder;">ParentEmail :<?php echo $parentemail; ?></p>
 																		<p style="font-weight: bolder;"> ParentLine :<?php echo $parents_line; ?></p>
 

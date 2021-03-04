@@ -26,7 +26,7 @@
 						</div>
 						<div class="col-sm-6">
 							<div style="display: flex;justify-content: flex-end">
-								<a class="btn btn-primary" type="" style="padding: 4px;" href="index.php?app=admin&action=course_edit">+ Add New</a>
+								<a class="btn btn-primary" type="" style="padding: 4px;" href="index.php?app=admin&action=editdatacourse">+ Add New</a>
 							</div>
 						</div>
 					</div>		

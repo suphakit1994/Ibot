@@ -147,10 +147,10 @@
           <img src="../img_slide/<?php echo $img_home['image_name'];?>" style="width: 800px; height:500px;">
         </div>
         <div class="tabbed-section-2 hidden">
-          <img src="../img_slide/<?php echo $img_camp['image_name'];?>" style="width: 800px; height:500px;">
+          <img src="../img_slide/<?php echo $img_compeitition['image_name'];?>" style="width: 800px; height:500px;">
         </div>
         <div class="tabbed-section-3 hidden">
-          <img src="../img_slide/<?php echo $img_compeitition['image_name'];?>" style="width: 800px; height:500px;">
+          <img src="../img_slide/<?php echo $img_camp['image_name'];?>" style="width: 800px; height:500px;">
         </div>
       </div>
     </div>
@@ -284,7 +284,8 @@
   </div>
   <!-- Content Video -->
   <div class="row" style=" position:relative; margin-bottom:2%; padding-left: 1%;">
-    <video src="../images/IBot Education.mp4" autoplay loop playsinline muted></video>
+
+    <video src="../img_slide/<?php echo $background['name'];?>" autoplay loop playsinline muted></video>
     <div class="col-md-6" style="position: absolute; top:65%; left:9%; width:44%;">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -296,7 +297,7 @@
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner" style="width:800px; height:260px; background:white;">
+        <div class="carousel-inner" style="width:100%; height:260px; background:white;">
           <!-- Silde1 -->
           <?php for ($i=0; $i < count($text) ; $i++) {  ?>
             <div class="item <?php if($i==0){ echo("active");}?>"  >

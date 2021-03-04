@@ -24,6 +24,40 @@ include('../php/camp_function.php');
 
 				require_once('calendar_schedule.php');
 			}
+			if($_GET['action']=="selectcertificate"){
+				$select_cert = selecttype_certificate($conn);
+				$select_img_cert = select_certificate($conn);
+				require_once('select_certi.php');
+			}
+			if($_GET['action']=="uploadcertificate"){
+				$upload_img_cert = uploadtype_certificate($conn,$_POST);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="2;index.php?app=admin&action=selectcertificate">';
+			}
+			$get_select_cert = selecttype_certificate($conn);
+			for($typecert = 0; $typecert < count($get_select_cert); $typecert++){
+				if($_GET['action']=="uploadcertificate".$get_select_cert[$typecert]['id']){
+					// echo $get_select_cert[$typecert]['id'];
+					$img_cert = $_FILES['imagecert'];
+
+					// echo json_encode($_FILES['imagecert']);
+					$upload_cert = upload_certificate($conn,$_POST,$img_cert);
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="2;index.php?app=admin&action=selectcertificate">';
+				}
+				if($_GET['action']=="editcertificate".$get_select_cert[$typecert]['id']){
+					require_once('certificate.php');
+				}
+			}
+			$select_img_cert = select_certificate($conn);
+			for($cardcertificate = 0; $cardcertificate < count($select_img_cert); $cardcertificate++){
+				if($_GET['action']=="editcertificate".$select_img_cert[$cardcertificate]['id']){
+					$id_img_certi = $select_img_cert[$cardcertificate]['id'];
+					$get_img_cert = select_certificate_useidcert($conn,$id_img_certi);
+					require_once('certificate.php');
+				}
+			}
+			if($_GET['action']=="certificate"){
+				require_once('certificate.php');
+			}
 			if ($_GET['action'] == 'teacher_list') {
 				$list_teacher = selectteacher($conn);
 				require_once('teacher_list.php');		

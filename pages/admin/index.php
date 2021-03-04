@@ -43,9 +43,6 @@ include('../php/camp_function.php');
 					$upload_cert = upload_certificate($conn,$_POST,$img_cert);
 					echo '<META HTTP-EQUIV="Refresh" CONTENT="2;index.php?app=admin&action=selectcertificate">';
 				}
-				if($_GET['action']=="editcertificate".$get_select_cert[$typecert]['id']){
-					require_once('certificate.php');
-				}
 			}
 			$select_img_cert = select_certificate($conn);
 			for($cardcertificate = 0; $cardcertificate < count($select_img_cert); $cardcertificate++){

@@ -3,8 +3,11 @@
   <meta charset="UTF-8">
 <!--   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
-
+  <script src="../cp/jquery-3.3.1.js"></script>
+  <script src="../cp/canvas2image.js"></script>
+  <script src="../cp/html2canvas.min.js"></script>
   <style>
+
     .container {
       position: relative;
       text-align: center;
@@ -85,9 +88,27 @@
       <button id="down">Down</button>
       <button id="left">Left</button>
       <button id="right">Right</button>
-      <button onclick="myFunction()">Print this page</button>
+      <button id="save">Print this page</button>
+      <p id="preview"></p>
     </div>
   </div>
+  <script>
+    $('#save').click(function() {
+     var name_std = $("#nameteacher").val();
+     var user_std = $("#userteacher").val();
+     var elm = $('#contens').get(0);
+     var lebar = "1754";
+     var tinggi = "1240";
+     var type = "jpeg";
+     var filename = name_std+user_std;
+     html2canvas(elm).then(function(canvas){
+      var canWidth = canvas.width;
+      var canHeight = canvas.height;
+      var img = Canvas2Image.convertToImage(canvas,canWidth,canHeight);
+        // $('#contens').after(img);
+        var bashh = Canvas2Image.saveAsImage(canvas,lebar,tinggi,type,filename);
+      })
+   });
+ </script>
 
 </body>
-

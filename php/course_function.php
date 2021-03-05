@@ -40,19 +40,18 @@ function instercourse(mysqli $conn,$data){
 	'$course_code',
 	'$course_lesson',
 	'$course_price',
-	'$course_img '
-)";
+	'$course_img ')";
 
-$resuit =  mysqli_query($conn, $sql);
-if ($resuit) {
+	$resuit =  mysqli_query($conn, $sql);
+	if ($resuit) {
 
-	return true;
-} else {
-	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	return false;
-}	
-mysqli_close($conn);	
-error_reporting(0);
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}	
+	mysqli_close($conn);	
+	error_reporting(0);
 }
 
 

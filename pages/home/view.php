@@ -32,8 +32,7 @@
     [class*="-tab-"] {
       float: left;
       display: block;
-      height: main-size*2;
-      line-height: main-size*2;
+
       width: 100px;
       text-align: center;
       background: #fff;
@@ -60,6 +59,7 @@
       left: 0;
       transition: transform .23s ease ;
     }
+
 
 
 
@@ -135,23 +135,40 @@
     </div>
     <!-- status and image -->
     <div class="row" style="margin-top:2%; text-align:center;">
-      <div class="material-tabs">
-        <div class="tabbed-section__selector" style="margin-left: 41%; margin-bottom:2%;">
-          <a class="tabbed-section__selector-tab-1 active" >Home</a>
-          <a class="tabbed-section__selector-tab-2" >Compeitition</a>  
-          <a class="tabbed-section__selector-tab-3" >Camp</a>
-          <span class="tabbed-section__highlighter"></span>
-        </div>
+      <div class="col-sm-2">
+      </div>
+      
 
-        <div class="tabbed-section-1 visible">
-          <img src="../img_slide/<?php echo $img_home['image_name'];?>" style="width: 800px; height:500px;">
+      <div class="col-sm-8">
+        <div class="row">
+          <div class="material-tabs">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+              <div class="tabbed-section__selector" style="margin-bottom:2%;  ">
+                <a class="tabbed-section__selector-tab-1 active" >Home</a>
+                <a class="tabbed-section__selector-tab-2" >Compeitition</a>  
+                <a class="tabbed-section__selector-tab-3" >Camp</a>
+                <span class="tabbed-section__highlighter"></span>
+              </div>
+              <div class="col-sm-4">
+              </div>
+            </div>
+            <div class="tabbed-section-1 visible">
+              <img src="../img_slide/<?php echo $img_home['image_name'];?>" style="width: 800px; height:500px;">
+            </div>
+            <div class="tabbed-section-2 hidden">
+              <img src="../img_slide/<?php echo $img_compeitition['image_name'];?>" style="width: 800px; height:500px;">
+            </div>
+            <div class="tabbed-section-3 hidden">
+              <img src="../img_slide/<?php echo $img_camp['image_name'];?>" style="width: 800px; height:500px;">
+            </div>
+          </div>
         </div>
-        <div class="tabbed-section-2 hidden">
-          <img src="../img_slide/<?php echo $img_compeitition['image_name'];?>" style="width: 800px; height:500px;">
-        </div>
-        <div class="tabbed-section-3 hidden">
-          <img src="../img_slide/<?php echo $img_camp['image_name'];?>" style="width: 800px; height:500px;">
-        </div>
+      </div>
+
+
+      <div class="col-sm-2">
       </div>
     </div>
     <!-- http://thecatapi.com/api/images/get?format=src&type=gif -->
@@ -286,7 +303,7 @@
   <div class="row" style=" position:relative; margin-bottom:2%; padding-left: 1%;">
 
     <video src="../img_slide/<?php echo $background['name'];?>" autoplay loop playsinline muted></video>
-    <div class="col-md-6" style="position: absolute; top:65%; left:9%; width:44%;">
+    <div class="col-md-6" style="position: absolute; top:64%; left:9%; width:44%;">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">

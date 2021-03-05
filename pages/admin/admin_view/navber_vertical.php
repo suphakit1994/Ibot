@@ -136,7 +136,23 @@
 						<li><a href="index.php?app=admin&action=image_compeitition"><i class=""></i> Image Slide/Compeitition</a></li>
 					</ul>
 				</div>
-			</li>	
+			</li>
+			<li class="nav-item space_of_items">
+				<div class="dropdown">
+					<a href="#" class="nav-link text-dark font-italic a_fontoflist" id="about-us" data-toggle="collapse" data-target="#submenu-10" aria-haspopup="true" aria-expanded="false">
+						<i class="far fa-edit mr-3  fa-fw"></i>
+						Content/AboutUs
+						<span class="caret"></span>
+					</a>
+					<ul id="submenu-10" class="collapse" style="padding-bottom: 50px;">
+						<li><a href="index.php?app=admin&action=text_slide_about"><i class=""></i> Text Slide</a></li>
+						<li><a href="index.php?app=admin&action=about_us_certificate"><i class=""></i> Certificate</a></li>
+						<li><a href="index.php?app=admin&action=about_us_performance"><i class=""></i> Our Performance</a></li>
+						<li><a href="index.php?app=admin&action=about_us_ourteam"><i class=""></i> Our Team</a></li>
+
+					</ul>
+				</div>
+			</li>			
 		</ul>
 	</div>
 

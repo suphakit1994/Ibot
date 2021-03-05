@@ -557,6 +557,104 @@ include('../php/camp_function.php');
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin>';
 			
 		}
+		if($_GET['action'] == 'video_background'){
+			require_once('video_background.php');
+		}
+		if($_GET['action'] == 'video_background/update'){
+			$update_video_background = video_background($conn,$_POST);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin">';
+
+		}
+
+		if($_GET['action'] == 'text_slide_about'){
+			$cus = sec_about_textslide($conn);
+			require_once('text_slide_about.php');
+		}
+		if($_GET['action'] == 'text_slide_add_about'){
+			require_once('text_slide_add_about.php');
+		}
+		if ($_GET['action'] == 'text_slide_add_about/add') {
+			$text = $_POST['content'];
+			$topic = $_POST['topic'];
+
+			if (strlen($text) > 200 || strlen($topic) > 70) {
+				$message = "ไม่สามารถเพิ่มข้อมูลได้ เนื่องจากข้อมูลมีความยาวมากเกินไป";
+				echo "<script type='text/javascript'>alert('$message');</script>";
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=text_slide_about">';
+			}else{
+				$ins_text=about_textslide_add($conn,$_POST);	
+				echo '<META HTTP-EQUIV="Refresh" CONTENT=	"0;index.php?app=admin&action=text_slide_about">';
+			}
+		}
+		if ($_GET['action'] == 'text_slide_edit_about') {
+			$edit_textslide = about_textslide_sel($conn,$_POST);
+			require_once('text_slide_edit_about.php');
+		}
+
+		if ($_GET['action'] == 'text_slide_edit_about/add') {
+			
+			$text = $_POST['content'];
+			$topic = $_POST['topic'];
+
+			if (strlen($text) > 200 || strlen($topic) > 70) {
+				$message = "ไม่สามารถเพิ่มข้อมูลได้ เนื่องจากข้อมูลมีความยาวมากเกินไป";
+				echo "<script type='text/javascript'>alert('$message');</script>";
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=text_slide_about">';
+			}else{
+				$edit_textslide = about_textslide_sel($conn,$_POST);
+				$update_textslide = about_textslide_update($conn,$_POST);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=text_slide_about">';
+			}
+		}
+		if ($_GET['action'] == 'text_slide_delete_about') {
+			$delete_textslide = about_textslide_delete($conn,$_POST);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=text_slide_about">';
+		}
+		if ($_GET['action'] == 'about_us_ourteam') {
+			$cus = about_ourteam($conn);
+			require_once('about_us_ourteam.php');
+		}
+		
+		if ($_GET['action'] == 'about_us_ourteam_edit'){
+			$ourteam_sel = ourteam_sel($conn,$_POST);
+			require_once('about_us_ourteam_edit.php');
+
+		}
+		if ($_GET['action'] == 'about_us_ourteam_edit/add') {
+			$ourteam_sel = ourteam_sel($conn,$_POST);
+			$update_ourtem = about_ourteam_update($conn,$_POST);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=about_us_ourteam">';
+		}
+		if ($_GET['action'] == 'about_us_certificate') {
+			$cus = about_cer($conn);
+			require_once('about_us_cer.php');
+		}
+		
+		if ($_GET['action'] == 'about_us_certificate_edit'){
+			$cer_sel = cer_sel($conn,$_POST);
+			require_once('about_us_cer_edit.php');
+
+		}
+		if ($_GET['action'] == 'about_us_certificate_edit/add') {
+			$cer_sel = cer_sel($conn,$_POST);
+			$update_cer = about_cer_update($conn,$_POST);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=about_us_certificate">';
+		}
+		if ($_GET['action'] == 'about_us_performance') {
+			$cus = about_per($conn);
+			require_once('about_us_per.php');
+		}
+		
+		if ($_GET['action'] == 'about_us_performance_edit'){
+			$per_sel = per_sel($conn,$_POST);
+			require_once('about_us_per_edit.php');
+
+		}
+		if ($_GET['action'] == 'about_us_performance_edit/add') {
+			$per_sel = per_sel($conn,$_POST);
+			$update_per = about_per_update($conn,$_POST);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=about_us_performance">';
+		}
 
 
 	}

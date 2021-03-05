@@ -15,7 +15,7 @@ function calendars(mysqli $conn){
 }
 
 function aboutus_news(mysqli $conn){
-	$sql = "SELECT * FROM `news` WHERE 1 ";
+	$sql = "SELECT * FROM `aboutus_textslide` WHERE 1 ";
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$data =[];
@@ -1266,34 +1266,7 @@ function ibot_image_com_update(mysqli $conn,$data){
 	mysqli_close($conn);
 // echo $sql;
 }
-function video_background(mysqli $conn,$data){
-	$ext = pathinfo(basename($_FILES['video_background']['name']),PATHINFO_EXTENSION);
-	$new_image_name = 'img_'.uniqid().".".$ext;
-	$image_path = "../img_slide/";
-	$upload_path = $image_path.$new_image_name;
-//uploading
-	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" || $ext == "mp4" || $ext == "wmv") {
-		move_uploaded_file($_FILES['video_background']['tmp_name'], $upload_path);
-		$video_background  = $new_image_name;	
-		echo "upload at file.";   
-	}else{
-		echo "Sorry, only JPG, JPEG, PNG , GIF , MP4 , WMV files are allowed.";
-	}
 
-	$sql = "UPDATE `video_background` 
-	SET 
-	`name` = '$video_background'
-	WHERE `id` = 1";
-
-	if ( mysqli_query($conn, $sql)) {
-		return true;
-	} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		return false; 	
-	}
-	mysqli_close($conn);
-// echo $sql;
-}
 
 function sec_background(mysqli $conn){
 	$sql = "SELECT* FROM `video_background` WHERE id = 1";
@@ -1384,5 +1357,373 @@ function upload_certificate(mysqli $conn,$data,$img_cert){
 	}
 	mysqli_close($conn);
 }
+function video_background(mysqli $conn,$data){
+	$ext = pathinfo(basename($_FILES['video_background']['name']),PATHINFO_EXTENSION);
+	$new_image_name = 'img_'.uniqid().".".$ext;
+	$image_path = "../img_slide/";
+	$upload_path = $image_path.$new_image_name;
+//uploading
+	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" || $ext == "mp4" || $ext == "wmv") {
+		move_uploaded_file($_FILES['video_background']['tmp_name'], $upload_path);
+		$video_background  = $new_image_name;	
+		echo "upload at file.";   
+	}else{
+		echo "Sorry, only JPG, JPEG, PNG , GIF , MP4 , WMV files are allowed.";
+	}
+
+	$sql = "UPDATE `video_background` 
+	SET 
+	`name` = '$video_background'
+	WHERE `id` = 1";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+// echo $sql;
+}
+function ibot_textslide_sel(mysqli $conn,$data){		
+
+	$sql = "SELECT * FROM `home_textslide` WHERE id = '".$_POST['id']."'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+
+function sec_about_textslide(mysqli $conn){
+	$sql = "SELECT* FROM aboutus_textslide WHERE 1";
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}function  about_textslide_sel(mysqli $conn,$data){		
+
+	$sql = "SELECT * FROM `aboutus_textslide` WHERE id = '".$_POST['id']."'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function about_textslide_update(mysqli $conn,$data){
+	$id =$_POST['id'];
+	$content = $_POST['content'];
+	$topic = $_POST['topic'];
+
+
+	$sql = "UPDATE `aboutus_textslide` 
+	SET `id`='$id',
+	`content` = '$content',
+	`topic` = '$topic'
+
+	WHERE `id` = $id";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+// echo $sql;
+}
+function about_textslide_delete(mysqli $conn,$data){
+	$id =$_POST['id'];
+
+	$sql = "DELETE FROM aboutus_textslide 
+	WHERE `id` = '$id'";
+	echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+function about_ourteam(mysqli $conn){		
+
+	$sql = "SELECT * FROM `aboutus_ourteam` WHERE 1";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function about_ourteam_update(mysqli $conn,$data){
+	$ext = pathinfo(basename($_FILES['img_ourteam']['name']),PATHINFO_EXTENSION);
+	$new_image_name = 'img_'.uniqid().".".$ext;
+	$image_path = "../aboutus_img/";
+	$upload_path = $image_path.$new_image_name;
+//uploading
+	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
+		move_uploaded_file($_FILES['img_ourteam']['tmp_name'], $upload_path);
+		$img_ourteam  = $new_image_name;	
+		echo "upload at file.";   
+	}else{
+		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	}
+	$id = $_POST['id'];
+	$name = $_POST['name'];
+	$position = $_POST['position'];
+
+
+	$sql = "UPDATE `aboutus_ourteam` 
+	SET
+	`name` = '$name',
+	`position` = '$position',
+	`img_ourteam` = '$img_ourteam'
+	WHERE `id` = $id";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+// echo $sql;
+}
+function ibot_news_sel(mysqli $conn,$data){		
+
+	$sql = "SELECT * FROM `home_ibotnews` WHERE id = '".$_POST['id']."'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function ourteam_sel(mysqli $conn,$data){		
+
+	$sql = "SELECT * FROM `aboutus_ourteam` WHERE id = '".$_POST['id']."'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function aboutus_team(mysqli $conn){
+	$sql = "SELECT * FROM `aboutus_ourteam` WHERE id ='1' ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function aboutus_team_2(mysqli $conn){
+	$sql = "SELECT * FROM `aboutus_ourteam` WHERE id ='2' ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function aboutus_team_3(mysqli $conn){
+	$sql = "SELECT * FROM `aboutus_ourteam` WHERE id ='3' ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+
+function about_cer(mysqli $conn){		
+
+	$sql = "SELECT * FROM `aboutus_certificate` WHERE 1";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function cer_sel(mysqli $conn,$data){		
+
+	$sql = "SELECT * FROM `aboutus_certificate` WHERE id = '".$_POST['id']."'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function about_cer_update(mysqli $conn,$data){
+	$ext = pathinfo(basename($_FILES['image_cer']['name']),PATHINFO_EXTENSION);
+	$new_image_name = 'img_'.uniqid().".".$ext;
+	$image_path = "../aboutus_img/";
+	$upload_path = $image_path.$new_image_name;
+//uploading
+	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
+		move_uploaded_file($_FILES['image_cer']['tmp_name'], $upload_path);
+		$image_cer  = $new_image_name;	
+		echo "upload at file.";   
+	}else{
+		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	}
+	$id = $_POST['id'];
+	$name = $_POST['name'];
+
+
+	$sql = "UPDATE `aboutus_certificate` 
+	SET
+	`name` = '$name',
+	`image_cer` = '$image_cer'
+	WHERE `id` = $id";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+// echo $sql;
+}
+function cer_image(mysqli $conn){
+	$sql = "SELECT * FROM `aboutus_certificate` WHERE 1 ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function about_per(mysqli $conn){		
+
+	$sql = "SELECT * FROM `aboutus_performance` WHERE 1";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function per_sel(mysqli $conn,$data){		
+
+	$sql = "SELECT * FROM `aboutus_performance` WHERE id = '".$_POST['id']."'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function about_per_update(mysqli $conn,$data){
+	$ext = pathinfo(basename($_FILES['image_per']['name']),PATHINFO_EXTENSION);
+	$new_image_name = 'img_'.uniqid().".".$ext;
+	$image_path = "../aboutus_img/";
+	$upload_path = $image_path.$new_image_name;
+//uploading
+	if($ext == "jpg" || $ext == "png" || $ext == "jpeg"|| $ext == "gif" ) {
+		move_uploaded_file($_FILES['image_per']['tmp_name'], $upload_path);
+		$image_per  = $new_image_name;	
+		echo "upload at file.";   
+	}else{
+		echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+	}
+	$id = $_POST['id'];
+	$name = $_POST['name'];
+
+
+	$sql = "UPDATE `aboutus_performance` 
+	SET
+	`name` = '$name',
+	`image_per` = '$image_per'
+	WHERE `id` = $id";
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+// echo $sql;
+}
+function per_image(mysqli $conn){
+	$sql = "SELECT * FROM `aboutus_performance` WHERE 1 ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}	
+function about_textslide_add(mysqli $conn,$data){
+
+	$sql = "INSERT INTO aboutus_textslide (content,topic)
+	VALUES (
+	'".$data['content']."',
+	'".$data['topic']."'
+
+)";
+echo $sql;
+
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false; 	
+}
+mysqli_close($conn);
+}
+
 
 ?>

@@ -23,8 +23,9 @@ include("../php/course_function.php");
 		}
 
 		if($_GET['action']=='enroll'){
-			$data= calendars($conn);		//select calendars
-			$arrlength = count($data);
+			$data= calendars($conn);
+			$selec_class =select_class($conn);		//select calendars
+			$arrlength = count($selec_class);
 			$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
 			require_once('enroll.php');
 		}
@@ -32,11 +33,11 @@ include("../php/course_function.php");
 		if($_GET['action']=='payment'){
 			$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
 			$add = insertstudent($conn,$_POST);
-			$calandar = selectcalander($conn,$_POST);
+			$class = selectcalander($conn,$_POST);
 			require_once('payment.php');
 		}
 		if($_GET['action']=='success'){
-			$calandar = selectcalander($conn,$_POST);
+			$class = selectcalander($conn,$_POST);
 			$cus = selectmax($conn);
 			$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
 			$paym = insertpayment($conn,$_POST,$cus);  // insert payment

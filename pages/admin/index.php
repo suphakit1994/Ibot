@@ -29,6 +29,19 @@ include('../php/camp_function.php');
 				$suc = calendars($conn);
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_calendar">';
 			}
+			if ($_GET['action'] == 'classroom') {
+				$selec_class =select_class($conn);
+				require_once('classroom.php');
+			}
+			if ($_GET['action'] == 'classroom/add') {
+				$class=insert_class($conn,$data);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=classroom">';
+			}
+			if ($_GET['action'] == 'classroom/delete') {
+				$class_delete = delete_class($conn,$data);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=classroom">';
+
+			}
 			if ($_GET['action'] == 'courseadd') {
 				$instercourse =instercourse($conn,$data);
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="2;index.php?app=admin&action=course_list">';
@@ -38,6 +51,7 @@ include('../php/camp_function.php');
 				$select_img_cert = select_certificate($conn);
 				require_once('select_certi.php');
 			}
+
 			if($_GET['action']=="uploadcertificate"){
 				$upload_img_cert = uploadtype_certificate($conn,$_POST);
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="2;index.php?app=admin&action=selectcertificate">';

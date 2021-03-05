@@ -233,7 +233,7 @@ function insertcalender_student(mysqli $conn,$data,$cus){
 	$sql = " INSERT INTO  `calender_student`(`cs_student_id`, `cs_calender_id`,`cs_courses_id`)
 	VALUES (
 	'".$cus['student_id']."',
-	'".$data['calender_id']."',
+	'".$data['class_id']."',
 	'".$data['course_id']."'
 
 )";
@@ -248,7 +248,7 @@ mysqli_close($conn);
 
 function selectcalander(mysqli $conn,$data){
 
-	$sql = "SELECT * FROM `calendar` WHERE `calender_id` = '".$_POST['calender_id']."'";
+	$sql = "SELECT * FROM `class` WHERE `class_id` = '".$_POST['class_id']."'";
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -380,7 +380,7 @@ function insertcalender_students(mysqli $conn,$data,$id){
 	$sql = " INSERT INTO  `calender_student`(`cs_student_id`, `cs_calender_id`,`cs_courses_id`)
 	VALUES (
 	'$id',
-	'".$data['calender_id']."',
+	'".$data['class_id']."',
 	'".$data['course_id']."'
 
 )";

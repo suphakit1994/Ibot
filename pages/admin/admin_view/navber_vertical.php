@@ -43,6 +43,7 @@
 					</a>
 					<ul id="submenu-2" class="collapse">
 						<li><a href="index.php?app=admin&action=admin_calendar"><i class=""></i>Calendar</a></li>
+						<li><a href="index.php?app=admin&action=classroom"><i class=""></i>Classroom</a></li>
 					</ul>
 				</div>
 			</li>

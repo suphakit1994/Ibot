@@ -101,7 +101,7 @@
 
       <input type="hidden" name="student_id" value="<?php echo $cus['student_id']; ?>">
       <input type="hidden" name="course_id" value="<?php echo $_POST['course_id']; ?>">
-      <input type="hidden" name="calender_id" value="<?php echo $_POST['calender_id'];?>">
+      <input type="hidden" name="class_id" value="<?php echo $_POST['class_id'];?>">
       
 
 
@@ -250,7 +250,7 @@
               $nextweek=strtotime("+1 weeks", $week); 
               ?>
               <p> <?php  echo date("d M Y", $week) ." - ". date("d M Y", $nextweek-1);   ?></p> 
-              <p><?php echo $calandar['calender_date']."  ".$calandar['calender_starttime']." - ".$calandar['calender_endtime'];  ?></p>
+              <p><?php echo $class['class_date']."  ".$class['class_start_time']." - ".$class['class_end_time'];  ?></p>
 
 
             </div>

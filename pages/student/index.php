@@ -48,20 +48,20 @@ include('../php/camp_function.php');
 
 			if($_GET['action']=="enroll"){
 				
-				$data= calendars($conn);		//แสดงเวลาเรียนที่เปิดสอน
-				$arrlength = count($data);
+				$class= calendars($conn);		//แสดงเวลาเรียนที่เปิดสอน
+				$arrlength = count($class);
 				$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
 				require_once('enroll.php');
 			}
 
 			if($_GET['action']=="payment"){
 				$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
-				$calandar = selectcalander($conn,$_POST);
+				$class = selectcalander($conn,$_POST);
 				require_once('payment.php');
 			}
 
 			if($_GET['action']=="success"){
-				$calandar = selectcalander($conn,$_POST);
+				$class = selectcalander($conn,$_POST);
 				$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง	 
 				$paym = insertpaymentss($conn,$_POST,$id);// insert payment
 

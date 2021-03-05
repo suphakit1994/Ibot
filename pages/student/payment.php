@@ -99,7 +99,7 @@
   <body>
     <form  method="post" action="index.php?app=student&action=student&action=success" enctype="multipart/form-data">
       <input type="hidden" name="course_id" value="<?php echo  $_POST['course_id']; ?>">
-      <input type="hidden" name="calender_id" value="<?php echo  $_POST['calender_id']; ?>">
+      <input type="hidden" name="class_id" value="<?php echo  $_POST['class_id']; ?>">
       
       <div class="container-fluid" style="padding-right:80px ;padding-right:100px ;padding-left:100px ; padding-bottom: 3%;">
 
@@ -231,7 +231,7 @@
               $nextweek=strtotime("+1 weeks", $week); 
               ?>
               <p> <?php  echo date("d M Y", $week) ." - ". date("d M Y", $nextweek-1);   ?></p> 
-              <p><?php echo $calandar['calender_date']."  ".$calandar['calender_starttime']." - ".$calandar['calender_endtime'];  ?></p>
+              <p><?php echo $class['class_date']."  ".$class['class_start_time']." - ".$class['class_end_time'];  ?></p>
 
             </div>
           </div>

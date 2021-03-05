@@ -51,9 +51,18 @@
         <div class="col-md-6"> 
           <p><?php echo $pri['course_category'];  ?></p>
           <p><?php echo $pri['course_expension'];  ?></p>
-          <p><?php echo $pri['course_category'];  ?></p>
-          <p><?php echo $pri['course_category'];  ?></p>
-          <p><?php echo $pri['course_category'];  ?></p>
+          <?php
+          $startdate=strtotime("Sunday");
+          $enddate=strtotime("+8 weeks", $startdate);
+          ?>
+          <p> <?php $date = date("d M Y"); echo $date ." - ".date("d M Y", $enddate) ;?></p> 
+
+          <?php 
+          $week=strtotime("Monday");
+          $nextweek=strtotime("+1 weeks", $week); 
+          ?>
+          <p> <?php  echo date("d M Y", $week) ." - ". date("d M Y", $nextweek-1);   ?></p> 
+          <p><?php echo $class['class_date']."  ".$class['class_start_time']." - ".$class['class_end_time'];  ?></p>
 
         </div>
       </div>

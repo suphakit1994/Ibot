@@ -3,7 +3,7 @@
 
 
 function calendars(mysqli $conn){
-	$sql = "SELECT * FROM `calendar` WHERE 1 ";
+	$sql = "SELECT * FROM `class` WHERE 1 ";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$data =[];
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
@@ -66,6 +66,49 @@ if ( mysqli_query($conn, $sql)) {
 }
 mysqli_close($conn);
 }
+function insert_class(mysqli $conn,$data=[]){
+	$sql = "INSERT INTO `class`(`class_date`, `class_start_time`, `class_end_time`) 
+	VALUES (
+	'".$_POST['class_date']."',
+	'".$_POST['class_start_time']."',
+	'".$_POST['class_end_time']."'
+)";
+echo $sql;
+
+if ( mysqli_query($conn, $sql)) {
+	return true;
+} else {
+	echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	return false; 	
+}
+mysqli_close($conn);
+}
+
+function select_class(mysqli $conn){
+	$sql = "SELECT * FROM `class` WHERE 1 ";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+
+function delete_class(mysqli $conn,$data){
+	$sql = "DELETE FROM class 
+	WHERE class_id = '".$_POST['class_id']."' ";
+	
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+
+
 function update_date(mysqli $conn,$data=[],$value_date,$value_start,$value_end,$value_color,$id_of_calendar){
 
 	$sql = "UPDATE `calendar` 

@@ -82,7 +82,7 @@
            $nextweek=strtotime("+1 weeks", $week); 
            ?>
            <p> <?php  echo date("d M Y", $week) ." - ". date("d M Y", $nextweek-1);   ?></p> 
-           <p><?php echo $calandar['calender_date']."  ".$calandar['calender_starttime']." - ".$calandar['calender_endtime'];  ?></p>
+           <p><?php echo $class['class_date']."  ".$class['class_start_time']." - ".$class['class_end_time'];  ?></p>
          </div>
        </div>
      </div>

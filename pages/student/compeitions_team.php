@@ -57,17 +57,22 @@
 			<h1>IBOT COMPEITITIONS</h1>
 		</div>
 		<div class="box">
-			<p>Box 1Box 1Box 1Box 1BoxBox 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1Box 1</p>
+			<p>Loerm ipsum dolor sit amet.
+				consectetuer adipiscing edit. sed diam<br>
+			noummy nibh euismod tinciduct urt laoreet dolore mayna.</p>
 		</div>
 		<div class="cont2" style="margin-top: 50px;">
 			<div class="card">
 				<div class="row">
+					
 					<div class="col-md-2">
 						<p><b>Team</b></p>
 					</div>
+
 					<div class="col-md-3">
 						<p><b>Members</b></p>
 					</div>
+
 					<div class="col-md-2">
 						<p><b>Competitions</b></p>
 					</div>
@@ -80,30 +85,40 @@
 				</div>
 			</div>
 		</div>
-		<?php for($i=0; $i<5; $i++){?>
-			<div class="cont2"> 
-				<div class="card">
-					<div class="row">
-						<div class="col-md-2">
-							<a href="#" style="color:blue;"><p><b>Ie Thaisoftware</b></p></a>
+
+		<div class="cont2"> 
+			<div class="card">
+				<?php for ($i=0; $i < count($compi) ; $i++) {  ?>
+					<?php for ($j=0; $j < count($allteam); $j++) { ?>
+						<div class="row" style="margin-bottom: 20px;">
+
+							<div class="col-md-2">
+								<p><b><?php echo $allteam[$j]['team_name']; ?></b></p>
+							</div>
+
+							<div class="col-md-3">
+								<?php $id = $allteam[$j]['id']?>
+								<?php $list_studentteam =list_studentteam($conn,$com_id,$id); ?>
+								<?php for($y=0;$y<count($list_studentteam);$y++){ ?>
+									<p><?php echo $list_studentteam[$y]['student_name_eng']?></p>
+
+								<?php } ?>
+							</div>
+
+							<div class="col-md-2">
+								<p><?php echo $compi[$i]['com_type']; ?></p>
+							</div>
+							<div class="col-md-3">
+								<p><?php echo $compi[$i]['com_program']; ?></p>
+							</div>
+							<div class="col-md-2">
+								<p><?php echo $compi[$i]['com_start_date']." - ".$compi[$i]['com_end_date'];?></p>
+							</div>
 						</div>
-						<div class="col-md-3">
-							<?php for($j=0; $j<3;$j++){ ?>
-								<p>JEDSADA</p>
-							<?php }?>
-						</div>
-						<div class="col-md-2">
-							<p>Rugular Category</p>
-						</div>
-						<div class="col-md-3">
-							<p>Elementary( less than 12 years old )</p>
-						</div>
-						<div class="col-md-2">
-							<p>26 Oct 2020 - 30 Oct 2020</p>
-						</div>
-					</div>
-				</div>
+					<?php } ?>
+				<?php } ?>
 			</div>
-		<?php }?>
+		</div>
+
 	</main>
 </body>

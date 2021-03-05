@@ -82,6 +82,32 @@ function course_delete(mysqli $conn,$course_id){
 		return false;
 	}
 }
+
+function course_stusent(mysqli $conn,$course_id){
+	
+	$sql = "SELECT * FROM `course_student`INNER JOIN student ON `cs_student_id`=student_id  WHERE `cs_course_id`= $course_id ";
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+} 
+function course_delete_student(mysqli $conn,$student_id){		//ลบ
+	$sql = "DELETE FROM `course_student` WHERE `cs_student_id`= $student_id ";
+	// echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
 function delete_camp(mysqli $conn, $data){
 	$camp_id = $_POST['camp_id'];
 

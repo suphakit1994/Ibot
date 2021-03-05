@@ -54,8 +54,8 @@ function camp_select(mysqli $conn){		//แสดงแคมป์ทั้ง�
 	} 
 }
 
-function camp_student(mysqli $conn,$id,$camp){		//แสดงแคมป์ทั้งหมด
-	$sql = "SELECT * FROM `camp_student` WHERE cs_student_id = $id AND cs_camp_id = $camp";
+function camp_student(mysqli $conn,$camp_id){		//แสดงแคมป
+	$sql = "SELECT * FROM `camp_student` INNER JOIN `student` ON cs_student_id = student_id  INNER JOIN `camp` ON cs_camp_id = camp_id WHERE  cs_camp_id= $camp_id";
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -66,6 +66,17 @@ function camp_student(mysqli $conn,$id,$camp){		//แสดงแคมป์ท
 		$result->close();
 		return $data;
 	} 
+}
+
+function camp_delete_student(mysqli $conn,$student_id){		//ลบ
+	$sql = "DELETE FROM `camp_student` WHERE `cs_student_id`= $student_id ";
+	// echo $sql;
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
 }
 
 function campadd_select(mysqli $conn,$cam){		//แสดงรายละเอียดแคมป์ที่จะลง หน้านักเรียน
@@ -186,8 +197,22 @@ function select_compi_name(mysqli $conn,$comname){
 	} 
 }
 
+function select_compi(mysqli $conn,$com_id){		//แสดงรายละเอียดหน้าแข่ง student
+	$sql = "SELECT * FROM `compititions` WHERE com_id = '".$com_id."'";
+	$result = $conn->query($sql); 
+	
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[] ;
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+	echo $sql;
+}
 
-function select_comadd(mysqli $conn,$compi){		//แสดงรายละเอียดหน้าแข่ง
+function select_comadd(mysqli $conn,$compi){		//แสดงรายละเอียดหน้าแข่ง admin
 	$sql = "SELECT * FROM `compititions` WHERE com_id = '".$_POST['com_id']."'";
 	$result = $conn->query($sql); 
 
@@ -237,7 +262,7 @@ function com_delete(mysqli $conn,$compi){		//ลบ
 }
 
 function select_compitype(mysqli $conn){		//แสดงรายละเอียดหน้าแข่ง
-	$sql = "SELECT * FROM `compititions_type`";
+	$sql = "SELECT * FROM `compititions_type`WHERE 1";
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {

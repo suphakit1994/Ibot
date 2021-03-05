@@ -110,6 +110,7 @@
     }
     .btn {
         color: #ffffff;
+        border-radius:28px !important;
         background-color: #dedede ;
     }         
     .btn:hover {
@@ -126,57 +127,76 @@
     }  
 </style>
 <body>
-    <form method="post" action="index.php?app=student&action=payment_compeitition">
-        <div class="container">
-            <div class="col-md-12">
-                <h1 class="h-text" style="text-align: center;">IBOT COMPEITITIONS</h1>
-            </div>
-            <div>
-                <p class="des-text">Loerm ipsum dolor sit amet.
-                    consectetuer adipiscing edit. sed diam<br>
-                    noummy nibh euismod tinciduct urt laoreet dolore mayna.
-                </p>
-            </div>
+    <div class="container">
+        <div class="col-md-12">
+            <h1 class="h-text" style="text-align: center;">IBOT COMPEITITIONS</h1>
+        </div>
+        <div>
+            <p class="des-text">Loerm ipsum dolor sit amet.
+                consectetuer adipiscing edit. sed diam<br>
+                noummy nibh euismod tinciduct urt laoreet dolore mayna.
+            </p>
+        </div>
 
-            
-            <div>
-                <?php for ($i=0;$i<count($compitype);$i++ ){?>
-                    <h2><?php echo $compitype[$i]['compi_name'] ?></h2>
-                    
-                    <?php for($j=0;$j<count($compi);$j++ ){?>
-                     <form method="post" action="index.php?app=student&action=payment_compeitition">
-                        <?php if($compi[$j]['com_type']==$compitype[$i]['compi_name']){?>
-                            <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
-                                <div class="card-body">
-                                    <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
-                                        <div class="col-md-4">
 
-                                            <p style="padding-left:10%; margin: auto; padding-top: 5%; padding-bottom: 5%;">
-                                                <?php echo $compi[$j]['com_program']; ?>
-                                                (<?php echo $compi[$j]['com_age']; ?>)
-                                            </p>
-                                            
-                                        </div>
-                                        <div class="col-md-5" style="margin: auto !important;">
-                                            <p style="text-align:center; margin: auto; ">
-                                                <b>
-                                                    <a href="../compitition_pdf/<?php echo $compi[$j]['com_file']; ?>" download>
-                                                    Download rules </a>
-                                                </b>
-                                            </p>
-                                        </div>
+        <div>
+            <?php for ($i=0;$i<count($compitype);$i++ ){?>
+                <div class="row">
+                    <div class="col-md-5" >
+                        <h2 > <?php echo $compitype[$i]['compi_name'] ?></h2>
+                    </div>
+                    <div class="col-md-7" style="text-align-last: end;">
 
-                                        <div class="col-md-3 btn-position center-box">
-                                            <button type="submit"  name="<?php echo $j ?>" class="btn btn:hover" style="width:55% ;border-radius:28px;">Enroll</button>
-                                        </div>
+                    </div>
+
+
+                </div>
+                <?php for($j=0;$j<count($compi);$j++ ){?>
+
+                    <?php if($compi[$j]['com_type']==$compitype[$i]['compi_name']){?>
+                        <div class="card" style="padding-bottom: 0px; margin: 1% 0% 1% 0%;">
+                            <div class="card-body">
+                                <div class="row" style="display:flex; align-items: center; margin-bottom: 0 !important; ">
+                                    <div class="col-md-4">
+
+                                        <p style="padding-left:10%; margin: auto; padding-top: 5%; padding-bottom: 5%;">
+                                            <?php echo $compi[$j]['com_program']; ?>
+                                            (<?php echo $compi[$j]['com_age']; ?>)
+                                        </p>
+
                                     </div>
-                                    <input type="hidden" name="com_id" value="<?php echo $compi[$j]['com_id'];  ?>">
+                                    <div class="col-md-4" style="margin: auto !important;">
+                                        <p style="text-align:center; margin: auto; ">
+                                            <b>
+                                                <a href="../compitition_pdf/<?php echo $compi[$j]['com_file']; ?>" download>
+                                                Download rules </a>
+                                            </b>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3 btn-position center-box">
+                                        <form method="post" action="index.php?app=student&action=payment_compeitition">
+
+                                            <button type="submit"  name="<?php echo $j ?>" class="btn btn:hover" style="width:55% ;border-radius:28px;">Enroll</button> 
+                                            <input type="hidden" name="com_id" value="<?php echo $compi[$j]['com_id'];  ?>">
+                                        </form>
+
+                                    </div>
+                                    <div class="col-md-1 btn-position center-box">
+                                        <form method="post" action="index.php?app=student&action=compeitions_team">
+                                            <h2 style="padding-right: 30px;">
+                                                <button type="submit" name="<?php echo $i ?>"class='btn fas fa-users' title="Team List"></button>
+                                            </h2>
+                                            <input type="hidden" name="com_id" value="<?php echo $compi[$j]['com_id'];  ?>">
+                                        </form>
+                                    </div>
                                 </div>
+
                             </div>
-                        <?php }?> 
-                    </form>
+                        </div>
+                    <?php }?> 
+
                 <?php }?>
-                
+
             <?php } ?>
         </div>
     </div>

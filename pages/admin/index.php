@@ -205,6 +205,16 @@ include('../php/camp_function.php');
 					$course_list = selectcourse($conn);
 					require_once('course_list.php');
 				}
+				if ($_GET['action'] == 'list_student_course') { //แสดงรายชื่อนักเรียนที่ลงทะเบียนแต่ล่ะคอร์ส
+					$course_id=$_POST['course_id'];
+					$course_stusent=course_stusent($conn,$course_id);
+					require_once('list_student_course.php');
+				}
+				if ($_GET['action'] == 'delete_list_student_course') { //ลบแสดงรายชื่อนักเรียน
+					$student_id=$_POST['student_id'];
+					$course_delete_student=course_delete_student($conn,$student_id);
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=course_list">';
+				}
 				if ($_GET['action'] == 'admin_course_delete') {
 					$course_id = $_POST['course_id'];
 					$course_delete = course_delete($conn,$course_id );
@@ -382,8 +392,20 @@ include('../php/camp_function.php');
 		}
 		if ($_GET['action'] == 'admin_camp_delete') {
 			$campdelete = delete_camp($conn,$data);
-			// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_camp">';
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_camp">';
 		}
+		if ($_GET['action'] == 'list_student_camp') {
+			$camp_id=$_POST['camp_id'];
+			$camp_student=camp_student($conn,$camp_id);
+			require_once('list_student_camp.php');
+		}
+		if ($_GET['action'] == 'delete_list_student_compitition') {
+			$student_id=$_POST['student_id'];
+			$camp_delete_student=camp_delete_student($conn,$student_id);
+			echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_camp">';
+			
+		}
+// -------------------------------------------------------------------------------------------
 
 		
 		if($_GET['action'] == 'list_msg'){

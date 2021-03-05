@@ -11,7 +11,7 @@
 </style>
 <body>
 	<div class="page-content p-5" id="content">
-		<form action="index.php?app=admin&action=addteam_compitition">
+		<form  method="POST" action="index.php?app=admin&action=list_student_compitition">
 			<div class="container">
 				<?php echo $_POST['com_id']; ?>
 				<div class="row">
@@ -20,8 +20,16 @@
 
 				</div>
 				<div class="row" style="text-align-last: center;">
-					<button type="submit" name= "<?php echo $_POST['com_id'] ?>" class="Button"style="width:30% ;">Go Back</button>
+					<h1>Successfully added information </h1>
+				</div>
+
+				<div class="row" style="text-align-last: center;">
+					<button type="submit"  class="Button"style="width:30% ;">Go Back</button>
 					<input type="hidden" name="com_id" value="<?php echo $_POST['com_id']; ?>">
+
+				</div>
+				<div class="row" style="text-align: -webkit-center;">
+					<img class="card-img-top" src="../images/112.png" alt="Card image cap" style="height: 500px;"> 
 					
 				</div>
 			</div>

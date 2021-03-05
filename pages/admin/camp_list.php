@@ -36,13 +36,22 @@
 						<tr>
 							<th>Program</th>
 							<th>Age for program</th>
+							<th></th>
+							<th></th>
 							
 						</tr>
 						<?php for($i = 0; $i< count($cam); $i++){ ?>
 							
 							<tr>
 								<td><?php echo $cam[$i]['camp_program']; ?></td>
-								<td><?php echo $cam[$i]['camp_Age']; ?></td>	
+								<td><?php echo $cam[$i]['camp_Age']; ?></td>
+								<td> 
+									<form method="post" action="index.php?app=admin&action=list_student_camp">
+										<button type="submit" name= "<?php echo $i ?>" class=" Button" style="width:40% ;border-radius:28px;">List Name</button>
+										<input type="hidden" name="camp_id" value="<?php echo $cam[$i]['camp_id'];  ?>" > 
+										<input type="hidden" name="camp_program" value="<?php echo $cam[$i]['camp_program'];  ?>" >
+									</form>
+								</td>	
 								<td>
 									<div class="dropdown" >
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
@@ -52,7 +61,8 @@
 													<a><button type="submit" name= "<?php echo $i ?>" class=" btn btn:hover">
 														<i class="far fa-edit" style="font-size:15px"></i>	
 													Edit </button></a>
-													<input type="hidden" name="camp_id" value="<?php echo $cam[$i]['camp_id'];  ?>" > 
+													<input type="hidden" name="camp_id" value="<?php echo $cam[$i]['camp_id'];  ?>" >
+
 												</form>
 											</li>
 											<li>

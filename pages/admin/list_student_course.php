@@ -34,6 +34,7 @@
 							<th>Name</th>
 							<th>User</th>
 							<th>Phone Number</th>
+							<th>Class</th>
 							<th></th>
 						</tr>
 						<?php for ($i=0; $i < count($course_stusent) ; $i++) { ?>
@@ -41,6 +42,7 @@
 								<td><?php echo $course_stusent[$i]['student_name_eng']; ?></td>
 								<td><?php echo $course_stusent[$i]['student_username']; ?></td>
 								<td><?php echo $course_stusent[$i]['parents_phonenumber']; ?></td>
+								<td><?php echo $course_stusent[$i]['class_date']."  (".$course_stusent[$i]['class_start_time']." - ".$course_stusent[$i]['class_end_time'].")"; ?></td>
 								<form method="post" action="index.php?app=admin&action=delete_list_student_course">
 									<td><button type="submit" name= "<?php echo $i ?>"class="Button" style="width: 50%">Delete</button> </td>
 									<input type="hidden" name="student_id" value="<?php echo $course_stusent[$i]['student_id'];  ?>" > 	

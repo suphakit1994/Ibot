@@ -45,7 +45,7 @@ function selectcourse_students(mysqli $conn,$id){
 	$sql = "SELECT * FROM course_student AS cs  
 	INNER JOIN course AS c  ON  cs.cs_course_id =  c.course_id 
 	INNER JOIN notification AS noti ON noti.fk_cs_id = cs.cs_id 
-	WHERE  cs.cs_student_id = '$id' AND noti.status ='1' " ;
+	WHERE  cs.cs_student_id = '$id'  AND noti.status ='1' " ;
 
 	$result = $conn->query($sql); 
 
@@ -61,7 +61,7 @@ function selectcourse_students(mysqli $conn,$id){
 //แสดงคอสที่ยังไม่ได้ลงทะเบียน
 function selectcourse_student(mysqli $conn,$id){
 
-	$sql = "SELECT* FROM course_student AS cs  RIGHT JOIN course AS c  ON  cs.cs_course_id =  c.course_id  WHERE   cs.cs_course_id is null or cs.cs_student_id != $id " ;
+	$sql = "SELECT* FROM course_student AS cs  RIGHT JOIN course AS c  ON  cs.cs_course_id =  c.course_id  WHERE   cs.cs_course_id is null or cs.cs_student_id != $id AND cs.cs_course_id != c.course_id" ;
 
 	$result = $conn->query($sql); 
 

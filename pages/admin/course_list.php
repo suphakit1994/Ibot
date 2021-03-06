@@ -41,6 +41,7 @@
 							<th>Lesson</th>
 							<th>Price</th>
 							<th></th>
+							<th></th>
 						</tr>
 						<?php for($i = 0; $i< count($course_list); $i++){ ?>
 							<tr>
@@ -49,6 +50,7 @@
 								<td><?php echo $course_list[$i]['course_Age']; ?></td>
 								<td><?php echo $course_list[$i]['course_lesson']; ?></td>
 								<td><?php echo $course_list[$i]['course_price']; ?></td>
+								<td><?php echo $$course_list[$i]['class_date']; ?></td>
 								<td> 
 									<form method="post" action="index.php?app=admin&action=list_student_course">
 										<button type="submit" name= "<?php echo $i ?>" class=" Button" style="width:80% ;border-radius:28px;">List Name</button>

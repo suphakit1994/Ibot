@@ -86,7 +86,7 @@
 
 		<form method="post"  action="index.php?app=admin&action=admin_camp_edit/add" enctype="multipart/form-data">
 			<input type="hidden" name="camp_id" value="<?php echo $_POST['camp_id'];  ?>">
-			<?php  echo $_POST['camp_id']; ?>
+			
 			<div class="flex-container">
 				<div class="flex-col1">
 					<p class="list_detail"><b>Program</b> </p>

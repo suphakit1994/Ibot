@@ -60,11 +60,27 @@
 										<ul class="dropdown-menu">
 											<li><a href="#"><i class="fa fa-refresh" style="font-size:15px"></i> Reset</a></li>
 											<li><a href="index.php?app=admin&action=edit_data_student<?php echo $select_std[$i]['student_id'];?>"><i class="far fa-edit" style="font-size:15px"></i> Edit</a></li>
-											<li><a href="index.php?app=admin&action=student_del<?php echo $select_std[$i]['student_id'];?>"><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
+											<li><a  href="#" data-toggle="modal" data-target="#delete_confirm<?php echo $i;?>" ><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
 										</ul>
 									</div>
 								</td>
 							</tr>
+							<div class="modal" id="delete_confirm<?php echo $i;?>" role="dialog">
+								<div class="modal-dialog">
+									<!-- Modal content-->
+									<div class="modal-content" >
+										<form action="index.php?app=admin&action=student_del<?php echo $select_std[$i]['student_id'];?>" method="post">
+											<div class="modal-body" style="margin: 68px 0px 0px 0px;">
+												<h3 style="text-align: center;">Are you Sure to Delete : <?php echo $select_std[$i]['student_name_eng'];?> ?</h3>
+												<div class="modals_end" style="margin: 41px 0px 0px 0px;">
+													<input class="btn btn-success" style="margin: 2%;" type="submit" name="" value="OK">
+													<button class="btn btn-danger" style="margin: 2%;" type="button" onclick="document.getElementById('delete_confirm<?php echo $i;?>').style.display='none'">Cancel</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
 						<?php }?>
 					</table>
 				</div>

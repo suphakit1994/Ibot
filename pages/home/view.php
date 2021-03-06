@@ -140,20 +140,22 @@
       
 
       <div class="col-sm-8">
-        <div class="row">
-          <div class="material-tabs">
-            <div class="col-sm-4">
+
+        <div class="material-tabs">
+          <div class="col-sm-4">
+          </div>
+          <div class="col-sm-4">
+            <div class="tabbed-section__selector" style="margin-bottom:2%;  ">
+              <a class="tabbed-section__selector-tab-1 active" >Home</a>
+              <a class="tabbed-section__selector-tab-2" >Compeitition</a>  
+              <a class="tabbed-section__selector-tab-3" >Camp</a>
+              <span class="tabbed-section__highlighter"></span>
             </div>
-            <div class="col-sm-4">
-              <div class="tabbed-section__selector" style="margin-bottom:2%;  ">
-                <a class="tabbed-section__selector-tab-1 active" >Home</a>
-                <a class="tabbed-section__selector-tab-2" >Compeitition</a>  
-                <a class="tabbed-section__selector-tab-3" >Camp</a>
-                <span class="tabbed-section__highlighter"></span>
-              </div>
-              <div class="col-sm-4">
-              </div>
-            </div>
+          </div>
+          <div class="col-sm-4">
+          </div>
+
+          <div class="row">
             <div class="tabbed-section-1 visible">
               <img src="../img_slide/<?php echo $img_home['image_name'];?>" style="width: 800px; height:500px;">
             </div>

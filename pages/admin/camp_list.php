@@ -65,23 +65,35 @@
 
 												</form>
 											</li>
-											<li>
-												<form method="post" action="index.php?app=admin&action=admin_camp_delete">
-													<a><button type="submit" name= "<?php echo $i ?>" class=" btn btn:hover">
-														<i class="fas fa-trash" style="font-size:15px"></i> Delete</button></a>
-														<input type="hidden" name="camp_id" value="<?php echo $cam[$i]['camp_id'];  ?>" > 
-													</form>
-												</li>
-											</ul>
+											<li><a  href="#" data-toggle="modal" data-target="#delete_confirm<?php echo $i;?>" ><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
+										</ul>
 
-										</div>
-									</td>
-								</tr>
-							<?php }?>
+									</div>
+								</td>
+							</tr>
+							<div class="modal" id="delete_confirm<?php echo $i;?>" role="dialog">
+								<div class="modal-dialog">
+									<!-- Modal content-->
+									<div class="modal-content" >
+										<form action="index.php?app=admin&action=admin_camp_delete" method="post">
+											<div class="modal-body" style="margin: 68px 0px 0px 0px;">
+												<h3 style="text-align: center;">Are you Sure to Delete : <?php echo $cam[$i]['camp_program'];?> ?</h3>
+												<div class="modals_end" style="margin: 41px 0px 0px 0px;">
+													<input class="btn btn-success" style="margin: 2%;" type="submit" name="" value="OK">
 
-						</table>
-					</div>
+													<button class="btn btn-danger" style="margin: 2%;" type="button" onclick="document.getElementById('delete_confirm<?php echo $i;?>').style.display='none'">Cancel</button>
+													<input type="hidden" name="camp_id" value="<?php echo $cam[$i]['camp_id'];  ?>" > 
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						<?php }?>
+
+					</table>
 				</div>
 			</div>
-		</div>	
-	</body>
+		</div>
+	</div>	
+</body>

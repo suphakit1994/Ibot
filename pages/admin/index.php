@@ -232,7 +232,7 @@ include('../php/camp_function.php');
 			if ($_GET['action'] == 'edit_data') {
 				require_once("teacher_edit.php");
 			}
-			if ($_GET['action'] == 'studentslist') {
+			if ($_GET['action'] == 'students_list') {
 				$select_std = selectstudent($conn);
 				require_once('students_list.php');
 			}

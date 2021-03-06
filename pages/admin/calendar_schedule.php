@@ -142,6 +142,12 @@
 										<?php } ?>
 									</select><br>
 
+									<select name="c_id" id="name_course">
+										<?php for($course = 0; $course<count($course_name);$course++){ ?>
+											<option value="<?php echo $course_name[$course]['course_id']; ?>"><?php echo $course_name[$course]['course_id']; ?><?php echo $course_name[$course]['course_expension']; ?></option>
+										<?php } ?>
+									</select><br>
+
 									<input style="margin-top: 2%;" class="btn btn-success" type="submit" >
 									<hr style="width:100%;text-align:left;margin-left:0">
 									<?php for($m = 0; $m<count($classroom);$m++){ ?>

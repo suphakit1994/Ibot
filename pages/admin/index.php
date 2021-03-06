@@ -170,6 +170,7 @@ include('../php/camp_function.php');
 				$t_list = selectteacher($conn);
 				$s_list = selectstudent($conn);
 				$classroom = selectclassroom($conn);
+				$course_name = selectcourse($conn);
 				require_once('calendar_schedule.php');
 			}
 			$select_calendar = calendars($conn);
@@ -203,6 +204,7 @@ include('../php/camp_function.php');
 				if ($_GET['action'] == 'add_teacherclassroom'.$select_calendar[$c]['calender_id']) {
 					$id_teacher  =$_POST['name_t'];
 					$id_student  =$_POST['name_s'];
+					$course_id  =$_POST['c_id'];
 					$id_calendar = $select_calendar[$c]['calender_id'];
 					echo "========================================calendar>".$id_calendar.'<br>';
 					echo "========================================>".$id_teacher.'<br>';
@@ -211,10 +213,7 @@ include('../php/camp_function.php');
 						$fname = $func_id_t[$t_data]['teacher_fname'];
 						$lname =$func_id_t[$t_data]['teacher_lname'];
 						$status =$func_id_t[$t_data]['teacher_level'];
-						// echo "========================================first name>".$fname.'<br>';
-						// echo "========================================first name>".$lname.'<br>';
-						// echo "========================================first name>".$status.'<br>';
-						$tfunc_classroom = insert_classroom($conn,$id_calendar,$id_teacher,$fname,$lname,$status);
+						$tfunc_classroom = insert_classroom($conn,$id_calendar,$id_teacher,$fname,$lname,$status,$course_id);
 					}
 					$func_id_s = select_idstudents($conn,$id_student);
 					for ($t_data=0; $t_data < count($func_id_s); $t_data++) { 
@@ -224,7 +223,7 @@ include('../php/camp_function.php');
 						// echo "========================================first name>".$fname_s.'<br>';
 						// echo "========================================lname>".$lname_s.'<br>';
 						// echo "========================================status>".$status_s.'<br>';
-						$sfunc_classroom = insert_classroom($conn,$id_calendar,$id_student,$fname_s,$lname_s,$status_s);
+						$sfunc_classroom = insert_classroom($conn,$id_calendar,$id_student,$fname,$lname,$status_s,$course_id);
 					}
 					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_calendar">';	
 				}

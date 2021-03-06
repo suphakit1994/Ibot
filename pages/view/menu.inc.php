@@ -14,6 +14,10 @@
 		$s_level = $_SESSION['student_level'];
 		$s_name = $_SESSION['student_name_eng'];
 		$s_nlevel = $_SESSION['student_nlevel'];
+		$new_name = str_replace(" ", "",$s_name); 
+		
+
+		
 
 		$t_level = $_SESSION['teacher_level'];
 		$t_name = $_SESSION['teacher_fname'];
@@ -201,8 +205,8 @@
 								<div class="col-sm-5" style="text-align: end;">
 									<div class="row">
 										
-										<?php if (strlen($s_name) >= 8) { ?>
-											<p style="padding-top:5px; margin-bottom: 0px; font-weight: bold;">  <?php echo mb_substr($s_name,0,8)."..."; ?></p>
+										<?php if(strlen($new_name) >= 8) { ?>
+											<p style="padding-top:5px; margin-bottom: 0px; font-weight: bold;">  <?php echo mb_substr($new_name,0,8)."..."; ?></p>
 										<?php }else{?>
 											<p style="padding-top:5px; margin-bottom: 0px; font-weight: bold;"><?php echo $s_name; } ?></p>
 											<p><?php echo $s_nlevel; ?></p>

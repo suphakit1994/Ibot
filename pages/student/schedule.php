@@ -1,4 +1,4 @@
-15ad>
+
 <style>
 
 
@@ -197,7 +197,9 @@
 							</div>
 							<div class="row" style="display: flex; justify-content: flex-start;">
 								<div class="col-sm-12" style=" margin-top:15px;">
-									<p><b>Sat 7 Oct 2020</b></p>
+									<?php
+									$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );?>
+									<p><b><?php echo $date->format('l d-m-Y');?></b></p>
 								</div>
 							</div>
 							<div  class="row" style="display: flex; justify-content: flex-start;">	
@@ -215,10 +217,12 @@
 											<p>Must to Make up</p>
 										</div>
 										<div class="col-sm-6">
-											<p>Duplo course</p>
-											<p>Imagination course</p>
-											<p>10:30-12:00 PM</p>
-											<p>1 class</p>
+											
+											<p><?php echo $course_category;?></p>
+											<p><?php echo $course_expension;?></p>
+											<p><?php echo $calender_starttime; ?>:00</p>
+											<p><?php echo $num_class; ?> class</p>
+											
 										</div>
 									</div>
 									<div class="row">
@@ -259,31 +263,36 @@
 	</div>
 	<?php for($j = 0; $j<count($cus);$j++){ ?>
 		<div class="modal" id="myModal1<?php echo $cus[$j]['calender_id']; ?>" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="icon_func_modal" style="margin-top: 1%;margin-right: 1%;">
-						<a id="close<?php echo $cus[$j]['calender_id']; ?>"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
-					</div>
-					<div class="modal-body">
-						<div id="class_room">
-							<?php $original_date = $cus[$j]['calender_date'];
-							$timestamp = strtotime($original_date);
-							$new_date = date("d-m-Y", $timestamp);?>
-							<h1><b>Class Room</b></h1>
-							<h2><b>Teacher : </b>Jonh Smith</h2>
-							<h2><b>Students : </b>0 / 10</h2>
-							<p><b>Today: <?php echo $new_date; ?></b></p>
-							<p><b><?php echo $cus[$j]['calender_starttime']; ?>:00-<?php echo $cus[$j]['calender_endtime']; ?>:00</b></p>
-							<div style="margin-bottom: 2%;">
-								<input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
-							</div>  
+			<form action="index.php?app=admin&action=checkInStudent" method="POST">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="icon_func_modal" style="margin-top: 1%;margin-right: 1%;">
+							<a id="close<?php echo $cus[$j]['calender_id']; ?>"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
+						</div>
+						<div class="modal-body">
+							<div id="class_room">
+								<?php $original_date = $cus[$j]['calender_date'];
+								$timestamp = strtotime($original_date);
+								$new_date = date("d-m-Y", $timestamp);?>
+								<h1><b>Class : <?php echo $cus[$j]['course_expension'];?></b></h1>
+								<h2><b>Teacher : </b><?php if ($cus[$j]['status'] = 'teacher') {
+									echo $cus[$j]['fname'].$cus[$j]['lname'] ;
+								} ?></h2>
+								<input type="hidden" name="checkin" value="Check In">
+								<input type="hidden" id="checkin_time" name="checkin_time" value="<?php echo $date->format('H:i:s');?>">
+								<p><b>Today: <?php echo $new_date; ?></b></p>
+								<h2 style="color: orange;"><b><?php echo $cus[$j]['calender_starttime']; ?>:00-<?php echo $cus[$j]['calender_endtime']; ?>:00</b></h2>
+								<div style="margin-bottom: 2%;">
+									<input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="Check IN">
+								</div>  
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	<?php }?>
-	
+
 </body>
 <script>
 

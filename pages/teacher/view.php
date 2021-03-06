@@ -219,23 +219,23 @@
         </div>
       </div>
       <!-- /Calendar  -->
-      <?php for($j = 0; $j<count($cus);$j++){ ?>
-        <div class="modal" id="myModal1<?php echo $cus[$j]['calender_id']; ?>" role="dialog">
+      <?php for($j = 0; $j<count($select_id_calendar);$j++){ ?>
+        <div class="modal" id="myModal1<?php echo $select_id_calendar[$j]['calender_id']; ?>" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="icon_func_modal" style="margin-top: 1%;margin-right: 1%;">
-                <a id="close<?php echo $cus[$j]['calender_id']; ?>"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
+                <a id="close<?php echo $select_id_calendar[$j]['calender_id']; ?>"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
               </div>
               <div class="modal-body">
                 <div id="class_room">
-                  <?php $original_date = $cus[$j]['calender_date'];
+                  <?php $original_date = $select_id_calendar[$j]['calender_date'];
                   $timestamp = strtotime($original_date);
                   $new_date = date("d-m-Y", $timestamp);?>
                   <h1><b>Class Room</b></h1>
                   <h2><b>Teacher : </b>Jonh Smith</h2>
                   <h2><b>Students : </b>0 / 10</h2>
                   <p><b>Today: <?php echo $new_date; ?></b></p>
-                  <p><b><?php echo $cus[$j]['calender_starttime']; ?>:00-<?php echo $cus[$j]['calender_endtime']; ?>:00</b></p>
+                  <p><b><?php echo $select_id_calendar[$j]['calender_starttime']; ?>:00-<?php echo $select_id_calendar[$j]['calender_endtime']; ?>:00</b></p>
                   <div style="margin-bottom: 2%;">
                     <input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
                   </div>  
@@ -310,14 +310,14 @@
       },
 
       events: [
-      <?php for($i=0;$i<count($cus);$i++){ ?>
+      <?php for($i=0;$i<count($select_id_calendar);$i++){ ?>
         {
-          id: '<?php echo $cus[$i]['calender_id']; ?>',
-          borderColor: '<?php echo $cus[$i]['calender_color']; ?>',
-          backgroundColor:'<?php echo $cus[$i]['calender_color']; ?>',
-          title: '<?php echo $cus[$i]['calender_starttime']; ?>:00-<?php echo $cus[$i]['calender_endtime']; ?>:00',
-          start: '<?php echo $cus[$i]['calender_date']; ?>',
-          end: '<?php echo $cus[$i]['calender_date']; ?>',
+          id: '<?php echo $select_id_calendar[$i]['calender_id']; ?>',
+          borderColor: '<?php echo $select_id_calendar[$i]['calender_color']; ?>',
+          backgroundColor:'<?php echo $select_id_calendar[$i]['calender_color']; ?>',
+          title: '<?php echo $select_id_calendar[$i]['calender_starttime']; ?>:00-<?php echo $select_id_calendar[$i]['calender_endtime']; ?>:00',
+          start: '<?php echo $select_id_calendar[$i]['calender_date']; ?>',
+          end: '<?php echo $select_id_calendar[$i]['calender_date']; ?>',
 
           extendedProps: {
             status: ''
@@ -367,8 +367,8 @@
         return event.rendering === 'background';
       }
     });
-    <?php for($l=0;$l<count($cus);$l++){ ?>
-      var event = calendar.getEventById('<?php echo $cus[$l]['calender_id']; ?>')
+    <?php for($l=0;$l<count($select_id_calendar);$l++){ ?>
+      var event = calendar.getEventById('<?php echo $select_id_calendar[$l]['calender_id']; ?>')
     <?php }?>
     var start = event.start 
     calendar.render();

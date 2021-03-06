@@ -24,9 +24,10 @@ include("../php/course_function.php");
 		if ($level=='teacher') {
 
 			if(!isset($_GET['action']) ){
-				$id_teachers = $id;
-				$cus = calendars($conn);
-				$select_idteacher =select_idteacher($conn,$id_teachers);
+				$id_user = $id;
+				// $cus = calendars($conn);
+				$select_id_calendar = select_event_id($conn,$id_user);
+				$select_idteacher =select_idteacher($conn,$id_user);
 				require_once('view.php');
 			}
 

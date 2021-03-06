@@ -144,9 +144,23 @@ include('../php/camp_function.php');
 			if($_GET['action']=="schedule"){
 				$id_students = $id;
 				$func_select_std = select_idstudents($conn,$id_students);
-				$cus = calendars($conn);
+				$cus = select_event_id($conn,$id_students);
+				for ($data_course=0; $data_course < count($cus); $data_course++) { 
+					$course_category = $cus[$data_course]['course_category'];
+					$course_expension = $cus[$data_course]['course_expension'];
+					$calender_starttime = $cus[$data_course]['calender_starttime'];
+					$course_category = $cus[$data_course]['course_category'];
+					$num_class = count($cus);
+				}
 				require_once('schedule.php');
 
+			}
+			if($_GET['action']=='checkInStudent'){
+				$id_std = $id;
+				$attentded = $_POST['checkin_time'];
+				$teacher_attended = update_attended($conn,$_POST,$id_std,$attentded);
+				$func_teacher = checkIn_teacher($conn,$_POST,$id_std);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=student&action=schedule">';
 			}
 			if($_GET['action']=='student_assessment'){
 				$data=$_POST;

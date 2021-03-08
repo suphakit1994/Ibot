@@ -150,7 +150,7 @@
               <br><label>Ref. No.</label>
               <br><input name="payment_no" class="form-control" style="width: 350%;">
               <br><label>Amount</label>
-              <br><input name="payment_amount" class="form-control" style="width: 350%;" value="<?php echo $camadd['camp_price'];  ?>">
+              <br><input name="payment_amount" class="form-control" style="width: 350%;" value="<?php echo $camadd['camp_price'];  ?>"readonly>
               <br><label>Transaction Date</label>
               <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" valube =""type="date"  required>
               <input type="time"  name="payment_time" required> 

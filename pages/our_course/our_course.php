@@ -19,6 +19,7 @@
       border-radius: 10px 10px 0px 0px;
     }
     .btn {
+      
       color: #ffffff;
       background-color: #dedede ;
     }         

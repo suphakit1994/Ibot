@@ -34,11 +34,14 @@
 
   <div class="container-fluid" style="padding-right:100px ;padding-left:100px ;">
     <!-- course ที่ลงทะเบียนเรียน -->
-    <div class="row" style="padding-bottom: 0px;height: 680px;" >
+    <div class="row">
 
-      <h1 style="padding-bottom: 20px;padding-top: 50px;">
+    </div>
+    <div class="row" style="padding-bottom: 0px;height: 680px;" >
+      <h1 style="padding-bottom: 20px;padding-top: 50px;text-align-last: center;"><b> WELCOME TO IBOT WORLD </b></h1>
+      <h2 style="padding-bottom: 20px;padding-top: 20px;">
         <b>Your unfinish courses</b>
-      </h1 > 
+      </h2 > 
       <?php 
       for($i=0;$i<$arrlength; $i++){  //loop card 
         ?>
@@ -117,10 +120,10 @@
       
       <!-- course ที่ยังไม่ลงทะเบียน -->
       <div class="row" style="padding-bottom: 0px;height: 680px;" >
-       <h1 style="padding-bottom: 20px;padding-top: 50px;">
-        <b>OUR COURSE</b>
-      </h1 > 
-      <?php 
+        <h2 style="padding-bottom: 20px;padding-top: 50px;">
+          <b>OUR COURSE</b>
+        </h2 > 
+        <?php 
       for($i=0;$i<$arr; $i++){  //loop card 
         ?>
         <?php if($data[$i]['course_id'] != $course[$i]['course_id'] ){ ?>

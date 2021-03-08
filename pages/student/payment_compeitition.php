@@ -153,7 +153,7 @@
                 <br><label>Ref. No.</label>
                 <br><input name="payment_no" class="form-control" style="width: 350%;">
                 <br><label>Amount</label>
-                <br><input name="payment_amount" class="form-control" style="width: 350%;" value="<?php echo $compiadd['com_price'];  ?>">
+                <br><input name="payment_amount" class="form-control" style="width: 350%;" value="<?php echo $compiadd['com_price'];  ?>"readonly>
                 <br><label>Transaction Date</label>
                 <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
                 <input type="time"  name="payment_time" required> 

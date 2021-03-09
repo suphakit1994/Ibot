@@ -164,7 +164,7 @@
           <div class="col-sm-4">
           </div>
           <div class="col-sm-4">
-            <div class="tabbed-section__selector" style="margin-bottom:2%;  ">
+            <div class="tabbed-section__selector" style="margin-bottom:2%; margin-left: 8px; ">
               <a class="tabbed-section__selector-tab-1 active" >Home</a>
               <a class="tabbed-section__selector-tab-2" >Compeitition</a>  
               <a class="tabbed-section__selector-tab-3" >Camp</a>

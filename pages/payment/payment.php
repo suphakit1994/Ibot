@@ -177,7 +177,7 @@
               <label style="margin-top: 5%; ">Bank</label>
               <br><div class="custom-select" style="width:200px; ">
                 <select name="payment_bank" class="form-control">
-                  <p><option value="กรุงไทย">กรุงไทย</option></p>
+                  <p><option value="กรุงเทพ">กรุงเทพ</option></p>
                   <p><option value="ไทยพาณิชย์">ไทยพาณิชย์</option></p>
                   <p><option value="กสิกร">กสิกร</option></p>
                 </select>

@@ -136,16 +136,14 @@
       <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header" style="background-color: #0050ef;">
-              <h5 class="modal-title" id="exampleModalLabel" style="padding-top: 20px;">ประกาศ</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+            <div class="modal-header" style="background-color: #44279e;">
+              <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bolder; height: 50px; padding-top: 10px;">ประกาศ</h5>
+
             </div>
             <div class="modal-body">
               <h2>กรุณาติดต่อแอดมินเบอร์ 089-7178817 เพื่อติดต่อคอร์สทดลองเรียนครับ</h2>
             </div>
-            <div class="modal-footer" style="background-color: #ff5894;">
+            <div class="modal-footer" style="background-color: #c43d56;">
               <button type="button" class="btn btn-secondary" style="color:#000000;" data-dismiss="modal">Close</button>
             </div>
           </div>

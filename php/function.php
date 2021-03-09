@@ -55,7 +55,7 @@ function insertData(mysqli $conn,$data=[]){
 	'".$data['build_time']."',
 	'".$data['end_time']."',
 	'".$data['color']."')";
-	echo $sql;
+
 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -71,7 +71,7 @@ function insert_class(mysqli $conn,$data=[]){
 	'".$_POST['class_date']."',
 	'".$_POST['class_start_time']."',
 	'".$_POST['class_end_time']."')";
-	echo $sql;
+	
 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -115,7 +115,7 @@ function update_date(mysqli $conn,$data=[],$value_date,$value_start,$value_end,$
 	`calender_endtime`='$value_end',
 	`calender_color`='$value_color' 
 	WHERE `calender_id`='$id_of_calendar'";
-	echo $sql;
+	
 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -134,7 +134,7 @@ function insertPdf(mysqli $conn,$data=[]){
 	('".$data['address']."'
 )";
 
-echo $sql;
+
 
 if ( mysqli_query($conn, $sql)) {
 	return true;
@@ -188,7 +188,7 @@ function updateidcalendar(mysqli $conn, $data){
 	$sql = "UPDATE calendar  
 	SET title = 'test'
 	WHERE id = '62'";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -199,7 +199,7 @@ function updateidcalendar(mysqli $conn, $data){
 function deleterowcalendar(mysqli $conn, $data,$id_of_calendar){
 	$sql = "DELETE FROM calendar 
 	WHERE calender_id = '$id_of_calendar'";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -212,7 +212,7 @@ function selectmaxs(mysqli $conn){
 
 	if ( mysqli_query($conn, $sql)) {
 		$sql = "SELECT MIN(id) as id FROM `calendar`  ";
-	 // echo $sql;
+	 // 
 
 		$result = $conn->query($sql); 
 		if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -239,7 +239,7 @@ function student_payment_competition(mysqli $conn,$data=[]){
 	'".$data['date_payment']."',
 	'".$data['image']."'
 )";
-echo $sql;
+
 
 if ( mysqli_query($conn, $sql)) {
 	return true;
@@ -260,7 +260,7 @@ function student_payment_camp(mysqli $conn,$data=[]){
 	'".$data['date_payment']."',
 	'".$data['image']."'
 )";
-echo $sql;
+
 
 if ( mysqli_query($conn, $sql)) {
 	return true;
@@ -280,7 +280,7 @@ function student_payment(mysqli $conn,$data=[]){
 	'".$data['date_payment']."',
 	'".$data['image']."'
 )";
-echo $sql;
+
 
 if ( mysqli_query($conn, $sql)) {
 	return true;
@@ -441,7 +441,7 @@ function selpaydate(mysqli $conn,$keys_cs){
 }
 function delstuout(mysqli $conn,$keysdel){
 	$sql = "DELETE  FROM notification WHERE notification.no_id='$keysdel';";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -550,7 +550,7 @@ function insert_classroom(mysqli $conn,$id_calendar,$id_user,$fname,$lname,$stat
 	'$lname',
 	'$status',
 	'$course_id')";
-	echo $sql;
+	
 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -587,7 +587,7 @@ function update_idteacher(mysqli $conn,$data,$fname,$lname,$username,$password,$
 
 	WHERE `teacher_id`='$id_teacher'";
 
-	echo $sql;
+	
 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -628,7 +628,7 @@ function update_idstudent(mysqli $conn,$data,$name_en,$name_th,$nickname,$userna
 
 	WHERE `student_id`='$id_students'";
 
-	echo $sql;
+	
 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -699,7 +699,7 @@ function insert_teacher(mysqli $conn,$data=[]){
 function deleteteacher(mysqli $conn,$id_teacher){
 	$sql = "DELETE FROM teacher 
 	WHERE teacher_id = '$id_teacher'";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -716,7 +716,26 @@ function checkIn_teacher(mysqli $conn,$data=[],$id_teachers,$status){
 	'".$data['date']."',
 	'".$data['checkin_time']."',
 	'$status')";
-	echo $sql;
+	
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+}
+function take_a_live_student(mysqli $conn,$data=[],$id_student,$status){
+
+	$sql = "INSERT INTO list_student (id_student,date_name,date_today,checkin_time,status)
+	VALUES (
+	'$id_student',
+	'".$data['date_name']."',
+	'".$data['date']."',
+	'".$data['checkin_time']."',
+	'$status')";
+	
 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -729,6 +748,20 @@ function checkIn_teacher(mysqli $conn,$data=[],$id_teachers,$status){
 function selectcheckin_teacher(mysqli $conn,$id){
 
 	$sql = "SELECT * FROM `list_teacher` WHERE id_teacher = '$id'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function selectcheckin_student(mysqli $conn,$id){
+
+	$sql = "SELECT * FROM `list_student` WHERE id_student = '$id'";
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -841,7 +874,7 @@ function seldatacompeition_noti(mysqli $conn){
 
 function delete_datastu(mysqli $conn,$keystu){
 	$sql = "DELETE student,course_student FROM student INNER JOIN course_student ON student.student_id = course_student.cs_student_id WHERE  student.student_id = '$keystu';";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -851,7 +884,7 @@ function delete_datastu(mysqli $conn,$keystu){
 }
 function delcompeit_stu(mysqli $conn,$keys_cps){
 	$sql = "DELETE  FROM compititions_student WHERE compititions_student.cps_id='$keys_cps';";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -861,7 +894,7 @@ function delcompeit_stu(mysqli $conn,$keys_cps){
 }
 function delcamp_stu(mysqli $conn,$keys_cp){
 	$sql = "DELETE  FROM camp_student WHERE camp_student.cp_id='$keys_cp';";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -871,7 +904,7 @@ function delcamp_stu(mysqli $conn,$keys_cp){
 }
 function delcourse_stu(mysqli $conn,$keys_cs){
 	$sql = "DELETE  FROM course_student WHERE course_student.cs_id='$keys_cs';";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -887,7 +920,7 @@ function update_attended(mysqli $conn,$data=[],$id_teachers,$attentded){
 	WHERE `teacher_id`='$id_teachers'
 	";
 
-	echo $sql;
+	
 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -957,7 +990,7 @@ function insert_answer(mysqli $conn,$data,$id,$username,$level,$course_id,$lesso
 	'$lesson_id',
 	'$total_score')";
 
-	echo $sql;
+	
 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -972,7 +1005,7 @@ function insert_answer(mysqli $conn,$data,$id,$username,$level,$course_id,$lesso
 function deletestd(mysqli $conn,$id_students){
 	$sql = "DELETE FROM student 
 	WHERE student_id = '$id_students'";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -1136,7 +1169,7 @@ function ibot_textslide_add(mysqli $conn,$data,$name){
 	VALUES (
 	'".$data['content']."',
 	'$name')";
-	echo $sql;
+	
 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -1168,7 +1201,7 @@ function ibot_textslide_delete(mysqli $conn,$data){
 
 	$sql = "DELETE FROM home_textslide 
 	WHERE `id` = '$id'";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -1228,14 +1261,14 @@ function ibot_news_update(mysqli $conn,$data){
 		return false; 	
 	}
 	mysqli_close($conn);
-	// echo $sql;
+	// 
 }
 function ibot_news_delete(mysqli $conn,$data){
 	$id =$_POST['id'];
 
 	$sql = "DELETE FROM home_ibotnews 
 	WHERE `id` = '$id'";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -1270,7 +1303,7 @@ function ibot_image_home_update(mysqli $conn,$data){
 		return false; 	
 	}
 	mysqli_close($conn);
-// echo $sql;
+// 
 }
 function ibot_image_camp_update(mysqli $conn,$data){
 	$ext = pathinfo(basename($_FILES['image_name_camp']['name']),PATHINFO_EXTENSION);
@@ -1298,7 +1331,7 @@ function ibot_image_camp_update(mysqli $conn,$data){
 		return false; 	
 	}
 	mysqli_close($conn);
-// echo $sql;
+// 
 }	
 function ibot_image_com_update(mysqli $conn,$data){
 	$ext = pathinfo(basename($_FILES['image_name_compeitition']['name']),PATHINFO_EXTENSION);
@@ -1326,7 +1359,7 @@ function ibot_image_com_update(mysqli $conn,$data){
 		return false; 	
 	}
 	mysqli_close($conn);
-// echo $sql;
+// 
 }
 
 
@@ -1346,7 +1379,7 @@ function sec_background(mysqli $conn){
 function uploadtype_certificate(mysqli $conn,$data){
 
 	$sql = "INSERT INTO `certificate`(`name`) VALUES ('".$data['typecert']."') ";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -1445,7 +1478,7 @@ function video_background(mysqli $conn,$data){
 		return false; 	
 	}
 	mysqli_close($conn);
-// echo $sql;
+// 
 }
 function ibot_textslide_sel(mysqli $conn,$data){		
 
@@ -1507,14 +1540,14 @@ function about_textslide_update(mysqli $conn,$data){
 		return false; 	
 	}
 	mysqli_close($conn);
-// echo $sql;
+// 
 }
 function about_textslide_delete(mysqli $conn,$data){
 	$id =$_POST['id'];
 
 	$sql = "DELETE FROM aboutus_textslide 
 	WHERE `id` = '$id'";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -1566,7 +1599,7 @@ function about_ourteam_update(mysqli $conn,$data){
 		return false; 	
 	}
 	mysqli_close($conn);
-// echo $sql;
+// 
 }
 function ibot_news_sel(mysqli $conn,$data){		
 
@@ -1772,7 +1805,7 @@ function about_textslide_add(mysqli $conn,$data){
 	VALUES (
 	'".$data['content']."',
 	'".$data['topic']."')";
-	echo $sql;
+	
 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -1785,6 +1818,17 @@ function about_textslide_add(mysqli $conn,$data){
 
 function select_event_id(mysqli $conn,$id_user){
 	$sql = "SELECT * FROM `calendar` INNER JOIN `classroom` ON calendar.calender_id = classroom.id_calendar_fk INNER JOIN course ON classroom.course_id = course.course_id WHERE id_user = '$id_user'";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function select_event(mysqli $conn){
+	$sql = "SELECT * FROM `calendar` INNER JOIN `classroom` ON calendar.calender_id = classroom.id_calendar_fk INNER JOIN course ON classroom.course_id = course.course_id WHERE 1";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$data =[];
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){

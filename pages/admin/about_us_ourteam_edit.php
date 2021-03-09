@@ -93,13 +93,13 @@
 		</div>
 		<form method="POST"  action="index.php?app=admin&action=about_us_ourteam_edit/add" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="<?php echo $_POST['id'];  ?>">
-			<?php  echo "====".$_POST['id']; ?>
+			
 
 			<div class="flex-container">
 				<div class="flex-col1" style="align-items: center;">
 					<p class="list_detail"><b>Name</b> </p>
 					<textarea name="name" style="width: 1000px; height: 200px;"><?php echo $ourteam_sel['name']; ?></textarea>
-					<p class="list_detail"><b>Position</b> </p>
+					<p class="list_detail" style="margin-top: 50px;"><b>Position</b> </p>
 					<textarea name="position" style="width: 1000px; height: 200px;"><?php echo $ourteam_sel['position']; ?></textarea>
 					<div style=" padding-bottom: 30px;">
 						<div class="flex-upload-pic">

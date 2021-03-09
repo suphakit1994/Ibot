@@ -119,11 +119,13 @@
              <div class="col-md-12"style="padding-left: 5px;padding-right: 5px;">
                <div class="row">
                 <div class="col-sm-6" style="margin-top: 0%; text-align: end;">
-                  <img src="../images/bank1.jpg" style="width: 275px; height: 125px;" alt="">
+                  <img src="../images/bank1.png" style="width: 275px; height: 125px;" alt="">
                 </div>
                 <div class="col-sm-6" style="margin-top: 2%;">
-                  <p>XXX-XXXX-XXX</p>
-                  <p>IE Thai Software</p>
+                  <p>749-0-17221-5</p>
+                  <p>บ. ไออีไทยซอฟต์แวร์</p>
+                  <p>สาขา: ตลาดเซฟวัน นครราชสีมา</p>
+
                 </div>
               </div>
               <div class="row">
@@ -131,8 +133,10 @@
                   <img src="../images/bank2.jpeg" style="width: 275px; height: 125px;" alt="">
                 </div>
                 <div class="col-sm-6" style="margin-top: 2%;">
-                  <p>XXX-XXXX-XXX</p>
-                  <p>IE Thai Software</p>
+                  <p>813-254669-5</p>
+                  <p>บจก. ไออีไทยซอฟต์แวร์</p>
+                  <p>สาขา: เดอะมอลล์ นครราชสีมา</p>
+
                 </div>
               </div>
               <div class="row">
@@ -140,8 +144,10 @@
                   <img src="../images/bank3.jpg" style="width: 275px; height: 125px;" alt="">
                 </div>
                 <div class="col-sm-6" style="margin-top: 2%;">
-                  <p>XXX-XXXX-XXX</p>
-                  <p>IE Thai Software</p>
+                  <p>433-2-71574-2</p>
+                  <p>บริษัท ไออีไทยซอฟต์แวร์</p>
+                  <p>สาขา: เดอะมอลล์ นครราชสีมา</p>
+
                 </div>
               </div>
             </div> 
@@ -152,7 +158,7 @@
               <label style="margin-top: 5%; ">Bank</label>
               <br><div class="custom-select" style="width:200px; ">
                 <select name="payment_bank" class="form-control">
-                  <p><option value="กรุงไทย">กรุงไทย</option></p>
+                  <p><option value="กรุงเทพ">กรุงเทพ</option></p>
                   <p><option value="ไทยพาณิชย์">ไทยพาณิชย์</option></p>
                   <p><option value="กสิกร">กสิกร</option></p>
                 </select>

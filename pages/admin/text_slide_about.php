@@ -21,7 +21,7 @@
 					<div class="row" style="display: flex; align-items: center;">
 						<div class="col-sm-6">
 							<div style="display: flex;justify-content: flex-start">
-								<h1 style="font-weight: bold; ">Home / Text Slide</h1>
+								<h1 style="font-weight: bold; ">About Us / Text Slide</h1>
 							</div>
 							<div style="display: flex;justify-content: flex-start">
 								<h3 style="color : grey;">Limit 5 object</h3>

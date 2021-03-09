@@ -73,7 +73,7 @@ function selectcourse(mysqli $conn){
 function course_delete(mysqli $conn,$course_id){
 	
 	$sql = "DELETE FROM `course` WHERE course_id = $course_id";
-	// echo $sql;
+	// 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -99,7 +99,7 @@ function course_stusent(mysqli $conn,$course_id){
 } 
 function course_delete_student(mysqli $conn,$student_id){		//ลบ
 	$sql = "DELETE FROM `course_student` WHERE `cs_student_id`= $student_id ";
-	// echo $sql;
+	// 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -112,7 +112,7 @@ function delete_camp(mysqli $conn, $data){
 
 	$sql = "DELETE FROM camp 
 	WHERE `camp_id` = $camp_id";
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -168,7 +168,7 @@ function uploadpdf(mysqli $conn,$data,$file_app_pdf,$id_lesson,$number_of_lesson
 			// echo "upload at file.";
 			
 			$sql = " INSERT INTO `file`(`file_address`,`file_lesson_id`,`numper`) VALUES ( '$name_file_pdf','$id_lesson','$number_of_lesson')";
-			echo $sql;
+			
 
 			$resuit =  mysqli_query($conn, $sql);
 			if ($resuit) {
@@ -212,7 +212,7 @@ function upload_quiz(mysqli $conn,$data,$string_array_quest,$string_array_ans,$i
 	'$id_lesson',
 	'$n_number')";
 
-	// echo $sql;
+	// 
 
 
 	$resuit =  mysqli_query($conn, $sql);
@@ -232,7 +232,7 @@ function upload_choice(mysqli $conn,$data,$new_use_var,$id_quize){
 	$sql = " INSERT INTO `choice`(`selected`,`key_all`) 
 	VALUES ('$new_use_var','$id_quize')";
 
-	echo $sql;
+	
 
 	$resuit =  mysqli_query($conn, $sql);
 	if ($resuit) {
@@ -246,7 +246,7 @@ function upload_choice(mysqli $conn,$data,$new_use_var,$id_quize){
 }
 function select_idquize(mysqli $conn){
 	$sql = "SELECT MAX(quiz_id) as quiz_id FROM `quize`  ";
-	echo $sql;		
+	
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	}

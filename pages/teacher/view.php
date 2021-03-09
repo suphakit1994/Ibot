@@ -154,7 +154,7 @@
               <div class="row" style="display: flex:margin-bottom: 0 !important ">
                 <div class="col-md-12" style="display: flex: width: 100%">
                  <?php $date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );?>
-                 <p style="font-size: 25px; padding-left: 14px; padding-top: 20px"><b><?php echo $date->format('l d-m-Y');?></b></p>
+                 <h2 style="padding-left: 14px; padding-top: 20px"><b><?php echo $date->format('l d-m-Y');?></b></h2>
                </div>
              </div>
              <div class="row" style="display: flex; margin-bottom: 0 !important;">
@@ -244,9 +244,9 @@
                 <h1><b>Class Room</b></h1>
                 <p><b>id_user: <?php echo $select_id_calendar[$j]['id_user']; ?></b></p>
                 <p><b>Teacher: <?php echo $select_id_calendar[$j]['fname']; ?></b></p>
-                <p><b>Student: ถ้าว่างก็กลับมาทำ แก้ WHERE ในฟังก์ชันเป็น 1 แล้วเขียนกรองข้อมูล</b></p>
+                <p style="color:#72DA0A;"><b>Student: <?php echo $name_std; ?></b></p>
                 <p><b>Today: <?php echo $new_date; ?></b></p>
-                <p><b><?php echo $select_id_calendar[$j]['calender_starttime']; ?>:00-<?php echo $select_id_calendar[$j]['calender_endtime']; ?>:00</b></p>
+                <p style="color:#DFD100;"><b><?php echo $select_id_calendar[$j]['calender_starttime']; ?>:00-<?php echo $select_id_calendar[$j]['calender_endtime']; ?>:00</b></p>
                 <div style="margin-bottom: 2%;">
                   <input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
                 </div>  

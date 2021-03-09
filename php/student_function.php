@@ -149,7 +149,7 @@ function insertstudent(mysqli $conn,$data){
 
 function selectmax(mysqli $conn){
 	$sql = "SELECT MAX(student_id) as student_id FROM `student`  ";
-	echo $sql;		
+	
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	}
@@ -222,7 +222,7 @@ mysqli_close($conn);
 
 function maxpayment(mysqli $conn){
 	$sql = "SELECT MAX(payment_id) as payment_id  FROM `payment`  ";
-	echo $sql;		
+	
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 	}

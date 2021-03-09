@@ -1,3 +1,9 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+
+
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -46,11 +52,12 @@
 			$(this).val(dateValue);
 		}       
 	});
-	$(document).ready(function() {
-		$('#dataTables-example').DataTable({
-			responsive: true
-		});
-	});
+
+	// $(document).ready(function() {
+	// 	$('#dataTables-example').DataTable({
+	// 		responsive: true
+	// 	});
+	// });
 	function number_format(number, decimals, decPoint, thousandsSep) {
 		decimals = Math.abs(decimals) || 0;
 		number = parseFloat(number);
@@ -91,18 +98,18 @@
 	}
 	h1{
 		font-family: 'Poppins', sans-serif;
-		font-size: 30px;
+		font-size: 30px !important;
 		font-weight: regular(400);
 	}
 	h2{
 		font-family: 'Poppins', sans-serif;
-		font-size: 20px;
+		font-size: 20px !important;
 		font-weight: regular(300);
 		line-height: 36px;
 	}
 	h3{	
 		font-family: 'Poppins', sans-serif;
-		font-size: 16px;
+		font-size: 16px !important;
 		font-weight: bold(700);	
 	}
 	select{
@@ -113,7 +120,7 @@
 	}
 	p{
 		font-family: 'Poppins', sans-serif;
-		font-size: 13px;
+		font-size: 16px !important;
 		font-weight: regular(700);	
 		line-height: 24px;
 	}

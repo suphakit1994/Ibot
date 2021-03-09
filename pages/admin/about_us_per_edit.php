@@ -89,11 +89,11 @@
 		<!-- Toggle button -->
 		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 		<div style="display: flex; padding: 25px;">
-			<h1>Add Image Slide / Certificate</h1>
+			<h1>Add Image Slide / Performance</h1>
 		</div>
 		<form method="POST"  action="index.php?app=admin&action=about_us_performance_edit/add" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="<?php echo $_POST['id'];  ?>">
-			<?php  echo "====".$_POST['id']; ?>
+			
 
 			<div class="flex-container">
 				<div class="flex-col1" style="align-items: center;">

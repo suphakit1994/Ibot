@@ -56,6 +56,7 @@
 					</a>
 					<ul id="submenu-3" class="collapse">
 						<li><a href="index.php?app=admin&action=teacher_list"><i class=""></i>Teacher List</a></li>
+						<li><a href="index.php?app=admin&action=list_check_teacher"><i class=""></i>Check Teacher List</a></li>
 					</ul>
 				</div>
 			</li>
@@ -68,6 +69,7 @@
 					</a>
 					<ul id="submenu-4" class="collapse">
 						<li><a href="index.php?app=admin&action=students_list"><i class=""></i>Students List</a></li>
+						<li><a href="index.php?app=admin&action=list_check_student"><i class=""></i>Check Student List</a></li>
 					</ul>
 				</div>
 			</li>

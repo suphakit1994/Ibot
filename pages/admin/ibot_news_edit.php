@@ -94,7 +94,7 @@
 		</div>
 		<form method="POST"  action="index.php?app=admin&action=ibot_news_edit/add" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="<?php echo $_POST['id'];  ?>">
-			<?php  echo "====".$_POST['id']; ?>
+			
 			<div class="flex-container">
 				<div class="flex-col1">
 					<div style="align-self: center;">

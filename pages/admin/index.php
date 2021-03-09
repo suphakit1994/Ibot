@@ -83,6 +83,10 @@ include('../php/camp_function.php');
 				require_once('certificate.php');
 			}
 			if($_GET['action']=="dashboardadmin"){
+				$list_teacher = selectteacher($conn);
+				$list_of_student = selectstudent($conn);
+				$course_list = selectcourse($conn);
+				$cam = camp_select($conn);
 				require_once('dashboard.php');
 			}
 			if ($_GET['action'] == 'studentslist') {

@@ -65,7 +65,6 @@
 				<div class="col-sm-12">
 					<table>
 						<tr>
-							<th><input type="checkbox" name="" value=""></th>
 							<th>Full Name</th>
 							<th>Phone</th>
 							<th>Email Address</th>
@@ -75,7 +74,6 @@
 						</tr>
 						<?php for($i=0; $i<count($list_teacher); $i++){?>
 							<tr>
-								<td><input type="checkbox" name="" value=""></td>
 								<td><?php echo $list_teacher[$i]['teacher_fname']."   ".$list_teacher[$i]['teacher_lname']; ?></td>
 								<td><?php echo $list_teacher[$i]['teacher_phone']; ?></td>
 								<td><?php echo $list_teacher[$i]['teacher_email']; ?></td>
@@ -84,8 +82,7 @@
 								<td>
 									<div class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
-										<ul class="dropdown-menu">
-											<li><a href="#"><i class="fa fa-refresh" style="font-size:15px"></i> Reset</a></li>
+										<ul class="dropdown-menu" style="overflow: hidden; height:auto;text-align: left;">
 											<li><a href="index.php?app=admin&action=edit_data_teacher<?php echo $list_teacher[$i]['teacher_id'];?>"><i class="far fa-edit" style="font-size:15px"></i> Edit</a></li>
 											<li><a href="#" data-toggle="modal" data-target="#delete_confirm<?php echo $i;?>" ><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
 										</ul>
@@ -94,7 +91,6 @@
 							</tr>
 							<div class="modal" id="delete_confirm<?php echo $i;?>" role="dialog">
 								<div class="modal-dialog">
-									<!-- Modal content-->
 									<div class="modal-content" >
 										<form action="index.php?app=admin&action=teacher_del<?php echo $list_teacher[$i]['teacher_id']; ?>" method="post">
 											<div class="modal-body" style="margin: 68px 0px 0px 0px;">

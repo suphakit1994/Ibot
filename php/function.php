@@ -726,9 +726,42 @@ function checkIn_teacher(mysqli $conn,$data=[],$id_teachers,$status){
 	}
 	mysqli_close($conn);
 }
+function take_a_live_student(mysqli $conn,$data=[],$id_student,$status){
+
+	$sql = "INSERT INTO list_student (id_student,date_name,date_today,checkin_time,status)
+	VALUES (
+	'$id_student',
+	'".$data['date_name']."',
+	'".$data['date']."',
+	'".$data['checkin_time']."',
+	'$status')";
+	echo $sql;
+
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+}
 function selectcheckin_teacher(mysqli $conn,$id){
 
 	$sql = "SELECT * FROM `list_teacher` WHERE id_teacher = '$id'";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function selectcheckin_student(mysqli $conn,$id){
+
+	$sql = "SELECT * FROM `list_student` WHERE id_student = '$id'";
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -1785,6 +1818,17 @@ function about_textslide_add(mysqli $conn,$data){
 
 function select_event_id(mysqli $conn,$id_user){
 	$sql = "SELECT * FROM `calendar` INNER JOIN `classroom` ON calendar.calender_id = classroom.id_calendar_fk INNER JOIN course ON classroom.course_id = course.course_id WHERE id_user = '$id_user'";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
+function select_event(mysqli $conn){
+	$sql = "SELECT * FROM `calendar` INNER JOIN `classroom` ON calendar.calender_id = classroom.id_calendar_fk INNER JOIN course ON classroom.course_id = course.course_id WHERE 1";
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 		$data =[];
 		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){

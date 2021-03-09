@@ -321,14 +321,13 @@
 	}
 	.modal-header {
 		padding: 2px 16px;
-		background-color: #5cb85c;
+		background-color: white;
 		color: white;
 	}
 	.modal-body {padding: 2px 16px;}
 	.modal-footer {
 		padding: 2px 16px;
-		background-color: #5cb85c;
+		background-color: white;
 		color: white;
-	}
-	
+	} 
 </style>

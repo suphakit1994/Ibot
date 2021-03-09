@@ -77,19 +77,6 @@
 	}
 
 
-	/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-	@media screen and (max-width: 700px) {
-		.row{   
-			flex-direction: column;
-		}
-		.content{
-			flex-direction: column;
-		}
-		.board{
-			width: 100%;
-			margin: 10px;
-		}
-	}
 </style>
 </head>
 <body>
@@ -98,11 +85,12 @@
 		<div class="row">
 			<div class="main">
 				<h2><b>IBOT Academy</b></h2>
-				<h5><b>Dec 7, 2017</b></h5>
+				<?php $date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );?>
+				<h5><b><?php echo $date_curr = $date->format('l d-m-Y'); ?></b></h5>
 				<div class="content">
 					<div class="board" style="height:100px; background-color: #3cba9f;">
 						<div class="iconbox" >
-							5256
+							<?php echo count($list_of_student);?>
 						</div>
 						<div class="textbox">
 							Student
@@ -110,24 +98,24 @@
 					</div>
 					<div class="board" style="height:100px; background-color: #c45850;">
 						<div class="iconbox">
-							120
+							<?php echo count($list_teacher);?>
 						</div>
 						<div class="textbox">
 							Teacher
 						</div>
 					</div><div class="board" style="height:100px; background-color: #8e5ea2;">
 						<div class="iconbox">
-							10
+							<?php echo count($course_list);?>
 						</div>
 						<div class="textbox">
 							Course
 						</div>
 					</div><div class="board" style="height:100px; background-color: #3e95cd;">
 						<div class="iconbox">
-							265
+							<?php echo count($cam);?>
 						</div>
 						<div class="textbox">
-							Certificate
+							Camp
 						</div>
 					</div>
 				</div>
@@ -155,22 +143,24 @@
 	new Chart(document.getElementById("bar-chart"), {
 		type: 'bar',
 		data: {
-			labels: ["Course 1", "Course 2", "Course 3", "Course 4", "Course 5","Course 6", "Course 7", "Course 8", "Course 9", "Course 10"],
-			datasets: [
-			{
-				label: "Population (millions)",
-				backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-				data: [2478,5267,734,784,433,2478,5267,734,784,433]
+			labels: [<?php for ($course_name=0; $course_name < count($course_list); $course_name++) {?> 
+				"<?php echo $course_list[$course_name]['course_expension'];?>",
+				<?php }?>],
+				datasets: [
+				{
+					label: "Population (millions)",
+					backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+					data: [2478,5267,734,784,433,2478,5267,734,784,433]
+				}
+				]
+			},
+			options: {
+				legend: { display: false },
+				title: {
+					display: true,
+					text: 'Number of students enrolled in the course'
+				}
 			}
-			]
-		},
-		options: {
-			legend: { display: false },
-			title: {
-				display: true,
-				text: 'Number of students enrolled in the course'
-			}
-		}
-	});
-</script>
+		});
+	</script>
 

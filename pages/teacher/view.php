@@ -169,10 +169,10 @@
 
             <div class=" row" style="display: flex; margin-bottom: 0 !important;">
               <div class="col-md-5" style="width: 50%;">
-                <p id="attended"style="font-size: 30px; padding-left: 14px; padding-top: 25px;"><b><?php echo $time_attend ; ?></b></p>
+                <h1 id="attended"style="font-size: 30px; padding-left: 14px; padding-top: 25px;"><b><?php echo $time_attend ; ?></b></h1>
               </div>
               <div class="col-md-5" style="width: 50%;">
-                <p id="out" style="font-size: 30px; padding-top: 25px;"><b><?php echo $time_out ; ?></b></p>
+                <h1 id="out" style="font-size: 30px; padding-top: 25px;"><b><?php echo $time_out ; ?></b></h1>
               </div>
             </div>
 

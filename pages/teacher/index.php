@@ -70,6 +70,7 @@ include("../php/course_function.php");
 				}
 				if($dis_button == 1) {
 					$status_button = "true";
+					$status_btn_takealive = "true";
 				}
 				if($dis_button == 0){
 					$status_button = "false";
@@ -89,12 +90,13 @@ include("../php/course_function.php");
 				$id_teachers = $id;
 				$status = $_POST['status'];
 				$func_teacher = checkIn_teacher($conn,$_POST,$id_teachers,$status);
-				require_once('our_course.php');
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=teacher&action=our_course">';
 			}
 			if($_GET['action'] == 'TakeAlive'.$id){
 				$id_teachers = $id;
 				$status = $_POST['post_take_a_live'];
 				$func_teacher = checkIn_teacher($conn,$_POST,$id_teachers,$status);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=teacher&action=our_course">';
 			}
 
 			if($_GET['action'] == 'student_assessment'){

@@ -67,7 +67,19 @@ function camp_student(mysqli $conn,$camp_id){		//แสดงแคมป
 		return $data;
 	} 
 }
+function select_camp_student(mysqli $conn,$id,$camp_id){		//แสดงแคมป
+	$sql = "SELECT * FROM `camp_student`  WHERE  cs_camp_id= $camp_id AND cs_student_id = $id";
+	$result = $conn->query($sql); 
 
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data=[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
 function camp_delete_student(mysqli $conn,$student_id){		//ลบ
 	$sql = "DELETE FROM `camp_student` WHERE `cs_student_id`= $student_id ";
 	//
@@ -275,7 +287,7 @@ function select_compitype(mysqli $conn){		//แสดงรายละเอี
 	}
 }
 
-function compi_student(mysqli $conn,$id,$compi_id){		//แสดงโปรแกรมแข่งที่สมัครไว้
+function compi_student(mysqli $conn,$id,$compi_id){		//แสดงโปรแกรมแข่งที่สมัครไว้ admin //เช็คว่าได้สมัคร หรือยัง student
 	$sql = "SELECT * FROM `compititions_student` WHERE cps_student_id = $id AND cps_com_id = $compi_id" ;
 	$result = $conn->query($sql); 
 
@@ -288,6 +300,8 @@ function compi_student(mysqli $conn,$id,$compi_id){		//แสดงโปรแ�
 		return $data;
 	}
 }
+
+
 function insert_compitype(mysqli $conn,$data){
 	$compi_name = $_POST['compi_name'];
 	// echo $compi_name;

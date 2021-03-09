@@ -47,7 +47,8 @@
 
 
     .tabbed-section__highlighter {
-      position: absolute;
+      /*position: absolute;*/
+      margin-top: 20px;
       z-index: 10;
       bottom: 0;
       height: 2px;
@@ -135,16 +136,16 @@
       <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <div class="modal-header" style="background-color: #0050ef;">
+              <h5 class="modal-title" id="exampleModalLabel" style="padding-top: 20px;">ประกาศ</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              ...
+              <h2>กรุณาติดต่อแอดมินเบอร์ 089-7178817 เพื่อติดต่อคอร์สทดลองเรียนครับ</h2>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" style="background-color: #ff5894;">
               <button type="button" class="btn btn-secondary" style="color:#000000;" data-dismiss="modal">Close</button>
             </div>
           </div>

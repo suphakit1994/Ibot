@@ -384,10 +384,10 @@ include('../php/camp_function.php');
 				require_once('thak_team.php');
 				// echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=addteam_compitition">';	
 			}
-
-			if ($_GET['action'] == 'delete_team') { //จัดทีม
-
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_student_compitition">';	
+			if ($_GET['action'] == 'delete_team') { //ลบทีม
+				$team_id=$_POST['id'];
+				$delete_team=delete_team($conn,$team_id);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=addteam_compitition">';	
 			}
 			if ($_GET['action'] == 'delete_student_compitition') { //ลบรายชื่อนักเรียนในกิจกรรมนั้นๆ รายบุคคล
 				$com_id=$_POST['com_id'];

@@ -104,11 +104,11 @@
 										<td style="padding-left: 20px;"><b><?php echo $allteam[$k]['team_name']; ?></b></td>
 
 										<td>
-											<form method="post" action="index.php?app=admin&action=">
+											<form method="post" action="index.php?app=admin&action=delete_team">
 												<a><button type="submit" name= "<?php echo $j ?>" class="Button"style="width:50% ;">
 													<i class="fas fa-trash" style="font-size:15px"></i> Delete</button></a>
-													<input type="hidden" name="student_id" value="<?php echo $list_student[$j]['student_id'];  ?>">
-													<input type="hidden" name="com_id" value="<?php echo $com_id;  ?>">
+													<input type="hidden" name="id" value="<?php echo $allteam[$k]['id'];  ?>">
+													
 												</form>
 											</td>
 											<td>

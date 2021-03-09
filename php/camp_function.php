@@ -452,4 +452,14 @@ function update_compi_student(mysqli $conn,$new_no,$com_id){
 		}
 
 	}
+	function delete_team(mysqli $conn,$team_id){		//ลบทีม
+		$sql = "DELETE FROM `add team` WHERE id = $team_id";
+		if ( mysqli_query($conn, $sql)) {
+			echo "OK";
+			return true;
+		} else {
+			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+			return false;
+		}
+	}
 	?>

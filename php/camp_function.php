@@ -70,7 +70,7 @@ function camp_student(mysqli $conn,$camp_id){		//แสดงแคมป
 
 function camp_delete_student(mysqli $conn,$student_id){		//ลบ
 	$sql = "DELETE FROM `camp_student` WHERE `cs_student_id`= $student_id ";
-	// echo $sql;
+	//
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -119,7 +119,7 @@ function update_camp(mysqli $conn,$data){
 		return false; 	
 	}
 	mysqli_close($conn);
-	// echo $sql;
+	// 
 }
 
 
@@ -209,7 +209,7 @@ function select_compi(mysqli $conn,$com_id){		//แสดงรายละเ�
 		$result->close();
 		return $data;
 	} 
-	echo $sql;
+	
 }
 
 function select_comadd(mysqli $conn,$compi){		//แสดงรายละเอียดหน้าแข่ง admin
@@ -224,7 +224,7 @@ function select_comadd(mysqli $conn,$compi){		//แสดงรายละเ�
 		$result->close();
 		return $data;
 	} 
-	echo $sql;
+	
 }
 function update_com(mysqli $conn,$data){
 	
@@ -246,13 +246,13 @@ function update_com(mysqli $conn,$data){
 		return false; 	
 	}
 	mysqli_close($conn);
-	echo $sql;
+	
 }
 function com_delete(mysqli $conn,$compi){		//ลบ
 	$com_id = $_POST['com_id'];
 	$sql = "DELETE  FROM `compititions` WHERE `com_id` = $com_id ";
 	
-	echo $sql;
+	
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -292,7 +292,7 @@ function insert_compitype(mysqli $conn,$data){
 	$compi_name = $_POST['compi_name'];
 	// echo $compi_name;
 	$sql = "INSERT INTO `compititions_type` (`compi_name`) VALUES ('$compi_name')";
-	// echo $sql;
+	// 
 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
@@ -373,7 +373,7 @@ function delete_student_compitition(mysqli $conn,$com_id,$student_id){		//ลบ
 
 function addteam_compi(mysqli $conn,$team_name,$new_no,$com_id){	
 	$sql = "INSERT INTO `add team`( `team_name`, `No.1`, `No.2`, `No.3`, `No.4`,`com_id`) VALUES ('".$team_name."','".$new_no[0]."','".$new_no[1]."','".$new_no[2]."','".$new_no[3]."','".$com_id."')";
-	// echo $sql;
+	// 
 	if ( mysqli_query($conn, $sql)) {
 		return true;
 	} else {
@@ -392,7 +392,7 @@ function update_compi_student(mysqli $conn,$new_no,$com_id){
 		return false; 	
 	}
 	mysqli_close($conn);
-	echo $sql;
+	
 }
 	function select_allteam(mysqli $conn,$com_id){	//หน้า list student addteam	
 		$sql = "SELECT * FROM `add team` WHERE com_id = '".$com_id."' ";
@@ -412,7 +412,7 @@ function update_compi_student(mysqli $conn,$new_no,$com_id){
 		
 		$sql = "SELECT * FROM `add team`as a JOIN student AS st ON st.student_id IN (a.`No.1`, a.`No.2`, a.`No.3` , a.`No.4` ) WHERE a.`com_id`= '$com_id' AND  a.`id` = '$id' ";
 		$result = $conn->query($sql); 
-		// echo $sql;
+		// 
 		if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 			$data=[];
 			while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
@@ -427,7 +427,7 @@ function update_compi_student(mysqli $conn,$new_no,$com_id){
 		echo $id;
 		$sql = "SELECT * FROM `add team`as a JOIN student AS st ON st.student_id IN (a.`No.1`, a.`No.2`, a.`No.3` , a.`No.4` ) WHERE a.`id`= '$id'  ";
 		$result = $conn->query($sql); 
-		// echo $sql;
+		// 
 		if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
 			$data=[];
 			while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){

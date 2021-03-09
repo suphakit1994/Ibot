@@ -28,6 +28,16 @@ include("../php/course_function.php");
 				$select_id_calendar = select_event_id($conn,$id_user);
 				$select_idteacher =select_idteacher($conn,$id_user);
 				$list_t = selectcheckin_teacher($conn,$id);
+				$select_event_func = select_event($conn);
+				for($event_func=0;$event_func<count($select_event_func);$event_func++){
+					for ($event_id=0; $event_id < count($select_id_calendar); $event_id++) { 
+						if($select_event_func[$event_func]['id_calendar_fk']==$select_id_calendar[$event_id]['id_calendar_fk']){
+							if ($select_event_func[$event_func]['id_calendar_fk']==$select_id_calendar[$event_id]['id_calendar_fk'] && $select_event_func[$event_func]['status'] == 'student') {
+								$name_std = $select_event_func[$event_func]['fname'];
+							}
+						}
+					}
+				}
 				$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );
 				$date_curr = $date->format('d-m-Y');
 				$status_takelive = "Take a live";

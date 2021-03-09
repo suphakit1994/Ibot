@@ -38,12 +38,18 @@ include('../php/camp_function.php');
 				//แสดงคอสที่ยังไม่ได้ลงทะเบียน
 				$course = selectcourse_student($conn,$id);	 //แสดงคอสที่ยังไม่ลงทะเบียน
 				$arr = count($course);
+
 				require_once('our_course.php');
 				$pri = selectcourse_prices($conn,$_POST);   //แสดงข้อมูลคอสในหน้าสมัครคอส
 			}
 			if($_GET['action']=="certificate"){
 				$namestudent = $name;
 				require_once('certificate.php');
+			}
+			if($_GET['action'] == 'TakeAlive'.$id){
+				$id_student = $id;
+				$status = $_POST['post_take_a_live'];
+				$func_teacher = take_a_live_student($conn,$_POST,$id_student,$status);
 			}
 
 			if($_GET['action']=="enroll"){
@@ -152,8 +158,28 @@ include('../php/camp_function.php');
 					$course_category = $cus[$data_course]['course_category'];
 					$num_class = count($cus);
 				}
-				require_once('schedule.php');
+				$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );
+				$date_curr = $date->format('d-m-Y');
 
+				$list_s = selectcheckin_student($conn,$id);
+				$dis_button_takelive = 0;
+
+				for($data_list_std = 0; $data_list_std <count($list_s); $data_list_std++){
+					if($list_s[$data_list_std]['date_today']==$date_curr) {
+						if($list_s[$data_list_std]['date_today']==$date_curr && $list_s[$data_list_std]['status'] =='Take a live') {
+							$dis_button_takelive = 1;
+						}
+					}
+				}
+				if($dis_button_takelive == 1){
+					$status_btn_takealive = "true";
+				}
+				if($dis_button_takelive == 0){
+					$status_btn_takealive = "false";
+				}
+				
+				require_once('schedule.php');
+				echo $dis_button_takelive;
 			}
 			if($_GET['action']=='checkInStudent'){
 				$id_std = $id;

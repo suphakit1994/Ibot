@@ -176,6 +176,13 @@
 		justify-content: flex-start;
 		flex-direction: row-reverse;
 	}
+	button:disabled,
+	button[disabled]{
+		border: 1px solid #999999;
+		background-color: #cccccc !important;
+		color: #ffffff;
+		background: linear-gradient(90deg, #cccccc 0%, #cccccc 100%) !important;
+	}
 
 </style>
 </head>
@@ -199,7 +206,7 @@
 								<div class="col-sm-12" style=" margin-top:15px;">
 									<?php
 									$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );?>
-									<p><b><?php echo $date->format('l d-m-Y');?></b></p>
+									<h2><b><?php echo $date->format('l d-m-Y');?></b></h2>
 								</div>
 							</div>
 							<div  class="row" style="display: flex; justify-content: flex-start;">	
@@ -217,17 +224,15 @@
 											<p>Must to Make up</p>
 										</div>
 										<div class="col-sm-6">
-											
 											<p><?php echo $course_category;?></p>
 											<p><?php echo $course_expension;?></p>
 											<p><?php echo $calender_starttime; ?>:00</p>
 											<p><?php echo $num_class; ?> class</p>
-											
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-12">
-											<button class="btnrd" style="padding: 5px;">Take a leave</button>
+											<button id="Takelive" data-target="#TakeAlive" data-toggle="modal" class="btnrd" style="padding: 5px;">Take a leave</button>
 										</div>
 									</div>
 								</div>
@@ -292,10 +297,35 @@
 			</form>
 		</div>
 	<?php }?>
+	<div class="modal" id="TakeAlive" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="icon_func_modal" style="margin-top: 1%;margin-right: 1%;">
+					<a id="close_checkin"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close" data-dismiss="modal"></i></a>
+				</div>
+				<div class="modal-body">
+					<form action="index.php?app=student&action=TakeAlive<?php echo $id;?>" method="post">
+						<div id="class_room">
+							<h2>Take Alive ==> <?php echo $id;?></h2>
+							<h3>Date: <?php echo $date->format('l');?>  <?php echo $date->format('d-m-Y');?>  </h3>
+							<h3>Time: <?php echo $date->format('H:i:s');?></h3>
+							<input type="hidden" id="date_name" name="date_name" value="<?php echo $date->format('l');?>">
+							<input type="hidden" id="date" name="date" value="<?php echo $date->format('d-m-Y');?>">
+							<input type="hidden" id="checkin_time" name="checkin_time" value="<?php echo $date->format('H:i:s');?>">
+							<input type="hidden" id="take_a_live" name="post_take_a_live" value="Take a live">
+							<div style="margin-bottom: 2%;">
+								<input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
+							</div>  
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 <script>
-
+	document.getElementById("Takelive").disabled = <?php echo $status_btn_takealive;?>;
 	document.addEventListener('DOMContentLoaded', function () {
 		var calendarEl = document.getElementById('calendar');
 		var calendar = new FullCalendar.Calendar(calendarEl, {

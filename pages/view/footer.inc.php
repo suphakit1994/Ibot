@@ -91,18 +91,18 @@
 	}
 	h1{
 		font-family: 'Poppins', sans-serif;
-		font-size: 30px;
+		font-size: 30px !important;
 		font-weight: regular(400);
 	}
 	h2{
 		font-family: 'Poppins', sans-serif;
-		font-size: 20px;
+		font-size: 20px !important;
 		font-weight: regular(300);
 		line-height: 36px;
 	}
 	h3{	
 		font-family: 'Poppins', sans-serif;
-		font-size: 16px;
+		font-size: 16px !important;
 		font-weight: bold(700);	
 	}
 	select{
@@ -113,7 +113,7 @@
 	}
 	p{
 		font-family: 'Poppins', sans-serif;
-		font-size: 13px;
+		font-size: 16px !important;
 		font-weight: regular(700);	
 		line-height: 24px;
 	}

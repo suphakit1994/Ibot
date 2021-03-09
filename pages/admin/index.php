@@ -97,6 +97,10 @@ include('../php/camp_function.php');
 				$list_teacher = selectteacher($conn);
 				require_once('teacher_list.php');		
 			}
+			if ($_GET['action'] == 'list_check_teacher') {
+				$func_check_list_teacher = select_list_teacher($conn);
+				require_once('list_check_teacher.php');		
+			}
 			if ($_GET['action'] == 'teacher_add') {
 				$insert_teacher = insert_teacher($conn,$_POST);
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=teacher_list">';
@@ -220,10 +224,7 @@ include('../php/camp_function.php');
 						$fname_s = $func_id_s[$t_data]['student_name_eng'];
 						$lname_s =$func_id_s[$t_data]['student_nickname_eng'];
 						$status_s =$func_id_s[$t_data]['student_level'];
-						// echo "========================================first name>".$fname_s.'<br>';
-						// echo "========================================lname>".$lname_s.'<br>';
-						// echo "========================================status>".$status_s.'<br>';
-						$sfunc_classroom = insert_classroom($conn,$id_calendar,$id_student,$fname,$lname,$status_s,$course_id);
+						$sfunc_classroom = insert_classroom($conn,$id_calendar,$id_student,$fname_s,$lname_s,$status_s,$course_id);
 					}
 					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=admin_calendar">';	
 				}

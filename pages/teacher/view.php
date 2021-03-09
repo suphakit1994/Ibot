@@ -116,6 +116,13 @@
       justify-content: flex-start;
       flex-direction: row-reverse;
     }
+    button:disabled,
+    button[disabled]{
+      border: 1px solid #999999;
+      background-color: #cccccc !important;
+      color: #ffffff;
+      background: linear-gradient(90deg, #cccccc 0%, #cccccc 100%) !important;
+    }
   </style>
 </head>
 <body>
@@ -128,7 +135,6 @@
               <div class="row" style="display: flex; margin-bottom: 0 !important; align-items: center;">
                 <div class="col-md-5" style="width:50%; display: flex; margin-bottom: 0 !important; padding-top: 15px; padding-left: 30px;">
                   <img style="border-radius:3%; width:150px; height:215px;object-fit:cover;" src="../teacher_img/<?php echo $select_idteacher[$i]['teacher_img'];?>" >
-
                 </div>
                 <div class="col-md-5 " style="width: 50%">
                   <p style="width: 100%; font-size:16px;"><b><?php echo $select_idteacher[$i]['teacher_fname'];?>  <?php echo $select_idteacher[$i]['teacher_lname'];?></b></p>
@@ -136,134 +142,165 @@
                 </div>
               </div>
               <br>
+              <?php for($o=0;$o<count($list_t);$o++){$db_day = $list_t[$o]['date_today'];}?>
               <div class="row" style="display: flex; margin-bottom: 0 !important;">
                 <div class="col-md-5" style="padding-left: 25px; width: 50%;">
-                  <a onclick="changetext()" id="myButton" class="Button"style="padding: 3px;  margin-left: 1px; width: 150px; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;">Check In</a>
+                  <button onclick="changetext('<?php echo $check_name;?>')" data-target="#CheckIn" data-toggle="modal" id="myButton" class="Button"style="padding: 3px;  margin-left: 1px; width: 150px; text-align: center; background: linear-gradient(90deg, #0056f7 0%, #ff3ee7 100%);border: 1px solid #ffffff;"><?php echo $check_name;?></button>
                 </div>
                 <div class="col-md-5" style="width: 50%;">
-                  <a onclick="TakeAlive()" class="Button" style="padding: 3px;  margin-left: 1px; width: 150px; text-align: center; background: #ffffff; border: 1px solid #000000; color:black;">Take a leave</a>
+                  <button id="Takelive" onclick="TakeAlive('<?php echo $status_takelive;?>')" class="Button" data-target="#TakeAlive" data-toggle="modal" style="padding: 3px;  margin-left: 1px; width: 150px; text-align: center; background: #000000; border: 1px solid #ffffff; color:#ffffff;">Take a leave</button>
                 </div>
               </div>
               <div class="row" style="display: flex:margin-bottom: 0 !important ">
                 <div class="col-md-12" style="display: flex: width: 100%">
-                  <?php
-                  $date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );?>
-                  <p style="font-size: 25px; padding-left: 14px; padding-top: 20px"><b><?php echo $date->format('l d-m-Y');?></b></p>
-                </div>
+                 <?php $date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );?>
+                 <p style="font-size: 25px; padding-left: 14px; padding-top: 20px"><b><?php echo $date->format('l d-m-Y');?></b></p>
+               </div>
+             </div>
+             <div class="row" style="display: flex; margin-bottom: 0 !important;">
+              <div class="col-md-5" style="width: 50%;">
+                <p style="font-size: 15px; padding-left: 14px; padding-top: 25px;"><b>Attend</b></p>
               </div>
-              <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                <div class="col-md-5" style="width: 50%;">
-                  <p style="font-size: 15px; padding-left: 14px; padding-top: 25px;"><b>Attend</b></p>
-                </div>
-                <div class="col-md-5" style="width: 50%;" >
-                  <p style="font-size: 15px; padding-top: 25px;"><b>Out</b></p>
-                </div>
+              <div class="col-md-5" style="width: 50%;" >
+                <p style="font-size: 15px; padding-top: 25px;"><b>Out</b></p>
               </div>
-              <div class=" row" style="display: flex; margin-bottom: 0 !important;">
-                <div class="col-md-5" style="width: 50%;">
-                  <p style="font-size: 30px; padding-left: 14px; padding-top: 25px;"><b><?php echo $date->format('H:i:s');?></b></p>
-                </div>
-                <div class="col-md-5" style="width: 50%;">
-                  <p style="font-size: 30px; padding-top: 25px;"><b>-</b></p>
-                </div>
+            </div>
+
+
+            <div class=" row" style="display: flex; margin-bottom: 0 !important;">
+              <div class="col-md-5" style="width: 50%;">
+                <p id="attended"style="font-size: 30px; padding-left: 14px; padding-top: 25px;"><b><?php echo $time_attend ; ?></b></p>
               </div>
-              <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                <div class="col-md-5" style="width: 100%;">
-                  <p style="font-size: 15px; padding-top: 25px; padding-left: 14px;"><b>Detail</b></p>
-                </div>
+              <div class="col-md-5" style="width: 50%;">
+                <p id="out" style="font-size: 30px; padding-top: 25px;"><b><?php echo $time_out ; ?></b></p>
               </div>
-              <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                <div class="col-md-5" style="width: 50%;">
-                  <p style="margin-left:14px;">Availability:</p>
-                  <p style="margin-left:14px;">Age:</p>
-                  <p style="margin-left:14px;">Work Time:</p>
-                </div>
-                <div class="col-md-5" style="width: 50%;">
-                  <p style="">Part time</p>
-                  <p style="">25 years old</p>
-                  <p style="">Sat 10:30-12:00 ฿ 75/Day</p>
-                  <p style="">Sun 10:30-12:00 ฿ 75/Day</p>
-                </div>
+            </div>
+
+
+            <div class="row" style="display: flex; margin-bottom: 0 !important;">
+              <div class="col-md-5" style="width: 100%;">
+                <p style="font-size: 15px; padding-top: 25px; padding-left: 14px;"><b>Detail</b></p>
               </div>
-              <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                <div class="col-md-12" style="margin-top:10%;">
-                  <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                    <div class="col-md-3" style="margin-left:10%;">
-                      <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                        <div class="retangled-blue" style="border-radius:25%;"></div>
-                        <div class="col-sm-8" style="margin-left:4%;"><p>Attended</p></div>
-                      </div>
+            </div>
+            <div class="row" style="display: flex; margin-bottom: 0 !important;">
+              <div class="col-md-5" style="width: 50%;">
+                <p style="margin-left:14px;">Availability:</p>
+                <p style="margin-left:14px;">Age:</p>
+                <p style="margin-left:14px;">Work Time:</p>
+              </div>
+              <div class="col-md-5" style="width: 50%;">
+                <p style="">Part time</p>
+                <p style="">25 years old</p>
+                <p style="">Sat 10:30-12:00 ฿ 75/Day</p>
+                <p style="">Sun 10:30-12:00 ฿ 75/Day</p>
+              </div>
+            </div>
+            <div class="row" style="display: flex; margin-bottom: 0 !important;">
+              <div class="col-md-12" style="margin-top:10%;">
+                <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                  <div class="col-md-3" style="margin-left:10%;">
+                    <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                      <div class="retangled-blue" style="border-radius:25%;"></div>
+                      <div class="col-sm-8" style="margin-left:4%;"><p>Attended</p></div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                        <div class="retangled-pink" style="border-radius:25%;"></div>
-                        <div class="col-sm-8" style="margin-left:4%;"><p>Take a leave</p></div>
-                      </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                      <div class="retangled-pink" style="border-radius:25%;"></div>
+                      <div class="col-sm-8" style="margin-left:4%;"><p>Take a leave</p></div>
                     </div>
-                    <div class="col-md-3">
-                      <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                        <div class="retangled-black" style="border-radius:25%;"></div>
-                        <div class="col-sm-8" style="margin-left:4%;"><p>Schedule</p></div>
-                      </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="row" style="display: flex; margin-bottom: 0 !important;">
+                      <div class="retangled-black" style="border-radius:25%;"></div>
+                      <div class="col-sm-8" style="margin-left:4%;"><p>Schedule</p></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        <?php } ?>
-      </div>
-      <!-- Calendar  -->
-      <div class="col-md-7" style="margin-left:1%">
-        <div id="calendar">
         </div>
+      <?php } ?>
+    </div>
+    <!-- Calendar  -->
+    <div class="col-md-7" style="margin-left:1%">
+      <div id="calendar">
       </div>
-      <!-- /Calendar  -->
-      <?php for($j = 0; $j<count($select_id_calendar);$j++){ ?>
-        <div class="modal" id="myModal1<?php echo $select_id_calendar[$j]['calender_id']; ?>" role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="icon_func_modal" style="margin-top: 1%;margin-right: 1%;">
-                <a id="close<?php echo $select_id_calendar[$j]['calender_id']; ?>"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
-              </div>
-              <div class="modal-body">
-                <div id="class_room">
-                  <?php $original_date = $select_id_calendar[$j]['calender_date'];
-                  $timestamp = strtotime($original_date);
-                  $new_date = date("d-m-Y", $timestamp);?>
-                  <h1><b>Class Room</b></h1>
-                  <h2><b>Teacher : </b>Jonh Smith</h2>
-                  <h2><b>Students : </b>0 / 10</h2>
-                  <p><b>Today: <?php echo $new_date; ?></b></p>
-                  <p><b><?php echo $select_id_calendar[$j]['calender_starttime']; ?>:00-<?php echo $select_id_calendar[$j]['calender_endtime']; ?>:00</b></p>
-                  <div style="margin-bottom: 2%;">
-                    <input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
-                  </div>  
-                </div>
+    </div>
+    <!-- /Calendar  -->
+    <?php for($j = 0; $j<count($select_id_calendar);$j++){ ?>
+      <div class="modal" id="myModal1<?php echo $select_id_calendar[$j]['calender_id']; ?>" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="icon_func_modal" style="margin-top: 1%;margin-right: 1%;">
+              <a id="close<?php echo $select_id_calendar[$j]['calender_id']; ?>"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
+            </div>
+            <div class="modal-body">
+              <div id="class_room">
+                <?php $original_date = $select_id_calendar[$j]['calender_date'];
+                $timestamp = strtotime($original_date);
+                $new_date = date("d-m-Y", $timestamp);?>
+                <h1><b>Class Room</b></h1>
+                <p><b>id_user: <?php echo $select_id_calendar[$j]['id_user']; ?></b></p>
+                <p><b>Teacher: <?php echo $select_id_calendar[$j]['fname']; ?></b></p>
+                <p><b>Student: ถ้าว่างก็กลับมาทำ แก้ WHERE ในฟังก์ชันเป็น 1 แล้วเขียนกรองข้อมูล</b></p>
+                <p><b>Today: <?php echo $new_date; ?></b></p>
+                <p><b><?php echo $select_id_calendar[$j]['calender_starttime']; ?>:00-<?php echo $select_id_calendar[$j]['calender_endtime']; ?>:00</b></p>
+                <div style="margin-bottom: 2%;">
+                  <input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
+                </div>  
               </div>
             </div>
           </div>
         </div>
-      <?php }?>
-      <div class="modal" id="CheckIn" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="icon_func_modal" style="margin-top: 1%;margin-right: 1%;">
-              <a id="close_checkin"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close"></i></a>
-            </div>
-            <div class="modal-body">
-              <form action="index.php?app=teacher&action=checkIn<?php echo $id;?>" method="post">
-                <div id="class_room">
-                  <h2>Check-In is ==> <?php echo $id;?></h2>
-                  <h3>Date: <?php echo $date->format('l');?>  <?php echo $date->format('d-m-Y');?>  </h3>
-                  <h3>Time: <?php echo $date->format('H:i:s');?></h3>
-                  <input type="hidden" id="date_name" name="date_name" value="<?php echo $date->format('l');?>">
-                  <input type="hidden" id="date" name="date" value="<?php echo $date->format('d-m-Y');?>">
-                  <input type="hidden" id="checkin_time" name="checkin_time" value="<?php echo $date->format('H:i:s');?>">
-                  <div style="margin-bottom: 2%;">
-                    <input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
-                  </div>  
-                </div>
+      </div>
+    <?php }?>
+
+    <div class="modal" id="CheckIn" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="icon_func_modal" style="margin-top: 1%;margin-right: 1%;">
+            <a id="close_checkin"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close" data-dismiss="modal"></i></a>
+          </div>
+          <div class="modal-body">
+            <form action="index.php?app=teacher&action=checkIn<?php echo $id;?>" method="post">
+              <div id="class_room">
+                <h2>Check-In is ==> <?php echo $id;?></h2>
+                <h3>Date: <?php echo $date->format('l');?>  <?php echo $date->format('d-m-Y');?>  </h3>
+                <h3>Time: <?php echo $date->format('H:i:s');?></h3>
+                <input type="hidden" id="date_name" name="date_name" value="<?php echo $date->format('l');?>">
+                <input type="hidden" id="date" name="date" value="<?php echo $date->format('d-m-Y');?>">
+                <input type="hidden" id="checkin_time" name="checkin_time" value="<?php echo $date->format('H:i:s');?>">
+                <input type="hidden" id="checkin_status" name="status" value="Check In">
+                <div style="margin-bottom: 2%;">
+                  <input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
+                </div>  
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="TakeAlive" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="icon_func_modal" style="margin-top: 1%;margin-right: 1%;">
+            <a id="close_checkin"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close" data-dismiss="modal"></i></a>
+          </div>
+          <div class="modal-body">
+            <form action="index.php?app=teacher&action=TakeAlive<?php echo $id;?>" method="post">
+              <div id="class_room">
+                <h2>Take Alive ==> <?php echo $id;?></h2>
+                <h3>Date: <?php echo $date->format('l');?>  <?php echo $date->format('d-m-Y');?>  </h3>
+                <h3>Time: <?php echo $date->format('H:i:s');?></h3>
+                <input type="hidden" id="date_name" name="date_name" value="<?php echo $date->format('l');?>">
+                <input type="hidden" id="date" name="date" value="<?php echo $date->format('d-m-Y');?>">
+                <input type="hidden" id="checkin_time" name="checkin_time" value="<?php echo $date->format('H:i:s');?>">
+                <input type="hidden" id="take_a_live" name="post_take_a_live" value="Take a live">
+                <div style="margin-bottom: 2%;">
+                  <input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
+                </div>  
               </div>
             </form>
           </div>
@@ -273,20 +310,15 @@
   </div>
 </body>
 <script>
-
-  function changetext(){
-    // $("#myButton").html("Check Out");
-    // var date_name = '<?php echo $date->format('l');?>';
-    // var date = '<?php echo $date->format('d-m-Y');?>'
-    // var checkin_time = '<?php echo $date->format('H:i:s');?>';
-    // document.getElementById("demo").innerHTML = date_name+' '+date+' '+checkin_time;
-    $("#CheckIn").show();
-    $("#close_checkin").click(function() {
-     $("#CheckIn").hide();
-   });
+  document.getElementById("myButton").disabled = <?php echo $status_button;?>;
+  document.getElementById("Takelive").disabled = '<?php echo $status_btn_takealive;?>';
+  function Takelive(status_takelive){
+    console.log(status_takelive);
+    document.getElementById("take_a_live").value = status_takelive;
   }
-  function TakeAlive(){
-    confirm("Do you want to Take a live?");
+  function changetext(checkstatus){
+    console.log(checkstatus);
+    document.getElementById("checkin_status").value = checkstatus;
   }
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
@@ -373,6 +405,6 @@
     var start = event.start 
     calendar.render();
   });
-  
+
 </script>
 

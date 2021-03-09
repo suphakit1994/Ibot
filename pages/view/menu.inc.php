@@ -199,7 +199,7 @@
 							<li><a href="index.php?app=student&action=ibot_camp">Camp</a></li>
 							<li><a href="index.php?app=student&action=ibot_compeitition">Compeitition</a></li>
 							<li><a href="index.php?app=student&action=schedule">Schedule</a></li>
-							<li style="padding-right: 20px;"><a href="index.php?app=student&action=mycourse">Mycourse</a></li>
+							
 
 							<li>
 								<div class="col-sm-5" style="text-align: end;">

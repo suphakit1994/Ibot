@@ -152,13 +152,13 @@
                 <div class="row" >
                   <div class="col-md-4" style="padding-top: 10">
                     <!-- <b>Sunday</b> -->
-                    <p><?php echo $class[$i]['class_date'];  ?></p>
+                    <p><?php echo $selec_class[$i]['class_date'];  ?></p>
                   </div>
                   <div class="col-md-4" style="padding-top: 10px;">
-                    <b><p><?php echo $class[$i]['class_start_time'];  ?> - <?php echo $class[$i]['class_end_time'];  ?> </p></b>
+                    <b><p><?php echo $selec_class[$i]['class_start_time'];  ?> - <?php echo $selec_class[$i]['class_end_time'];  ?> </p></b>
                   </div>
                   <div class="col-md-4"style="padding-right: 0px;px;text-align: center;">
-                    <input  href="#" type="radio" name="class_id"  value="<?php echo $class[$i]['class_id'];  ?>" >
+                    <input  href="#" type="radio" name="class_id"  value="<?php echo $selec_class[$i]['class_id'];  ?>" >
                   </div> 
                 </div>
               <?php } ?>

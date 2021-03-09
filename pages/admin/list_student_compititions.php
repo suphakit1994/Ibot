@@ -141,7 +141,7 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
-									<h5 class="modal-title" id="exampleModalLabel">ADD Team</h5>
+									<h5 class="modal-title" id="exampleModalLabel">Add Team</h5>
 
 								</div>
 								<div class="modal-body">
@@ -158,7 +158,7 @@
 								</div>
 								<div class="modal-footer">
 									<button type="button" style="width: 15%; border-radius:28px;" class="Button" data-dismiss="modal">Close</button>
-									<button type="submit"  style="width: 30%; border-radius:28px;" class="Button">Save changes</button>
+									<button type="submit"  style="width: 30%; border-radius:28px;" class="Button">Save</button>
 									
 								</div>
 							</div>

@@ -48,8 +48,8 @@ include('../php/camp_function.php');
 
 			if($_GET['action']=="enroll"){
 				
-				$class= calendars($conn);		//แสดงเวลาเรียนที่เปิดสอน
-				$arrlength = count($class);
+				$selec_class =select_class($conn);		//select calendars		
+				$arrlength = count($selec_class);
 				$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
 				require_once('enroll.php');
 			}

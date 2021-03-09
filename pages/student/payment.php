@@ -159,7 +159,7 @@
                 <br><label>Ref. No.</label>
                 <input name="payment_no"class="form-control" style="width: 350%;" required>
                 <br><label>Amount</label>
-                <input name="payment_amount" class="form-control" style="width: 350%;" value="<?php echo $pri['course_price']; ?>">
+                <input name="payment_amount" class="form-control" style="width: 350%;" value="<?php echo $pri['course_price']; ?>" readonly>
                 <br><label>Transaction Date</label>
                 <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
                 <input type="time"  name="payment_time" required> 

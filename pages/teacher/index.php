@@ -25,12 +25,50 @@ include("../php/course_function.php");
 
 			if(!isset($_GET['action']) ){
 				$id_user = $id;
-				// $cus = calendars($conn);
 				$select_id_calendar = select_event_id($conn,$id_user);
 				$select_idteacher =select_idteacher($conn,$id_user);
-				require_once('view.php');
+				$list_t = selectcheckin_teacher($conn,$id);
+				$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );
+				$date_curr = $date->format('d-m-Y');
+				$status_takelive = "Take a live";
+				$check = 0;
+				$dis_button = 0;
+				$dis_button_takelive = 0;
+				for($count_list_t=0;$count_list_t<count($list_t);$count_list_t++){
+					if($list_t[$count_list_t]['date_today']==$date_curr) {
+						if($list_t[$count_list_t]['date_today']==$date_curr && $list_t[$count_list_t]['status'] == 'Check In') {
+							$time_attend = $list_t[$count_list_t]['checkin_time'];
+							$check = 1;
+						}
+					}
+					if($list_t[$count_list_t]['date_today']==$date_curr && $list_t[$count_list_t]['status'] == 'Check Out') {
+						$dis_button = 1;
+						$time_out_day = $list_t[$count_list_t]['checkin_time'];
+					}
+					if($list_t[$count_list_t]['date_today']==$date_curr && $list_t[$count_list_t]['status'] == 'Take a live') {
+						$dis_button_takelive = 1;
+						$dis_button = 1;
+					}
+				}
+				if($check == 1) {
+					$check_name = "Check Out";
+					$time_out = $time_out_day;
+				}
+				if($check == 0){
+					$check_name = "Check In";
+					$time_attend = $time_to_day;
+				}
+				if($dis_button == 1) {
+					$status_button = "true";
+				}
+				if($dis_button == 0){
+					$status_button = "false";
+				}
+				if($dis_button_takelive == 1){
+					$status_btn_takealive = "true";
+				}
+				require_once('view.php');	
 			}
-
 			if($_GET['action'] == 'our_course'){
 				$cus[] = selectcourse($conn);
 				$data= selectcourse($conn);         //เรียกใช้ faction
@@ -39,20 +77,14 @@ include("../php/course_function.php");
 			}
 			if($_GET['action'] == 'checkIn'.$id){
 				$id_teachers = $id;
-				$attentded = $_POST['checkin_time'];
-				$teacher_attended = update_attended($conn,$_POST,$id_teachers,$attentded);
-				$func_teacher = checkIn_teacher($conn,$_POST,$id_teachers);
-
-				// require_once('our_course.php');
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=teacher&action=report">';
+				$status = $_POST['status'];
+				$func_teacher = checkIn_teacher($conn,$_POST,$id_teachers,$status);
+				require_once('our_course.php');
 			}
-			if($_GET['action'] == 'takealeave'.$id){
+			if($_GET['action'] == 'TakeAlive'.$id){
 				$id_teachers = $id;
-				$attentded = $_POST['checkout_time'];
-				$func_teacher = checkIn_teacher($conn,$_POST,$id_teachers);
-
-				// require_once('our_course.php');
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=teacher&action=report">';
+				$status = $_POST['post_take_a_live'];
+				$func_teacher = checkIn_teacher($conn,$_POST,$id_teachers,$status);
 			}
 
 			if($_GET['action'] == 'student_assessment'){

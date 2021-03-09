@@ -12,11 +12,11 @@
     height: 200px;
     border-radius: 10px 10px 0px 0px ;
   }
-  .btn {
-    color: #ffffff;
-    background-color: #dedede ;
-  }         
   .btn:hover {
+    color: #ffffff;
+    background: linear-gradient(90deg, #dedede 0%, #dedede 100%) !important;  
+  }         
+  .btn {
     border-radius:28px;
     border:1px solid #18ab29;
     display:inline-block;
@@ -25,7 +25,7 @@
     font-size:14;
     text-decoration:none;
     text-align: center; 
-    background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);    
+    background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%)!important;    
     border: 1px solid #ffffff;
   }    
 </style>
@@ -34,11 +34,14 @@
 
   <div class="container-fluid" style="padding-right:100px ;padding-left:100px ;">
     <!-- course ที่ลงทะเบียนเรียน -->
-    <div class="row" style="padding-bottom: 0px;height: 680px;" >
+    <div class="row">
 
-      <h1 style="padding-bottom: 20px;padding-top: 50px;">
+    </div>
+    <div class="row" style="padding-bottom: 0px;height: 680px;" >
+      <h1 style="padding-bottom: 20px;padding-top: 50px;text-align-last: center;"><b> WELCOME TO IBOT WORLD </b></h1>
+      <h2 style="padding-bottom: 20px;padding-top: 20px;">
         <b>Your unfinish courses</b>
-      </h1 > 
+      </h2 > 
       <?php 
       for($i=0;$i<$arrlength; $i++){  //loop card 
         ?>
@@ -117,10 +120,10 @@
       
       <!-- course ที่ยังไม่ลงทะเบียน -->
       <div class="row" style="padding-bottom: 0px;height: 680px;" >
-       <h1 style="padding-bottom: 20px;padding-top: 50px;">
-        <b>OUR COURSE</b>
-      </h1 > 
-      <?php 
+        <h2 style="padding-bottom: 20px;padding-top: 50px;">
+          <b>OUR COURSE</b>
+        </h2 > 
+        <?php 
       for($i=0;$i<$arr; $i++){  //loop card 
         ?>
         <?php if($data[$i]['course_id'] != $course[$i]['course_id'] ){ ?>

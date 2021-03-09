@@ -36,8 +36,7 @@
 		</div>
 		<form method="POST"  action="index.php?app=admin&action=text_slide_edit_about/add" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="<?php echo $_POST['id'];  ?>">
-			<?php  echo "====".$_POST['id']; ?>
-
+			
 			<div class="flex-container">
 				<div class="flex-col1">
 					<p class="list_detail"><b>Topic Text Slide</b> </p>

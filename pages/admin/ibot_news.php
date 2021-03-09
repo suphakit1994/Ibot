@@ -31,10 +31,7 @@
 							<div style="display: flex;justify-content: flex-end">
 								<a class="btn btn-primary" style="padding: 4px;" href="index.php?app=admin&action=ibot_news_add">+ Add New</a>
 							</div>
-							<div style="display: flex;justify-content: flex-end">
-								<h3 style="color : grey;">/ 5 object</h3>
 
-							</div>
 						</div>
 					</div>		
 				</div>

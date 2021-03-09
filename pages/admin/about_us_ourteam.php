@@ -33,6 +33,8 @@
 							<th>Name</th>
 							<th>Position</th>
 							<th>Image</th>
+							<th></th>
+							
 
 							
 						</tr>

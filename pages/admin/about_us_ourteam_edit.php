@@ -99,7 +99,7 @@
 				<div class="flex-col1" style="align-items: center;">
 					<p class="list_detail"><b>Name</b> </p>
 					<textarea name="name" style="width: 1000px; height: 200px;"><?php echo $ourteam_sel['name']; ?></textarea>
-					<p class="list_detail"><b>Position</b> </p>
+					<p class="list_detail" style="margin-top: 50px;"><b>Position</b> </p>
 					<textarea name="position" style="width: 1000px; height: 200px;"><?php echo $ourteam_sel['position']; ?></textarea>
 					<div style=" padding-bottom: 30px;">
 						<div class="flex-upload-pic">

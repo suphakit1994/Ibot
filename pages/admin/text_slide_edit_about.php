@@ -42,7 +42,7 @@
 				<div class="flex-col1">
 					<p class="list_detail"><b>Topic Text Slide</b> </p>
 					<textarea name="topic" style="width: 1000px; height: 150px;"><?php echo $edit_textslide['topic']; ?></textarea>
-					<p class="list_detail"><b>Content Text Slide</b> </p>
+					<p class="list_detail" style="margin-top: 50px;"><b>Content Text Slide</b> </p>
 					<textarea name="content" style="width: 1000px; height: 400px;"><?php echo $edit_textslide['content']; ?></textarea>
 					
 				</div>

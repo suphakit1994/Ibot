@@ -106,8 +106,16 @@ include('../php/camp_function.php');
 				require_once('list_check_teacher.php');		
 			}
 			if ($_GET['action'] == 'list_check_student') {
-				$func_check_list_teacher = select_list_teacher($conn);
+				$func_check_list_student = select_list_student($conn);
 				require_once('list_check_student.php');
+			}
+			if ($_GET['action'] == 'deletelistStd') {
+				$func_del_list_student = delete_list_student($conn);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_check_student">';
+			}
+			if ($_GET['action'] == 'deletelistTeacher') {
+				$func_del_list_teacher = delete_list_teacher($conn);
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=list_check_teacher">';
 			}
 			if ($_GET['action'] == 'teacher_add') {
 				$insert_teacher = insert_teacher($conn,$_POST);

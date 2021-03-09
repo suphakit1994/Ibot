@@ -40,6 +40,8 @@
 						<tr>
 							<th>Content</th>
 							<th>Approver</th>
+							<th></th>
+							
 							
 						</tr>
 						<?php for($i = 0; $i<count($cus); $i++){ ?>

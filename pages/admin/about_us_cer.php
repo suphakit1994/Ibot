@@ -32,6 +32,8 @@
 						<tr>
 							<th>Name</th>
 							<th>Image</th>
+							<th></th>
+
 
 							
 						</tr>

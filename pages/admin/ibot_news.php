@@ -40,6 +40,8 @@
 						<tr>
 							<th>Topic</th>
 							<th>Content</th>
+							<th></th>
+							
 							
 						</tr>
 						<?php for($i = 0; $i< count($cus); $i++){ ?>

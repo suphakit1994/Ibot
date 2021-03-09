@@ -519,6 +519,40 @@ function select_list_teacher(mysqli $conn){
 		return $data;
 	} 
 }
+function select_list_student(mysqli $conn){
+
+	$sql = "SELECT * FROM list_student INNER JOIN student ON list_student.id_student = student.student_id WHERE 1 ORDER BY list_student.date_today DESC";
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	} 
+}
+function delete_list_teacher(mysqli $conn){
+	$sql = "DELETE FROM list_teacher WHERE id_teacher > 0";
+	
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+function delete_list_student(mysqli $conn){
+	$sql = "DELETE FROM list_student WHERE id_student > 0";
+	
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
 function selectclassroom(mysqli $conn){
 
 	$sql = "SELECT * FROM `classroom` WHERE 1";

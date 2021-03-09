@@ -108,23 +108,22 @@
         background-color: #DEDEDE !important;
         color: #FFFFFF !important;
     }
-    .btn {
-        color: #ffffff;
-        border-radius:28px !important;
-        background-color: #dedede ;
-    }         
     .btn:hover {
-        border-radius:28px;
-        border:1px solid #18ab29;
-        display:inline-block;
-        cursor:pointer;
-        color:#ffffff !important;
-        font-size:14;
-        text-decoration:none;
-        text-align: center; 
-        background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);    
-        border: 1px solid #ffffff;
-    }  
+      color: #ffffff;
+      background: linear-gradient(90deg, #dedede 0%, #dedede 100%) !important;  
+  }         
+  .btn {
+      border-radius:28px;
+      border:1px solid #18ab29;
+      display:inline-block;
+      cursor:pointer;
+      color:#ffffff !important;
+      font-size:14;
+      text-decoration:none;
+      text-align: center; 
+      background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%)!important;    
+      border: 1px solid #ffffff;
+  }    
 </style>
 <body>
     <div class="container">

@@ -1,3 +1,5 @@
+
+
 <style>
 	table {
 		border-collapse: collapse;
@@ -57,13 +59,13 @@
 						</div>
 						<div class="col-sm-6">
 							<div style="display: flex;justify-content: flex-end">
-								<button class="btn btn-primary" type="" style="margin:4px; padding: 4px;" data-toggle="modal" data-target="#myModal">+ Add New</button>
+								<button class="btn btn-primary" type="" style="margin:4px; padding: 4px;" data-toggle="modal" data-target="#myModal">Delete</button>
 							</div>
 						</div>
 					</div>		
 				</div>
 				<div class="col-sm-12">
-					<table>
+					<table id="table_id" class="display">
 						<tr>
 							<th>ID</th>
 							<th>Full Name</th>
@@ -141,6 +143,9 @@
 	</div>
 </body>
 <script>
+	$(document).ready( function () {
+		$('#table_id').DataTable();
+	} );
 	function jsUcfirst(string)  {  //อักษรตัวแรกเป็นพิมพ์ใหญ่
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}

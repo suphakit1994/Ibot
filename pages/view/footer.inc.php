@@ -18,6 +18,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/main.min.css"> 
 <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
 
+
+
 <script type="text/javascript">
 	$.datetimepicker.setLocale('th');
 	jQuery('.date').datetimepicker({

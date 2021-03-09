@@ -105,6 +105,10 @@ include('../php/camp_function.php');
 				$func_check_list_teacher = select_list_teacher($conn);
 				require_once('list_check_teacher.php');		
 			}
+			if ($_GET['action'] == 'list_check_student') {
+				$func_check_list_teacher = select_list_teacher($conn);
+				require_once('list_check_student.php');
+			}
 			if ($_GET['action'] == 'teacher_add') {
 				$insert_teacher = insert_teacher($conn,$_POST);
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=teacher_list">';

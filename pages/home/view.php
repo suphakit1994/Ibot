@@ -131,7 +131,25 @@
       <p style="padding-left: 35%; padding-right:35%; margin-bottom:1%;">Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam
       nonummy nibh euismod tinciduct urt laoreet dolore mayna</p>
       <div class="Button" id="Learn" style="padding-left: 2%; padding-right: 2%;" >Learn more</div>
-      <div class="ButtonBack" style="padding-left: 2%; padding-right: 2%;">Trial Class</div>
+      <div class="ButtonBack" data-toggle="modal" data-target="#Modal" style="padding-left: 2%; padding-right: 2%;">Trial Class</div>
+      <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" style="color:#000000;" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- status and image -->
     <div class="row" style="margin-top:2%; text-align:center;">

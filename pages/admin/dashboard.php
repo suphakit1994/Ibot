@@ -113,10 +113,10 @@
 						</div>
 					</div><div class="board" style="height:100px; background-color: #3e95cd;">
 						<div class="iconbox">
-							<?php echo count($cam);?>
+							<?php echo count($graduate);?>
 						</div>
 						<div class="textbox">
-							Camp
+							Certificate
 						</div>
 					</div>
 				</div>

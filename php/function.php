@@ -1422,6 +1422,35 @@ function uploadtype_certificate(mysqli $conn,$data){
 	}
 	mysqli_close($conn);
 }
+function add_idstd_certificate(mysqli $conn,$data){
+
+	$sql = "INSERT INTO `graduate`(`id_std`,`name_std`,`id_course`,`date_con`) 
+	VALUES (
+	'".$data['id_std']."',
+	'".$data['namestd_str']."',
+	'".$data['c_id']."',
+	'".$data['date_cert']."') ";
+	
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false; 	
+	}
+	mysqli_close($conn);
+}
+function select_graduate(mysqli $conn){
+
+	$sql = "SELECT * FROM `graduate` WHERE 1";
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
 function selecttype_certificate(mysqli $conn){
 
 	$sql = "SELECT * FROM `certificate` WHERE 1";

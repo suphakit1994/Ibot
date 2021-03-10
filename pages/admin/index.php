@@ -44,7 +44,7 @@ include('../php/camp_function.php');
 			}
 			if ($_GET['action'] == 'courseadd') {
 				$instercourse =instercourse($conn,$data);
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="2;index.php?app=admin&action=course_list">';
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=course_list">';
 			}
 			if($_GET['action']=="selectcertificate"){
 				$select_cert = selecttype_certificate($conn);
@@ -54,7 +54,7 @@ include('../php/camp_function.php');
 
 			if($_GET['action']=="uploadcertificate"){
 				$upload_img_cert = uploadtype_certificate($conn,$_POST);
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="2;index.php?app=admin&action=selectcertificate">';
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=selectcertificate">';
 			}
 			$get_select_cert = selecttype_certificate($conn);
 			for($typecert = 0; $typecert < count($get_select_cert); $typecert++){
@@ -64,7 +64,7 @@ include('../php/camp_function.php');
 
 					// echo json_encode($_FILES['imagecert']);
 					$upload_cert = upload_certificate($conn,$_POST,$img_cert);
-					echo '<META HTTP-EQUIV="Refresh" CONTENT="2;index.php?app=admin&action=selectcertificate">';
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=selectcertificate">';
 				}
 			}
 			$select_img_cert = select_certificate($conn);
@@ -72,7 +72,14 @@ include('../php/camp_function.php');
 				if($_GET['action']=="editcertificate".$select_img_cert[$cardcertificate]['id']){
 					$id_img_certi = $select_img_cert[$cardcertificate]['id'];
 					$get_img_cert = select_certificate_useidcert($conn,$id_img_certi);
+					$s_list = selectstudent($conn);
+					$course_name = selectcourse($conn);
 					require_once('certificate.php');
+				}
+				if($_GET['action']=="addidstd".$select_img_cert[$cardcertificate]['id']){
+					$id_img_certi = $select_img_cert[$cardcertificate]['id'];
+					$func_add_idstd_certificate = add_idstd_certificate($conn,$_POST);
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=selectcertificate">';
 				}
 			}
 			if ($_GET['action'] == 'editdatacourse') {
@@ -86,7 +93,7 @@ include('../php/camp_function.php');
 				$list_teacher = selectteacher($conn);
 				$list_of_student = selectstudent($conn);
 				$course_list = selectcourse($conn);
-				$cam = camp_select($conn);
+				$graduate = select_graduate($conn);
 				
 				require_once('dashboard.php');
 			}
@@ -230,14 +237,14 @@ include('../php/camp_function.php');
 					echo "========================================calendar>".$id_calendar.'<br>';
 					echo "========================================>".$id_teacher.'<br>';
 					$func_id_t = select_idteacher($conn,$id_teacher);
-					for ($t_data=0; $t_data < count($func_id_t); $t_data++) { 
+					for ($t_data=0; $t_data < count($func_id_t); $t_data++) {
 						$fname = $func_id_t[$t_data]['teacher_fname'];
 						$lname =$func_id_t[$t_data]['teacher_lname'];
 						$status =$func_id_t[$t_data]['teacher_level'];
 						$tfunc_classroom = insert_classroom($conn,$id_calendar,$id_teacher,$fname,$lname,$status,$course_id);
 					}
 					$func_id_s = select_idstudents($conn,$id_student);
-					for ($t_data=0; $t_data < count($func_id_s); $t_data++) { 
+					for ($t_data=0; $t_data < count($func_id_s); $t_data++) {
 						$fname_s = $func_id_s[$t_data]['student_name_eng'];
 						$lname_s =$func_id_s[$t_data]['student_nickname_eng'];
 						$status_s =$func_id_s[$t_data]['student_level'];

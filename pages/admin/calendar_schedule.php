@@ -52,17 +52,35 @@
 		<div class="container">
 			<div class="row">
 				
-				<div style="padding-left: 5%;">
+				<div style="display: flex;flex-direction: row;align-items: center;justify-content:space-between;margin-top: 2%;margin-bottom: 2%;">
 					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
 						Create Schedule++
 					</button>
-					
+					<div style="display: flex;flex-direction: row;">
+						<div style="display: flex;flex-direction: row;margin-left: 10px;">
+							<svg width="20" height="20" style="border-radius:4px;">
+								<rect width="100" height="100" style="fill:rgb(1,90,240);stroke-width:3;" />
+								Sorry, your browser does not support inline SVG.  
+							</svg>
+							<p style="margin-left: 2px;">Course</p>
+						</div>
+						<div style="display: flex;flex-direction: row;margin-left: 10px;">
+							<svg width="20" height="20" style="border-radius:4px;">
+								<rect width="100" height="100" style="fill:rgb(250,123,202);stroke-width:3;" />
+								Sorry, your browser does not support inline SVG.  
+							</svg>
+							<p style="margin-left: 2px;">Camp</p>
+						</div>
+						<div style="display: flex;flex-direction: row;margin-left: 10px;">
+							<svg width="20" height="20" style="border-radius:4px;">
+								<rect width="100" height="100" style="fill:rgb(0,0,0);stroke-width:3;" />
+								Sorry, your browser does not support inline SVG.  
+							</svg>
+							<p style="margin-left: 2px;">Compitition</p>
+						</div>
+					</div>
 				</div> 
-				
-
-				<div style="padding: 5%;" id="calendar" ></div>
-
-				
+				<div style="" id="calendar" ></div>
 			</div>
 		</div>
 	</div>
@@ -93,10 +111,34 @@
 								<div class="" style="padding: 10px 10px;">
 									<label for="cars">Choose a Status:</label>
 									<select name="color" id="cars">
-										<option value="blue">Attended</option>
-										<option value="pink">Take a leave</option>
-										<option value="black">Schedule</option>
+										<option value="#015af0">Course</option>
+										<option value="#fa7bca">Camp</option>
+										<option value="#000000">Compitition</option>
 									</select>
+									
+								</div>
+								<div style="display: flex;flex-direction: row;width: 100%">
+									<div style="display: flex;flex-direction: row;margin-left: 10px;">
+										<svg width="20" height="20" style="border-radius:4px;">
+											<rect width="100" height="100" style="fill:rgb(1,90,240);stroke-width:3;" />
+											Sorry, your browser does not support inline SVG.  
+										</svg>
+										<p style="margin-left: 2px;">Course</p>
+									</div>
+									<div style="display: flex;flex-direction: row;margin-left: 10px;">
+										<svg width="20" height="20" style="border-radius:4px;">
+											<rect width="100" height="100" style="fill:rgb(250,123,202);stroke-width:3;" />
+											Sorry, your browser does not support inline SVG.  
+										</svg>
+										<p style="margin-left: 2px;">Camp</p>
+									</div>
+									<div style="display: flex;flex-direction: row;margin-left: 10px;">
+										<svg width="20" height="20" style="border-radius:4px;">
+											<rect width="100" height="100" style="fill:rgb(0,0,0);stroke-width:3;" />
+											Sorry, your browser does not support inline SVG.  
+										</svg>
+										<p style="margin-left: 2px;">Compitition</p>
+									</div>
 								</div>
 							</div>	
 						</div>

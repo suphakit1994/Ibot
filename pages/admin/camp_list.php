@@ -51,11 +51,11 @@
 										<input type="hidden" name="camp_id" value="<?php echo $cam[$i]['camp_id'];  ?>" > 
 										<input type="hidden" name="camp_program" value="<?php echo $cam[$i]['camp_program'];  ?>" >
 									</form>
-								</td>	
+								</td>
 								<td>
 									<div class="dropdown" >
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
-										<ul class="dropdown-menu">
+										<ul class="dropdown-menu" style="overflow: hidden; height:auto;text-align: left;min-width: 0;">
 											<li>
 												<form method="post" action="index.php?app=admin&action=admin_camp_edit">
 													<a><button type="submit" name= "<?php echo $i ?>" class=" btn btn:hover">
@@ -65,7 +65,7 @@
 
 												</form>
 											</li>
-											<li><a  href="#" data-toggle="modal" data-target="#delete_confirm<?php echo $i;?>" ><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
+											<li><a  href="#" data-toggle="modal" data-target="#delete_confirm<?php echo $i;?>" ><i class="fas fa-trash" style="font-size:15px"></i>Delete</a></li>
 										</ul>
 
 									</div>
@@ -90,7 +90,6 @@
 								</div>
 							</div>
 						<?php }?>
-
 					</table>
 				</div>
 			</div>

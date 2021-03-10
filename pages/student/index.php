@@ -50,6 +50,37 @@ include('../php/camp_function.php');
 				$id_student = $id;
 				$status = $_POST['post_take_a_live'];
 				$func_teacher = take_a_live_student($conn,$_POST,$id_student,$status);
+				$id_students = $id;
+				$func_select_std = select_idstudents($conn,$id_students);
+				$cus = select_event_id($conn,$id_students);
+				for ($data_course=0; $data_course < count($cus); $data_course++) { 
+					$course_category = $cus[$data_course]['course_category'];
+					$course_expension = $cus[$data_course]['course_expension'];
+					$calender_starttime = $cus[$data_course]['calender_starttime'];
+					$course_category = $cus[$data_course]['course_category'];
+					$num_class = count($cus);
+				}
+				$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );
+				$date_curr = $date->format('d-m-Y');
+
+				$list_s = selectcheckin_student($conn,$id);
+				$dis_button_takelive = 0;
+
+				for($data_list_std = 0; $data_list_std <count($list_s); $data_list_std++){
+					if($list_s[$data_list_std]['date_today']==$date_curr) {
+						if($list_s[$data_list_std]['date_today']==$date_curr && $list_s[$data_list_std]['status'] =='Take a live') {
+							$dis_button_takelive = 1;
+						}
+					}
+				}
+				if($dis_button_takelive == 1){
+					$status_btn_takealive = "true";
+				}
+				if($dis_button_takelive == 0){
+					$status_btn_takealive = "false";
+				}
+				
+				require_once('schedule.php');
 			}
 
 			if($_GET['action']=="enroll"){
@@ -192,7 +223,6 @@ include('../php/camp_function.php');
 				}
 				
 				require_once('schedule.php');
-				echo $dis_button_takelive;
 			}
 			if($_GET['action']=='checkInStudent'){
 				$id_std = $id;
@@ -250,6 +280,27 @@ include('../php/camp_function.php');
 						$corract2 = $_POST['correct2'];
 						$corract3 = $_POST['correct3'];
 						$corract4 = $_POST['correct4'];
+
+						$total_score = 0;
+
+						if ($ans0 == $corract0) {
+							$total_score = $total_score+1;
+						}
+						if ($ans1 == $corract1) {
+							$total_score = $total_score+1;
+						}
+						if ($ans2 == $corract2) {
+							$total_score = $total_score+1;
+						}
+						if ($ans3 == $corract3) {
+							$total_score = $total_score+1;
+						}
+						if ($ans4 == $corract4) {
+							$total_score = $total_score+1;
+						}else{
+							$total_score = $total_score+0;
+						}
+						$show_score = $total_score;
 						$func_check_ans = insert_answer($conn,$_POST,$id,$username,$level,$course_id,$lesson_id);
 						require_once('check_answer.php');
 					}

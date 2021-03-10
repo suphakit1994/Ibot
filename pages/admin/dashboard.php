@@ -18,9 +18,7 @@
 		display: flex;
 		justify-content: center;
 	}
-	.row {  
-		display: flex;
-	}
+
 	.main {
 		flex: 70%;
 		background-color: white;
@@ -85,9 +83,9 @@
 		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 		<div class="row">
 			<div class="main">
-				<h2><b>IBOT Academy</b></h2>
+				<h1><b>IBOT Academy</b></h1>
 				<?php $date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );?>
-				<h5><b><?php echo $date_curr = $date->format('l d-m-Y'); ?></b></h5>
+				<h2><b><?php echo $date_curr = $date->format('l d-m-Y'); ?></b></h2>
 				<div class="content">
 					<div class="board" style="height:100px; background-color: #3cba9f;">
 						<div class="iconbox" >

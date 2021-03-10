@@ -222,9 +222,9 @@
 								<div class="" style="padding: 10px 10px;">
 									<label for="cars">Choose a Status:</label>
 									<select name="color<?php echo $cus[$j]['calender_id']; ?>" id="cars">
-										<option value="blue">Attended</option>
-										<option value="pink">Take a leave</option>
-										<option value="black">Schedule</option>
+										<option value="#015af0">Course</option>
+										<option value="#fa7bca">Camp</option>
+										<option value="#000000">Compitition</option>
 									</select>
 								</div>
 								<div>

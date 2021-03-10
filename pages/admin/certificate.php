@@ -93,13 +93,13 @@
           <label for="name_course">Course</label>
           <select class="form-control" name="c_id" id="name_course">
             <?php for($course = 0; $course<count($course_name);$course++){ ?>
-              <option value="<?php echo $course_name[$course]['course_id']; ?>"><?php echo $course_name[$course]['course_category']; ?> //<?php echo $course_name[$course]['course_id']; ?>--<?php echo $course_name[$course]['course_expension']; ?></option>
+              <option value="<?php echo $course_name[$course]['course_id']; ?>"><?php echo $course_name[$course]['course_category']; ?> //<?php echo $course_name[$course]['course_expension']; ?></option>
             <?php } ?>
           </select>
           <label for="id_std">ID Student</label>
           <select class="form-control" name="id_std" id="id_std">
             <?php for($l = 0; $l<count($s_list);$l++){ ?>
-              <option value="<?php echo $s_list[$l]['student_id']; ?>"><?php echo $s_list[$l]['student_id']; ?>--<?php echo $s_list[$l]['student_name_eng']; ?></option>
+              <option value="<?php echo $s_list[$l]['student_id']; ?>"><?php echo $s_list[$l]['student_name_eng']; ?></option>
             <?php } ?>
           </select>
           <button type="submit" style="width:10%;margin-top: 5px;margin-bottom: 5px;" class="btn btn-primary">Save</button>

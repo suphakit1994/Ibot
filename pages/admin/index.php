@@ -94,8 +94,16 @@ include('../php/camp_function.php');
 				$list_of_student = selectstudent($conn);
 				$course_list = selectcourse($conn);
 				$graduate = select_graduate($conn);
-				
+				$func_selectcourse_stdcourse = selectcourse_stdcourse($conn);
+
 				require_once('dashboard.php');
+				for ($course_name=0; $course_name < count($func_selectcourse_stdcourse); $course_name++) {
+					// if ($func_selectcourse_stdcourse[$course_name]['course_id']==$func_selectcourse_stdcourse[$course_name]['cs_course_id']) {
+					// 	$num_of_cs = $func_selectcourse_stdcourse[$course_name]['cs_course_id'];
+
+					// }
+					echo count($func_selectcourse_stdcourse[$course_name]['cs_course_id']==$func_selectcourse_stdcourse[$course_name]['cs_course_id']);
+				}
 			}
 			if ($_GET['action'] == 'studentslist') {
 				$select_std = selectstudent($conn);

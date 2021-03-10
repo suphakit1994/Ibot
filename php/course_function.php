@@ -70,6 +70,21 @@ function selectcourse(mysqli $conn){
 		return $data;
 	}
 }
+function selectcourse_stdcourse(mysqli $conn){
+
+	$sql = "SELECT course_student.cs_course_id,course.course_expension, COUNT(*)FROM course_student INNER JOIN course ON course_student.cs_course_id = course.course_id GROUP BY course_student.cs_course_id";
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+}
 function course_delete(mysqli $conn,$course_id){
 	
 	$sql = "DELETE FROM `course` WHERE course_id = $course_id";

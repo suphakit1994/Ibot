@@ -172,21 +172,21 @@
 							<div class="add_user" id="adduser<?php echo $cus[$j]['calender_id']; ?>" style="display: none;">
 								<form action="index.php?app=admin&action=add_teacherclassroom<?php echo $cus[$j]['calender_id']; ?>" method="POST">
 									<label for="name_t"><h2><b>Teacher :</b></h2></label>
-									<select name="name_t" id="name_t">
+									<select class="form-control"name="name_t" id="name_t">
 										<?php for($k = 0; $k<count($t_list);$k++){ ?>
-											<option value="<?php echo $t_list[$k]['teacher_id']; ?>"><?php echo $t_list[$k]['teacher_id']; ?><?php echo $t_list[$k]['teacher_fname']; ?></option>
+											<option value="<?php echo $t_list[$k]['teacher_id']; ?>"><?php echo $t_list[$k]['teacher_fname']; ?></option>
 										<?php } ?>
 									</select><br>
 									<label for="name_s"><h2><b>Students :</b></h2></label>
-									<select name="name_s" id="name_s">
+									<select class="form-control"name="name_s" id="name_s">
 										<?php for($l = 0; $l<count($s_list);$l++){ ?>
-											<option value="<?php echo $s_list[$l]['student_id']; ?>"><?php echo $s_list[$l]['student_id']; ?><?php echo $s_list[$l]['student_name_eng']; ?></option>
+											<option value="<?php echo $s_list[$l]['student_id']; ?>"><?php echo $s_list[$l]['student_name_eng']; ?></option>
 										<?php } ?>
 									</select><br>
-
-									<select name="c_id" id="name_course">
+									<label for="name_course"><h2><b>Course :</b></h2></label>
+									<select class="form-control"name="c_id" id="name_course">
 										<?php for($course = 0; $course<count($course_name);$course++){ ?>
-											<option value="<?php echo $course_name[$course]['course_id']; ?>"><?php echo $course_name[$course]['course_id']; ?><?php echo $course_name[$course]['course_expension']; ?></option>
+											<option value="<?php echo $course_name[$course]['course_id']; ?>"><?php echo $course_name[$course]['course_expension']; ?></option>
 										<?php } ?>
 									</select><br>
 
@@ -195,8 +195,7 @@
 									<?php for($m = 0; $m<count($classroom);$m++){ ?>
 										<?php if($classroom[$m]['id_calendar_fk'] == $cus[$j]['calender_id']) {?>
 											<!-- <p><b>List in Class room: <?php echo $classroom[$m]['id_calendar_fk']; ?></b></p> -->
-											<p><b>id_user: <?php echo $classroom[$m]['id_user']; ?></b></p>
-											<p><b>fname: <?php echo $classroom[$m]['fname']; ?></b></p>
+											<p><b>Name: <?php echo $classroom[$m]['fname']; ?></b></p>
 											<p><b>status: <?php echo $classroom[$m]['status']; ?></b></p>
 											<hr style="width:100%;text-align:left;margin-left:0">
 										<?php }?>

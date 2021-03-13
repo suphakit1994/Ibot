@@ -106,8 +106,8 @@
                 <p> <option value="Father">Father</option></p>
                 <p> <option value="brother">brother</option></p>
                 <p> <option value="sister">sister</option></p>
-                <p> <option value="godfather">godfather</option></p>
-                <p> <option value="godmother">godmother</option></p>                                            
+                <p> <option value="godfather">gramdmother</option></p>
+                <p> <option value="godmother">gramdfather</option></p>                                            
               </select> 
               <p >Phone number <a style="color: red";> * </a></p> 
               <input name="parents_phonenumber" type="tel" class="form-control" pattern="[0-9]{10}" style="width: 224px;"  required >  

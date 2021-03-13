@@ -84,7 +84,7 @@ function course_delete(mysqli $conn,$course_id){
 
 function course_stusent(mysqli $conn,$course_id){
 	
-	$sql = "SELECT * FROM `course_student`as cs INNER JOIN student as s ON cs.`cs_student_id`= s.`student_id` INNER JOIN `calender_student`as ca ON ca.`cs_student_id` = s.`student_id` INNER JOIN `class` as c ON ca.`cs_calender_id`=c.`class_id` WHERE `cs_course_id`= $course_id ";
+	$sql = "SELECT * FROM `course_student`as cs INNER JOIN student as s ON cs.`cs_student_id`= s.`student_id` INNER JOIN `calender_student`as ca ON ca.`cs_student_id` = s.`student_id` INNER JOIN `class` as c ON ca.`cs_calender_id`=c.`class_id` WHERE cs.`cs_course_id`= $course_id ";
 
 	$result = $conn->query($sql); 
 

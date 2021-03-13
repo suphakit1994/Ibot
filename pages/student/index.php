@@ -32,13 +32,14 @@ include('../php/camp_function.php');
 			$student= selectstudentadd($conn,$id); //แสดงข้อมูลนักเรียนและผู้ปกครอง
 
 			if(!isset($_GET['action'])){
-				//แสดงคอสที่ลงทะเบียนไว้
-				$data = selectcourse_students($conn,$id);   //แสดงคอสที่ลงทะเบียนแล้ว
-				$arrlength = count($data); //นับข้อมูล
-				//แสดงคอสที่ยังไม่ได้ลงทะเบียน
-				$course = selectcourse_student($conn,$id);	 //แสดงคอสที่ยังไม่ลงทะเบียน
-				$arr = count($course);
 
+				$data = selectcourse_students($conn,$id);   //แสดงคอสที่ลงทะเบียนแล้ว
+				// $arrlength = count($data); //นับข้อมูล
+for($i=0;$i<count($data);$i++){
+	$course_id=$data[$i]['course_id'];
+				$course = selectcourse_student($conn,$id,$course_id);	 //แสดงคอสที่ยังไม่ลงทะเบียน
+				// $arr = count($course);
+}
 				require_once('our_course.php');
 				$pri = selectcourse_prices($conn,$_POST);   //แสดงข้อมูลคอสในหน้าสมัครคอส
 			}
@@ -77,7 +78,7 @@ include('../php/camp_function.php');
 				$add = insertcourse_students($conn,$_POST,$id,$paymax);
 				$selnoti = seldata_noti($conn);
 				$addnoti = insertnoticourse_student($conn,$selnoti,$_POST);
-				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student'>"; 
+				// echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student'>"; 
 			}
 
 			if($_GET['action']=="ibot_compeitition"){
@@ -123,7 +124,7 @@ include('../php/camp_function.php');
 				$comp_std = insertcom_students($conn,$data,$id,$paymax);
 				$sel_compeitition = seldatacompeition_noti($conn);
 				$noti_compeitition = insertnoticompetition($conn,$sel_compeitition,$_POST);  ///cps คือ Compeitition
-				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_compeitition'>";
+				// echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_compeitition'>";
 			}
 			
 			//------------------------camp----------------------------------------//
@@ -157,7 +158,7 @@ include('../php/camp_function.php');
 				$camp_std = insertcamp_students( $conn,$data,$id,$paymax);
 				$sel_camp = seldatacamp_noti($conn);
 				$noti_camp = insertnoticamp($conn,$sel_camp,$_POST);
-				echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_camp'>";
+				// echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=student&action=all_camp'>";
 			}
 
 			if($_GET['action']=="schedule"){

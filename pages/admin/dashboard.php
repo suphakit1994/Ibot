@@ -18,13 +18,12 @@
 		display: flex;
 		justify-content: center;
 	}
-	.row {  
-		display: flex;
-	}
+
 	.main {
 		flex: 70%;
 		background-color: white;
 		padding: 20px;
+		margin: 2%;
 	}
 
 	.board {
@@ -80,13 +79,13 @@
 </style>
 </head>
 <body>
-	<div class="page-content p-5" id="content" style="padding: 2%;">
+	<div class="page-content p-5" id="content">
 		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 		<div class="row">
 			<div class="main">
-				<h2><b>IBOT Academy</b></h2>
+				<h1><b>IBOT Academy</b></h1>
 				<?php $date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );?>
-				<h5><b><?php echo $date_curr = $date->format('l d-m-Y'); ?></b></h5>
+				<h2><b><?php echo $date_curr = $date->format('l d-m-Y'); ?></b></h2>
 				<div class="content">
 					<div class="board" style="height:100px; background-color: #3cba9f;">
 						<div class="iconbox" >
@@ -112,55 +111,45 @@
 						</div>
 					</div><div class="board" style="height:100px; background-color: #3e95cd;">
 						<div class="iconbox">
-							<?php echo count($cam);?>
+							<?php echo count($graduate);?>
+
 						</div>
 						<div class="textbox">
-							Camp
+							Certificate
 						</div>
 					</div>
 				</div>
 				<div class="grapbar" style="margin:20px;">
 					<canvas id="bar-chart" width="800" height="450"></canvas>
 				</div>
-				<div class="textbottom">Sometext</div>
-				<div class="textbottom">
-					<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-				</div>
-				<br>
-				<h2><b>COMPITITIONS</b></h2>
-				<h5>Sep 2, 2017-Sep 2, 2021</h5>
-				<div class="pick" style="padding: 10px;"><img src="../images/art.png" alt="" style="width:100vh; height:40vh;border-radius: 3px; "></div>
-				<div class="textbottom">Compitition</div>
-				<div class="textbottom">
-					<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-				</div>
 			</div>
 		</div>
 	</div>
 </body>
 <script>
-	// Bar chart
 	new Chart(document.getElementById("bar-chart"), {
 		type: 'bar',
 		data: {
-			labels: [<?php for ($course_name=0; $course_name < count($course_list); $course_name++) {?> 
-				"<?php echo $course_list[$course_name]['course_expension'];?>",
+			labels: [<?php for ($course_name=0; $course_name < count($func_selectcourse_stdcourse); $course_name++) {?> 
+				"<?php echo $func_selectcourse_stdcourse[$course_name]['course_expension'];?>",
 				<?php }?>],
 				datasets: [
 				{
 					label: "Population (millions)",
 					backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-					data: [2478,5267,734,784,433,2478,5267,734,784,433]
+					data: [<?php for ($num_std_course=0; $num_std_course < count($func_selectcourse_stdcourse); $num_std_course++) {?> 
+						"<?php echo $func_selectcourse_stdcourse[$num_std_course]['COUNT(*)'];?>",
+						<?php }?>]
+					}
+					]
+				},
+				options: {
+					legend: { display: false },
+					title: {
+						display: true,
+						text: 'Number of students enrolled in the course'
+					}
 				}
-				]
-			},
-			options: {
-				legend: { display: false },
-				title: {
-					display: true,
-					text: 'Number of students enrolled in the course'
-				}
-			}
-		});
-	</script>
+			});
+		</script>
 

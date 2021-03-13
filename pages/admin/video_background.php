@@ -66,9 +66,10 @@
 <body>
 
 
-	<div class="containner">
+	<div class="page-content p-5" id="content">
+		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 		<div class="page-content p-5" id="content" style="padding: 2%;">
-			<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
+			
 			<form method="POST"  action="index.php?app=admin&action=video_background/update" enctype="multipart/form-data">
 				<h1 style="font-weight: bold; ">Home / Video Background</h1>
 				<div style=" padding-bottom: 30px;">

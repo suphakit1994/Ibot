@@ -161,9 +161,6 @@
 			background-color: #d9d9d9;
 
 		}
-
-
-
 	</style>
 
 	<?php
@@ -356,24 +353,13 @@
 							<li>
 								<div class="col-sm-5" style="text-align: end;">
 									<div class="row">
-										
-
-
 										<?php if (strlen($a_name) > 8) {
 											echo mb_substr($a_name,0,8)."...";
 										}else{?>
 											<p style="padding-top:5px; margin-bottom: 0px; font-weight: bold;"><?php 
 											echo $a_name; } ?></p>
-
-
-
 											<p ><?php echo $a_nlevel; ?></p>
-
-
-
-
 										</div>								
-
 									</div>
 									<div class="col-sm-7" style=" padding-top: 5px;" >
 										<div class="dropdown">

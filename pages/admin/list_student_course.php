@@ -17,11 +17,10 @@
 <body>
 	
 	<div class="page-content p-5" id="content">
+		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small>
+		</button>
 		<div class="container">
 			<div class="row">
-				<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small>
-				</button>
-				
 				<div class="row">
 					<h1>Student List</h1>
 				</div>

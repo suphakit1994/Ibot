@@ -61,7 +61,7 @@
 
  					<div class="col-sm-4">
  						<?php for ($i=0; $i < count($per_2) ; $i++) {  ?>
- 							<img src="../aboutus_img/<?php echo $per[$i]['img_ourteam'] ?>" class="img-circle" alt="Cinque Terre" width="150" height="150"> 
+ 							<img src="../aboutus_img/<?php echo $per_2[$i]['img_ourteam'] ?>" class="img-circle" alt="Cinque Terre" width="150" height="150"> 
  							<p>
  								<b><?php echo $per_2[$i]['position']; ?></b><br>
  								<?php echo $per_2[$i]['name']; ?>
@@ -71,7 +71,7 @@
 
  					<div class="col-sm-4">
  						<?php for ($i=0; $i < count($per_3) ; $i++) {  ?>
- 							<img src="../aboutus_img/<?php echo $per[$i]['img_ourteam'] ?>" class="img-circle" alt="Cinque Terre" width="150" height="150"> 
+ 							<img src="../aboutus_img/<?php echo $per_3[$i]['img_ourteam'] ?>" class="img-circle" alt="Cinque Terre" width="150" height="150"> 
  							<p>
  								<b><?php echo $per_3[$i]['position']; ?></b><br>
  								<?php echo $per_3[$i]['name']; ?>

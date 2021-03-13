@@ -18,11 +18,11 @@
       height: 200px;
       border-radius: 10px 10px 0px 0px;
     }
-    .btn {
+    .btn:hover{
       color: #ffffff;
-      background-color: #dedede ;
+      background: linear-gradient(90deg, #dedede 0%, #dedede 100%) !important;
     }         
-    .btn:hover {
+    .btn{
       border-radius:28px;
       border:1px solid #18ab29;
       display:inline-block;
@@ -31,7 +31,7 @@
       font-size:14;
       text-decoration:none;
       text-align: center; 
-      background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);    
+      background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%) !important;    
       border: 1px solid #ffffff;
     }    
   </style>

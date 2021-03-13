@@ -130,6 +130,14 @@
 		font-weight: bold(700);	
 		line-height: 36px;
 	}
+	mark{
+		background-color: yellow;
+		color: black;
+		font-family: 'Poppins', sans-serif;
+		font-size: 16px !important;
+		font-weight: regular(700);	
+		line-height: 24px;
+	}
 	.Button {
 		border-radius:28px;
 		border:1px solid #18ab29;

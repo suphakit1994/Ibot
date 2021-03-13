@@ -52,17 +52,35 @@
 		<div class="container">
 			<div class="row">
 				
-				<div style="padding-left: 5%;">
+				<div style="display: flex;flex-direction: row;align-items: center;justify-content:space-between;margin-top: 2%;margin-bottom: 2%;">
 					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
 						Create Schedule++
 					</button>
-					
+					<div style="display: flex;flex-direction: row;">
+						<div style="display: flex;flex-direction: row;margin-left: 10px;">
+							<svg width="20" height="20" style="border-radius:4px;">
+								<rect width="100" height="100" style="fill:rgb(1,90,240);stroke-width:3;" />
+								Sorry, your browser does not support inline SVG.  
+							</svg>
+							<p style="margin-left: 2px;">Course</p>
+						</div>
+						<div style="display: flex;flex-direction: row;margin-left: 10px;">
+							<svg width="20" height="20" style="border-radius:4px;">
+								<rect width="100" height="100" style="fill:rgb(250,123,202);stroke-width:3;" />
+								Sorry, your browser does not support inline SVG.  
+							</svg>
+							<p style="margin-left: 2px;">Camp</p>
+						</div>
+						<div style="display: flex;flex-direction: row;margin-left: 10px;">
+							<svg width="20" height="20" style="border-radius:4px;">
+								<rect width="100" height="100" style="fill:rgb(0,0,0);stroke-width:3;" />
+								Sorry, your browser does not support inline SVG.  
+							</svg>
+							<p style="margin-left: 2px;">Compitition</p>
+						</div>
+					</div>
 				</div> 
-				
-
-				<div style="padding: 5%;" id="calendar" ></div>
-
-				
+				<div style="" id="calendar" ></div>
 			</div>
 		</div>
 	</div>
@@ -93,10 +111,34 @@
 								<div class="" style="padding: 10px 10px;">
 									<label for="cars">Choose a Status:</label>
 									<select name="color" id="cars">
-										<option value="blue">Attended</option>
-										<option value="pink">Take a leave</option>
-										<option value="black">Schedule</option>
+										<option value="#015af0">Course</option>
+										<option value="#fa7bca">Camp</option>
+										<option value="#000000">Compitition</option>
 									</select>
+									
+								</div>
+								<div style="display: flex;flex-direction: row;width: 100%">
+									<div style="display: flex;flex-direction: row;margin-left: 10px;">
+										<svg width="20" height="20" style="border-radius:4px;">
+											<rect width="100" height="100" style="fill:rgb(1,90,240);stroke-width:3;" />
+											Sorry, your browser does not support inline SVG.  
+										</svg>
+										<p style="margin-left: 2px;">Course</p>
+									</div>
+									<div style="display: flex;flex-direction: row;margin-left: 10px;">
+										<svg width="20" height="20" style="border-radius:4px;">
+											<rect width="100" height="100" style="fill:rgb(250,123,202);stroke-width:3;" />
+											Sorry, your browser does not support inline SVG.  
+										</svg>
+										<p style="margin-left: 2px;">Camp</p>
+									</div>
+									<div style="display: flex;flex-direction: row;margin-left: 10px;">
+										<svg width="20" height="20" style="border-radius:4px;">
+											<rect width="100" height="100" style="fill:rgb(0,0,0);stroke-width:3;" />
+											Sorry, your browser does not support inline SVG.  
+										</svg>
+										<p style="margin-left: 2px;">Compitition</p>
+									</div>
 								</div>
 							</div>	
 						</div>
@@ -130,21 +172,21 @@
 							<div class="add_user" id="adduser<?php echo $cus[$j]['calender_id']; ?>" style="display: none;">
 								<form action="index.php?app=admin&action=add_teacherclassroom<?php echo $cus[$j]['calender_id']; ?>" method="POST">
 									<label for="name_t"><h2><b>Teacher :</b></h2></label>
-									<select name="name_t" id="name_t">
+									<select class="form-control"name="name_t" id="name_t">
 										<?php for($k = 0; $k<count($t_list);$k++){ ?>
-											<option value="<?php echo $t_list[$k]['teacher_id']; ?>"><?php echo $t_list[$k]['teacher_id']; ?><?php echo $t_list[$k]['teacher_fname']; ?></option>
+											<option value="<?php echo $t_list[$k]['teacher_id']; ?>"><?php echo $t_list[$k]['teacher_fname']; ?></option>
 										<?php } ?>
 									</select><br>
 									<label for="name_s"><h2><b>Students :</b></h2></label>
-									<select name="name_s" id="name_s">
+									<select class="form-control"name="name_s" id="name_s">
 										<?php for($l = 0; $l<count($s_list);$l++){ ?>
-											<option value="<?php echo $s_list[$l]['student_id']; ?>"><?php echo $s_list[$l]['student_id']; ?><?php echo $s_list[$l]['student_name_eng']; ?></option>
+											<option value="<?php echo $s_list[$l]['student_id']; ?>"><?php echo $s_list[$l]['student_name_eng']; ?></option>
 										<?php } ?>
 									</select><br>
-
-									<select name="c_id" id="name_course">
+									<label for="name_course"><h2><b>Course :</b></h2></label>
+									<select class="form-control"name="c_id" id="name_course">
 										<?php for($course = 0; $course<count($course_name);$course++){ ?>
-											<option value="<?php echo $course_name[$course]['course_id']; ?>"><?php echo $course_name[$course]['course_id']; ?><?php echo $course_name[$course]['course_expension']; ?></option>
+											<option value="<?php echo $course_name[$course]['course_id']; ?>"><?php echo $course_name[$course]['course_expension']; ?></option>
 										<?php } ?>
 									</select><br>
 
@@ -153,8 +195,7 @@
 									<?php for($m = 0; $m<count($classroom);$m++){ ?>
 										<?php if($classroom[$m]['id_calendar_fk'] == $cus[$j]['calender_id']) {?>
 											<!-- <p><b>List in Class room: <?php echo $classroom[$m]['id_calendar_fk']; ?></b></p> -->
-											<p><b>id_user: <?php echo $classroom[$m]['id_user']; ?></b></p>
-											<p><b>fname: <?php echo $classroom[$m]['fname']; ?></b></p>
+											<p><b>Name: <?php echo $classroom[$m]['fname']; ?></b></p>
 											<p><b>status: <?php echo $classroom[$m]['status']; ?></b></p>
 											<hr style="width:100%;text-align:left;margin-left:0">
 										<?php }?>
@@ -181,9 +222,9 @@
 								<div class="" style="padding: 10px 10px;">
 									<label for="cars">Choose a Status:</label>
 									<select name="color<?php echo $cus[$j]['calender_id']; ?>" id="cars">
-										<option value="blue">Attended</option>
-										<option value="pink">Take a leave</option>
-										<option value="black">Schedule</option>
+										<option value="#015af0">Course</option>
+										<option value="#fa7bca">Camp</option>
+										<option value="#000000">Compitition</option>
 									</select>
 								</div>
 								<div>

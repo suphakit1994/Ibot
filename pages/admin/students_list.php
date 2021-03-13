@@ -14,12 +14,13 @@
 </style>
 <body>
 	<div class="page-content p-5" id="content">
+		<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="row">
 						<div class="col-sm-12">
-							<button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold"></small></button>
+							
 						</div>
 					</div>
 					<div class="row" style="display: flex; align-items: center;">
@@ -38,7 +39,7 @@
 				<div class="col-sm-12">
 					<table>
 						<tr>
-							<th><input type="checkbox" name="" value=""></th>
+							
 							<th>Full Name</th>
 							<th>Email Address</th>
 							<th>Username</th>
@@ -48,7 +49,7 @@
 						</tr>
 						<?php for($i=0; $i < count($select_std); $i++){?>
 							<tr>
-								<td><input type="checkbox" name="" value=""></td>
+								
 								<td><?php echo $select_std[$i]['student_name_eng']; ?></td>
 								<td><?php echo $select_std[$i]['parents_email']; ?></td>
 								<td><?php echo $select_std[$i]['student_username']; ?></td>
@@ -57,8 +58,7 @@
 								<td>
 									<div class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
-										<ul class="dropdown-menu">
-											<li><a href="#"><i class="fa fa-refresh" style="font-size:15px"></i> Reset</a></li>
+										<ul class="dropdown-menu" style="overflow: hidden; height:auto;text-align: left;min-width: 0;">
 											<li><a href="index.php?app=admin&action=edit_data_student<?php echo $select_std[$i]['student_id'];?>"><i class="far fa-edit" style="font-size:15px"></i> Edit</a></li>
 											<li><a  href="#" data-toggle="modal" data-target="#delete_confirm<?php echo $i;?>" ><i class="fas fa-trash" style="font-size:15px"></i> Delete</a></li>
 										</ul>

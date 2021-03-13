@@ -16,6 +16,7 @@ session_start();
 </head>
 <body>
 	<div class="container">
+		<h1><b>คะแนนที่ได้ <?php echo $show_score;?></b></h1>
 		<h1>คำถาม<?php echo $question0;?></h1>
 		<h2>คำตอบ<?php echo $ans0;?> ==>เฉลย<?php echo $corract0;?></h2><br>
 		<h1>คำถาม<?php echo $question1;?></h1>
@@ -26,6 +27,7 @@ session_start();
 		<h2>คำตอบ<?php echo $ans3;?> ==>เฉลย<?php echo $corract3;?></h2><br>
 		<h1>คำถาม<?php echo $question4;?></h1>
 		<h2>คำตอบ<?php echo $ans4;?> ==>เฉลย<?php echo $corract4;?></h2><br>
+
 	</div>
 </body>
 </html>

@@ -211,7 +211,7 @@ $image = $_SESSION["teacher_img"];
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-5">
+				<!-- <div class="col-sm-5">
 					<p class="font_bold">
 						<b>Certificate Request</b>
 					</p>
@@ -219,7 +219,7 @@ $image = $_SESSION["teacher_img"];
 						<img style="object-fit:cover ;" src="../images/Logo.jpg" width="100%" height="180px" alt="Image">
 					</div>
 					<a class="Button" href="" style="width: 40%; padding: 1%;">Request Certificate</a> 
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

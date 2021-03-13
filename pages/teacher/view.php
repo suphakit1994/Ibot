@@ -195,28 +195,27 @@
                 <p style="">Sun 10:30-12:00 ฿ 75/Day</p>
               </div>
             </div>
-            <div class="row" style="display: flex; margin-bottom: 0 !important;">
-              <div class="col-md-12" style="margin-top:10%;">
-                <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                  <div class="col-md-3" style="margin-left:10%;">
-                    <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                      <div class="retangled-blue" style="border-radius:25%;"></div>
-                      <div class="col-sm-8" style="margin-left:4%;"><p>Attended</p></div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                      <div class="retangled-pink" style="border-radius:25%;"></div>
-                      <div class="col-sm-8" style="margin-left:4%;"><p>Take a leave</p></div>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="row" style="display: flex; margin-bottom: 0 !important;">
-                      <div class="retangled-black" style="border-radius:25%;"></div>
-                      <div class="col-sm-8" style="margin-left:4%;"><p>Schedule</p></div>
-                    </div>
-                  </div>
-                </div>
+            <div style="display: flex;flex-direction: row;width: 100%;justify-content: space-around;">
+              <div style="display: flex;flex-direction: row;margin-left: 10px;">
+                <svg width="20" height="20" style="border-radius:4px;">
+                  <rect width="100" height="100" style="fill:rgb(1,90,240);stroke-width:3;" />
+                  Sorry, your browser does not support inline SVG.  
+                </svg>
+                <p style="margin-left: 2px;">Course</p>
+              </div>
+              <div style="display: flex;flex-direction: row;margin-left: 10px;">
+                <svg width="20" height="20" style="border-radius:4px;">
+                  <rect width="100" height="100" style="fill:rgb(250,123,202);stroke-width:3;" />
+                  Sorry, your browser does not support inline SVG.  
+                </svg>
+                <p style="margin-left: 2px;">Camp</p>
+              </div>
+              <div style="display: flex;flex-direction: row;margin-left: 10px;">
+                <svg width="20" height="20" style="border-radius:4px;">
+                  <rect width="100" height="100" style="fill:rgb(0,0,0);stroke-width:3;" />
+                  Sorry, your browser does not support inline SVG.  
+                </svg>
+                <p style="margin-left: 2px;">Compitition</p>
               </div>
             </div>
           </div>
@@ -241,14 +240,15 @@
                 <?php $original_date = $select_id_calendar[$j]['calender_date'];
                 $timestamp = strtotime($original_date);
                 $new_date = date("d-m-Y", $timestamp);?>
-                <h1><b>Class Room</b></h1>
-                <p><b>id_user: <?php echo $select_id_calendar[$j]['id_user']; ?></b></p>
-                <p><b>Teacher: <?php echo $select_id_calendar[$j]['fname']; ?></b></p>
-                <p style="color:#72DA0A;"><b>Student: <?php echo $name_std; ?></b></p>
-                <p><b>Today: <?php echo $new_date; ?></b></p>
-                <p style="color:#DFD100;"><b><?php echo $select_id_calendar[$j]['calender_starttime']; ?>:00-<?php echo $select_id_calendar[$j]['calender_endtime']; ?>:00</b></p>
-                <div style="margin-bottom: 2%;">
-                  <input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
+                <h1 style="text-align: center;"><b>Class Room</b></h1>
+                <p style="text-align: center;"><b>Teacher: <?php echo $select_id_calendar[$j]['fname']; ?></b></p>
+                <p style="text-align: center;"><b>Student: <?php echo $name_std; ?></b></p>
+                <p style="text-align: center;"><b>Today: <?php echo $new_date; ?></b></p>
+                <div style="text-align: center;">
+                  <mark style="text-align: center;"><b><?php echo $select_id_calendar[$j]['calender_starttime']; ?>:00-<?php echo $select_id_calendar[$j]['calender_endtime']; ?>:00</b></mark>
+                </div>
+                <div style="display:flex;justify-content: flex-end; margin-bottom: 2%;">
+                  <input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="Close">
                 </div>  
               </div>
             </div>
@@ -261,20 +261,22 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="icon_func_modal" style="margin-top: 1%;margin-right: 1%;">
-            <a id="close_checkin"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close" data-dismiss="modal"></i></a>
+            <a id="close_checkin"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"data-dismiss="modal"><i class="fa fa-close" ></i></a>
           </div>
           <div class="modal-body">
             <form action="index.php?app=teacher&action=checkIn<?php echo $id;?>" method="post">
               <div id="class_room">
-                <h2>Check-In is ==> <?php echo $id;?></h2>
-                <h3>Date: <?php echo $date->format('l');?>  <?php echo $date->format('d-m-Y');?>  </h3>
-                <h3>Time: <?php echo $date->format('H:i:s');?></h3>
+                <div style="display:flex;flex-direction:column; justify-content: flex-start;">
+                  <h1 style="text-align: center;" id="hcheck"><b>Check In</b></h1>
+                  <h2 style="text-align: center;">Date: <?php echo $date->format('l');?>  <?php echo $date->format('d-m-Y');?></h2>
+                  <h2 style="text-align: center;">Time: <?php echo $date->format('H:i:s');?></h2>
+                </div>
                 <input type="hidden" id="date_name" name="date_name" value="<?php echo $date->format('l');?>">
                 <input type="hidden" id="date" name="date" value="<?php echo $date->format('d-m-Y');?>">
                 <input type="hidden" id="checkin_time" name="checkin_time" value="<?php echo $date->format('H:i:s');?>">
                 <input type="hidden" id="checkin_status" name="status" value="Check In">
-                <div style="margin-bottom: 2%;">
-                  <input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
+                <div style="display:flex;justify-content: flex-end; margin-bottom: 2%;">
+                  <input id="repage" style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
                 </div>  
               </div>
             </form>
@@ -286,19 +288,19 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="icon_func_modal" style="margin-top: 1%;margin-right: 1%;">
-            <a id="close_checkin"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"><i class="fa fa-close" data-dismiss="modal"></i></a>
+            <a id="close_checkin"class="icon_inmodals" style="padding-left:9px !important;padding-right:9px !important;background-color: red;"data-dismiss="modal"><i class="fa fa-close" ></i></a>
           </div>
           <div class="modal-body">
             <form action="index.php?app=teacher&action=TakeAlive<?php echo $id;?>" method="post">
               <div id="class_room">
-                <h2>Take Alive ==> <?php echo $id;?></h2>
-                <h3>Date: <?php echo $date->format('l');?>  <?php echo $date->format('d-m-Y');?>  </h3>
-                <h3>Time: <?php echo $date->format('H:i:s');?></h3>
+                <div style="display:flex;flex-direction:column; justify-content: flex-start;">
+                  <h1 style="text-align: center;"><b>Take Alive</b></h1>
+                  <input class="form-control" style="margin: 10px;" type="date" id="date" name="date">
+                  <input class="form-control" style="margin: 10px;" type="time" id="checkin_time" name="checkin_time">
+                </div>
                 <input type="hidden" id="date_name" name="date_name" value="<?php echo $date->format('l');?>">
-                <input type="hidden" id="date" name="date" value="<?php echo $date->format('d-m-Y');?>">
-                <input type="hidden" id="checkin_time" name="checkin_time" value="<?php echo $date->format('H:i:s');?>">
                 <input type="hidden" id="take_a_live" name="post_take_a_live" value="Take a live">
-                <div style="margin-bottom: 2%;">
+                <div style="display:flex;justify-content: flex-end; margin-bottom: 2%;">
                   <input style="color:white;width: 30%; padding: 2px; border-radius: 5px; background: linear-gradient(90deg, #0050ef 0%, #ff5894 100%);" type="submit" value="ADD">
                 </div>  
               </div>
@@ -311,7 +313,7 @@
 </body>
 <script>
   document.getElementById("myButton").disabled = <?php echo $status_button;?>;
-  document.getElementById("Takelive").disabled = '<?php echo $status_btn_takealive;?>';
+  document.getElementById("Takelive").disabled = "<?php echo $status_btn_takealive;?>";
   function Takelive(status_takelive){
     console.log(status_takelive);
     document.getElementById("take_a_live").value = status_takelive;
@@ -319,6 +321,7 @@
   function changetext(checkstatus){
     console.log(checkstatus);
     document.getElementById("checkin_status").value = checkstatus;
+    document.getElementById("hcheck").innerHTML = "<b>"+checkstatus+"</b>";
   }
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');

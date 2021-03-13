@@ -51,7 +51,7 @@
 								<td>
 									<div class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:24px;"><span>&#8942;</span></a>
-										<ul class="dropdown-menu">
+										<ul class="dropdown-menu" style="overflow: hidden; height:auto;text-align: left;min-width: 0;">
 
 											<li>
 												<form method="post" action="index.php?app=admin&action=admin_compitition_edit">

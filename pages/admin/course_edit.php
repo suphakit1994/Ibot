@@ -102,19 +102,19 @@
 			<div class="flex-container">
 				<div class="flex-col1">
 					<p class="list_detail"><b>Category</b> <small style="color: red;">Format : EV3</small></p>
-					<input type="text" name="course_category" class="form-control" >
+					<input type="text" name="course_category" class="form-control" required>
 					<p class="list_detail"><b>Age for class</b></p>
-					<input type="text" name="course_Age" class="form-control" >
+					<input type="text" name="course_Age" class="form-control" required>
 					<p class="list_detail"><b>Lesson  </b><small style="color: red;">Format : 24 Lesson 36 Hours</small></p>
-					<input type="text" name="course_lesson" class="form-control" >
+					<input type="text" name="course_lesson" class="form-control" required>
 				</div>
 				<div class="flex-col2">
 					<p class="list_detail"><b>Course Expension </b></p>
-					<input type="text" name="course_expension" class="form-control" >
+					<input type="text" name="course_expension" class="form-control" required>
 					<p class="list_detail"><b>Course Code   </b><small style="color: red;">Format : IM01</small></p>
-					<input type="text" name="course_code" class="form-control"  >
+					<input type="text" name="course_code" class="form-control"  required>
 					<p class="list_detail"><b>Price</b></p>
-					<input type="text" name="course_price" class="form-control" OnChange="JavaScript:chkNum(this)" >
+					<input type="text" name="course_price" class="form-control" OnChange="JavaScript:chkNum(this)" required>
 				</div>
 			</div>
 			<button type="submit" name="submit" value="Save" class="Button" style=" width: 10%; text-align: center;"> Save </button> 

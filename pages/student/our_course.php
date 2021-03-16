@@ -43,7 +43,7 @@
         <b>Your unfinish courses</b>
       </h2 > 
       <?php 
-      for($i=0;$i<$arrlength; $i++){  //loop card 
+      for($i=0;$i<count($data); $i++){  //loop card 
         ?>
         <form method="post" action="index.php?app=student&action=mycourse<?php echo $data[$i]['course_id'];?>" >
           <div>
@@ -112,6 +112,7 @@
                   <input type="hidden" name="course_id" value="<?php echo $data[$i]['course_id'];  ?>">
                 </div>
               </div>
+              <?php  ?>
             </div>  
           </form>
           <?php  
@@ -124,17 +125,17 @@
           <b>OUR COURSE</b>
         </h2 > 
         <?php 
-      for($i=0;$i<$arr; $i++){  //loop card 
+      for($j=0;$j<count($course); $j++){  //loop card 
         ?>
-        <?php if($data[$i]['course_id'] != $course[$i]['course_id'] ){ ?>
+        <?php if($data[$j]['course_id'] != $course[$j]['course_id'] ){ ?>
           <form method="post" action="index.php?app=student&action=enroll" >
             <div >
               <div name="card" class="col-md-3" style="padding-bottom: 15px;" >
                 <div class="card" style="height: 510px;border-radius:10px;">
                   <div class="card-image" >
-                    <img class="card-img-top" src="../course_img/<?php echo $course[$i]['course_img'];?>" alt="Card image cap" >
+                    <img class="card-img-top" src="../course_img/<?php echo $course[$j]['course_img'];?>" alt="Card image cap" >
                     <span class="card-title " style="background: #e6008a;position: relative;bottom: 20px;padding-top: 5px;padding-bottom: 5px;padding-right: 10px;padding-left: 10px;">
-                      <B><?php echo $course[$i]['course_category']; ?></B>
+                      <B><?php echo $course[$j]['course_category']; ?></B>
                     </span>
                   </div>
                   <div class="card-body" >
@@ -146,7 +147,7 @@
                       </div>
                       <div class="col-md-5" >
                         <ul class="nav" style="padding-left:10px">
-                          <li > <span><p ><?php echo $course[$i]['course_expension']; ?> <u style="color: blue"><?php echo $course[$i]['course_code']; ?></u></span> </li>
+                          <li > <span><p ><?php echo $course[$j]['course_expension']; ?> <u style="color: blue"><?php echo $course[$j]['course_code']; ?></u></span> </li>
                           </ul>
                         </div>
                       </div>   
@@ -158,7 +159,7 @@
                         </div>
                         <div class="col-md-5" >
                           <ul class="nav" style="padding-left:10px">
-                            <li > <span><p ><?php echo $course[$i]['course_Age'];?></p></span> </li>
+                            <li > <span><p ><?php echo $course[$j]['course_Age'];?></p></span> </li>
                           </ul>
                         </div>
                       </div>   
@@ -171,7 +172,7 @@
                         </div>
                         <div class="col-md-5" >
                           <ul class="nav" style="padding-left:10px">
-                            <li > <span><p ><?php echo $course[$i]['course_lesson']; ?></p></span> </li>
+                            <li > <span><p ><?php echo $course[$j]['course_lesson']; ?></p></span> </li>
                           </ul>
                         </div>
                       </div>   
@@ -183,15 +184,15 @@
                         </div>
                         <div class="col-md-5" >
                           <ul class="nav" style="padding-left:10px">
-                            <li > <span><p><?php echo $course[$i]['course_price']; ?></p></span> </li>
+                            <li > <span><p><?php echo $course[$j]['course_price']; ?></p></span> </li>
                           </ul>
                         </div>
                       </div>   
                       <div class="text-center " style="margin-top: 10px ">
-                        <button type="submit"  name= "<?php echo $i ?>" class=" btn btn:hover" style="width:80% ;border-radius:28px;">Enroll</button>
+                        <button type="submit"  name= "<?php echo $j ?>" class=" btn btn:hover" style="width:80% ;border-radius:28px;">Enroll</button>
                       </div>
                     </div>
-                    <input type="hidden" name="course_id" value="<?php echo $course[$i]['course_id'];  ?>">
+                    <input type="hidden" name="course_id" value="<?php echo $course[$j]['course_id'];  ?>">
                   </div>
                 </div>
               </div>  

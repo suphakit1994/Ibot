@@ -195,7 +195,7 @@
               </div>
               <div style="padding-top: 20px;">
                 <input type="radio" name="payment_type"  value="Enroll"  required>
-                <label >ยืนยันข้อมูล</label>
+                <label >Confirm</label>
                 <button type="submit"  name="next" class="Button" style="border-radius:28px; width: 120px;">Next</button>
               </div>
             </div>    

@@ -133,23 +133,35 @@
 			labels: [<?php for ($course_name=0; $course_name < count($func_selectcourse_stdcourse); $course_name++) {?> 
 				"<?php echo $func_selectcourse_stdcourse[$course_name]['course_expension'];?>",
 				<?php }?>],
-				datasets: [
-				{
-					label: "Population (millions)",
+				datasets: [{
+					label: "Number of Student",
 					backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
 					data: [<?php for ($num_std_course=0; $num_std_course < count($func_selectcourse_stdcourse); $num_std_course++) {?> 
-						"<?php echo $func_selectcourse_stdcourse[$num_std_course]['COUNT(*)'];?>",
+						'<?php echo $func_selectcourse_stdcourse[$num_std_course]['COUNT(*)'];?>',
 						<?php }?>]
-					}
-					]
+					}]
 				},
 				options: {
 					legend: { display: false },
 					title: {
 						display: true,
 						text: 'Number of students enrolled in the course'
-					}
-				}
-			});
-		</script>
+					},
+					scales: {
+						yAxes: [{
+							ticks: {
+								beginAtZero: true,
+								userCallback: function(label, index, labels) {
+                     // when the floored value is the same as the value we have a whole number
+                     if (Math.floor(label) === label) {
+                     	return label;
+                     }
+
+                 },
+             }
+         }],
+     },
+ }
+});
+</script>
 

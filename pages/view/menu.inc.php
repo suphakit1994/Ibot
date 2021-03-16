@@ -14,6 +14,7 @@
 		$s_level = $_SESSION['student_level'];
 		$s_name = $_SESSION['student_name_eng'];
 		$s_nlevel = $_SESSION['student_nlevel'];
+		$s_image = $_SESSION['student_image'];
 		$new_name = str_replace(" ", "",$s_name); 
 		
 
@@ -211,7 +212,7 @@
 
 									</div>
 									<div class="col-sm-7" style="align-items: center; padding-top: 5px;" >
-										<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../images/images.png" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
+										<div class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" ><img src="../student_img/<?php echo $s_image; ?>" alt="" style="border-radius: 50%; width:45px; height:45px;"></i>
 
 										</a>
 										<ul class="dropdown-menu" style="overflow: hidden; height: 50px;text-align: left;">

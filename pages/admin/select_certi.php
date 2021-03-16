@@ -39,7 +39,7 @@
       </div>
       <?php for($typecert = 0; $typecert < count($select_cert); $typecert++){?>
         <div class="flex-subhead">
-          <h1>Head: <?php echo $select_cert[$typecert]['name'];?></h1>
+          <h1><?php echo $select_cert[$typecert]['name'];?></h1>
           <div style="display: flex;padding-left: 10px;align-items: center;">
             <a style="color: blue;" href="#" type="" data-toggle="modal" data-target="#addimg<?php echo $select_cert[$typecert]['id'];?>">+Add New</a>
           </div>
@@ -50,7 +50,23 @@
               <div class="card" style="width: 18rem; margin: 15px;padding-bottom: 0px !important;">
                 <img class="card-img-top" src="../certificate_image/<?php echo $select_img_cert[$cardcertificate]['name_img'];?>" style="width: 270px;height: 180;" alt="Card image cap">
                 <div class="card-body" style="padding: 5px;">
-                  <a style="width: 100%;" href="index.php?app=admin&action=editcertificate<?php echo $select_img_cert[$cardcertificate]['id'];?>" class="btn btn-success">SELECT</a>
+                  <a style="width: 83%;" href="index.php?app=admin&action=editcertificate<?php echo $select_img_cert[$cardcertificate]['id'];?>" class="btn btn-success">SELECT</a>
+                  <button data-toggle="modal" data-target="#delete_confirm<?php echo $cardcertificate;?>" style="width: 15%;"class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                </div>
+              </div>
+              <div class="modal" id="delete_confirm<?php echo $cardcertificate;?>" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content" >
+                    <form action="index.php?app=admin&action=certi_del<?php echo $select_img_cert[$cardcertificate]['id'];?>" method="post">
+                      <div class="modal-body" style="margin: 68px 0px 0px 0px;">
+                        <h3 style="text-align: center;">Are you Sure to Delete : <?php echo $select_img_cert[$cardcertificate]['id'];?> ?</h3>
+                        <div class="modals_end" style="margin: 41px 0px 0px 0px;">
+                          <input class="btn btn-success" style="margin: 2%;" type="submit" name="" value="OK">
+                          <button class="btn btn-danger" style="margin: 2%;" type="button" onclick="document.getElementById('delete_confirm<?php echo $cardcertificate;?>').style.display='none'">Cancel</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
             <?php }?>
@@ -60,7 +76,6 @@
         <div class="modal" id="addimg<?php echo $select_cert[$typecert]['id'];?>" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content" >
-
               <form action="index.php?app=admin&action=uploadcertificate<?php echo $select_cert[$typecert]['id'];?>" method="post" enctype="multipart/form-data" id="test">
                 <div class="modal-body" style="margin: 25px 0px 0px 0px;">
                   <h3 style="text-align: center;"><b>Upload image </b></h3>
@@ -76,7 +91,6 @@
                   </div>
                 </div>
               </form>
-
             </div>
           </div>
         </div>

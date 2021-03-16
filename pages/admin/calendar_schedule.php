@@ -168,7 +168,16 @@
 							<?php $original_date = $cus[$j]['calender_date'];
 							$timestamp = strtotime($original_date);
 							$new_date = date("d-m-Y", $timestamp);?>
-							<h1><b>Class Room</b></h1>
+							<?php if($cus[$j]['calender_color']=='#015af0'){?>
+								<h1><b><?php echo "Course";?></b></h1>
+							<?php }?>
+							<?php if($cus[$j]['calender_color']=='#000000'){?>
+								<h1><b><?php echo "Compitition";?></b></h1>
+							<?php }?>
+							<?php if($cus[$j]['calender_color']=='#fa7bca'){?>
+								<h1><b><?php echo "Camp";?></b></h1>
+							<?php }?>
+							
 							<div class="add_user" id="adduser<?php echo $cus[$j]['calender_id']; ?>" style="display: none;">
 								<form action="index.php?app=admin&action=add_teacherclassroom<?php echo $cus[$j]['calender_id']; ?>" method="POST">
 									<label for="name_t"><h2><b>Teacher :</b></h2></label>

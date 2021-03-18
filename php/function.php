@@ -1901,4 +1901,15 @@ function select_event(mysqli $conn){
 		return $data;
 	}
 }
+function delete_certi_id(mysqli $conn,$id_cert){
+
+	$sql = "DELETE FROM certificate_img WHERE `id` = '$id_cert'";
+	
+	if ( mysqli_query($conn, $sql)) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
 ?>

@@ -18,17 +18,26 @@ session_start();
 </head>
 <body>
 	<div class="container">
-		<h1><b>คะแนนที่ได้ <?php echo $show_score;?></b></h1>
-		<h1>คำถาม<?php echo $question0;?></h1>
-		<h2>คำตอบ<?php echo $ans0;?> ==>เฉลย<?php echo $corract0;?></h2><br>
-		<h1>คำถาม<?php echo $question1;?></h1>
-		<h2>คำตอบ<?php echo $ans1;?> ==>เฉลย<?php echo $corract1;?></h2><br>
-		<h1>คำถาม<?php echo $question2;?></h1>
-		<h2>คำตอบ<?php echo $ans2;?> ==>เฉลย<?php echo $corract2;?></h2><br>
-		<h1>คำถาม<?php echo $question3;?></h1>
-		<h2>คำตอบ<?php echo $ans3;?> ==>เฉลย<?php echo $corract3;?></h2><br>
-		<h1>คำถาม<?php echo $question4;?></h1>
-		<h2>คำตอบ<?php echo $ans4;?> ==>เฉลย<?php echo $corract4;?></h2><br>
+		<h1 style="text-align: center;padding: 5%;"><b>เฉลย</b></h1>
+		
+		<h2 class="quest">คำถาม <?php echo $question0;?></h2>
+		<h2 class="answer">คำตอบ <?php echo $ans0;?></h2><h2 class="correct">เฉลย <?php echo $corract0;?></h2><br>
+
+		<h2 class="quest">คำถาม <?php echo $question1;?></h2>
+		<h2 class="answer">คำตอบ <?php echo $ans1;?></h2><h2 class="correct">เฉลย <?php echo $corract1;?></h2><br>
+
+		<h2 class="quest">คำถาม <?php echo $question2;?></h2>
+		<h2 class="answer">คำตอบ <?php echo $ans2;?></h2><h2 class="correct">เฉลย <?php echo $corract2;?></h2><br>
+
+		<h2 class="quest">คำถาม <?php echo $question3;?></h2>
+		<h2 class="answer">คำตอบ <?php echo $ans3;?></h2><h2 class="correct">เฉลย <?php echo $corract3;?></h2><br>
+
+		<h2 class="quest">คำถาม <?php echo $question4;?></h2>
+		<h2 class="answer">คำตอบ <?php echo $ans4;?></h2><h2 class="correct">เฉลย <?php echo $corract4;?></h2><br>
+
+		<div>
+			<h1 style="text-align: center;background-color: green;color: #000000;width: auto;"><b>คะแนนที่ได้ <?php echo $show_score;?></b></h1>
+		</div>
 	</div>
 </body>
 </html>

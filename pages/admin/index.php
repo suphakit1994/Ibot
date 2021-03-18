@@ -86,6 +86,11 @@ include('../php/camp_function.php');
 					$func_add_idstd_certificate = add_idstd_certificate($conn,$_POST);
 					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=selectcertificate">';
 				}
+				if($_GET['action']=="certi_del".$select_img_cert[$cardcertificate]['id']){
+					$id_cert = $select_img_cert[$cardcertificate]['id'];
+					$func_delete_certi_id = delete_certi_id($conn,$id_cert);
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="0;index.php?app=admin&action=selectcertificate">';
+				}
 			}
 			if ($_GET['action'] == 'editdatacourse') {
 				$list_teacher = selectteacher($conn);

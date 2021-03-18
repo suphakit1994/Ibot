@@ -57,24 +57,24 @@
                 </div>
                 <div class="card-body" >
                   <div class="row" style="margin-left:0px ;    height: 82px;" >
-                    <div class="col-md-5">
+                    <div class="col-md-5" style="padding-right: 0px;">
                       <ul class="nav" style="width:150%;">
                         <li > <span><B><p class = "card-text">Course Expension</p></B></span> </li>
                       </ul>
                     </div>
-                    <div class="col-md-5" >
+                    <div class="col-md-5" style="padding-right: 0px;">
                       <ul class="nav" style="padding-left:10px">
                         <li > <span><p ><?php echo $data[$i]['course_expension']; ?> <u style="color: blue"><?php echo $data[$i]['course_code']; ?></u></span> </li>
                         </ul>
                       </div>
                     </div>   
                     <div class="row" style="margin-left:0px ;" >
-                      <div class="col-md-5">
+                      <div class="col-md-5" style="padding-right: 0px;">
                         <ul class="nav " style="width:150%;">
                           <li > <span><B><p class = "card-text">Age for class</p></B> </span> </li>
                         </ul>
                       </div>
-                      <div class="col-md-5" >
+                      <div class="col-md-5" style="padding-right: 0px;">
                         <ul class="nav" style="padding-left:10px">
                           <li > <span><p ><?php echo $data[$i]['course_Age'];?></p></span> </li>
                         </ul>
@@ -82,24 +82,24 @@
                     </div>   
 
                     <div class="row" style="margin-left:0px ;" >
-                      <div class="col-md-5">
+                      <div class="col-md-5" style="padding-right: 0px;">
                         <ul class="nav " style="width:150%;">
                           <li > <span><B><p class = "card-text">Lesson</p></B> </span> </li>
                         </ul>
                       </div>
-                      <div class="col-md-5" >
+                      <div class="col-md-5" style="padding-right: 0px;">
                         <ul class="nav" style="padding-left:10px">
                           <li > <span><p ><?php echo $data[$i]['course_lesson']; ?></p></span> </li>
                         </ul>
                       </div>
                     </div>   
                     <div class="row" style="margin-left:0px ;" >
-                      <div class="col-md-5">
+                      <div class="col-md-5" style="padding-right: 0px;">
                         <ul class="nav " style="width:150%;">
                           <li > <span><B><p class = "card-text">Price</p></B> </span> </li>
                         </ul>
                       </div>
-                      <div class="col-md-5" >
+                      <div class="col-md-5" style="padding-right: 0px;">
                         <ul class="nav" style="padding-left:10px">
                           <li > <span><p><?php echo $data[$i]['course_price']; ?></p></span> </li>
                         </ul>
@@ -140,24 +140,24 @@
                   </div>
                   <div class="card-body" >
                     <div class="row" style="margin-left:0px ; height: 82px;" >
-                      <div class="col-md-5">
+                      <div class="col-md-5" style="padding-right: 0px;">
                         <ul class="nav" style="width:150%;">
                           <li > <span><B><p class ="card-text">Course Expension</p></B></span> </li>
                         </ul>
                       </div>
-                      <div class="col-md-5" >
+                      <div class="col-md-5" style="padding-right: 0px;">
                         <ul class="nav" style="padding-left:10px">
                           <li > <span><p ><?php echo $course[$j]['course_expension']; ?> <u style="color: blue"><?php echo $course[$j]['course_code']; ?></u></span> </li>
                           </ul>
                         </div>
                       </div>   
                       <div class="row" style="margin-left:0px ;" >
-                        <div class="col-md-5">
+                        <div class="col-md-5" style="padding-right: 0px;">
                           <ul class="nav " style="width:150%;">
                             <li > <span><B><p class = "card-text">Age for class</p></B> </span> </li>
                           </ul>
                         </div>
-                        <div class="col-md-5" >
+                        <div class="col-md-5" style="padding-right: 0px;">
                           <ul class="nav" style="padding-left:10px">
                             <li > <span><p ><?php echo $course[$j]['course_Age'];?></p></span> </li>
                           </ul>
@@ -165,24 +165,24 @@
                       </div>   
 
                       <div class="row" style="margin-left:0px ;" >
-                        <div class="col-md-5">
+                        <div class="col-md-5" style="padding-right: 0px;">
                           <ul class="nav " style="width:150%;">
                             <li > <span><B><p class = "card-text">Lesson</p></B> </span> </li>
                           </ul>
                         </div>
-                        <div class="col-md-5" >
+                        <div class="col-md-5" style="padding-right: 0px;">
                           <ul class="nav" style="padding-left:10px">
                             <li > <span><p ><?php echo $course[$j]['course_lesson']; ?></p></span> </li>
                           </ul>
                         </div>
                       </div>   
                       <div class="row" style="margin-left:0px ;" >
-                        <div class="col-md-5">
+                        <div class="col-md-5" style="padding-right: 0px;">
                           <ul class="nav " style="width:150%;">
                             <li > <span><B><p class = "card-text">Price</p></B> </span> </li>
                           </ul>
                         </div>
-                        <div class="col-md-5" >
+                        <div class="col-md-5" style="padding-right: 0px;">
                           <ul class="nav" style="padding-left:10px">
                             <li > <span><p><?php echo $course[$j]['course_price']; ?></p></span> </li>
                           </ul>

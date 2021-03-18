@@ -31,6 +31,7 @@ include("../php/course_function.php");
 		}
 
 		if($_GET['action']=='payment'){
+			
 			$pri = selectcourse_prices($conn,$_POST); // แสดงข้อมูลคอสที่ลง
 			$add = insertstudent($conn,$_POST);
 			$class = selectcalander($conn,$_POST);

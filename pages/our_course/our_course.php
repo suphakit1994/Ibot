@@ -65,7 +65,8 @@
                   </div>
                   <div class="col-md-5" style="padding-right: 0px;">
                     <ul class="nav" style="padding-left:10px">
-                      <li > <span><p ><?php echo $data[$i]['course_expension']; ?> <u style="color: blue"><?php echo $data[$i]['course_code']; ?></u></span> </li>
+                      <li > <span><p ><?php echo $data[$i]['course_expension']; ?> <u style="color: blue"><?php echo $data[$i]['course_code']; ?></u>
+                      </span> </li>
                       </ul>
                     </div>
                   </div>   

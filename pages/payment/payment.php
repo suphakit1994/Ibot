@@ -186,7 +186,12 @@
                 <br><label>Amount</label>
                 <input name="payment_amount" value="<?php echo $pri['course_price']; ?>" class="form-control" style="width: 350%;"readonly>
                 <br><label>Transaction Date</label>
-                <input name="payment_date" class="form-control" style="width: 100%;width: 224px;" type="date"  required>
+                <?php
+                $startdate=strtotime("Sunday");
+                $enddate=strtotime("+8 weeks", $startdate);
+                ?>
+
+                <input name="payment_date" class="form-control" style="width: 100%;width: 180px;" type="text" value="<?php $date = date("d M Y"); echo $date ;?>"  readonly>
                 <input type="time"  name="payment_time" required> 
 
                 <br><label>Proof of payment</label>

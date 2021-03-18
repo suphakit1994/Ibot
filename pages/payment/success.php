@@ -29,7 +29,7 @@
       <div class="col-md-7" style="padding-top: 5%;"> 
        <h1 style="margin-bottom: 20px;"><b>Please check the information.</b></h1>
        <div class="row">
-        <a type="submit" href="index.php?app=payment&action=Thank_you"class="Button" style="width: 80%">Confirm</a></div>
+        <a href="index.php?app=payment&action=Thank_you"class="Button" style="width: 80%">Confirm</a></div>
         <img class="card-img-top" src="../images/112.png" alt="Card image cap" style="width: 600px;">  
       </div>
 

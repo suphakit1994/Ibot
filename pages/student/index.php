@@ -35,12 +35,12 @@ include('../php/camp_function.php');
 
 				$data = selectcourse_students($conn,$id);   //แสดงคอสที่ลงทะเบียนแล้ว
 				// $arrlength = count($data); //นับข้อมูล
-for($i=0;$i<count($data);$i++){
-	$course_id=$data[$i]['course_id'];
+				for($i=0;$i<count($data);$i++){
+					$course_id=$data[$i]['course_id'];
 				$course = selectcourse_student($conn,$id,$course_id);	 //แสดงคอสที่ยังไม่ลงทะเบียน
 				// $arr = count($course);
-}
-				require_once('our_course.php');
+			}
+			require_once('our_course.php');
 				$pri = selectcourse_prices($conn,$_POST);   //แสดงข้อมูลคอสในหน้าสมัครคอส
 			}
 			if($_GET['action']=="certificate"){
@@ -49,39 +49,22 @@ for($i=0;$i<count($data);$i++){
 			}
 			if($_GET['action'] == 'TakeAlive'.$id){
 				$id_student = $id;
-				$status = $_POST['post_take_a_live'];
-				$func_teacher = take_a_live_student($conn,$_POST,$id_student,$status);
-				$id_students = $id;
-				$func_select_std = select_idstudents($conn,$id_students);
-				$cus = select_event_id($conn,$id_students);
-				for ($data_course=0; $data_course < count($cus); $data_course++) { 
-					$course_category = $cus[$data_course]['course_category'];
-					$course_expension = $cus[$data_course]['course_expension'];
-					$calender_starttime = $cus[$data_course]['calender_starttime'];
-					$course_category = $cus[$data_course]['course_category'];
-					$num_class = count($cus);
-				}
-				$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );
-				$date_curr = $date->format('d-m-Y');
-
-				$list_s = selectcheckin_student($conn,$id);
-				$dis_button_takelive = 0;
-
-				for($data_list_std = 0; $data_list_std <count($list_s); $data_list_std++){
-					if($list_s[$data_list_std]['date_today']==$date_curr) {
-						if($list_s[$data_list_std]['date_today']==$date_curr && $list_s[$data_list_std]['status'] =='Take a live') {
-							$dis_button_takelive = 1;
-						}
-					}
-				}
-				if($dis_button_takelive == 1){
-					$status_btn_takealive = "true";
-				}
-				if($dis_button_takelive == 0){
-					$status_btn_takealive = "false";
-				}
+				// $status = $_POST['post_take_a_live'];
+				// $func_student = take_a_live_student($conn,$_POST,$id_student,$status);
 				
-				require_once('schedule.php');
+				$take_alive_date = $_POST['date'];
+				$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );
+				$date_now = $date->format('Y-m-d');
+				$origin = new DateTime($date_now);
+				$target = new DateTime($take_alive_date);
+				$interval = $origin->diff($target);
+				$day_distance = $interval->format('%R%a days');
+				if ($day_distance > 0) {
+					$status = $_POST['post_take_a_live'];
+					$func_student = take_a_live_student($conn,$_POST,$id_student,$status);
+				}
+				require_once('mycourse.php');
+
 			}
 
 			if($_GET['action']=="enroll"){

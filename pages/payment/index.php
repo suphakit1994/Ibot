@@ -51,7 +51,7 @@ include("../php/course_function.php");
 			// echo ";<META HTTP-EQUIV='Refresh' CONTENT = '2;URL=index.php?app=home'>";
 		}		
 		if($_GET['action']=='Thank_you'){
-			require_once('Thank_you.php');
+			require_once('thank_you.php');
 		}
 		?>
 

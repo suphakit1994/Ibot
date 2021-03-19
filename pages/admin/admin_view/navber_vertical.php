@@ -95,7 +95,7 @@
 					</a>
 					<ul id="submenu-6" class="collapse">
 						<li><a href="index.php?app=admin&action=admin_compitition"><i class=""></i>Competitions list</a></li>
-						<li><a href="index.php?app=admin&action=addteam_compitition"><i class=""></i> Add team 1.2</a></li>
+						<li><a href="index.php?app=admin&action=addteam_compitition"><i class=""></i> Add team</a></li>
 					</ul>
 				</div>
 			</li>

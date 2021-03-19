@@ -54,7 +54,7 @@
 								type="file" 
 								name="photo" 
 								onchange="previewFile(this);"
-								/>
+								accept="image/png, image/jpeg"/>
 								<label class="file-input__label" for="file-input">
 									<svg
 									aria-hidden="true"

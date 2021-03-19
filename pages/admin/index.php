@@ -109,7 +109,7 @@ include('../php/camp_function.php');
 				require_once('dashboard.php');
 			}
 			if ($_GET['action'] == 'studentslist') {
-				$select_std = selectstudent($conn);
+				$select_std = provestudent_list($conn);
 				require_once('students_list.php');		
 			}
 			if ($_GET['action'] == 'course_list') {

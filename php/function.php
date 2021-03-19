@@ -48,6 +48,25 @@ function aboutus_performance(mysqli $conn){
 		return $data;
 	}
 }
+function provestudent_list(mysqli $conn){
+	
+	$sql = "SELECT*
+	FROM student AS sd
+	INNER JOIN course_student AS cs ON cs.cs_student_id = sd.student_id
+	INNER JOIN notification AS noti ON noti.fk_cs_id = cs.cs_id
+	WHERE noti.status = '1' AND noti.topic ='Enroll'";
+
+	$result = $conn->query($sql); 
+
+	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
+		$data =[];
+		while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
+			$data[] = $row;
+		}
+		$result->close();
+		return $data;
+	}
+} 
 function insertData(mysqli $conn,$data=[]){
 	$sql = "INSERT INTO calendar (calender_date,calender_starttime,calender_endtime,calender_color)
 	VALUES (
@@ -741,13 +760,13 @@ function deleteteacher(mysqli $conn,$id_teacher){
 		return false;
 	}
 }
-function checkIn_teacher(mysqli $conn,$data=[],$id_teachers,$status){
+function checkIn_teacher(mysqli $conn,$data=[],$id_teachers,$status,$fomatdate_take_alive){
 
 	$sql = "INSERT INTO list_teacher (id_teacher,date_name,date_today,checkin_time,status)
 	VALUES (
 	'$id_teachers',
 	'".$data['date_name']."',
-	'".$data['date']."',
+	'$fomatdate_take_alive',
 	'".$data['checkin_time']."',
 	'$status')";
 	

@@ -89,7 +89,8 @@ include("../php/course_function.php");
 			if($_GET['action'] == 'checkIn'.$id){
 				$id_teachers = $id;
 				$status = $_POST['status'];
-				$func_teacher = checkIn_teacher($conn,$_POST,$id_teachers,$status);
+				$fomatdate_take_alive = $_POST['date'];
+				$func_teacher = checkIn_teacher($conn,$_POST,$id_teachers,$status,$fomatdate_take_alive);
 				$id_user = $id;
 				$select_id_calendar = select_event_id($conn,$id_user);
 				$select_idteacher =select_idteacher($conn,$id_user);
@@ -109,7 +110,6 @@ include("../php/course_function.php");
 				$status_takelive = "Take a live";
 				$check = 0;
 				$dis_button = 0;
-				$dis_button_takelive = 0;
 				for($count_list_t=0;$count_list_t<count($list_t);$count_list_t++){
 					if($list_t[$count_list_t]['date_today']==$date_curr) {
 						if($list_t[$count_list_t]['date_today']==$date_curr && $list_t[$count_list_t]['status'] == 'Check In') {
@@ -138,12 +138,6 @@ include("../php/course_function.php");
 					$status_button = "true";
 					$status_btn_takealive = "true";
 				}
-				if($dis_button == 0){
-					$status_button = "false";
-				}
-				if($dis_button_takelive == 1){
-					$status_btn_takealive = "true";
-				}
 				require_once('view.php');
 			}
 			if($_GET['action'] == 'TakeAlive'.$id){
@@ -158,11 +152,122 @@ include("../php/course_function.php");
 				$day_distance = $interval->format('%R%a days');
 				if ($day_distance > 0) {
 					$status = $_POST['post_take_a_live'];
-					$func_teacher = checkIn_teacher($conn,$_POST,$id_teachers,$status);
-				}
-				require_once('mycourse.php');
-				
-				
+					$date_take_alive = $_POST['date'];
+					$fomatdate_take_alive = date("d-m-Y", strtotime($date_take_alive) );
+					$func_teacher = checkIn_teacher($conn,$_POST,$id_teachers,$status,$fomatdate_take_alive);
+
+					$id_user = $id;
+					$select_id_calendar = select_event_id($conn,$id_user);
+					$select_idteacher =select_idteacher($conn,$id_user);
+					$list_t = selectcheckin_teacher($conn,$id);
+					$select_event_func = select_event($conn);
+					for($event_func=0;$event_func<count($select_event_func);$event_func++){
+						for ($event_id=0; $event_id < count($select_id_calendar); $event_id++) { 
+							if($select_event_func[$event_func]['id_calendar_fk']==$select_id_calendar[$event_id]['id_calendar_fk']){
+								if ($select_event_func[$event_func]['id_calendar_fk']==$select_id_calendar[$event_id]['id_calendar_fk'] && $select_event_func[$event_func]['status'] == 'student') {
+									$name_std = $select_event_func[$event_func]['fname'];
+								}
+							}
+						}
+					}
+					$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );
+					$date_curr = $date->format('d-m-Y');
+					$status_takelive = "Take a live";
+					$check = 0;
+					$dis_button = 0;
+					$dis_button_takelive = 0;
+					for($count_list_t=0;$count_list_t<count($list_t);$count_list_t++){
+						if($list_t[$count_list_t]['date_today']==$date_curr) {
+							if($list_t[$count_list_t]['date_today']==$date_curr && $list_t[$count_list_t]['status'] == 'Check In') {
+								$time_attend = $list_t[$count_list_t]['checkin_time'];
+								$check = 1;
+							}
+						}
+						if($list_t[$count_list_t]['date_today']==$date_curr && $list_t[$count_list_t]['status'] == 'Check Out') {
+							$dis_button = 1;
+							$time_out_day = $list_t[$count_list_t]['checkin_time'];
+						}
+						if($list_t[$count_list_t]['date_today']==$date_curr && $list_t[$count_list_t]['status'] == 'Take a live') {
+							$dis_button_takelive = 1;
+							$dis_button = 1;
+						}
+					}
+					if($check == 1) {
+						$check_name = "Check Out";
+						$time_out = $time_out_day;
+					}
+					if($check == 0){
+						$check_name = "Check In";
+						$time_attend = $time_to_day;
+					}
+					if($dis_button == 1) {
+						$status_button = "true";
+						$status_btn_takealive = "true";
+					}
+					if($dis_button == 0){
+						$status_button = "false";
+					}
+					if($dis_button_takelive == 1){
+						$status_btn_takealive = "true";
+					}
+					require_once('view.php');
+				}else{
+					$id_user = $id;
+					$select_id_calendar = select_event_id($conn,$id_user);
+					$select_idteacher =select_idteacher($conn,$id_user);
+					$list_t = selectcheckin_teacher($conn,$id);
+					$select_event_func = select_event($conn);
+					for($event_func=0;$event_func<count($select_event_func);$event_func++){
+						for ($event_id=0; $event_id < count($select_id_calendar); $event_id++) { 
+							if($select_event_func[$event_func]['id_calendar_fk']==$select_id_calendar[$event_id]['id_calendar_fk']){
+								if ($select_event_func[$event_func]['id_calendar_fk']==$select_id_calendar[$event_id]['id_calendar_fk'] && $select_event_func[$event_func]['status'] == 'student') {
+									$name_std = $select_event_func[$event_func]['fname'];
+								}
+							}
+						}
+					}
+					$date = new DateTime("now", new DateTimeZone('Asia/Bangkok') );
+					$date_curr = $date->format('d-m-Y');
+					$status_takelive = "Take a live";
+					$check = 0;
+					$dis_button = 0;
+					$dis_button_takelive = 0;
+					for($count_list_t=0;$count_list_t<count($list_t);$count_list_t++){
+						if($list_t[$count_list_t]['date_today']==$date_curr) {
+							if($list_t[$count_list_t]['date_today']==$date_curr && $list_t[$count_list_t]['status'] == 'Check In') {
+								$time_attend = $list_t[$count_list_t]['checkin_time'];
+								$check = 1;
+							}
+						}
+						if($list_t[$count_list_t]['date_today']==$date_curr && $list_t[$count_list_t]['status'] == 'Check Out') {
+							$dis_button = 1;
+							$time_out_day = $list_t[$count_list_t]['checkin_time'];
+						}
+						if($list_t[$count_list_t]['date_today']==$date_curr && $list_t[$count_list_t]['status'] == 'Take a live') {
+							$dis_button_takelive = 1;
+							$dis_button = 1;
+						}
+					}
+					if($check == 1) {
+						$check_name = "Check Out";
+						$time_out = $time_out_day;
+					}
+					if($check == 0){
+						$check_name = "Check In";
+						$time_attend = $time_to_day;
+					}
+					if($dis_button == 1) {
+						$status_button = "true";
+						$status_btn_takealive = "true";
+					}
+					if($dis_button == 0){
+						$status_button = "false";
+					}
+					if($dis_button_takelive == 1){
+						$status_btn_takealive = "true";
+					}
+					require_once('view.php');	
+				}				
 			}
 
 			if($_GET['action'] == 'student_assessment'){

@@ -313,7 +313,6 @@
 </body>
 <script>
   document.getElementById("myButton").disabled = <?php echo $status_button;?>;
-  document.getElementById("Takelive").disabled = "<?php echo $status_btn_takealive;?>";
   function Takelive(status_takelive){
     console.log(status_takelive);
     document.getElementById("take_a_live").value = status_takelive;

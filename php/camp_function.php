@@ -55,7 +55,7 @@ function camp_select(mysqli $conn){		//แสดงแคมป์ทั้ง�
 }
 
 function camp_student(mysqli $conn,$camp_id){		//แสดงแคมป
-	$sql = "SELECT * FROM `camp_student` INNER JOIN `student` ON cs_student_id = student_id  INNER JOIN `camp` ON cs_camp_id = camp_id WHERE  cs_camp_id= $camp_id";
+	$sql = "SELECT * FROM `camp_student`  INNER JOIN `student` ON cs_student_id = student_id  INNER JOIN `camp` ON cs_camp_id = camp_id INNER JOIN notification as noti ON noti.`fk_cps_id` = `cp_id` WHERE noti.`status` =  '1' and  cs_camp_id= $camp_id";
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {
@@ -361,7 +361,7 @@ function innervar(mysqli $conn){		//แสดงรายละเอียด�
 	}
 }
 function list_student(mysqli $conn,$com_id){	//หน้า list student addteam	
-	$sql = "SELECT * FROM `compititions_student` AS com JOIN `compititions` AS compi ON com.cps_com_id = compi.com_id JOIN student ON com.cps_student_id = student.student_id WHERE com.cps_com_id = $com_id";
+	$sql = "SELECT * FROM `compititions_student` AS com JOIN `compititions` AS compi ON com.cps_com_id = compi.com_id JOIN student ON com.cps_student_id = student.student_id  JOIN notification as noti ON noti.fk_cps_id = com.cps_com_id  WHERE noti.status =  '1' and com.cps_com_id = $com_id";
 	$result = $conn->query($sql); 
 
 	if ($result = mysqli_query($conn,$sql, MYSQLI_USE_RESULT)) {

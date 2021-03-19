@@ -11,11 +11,11 @@
 			</div>
 
 			<div class="col-md-5" style="padding-top: 20%;padding-bottom: 8%;">
-				<a href="index.php?app=home" class="Button"  style="width: 30%">Go To Home</a>
+				
 				<h1><b>Thank you !</b></h1>
 				<p style=" margin-bottom: 10%;">Loerm ipsum dolor sit amet. consectetuer adipiscing edit. sed diam nonummy nibh 
 				euismod tinciduct urt laoreet dolore mayna.</p>
-				<!-- <a  href="index.php?app=student" type="button" name="next" class="Button" style="border-radius:28px; width: 150px;">Back to Home</a> -->
+				<a href="index.php?app=home" class="Button"  style="width: 30%">Go To Home</a>
 			</div>
 			<div >
 
